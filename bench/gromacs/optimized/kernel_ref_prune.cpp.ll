@@ -50,19 +50,19 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   %36 = lshr exact i64 %35, 4
   %37 = trunc i64 %36 to i32
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph112.preheader, label %._crit_edge113
+  br i1 %38, label %.lr.ph113.preheader, label %._crit_edge114
 
-.lr.ph112.preheader:                              ; preds = %5
+.lr.ph113.preheader:                              ; preds = %5
   %wide.trip.count = and i64 %36, 2147483647
-  br label %.lr.ph112
+  br label %.lr.ph113
 
-.lr.ph112:                                        ; preds = %.lr.ph112.preheader, %._crit_edge.thread
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next130, %._crit_edge.thread ]
-  %.0110 = phi i32 [ 0, %.lr.ph112.preheader ], [ %.1, %._crit_edge.thread ]
-  %.085109 = phi i32 [ 0, %.lr.ph112.preheader ], [ %.186.lcssa136, %._crit_edge.thread ]
-  %39 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %25, i64 %indvars.iv129
+.lr.ph113:                                        ; preds = %.lr.ph113.preheader, %._crit_edge.thread
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph113.preheader ], [ %indvars.iv.next132, %._crit_edge.thread ]
+  %.0111 = phi i32 [ 0, %.lr.ph113.preheader ], [ %.1, %._crit_edge.thread ]
+  %.085110 = phi i32 [ 0, %.lr.ph113.preheader ], [ %.186.lcssa139, %._crit_edge.thread ]
+  %39 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %25, i64 %indvars.iv131
   %40 = load i32, ptr %39, align 4
-  %41 = sext i32 %.0110 to i64
+  %41 = sext i32 %.0111 to i64
   %42 = getelementptr inbounds %struct.nbnxn_ci_t, ptr %26, i64 %41
   store i32 %40, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %39, i64 4
@@ -70,7 +70,7 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   %45 = getelementptr inbounds i8, ptr %42, i64 4
   store i32 %44, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %42, i64 8
-  store i32 %.085109, ptr %46, align 4
+  store i32 %.085110, ptr %46, align 4
   %47 = load i32, ptr %43, align 4
   %48 = and i32 %47, 127
   %49 = load i32, ptr %39, align 4
@@ -78,18 +78,18 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   %51 = zext nneg i32 %48 to i64
   %52 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %51
   %53 = sext i32 %50 to i64
-  br label %.preheader99
+  br label %.preheader100
 
-.preheader99:                                     ; preds = %.lr.ph112, %63
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next118, %63 ]
-  %54 = add nuw nsw i64 %indvars.iv117, %53
-  %55 = mul nuw nsw i64 %indvars.iv117, 3
+.preheader100:                                    ; preds = %.lr.ph113, %63
+  %indvars.iv118 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next119, %63 ]
+  %54 = add nuw nsw i64 %indvars.iv118, %53
+  %55 = mul nuw nsw i64 %indvars.iv118, 3
   %.idx = mul i64 %54, 12
   %invariant.gep = getelementptr i8, ptr %30, i64 %.idx
   br label %56
 
-56:                                               ; preds = %.preheader99, %56
-  %indvars.iv = phi i64 [ 0, %.preheader99 ], [ %indvars.iv.next, %56 ]
+56:                                               ; preds = %.preheader100, %56
+  %indvars.iv = phi i64 [ 0, %.preheader100 ], [ %indvars.iv.next, %56 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %57 = load float, ptr %gep, align 4
   %58 = getelementptr inbounds [3 x float], ptr %52, i64 0, i64 %indvars.iv
@@ -103,9 +103,9 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   br i1 %exitcond.not, label %63, label %56, !llvm.loop !5
 
 63:                                               ; preds = %56
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next118, 4
-  br i1 %exitcond120.not, label %64, label %.preheader99, !llvm.loop !7
+  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
+  %exitcond121.not = icmp eq i64 %indvars.iv.next119, 4
+  br i1 %exitcond121.not, label %64, label %.preheader100, !llvm.loop !7
 
 64:                                               ; preds = %63
   %65 = getelementptr inbounds i8, ptr %39, i64 8
@@ -121,17 +121,18 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %108
   %71 = phi i32 [ %68, %.lr.ph.preheader ], [ %109, %108 ]
-  %indvars.iv126 = phi i64 [ %70, %.lr.ph.preheader ], [ %indvars.iv.next127, %108 ]
-  %.186107 = phi i32 [ %.085109, %.lr.ph.preheader ], [ %.2, %108 ]
-  %72 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %27, i64 %indvars.iv126
+  %indvars.iv127 = phi i64 [ %70, %.lr.ph.preheader ], [ %indvars.iv.next128, %108 ]
+  %.186108 = phi i32 [ %.085110, %.lr.ph.preheader ], [ %.2, %108 ]
+  %.idx136 = shl nsw i64 %indvars.iv127, 3
+  %72 = getelementptr inbounds i8, ptr %27, i64 %.idx136
   %73 = load i32, ptr %72, align 4
   %74 = shl nsw i32 %73, 2
   %75 = sext i32 %74 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %100
-  %indvars.iv124 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next125, %100 ]
-  %76 = mul nuw nsw i64 %indvars.iv124, 3
+  %indvars.iv125 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next126, %100 ]
+  %76 = mul nuw nsw i64 %indvars.iv125, 3
   %77 = getelementptr inbounds [12 x float], ptr %6, i64 0, i64 %76
   %78 = load float, ptr %77, align 4
   %79 = add nuw nsw i64 %76, 1
@@ -143,11 +144,11 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   br label %85
 
 85:                                               ; preds = %.preheader, %85
-  %indvars.iv121 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next122, %85 ]
-  %.193102 = phi i1 [ false, %.preheader ], [ %.294, %85 ]
-  %86 = add nuw nsw i64 %indvars.iv121, %75
-  %.idx134 = mul i64 %86, 12
-  %87 = getelementptr inbounds i8, ptr %30, i64 %.idx134
+  %indvars.iv122 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next123, %85 ]
+  %.193103 = phi i1 [ false, %.preheader ], [ %.294, %85 ]
+  %86 = add nuw nsw i64 %indvars.iv122, %75
+  %.idx137 = mul i64 %86, 12
+  %87 = getelementptr inbounds i8, ptr %30, i64 %.idx137
   %88 = load float, ptr %87, align 4
   %89 = fsub float %78, %88
   %90 = getelementptr i8, ptr %87, i64 4
@@ -160,14 +161,14 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   %97 = tail call float @llvm.fmuladd.f32(float %89, float %89, float %96)
   %98 = tail call float @llvm.fmuladd.f32(float %95, float %95, float %97)
   %99 = fcmp olt float %98, %31
-  %.294 = select i1 %99, i1 true, i1 %.193102
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next122, 4
-  br i1 %exitcond123.not, label %100, label %85, !llvm.loop !8
+  %.294 = select i1 %99, i1 true, i1 %.193103
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
+  %exitcond124.not = icmp eq i64 %indvars.iv.next123, 4
+  br i1 %exitcond124.not, label %100, label %85, !llvm.loop !8
 
 100:                                              ; preds = %85
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %101 = icmp ugt i64 %indvars.iv124, 2
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %101 = icmp ugt i64 %indvars.iv125, 2
   %.not96 = select i1 %101, i1 true, i1 %.294
   br i1 %.not96, label %102, label %.preheader, !llvm.loop !9
 
@@ -175,9 +176,10 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   br i1 %.294, label %103, label %108
 
 103:                                              ; preds = %102
-  %104 = add nsw i32 %.186107, 1
-  %105 = sext i32 %.186107 to i64
-  %106 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %28, i64 %105
+  %104 = add nsw i32 %.186108, 1
+  %.scale97 = shl nsw i32 %.186108, 1
+  %105 = sext i32 %.scale97 to i64
+  %106 = getelementptr inbounds i32, ptr %28, i64 %105
   %107 = load i64, ptr %72, align 4
   store i64 %107, ptr %106, align 4
   %.pre = load i32, ptr %67, align 4
@@ -185,38 +187,38 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
 
 108:                                              ; preds = %102, %103
   %109 = phi i32 [ %.pre, %103 ], [ %71, %102 ]
-  %.2 = phi i32 [ %104, %103 ], [ %.186107, %102 ]
-  %indvars.iv.next127 = add nsw i64 %indvars.iv126, 1
+  %.2 = phi i32 [ %104, %103 ], [ %.186108, %102 ]
+  %indvars.iv.next128 = add nsw i64 %indvars.iv127, 1
   %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv.next127, %110
+  %111 = icmp slt i64 %indvars.iv.next128, %110
   br i1 %111, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %108
-  %.pre133 = load i32, ptr %46, align 4
-  %112 = icmp sgt i32 %.2, %.pre133
+  %.pre135 = load i32, ptr %46, align 4
+  %112 = icmp sgt i32 %.2, %.pre135
   br i1 %112, label %113, label %._crit_edge.thread
 
 113:                                              ; preds = %._crit_edge
   %114 = getelementptr inbounds i8, ptr %42, i64 12
   store i32 %.2, ptr %114, align 4
-  %115 = add nsw i32 %.0110, 1
+  %115 = add nsw i32 %.0111, 1
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %64, %._crit_edge, %113
-  %.186.lcssa136 = phi i32 [ %.2, %113 ], [ %.2, %._crit_edge ], [ %.085109, %64 ]
-  %.1 = phi i32 [ %115, %113 ], [ %.0110, %._crit_edge ], [ %.0110, %64 ]
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count
-  br i1 %exitcond132.not, label %._crit_edge113.loopexit, label %.lr.ph112, !llvm.loop !11
+  %.186.lcssa139 = phi i32 [ %.2, %113 ], [ %.2, %._crit_edge ], [ %.085110, %64 ]
+  %.1 = phi i32 [ %115, %113 ], [ %.0111, %._crit_edge ], [ %.0111, %64 ]
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond134.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
+  br i1 %exitcond134.not, label %._crit_edge114.loopexit, label %.lr.ph113, !llvm.loop !11
 
-._crit_edge113.loopexit:                          ; preds = %._crit_edge.thread
+._crit_edge114.loopexit:                          ; preds = %._crit_edge.thread
   %116 = sext i32 %.1 to i64
-  %117 = sext i32 %.186.lcssa136 to i64
-  br label %._crit_edge113
+  %117 = sext i32 %.186.lcssa139 to i64
+  br label %._crit_edge114
 
-._crit_edge113:                                   ; preds = %._crit_edge113.loopexit, %5
-  %.085.lcssa = phi i64 [ 0, %5 ], [ %117, %._crit_edge113.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %5 ], [ %116, %._crit_edge113.loopexit ]
+._crit_edge114:                                   ; preds = %._crit_edge114.loopexit, %5
+  %.085.lcssa = phi i64 [ 0, %5 ], [ %117, %._crit_edge114.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %5 ], [ %116, %._crit_edge114.loopexit ]
   tail call void @_ZNSt6vectorI10nbnxn_ci_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %.0.lcssa)
   tail call void @_ZNSt6vectorI10nbnxn_cj_tN3gmx30DefaultInitializationAllocatorIS0_SaIS0_EEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %.085.lcssa)
   ret void

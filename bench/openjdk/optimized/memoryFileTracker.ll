@@ -134,7 +134,7 @@ define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP1
 
 .preheader.i.i:                                   ; preds = %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i", %.preheader.i.preheader.i
   %.0 = phi ptr [ null, %.preheader.i.preheader.i ], [ %47, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
-  %storemerge34.i.i = phi ptr [ %.val, %.preheader.i.preheader.i ], [ %77, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
+  %storemerge34.i.i = phi ptr [ %.val, %.preheader.i.preheader.i ], [ %76, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
   %.sroa.16.033.i.i = phi ptr [ null, %.preheader.i.preheader.i ], [ %.sroa.16.1.lcssa.i.i, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
   %.sroa.10.032.i.i = phi i32 [ 0, %.preheader.i.preheader.i ], [ %.sroa.10.1.lcssa.i.i, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
   %.sroa.0.031.i.i = phi i32 [ 0, %.preheader.i.preheader.i ], [ %44, %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i" ]
@@ -253,37 +253,38 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %62 = getelementptr inbounds i8, ptr %.0, i64 25
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %64, i32 1
-  %66 = load ptr, ptr %65, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5, i64 noundef %56, i64 noundef %57, i64 noundef %60, ptr noundef %61, ptr noundef %66) #10
-  %67 = load i32, ptr %11, align 8
-  %68 = add nsw i32 %67, 4
-  store i32 %68, ptr %11, align 8
-  %69 = getelementptr inbounds i8, ptr %.0, i64 28
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %69, align 4
-  %70 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
-  %71 = load ptr, ptr %9, align 8
-  %72 = sext i32 %.sroa.0.0.copyload.i.i.i.i to i64
-  %73 = getelementptr inbounds %class.NativeCallStack, ptr %71, i64 %72
-  %.0.i.i.i.i = select i1 %70, ptr %8, ptr %73
+  %.idx.i.i.i.i = shl nuw nsw i64 %64, 4
+  %gep.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN7NMTUtil8_stringsE, i64 8), i64 %.idx.i.i.i.i
+  %65 = load ptr, ptr %gep.i.i, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.5, i64 noundef %56, i64 noundef %57, i64 noundef %60, ptr noundef %61, ptr noundef %65) #10
+  %66 = load i32, ptr %11, align 8
+  %67 = add nsw i32 %66, 4
+  store i32 %67, ptr %11, align 8
+  %68 = getelementptr inbounds i8, ptr %.0, i64 28
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %68, align 4
+  %69 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i, -1
+  %70 = load ptr, ptr %9, align 8
+  %71 = sext i32 %.sroa.0.0.copyload.i.i.i.i to i64
+  %72 = getelementptr inbounds %class.NativeCallStack, ptr %70, i64 %71
+  %.0.i.i.i.i = select i1 %69, ptr %8, ptr %72
   tail call void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %.0.i.i.i.i, ptr noundef nonnull %2) #10
-  %74 = load i32, ptr %11, align 8
-  %75 = add nsw i32 %74, -4
-  store i32 %75, ptr %11, align 8
+  %73 = load i32, ptr %11, align 8
+  %74 = add nsw i32 %73, -4
+  store i32 %74, ptr %11, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
   br label %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i"
 
 "_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i": ; preds = %53, %49, %._crit_edge.i.i
-  %76 = getelementptr inbounds i8, ptr %47, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq i32 %44, 0
-  %79 = icmp eq ptr %77, null
-  %.not1.i.i = select i1 %78, i1 %79, i1 false
+  %75 = getelementptr inbounds i8, ptr %47, i64 40
+  %76 = load ptr, ptr %75, align 8
+  %77 = icmp eq i32 %44, 0
+  %78 = icmp eq ptr %76, null
+  %.not1.i.i = select i1 %77, i1 %78, i1 false
   br i1 %.not1.i.i, label %._crit_edge35.i.i, label %.preheader.i.i, !llvm.loop !11
 
 ._crit_edge35.i.i:                                ; preds = %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i"
-  %80 = icmp eq i32 %.sroa.10.1.lcssa.i.i, 0
-  br i1 %80, label %"_ZNK7VMATree14visit_in_orderIZN17MemoryFileTracker15print_report_onEPKNS1_10MemoryFileEP12outputStreammE3$_0EEvT_.exit", label %.loopexit.thread.i.i.i.i.i
+  %79 = icmp eq i32 %.sroa.10.1.lcssa.i.i, 0
+  br i1 %79, label %"_ZNK7VMATree14visit_in_orderIZN17MemoryFileTracker15print_report_onEPKNS1_10MemoryFileEP12outputStreammE3$_0EEvT_.exit", label %.loopexit.thread.i.i.i.i.i
 
 .loopexit.thread.i.i.i.i.i:                       ; preds = %._crit_edge35.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.16.1.lcssa.i.i) #10

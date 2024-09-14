@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::CorrelationBlockData::CoordData" = type { double, double }
 %"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
@@ -392,14 +391,14 @@ define void @_ZN3gmx28updateCorrelationGridHistoryEPNS_22CorrelationGridHistoryE
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
-  %.fr81 = freeze i64 %21
-  %22 = lshr i64 %.fr81, 3
+  %.fr82 = freeze i64 %21
+  %22 = lshr i64 %.fr82, 3
   %23 = getelementptr inbounds i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
-  %.not6475 = icmp ne ptr %13, %24
+  %.not6476 = icmp ne ptr %13, %24
   %25 = trunc i64 %22 to i32
   %26 = icmp sgt i32 %25, 0
-  %or.cond = and i1 %.not6475, %26
+  %or.cond = and i1 %.not6476, %26
   br i1 %or.cond, label %.lr.ph.split.us.preheader, label %._crit_edge
 
 .lr.ph.split.us.preheader:                        ; preds = %4
@@ -408,44 +407,46 @@ define void @_ZN3gmx28updateCorrelationGridHistoryEPNS_22CorrelationGridHistoryE
   %wide.trip.count = and i64 %22, 2147483647
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %._crit_edge73.split.us.us
-  %.077.us = phi i64 [ %.1.lcssa.us, %._crit_edge73.split.us.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %.sroa.060.076.us = phi ptr [ %32, %._crit_edge73.split.us.us ], [ %13, %.lr.ph.split.us.preheader ]
-  %29 = load ptr, ptr %.sroa.060.076.us, align 8
-  %30 = getelementptr inbounds i8, ptr %.sroa.060.076.us, i64 8
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %._crit_edge74.split.us.us
+  %.078.us = phi i64 [ %.1.lcssa.us, %._crit_edge74.split.us.us ], [ 0, %.lr.ph.split.us.preheader ]
+  %.sroa.060.077.us = phi ptr [ %32, %._crit_edge74.split.us.us ], [ %13, %.lr.ph.split.us.preheader ]
+  %29 = load ptr, ptr %.sroa.060.077.us, align 8
+  %30 = getelementptr inbounds i8, ptr %.sroa.060.077.us, i64 8
   %31 = load ptr, ptr %30, align 8
-  %.not6570.us = icmp eq ptr %29, %31
-  br i1 %.not6570.us, label %._crit_edge73.split.us.us, label %.preheader.us.us
+  %.not6571.us = icmp eq ptr %29, %31
+  br i1 %.not6571.us, label %._crit_edge74.split.us.us, label %.preheader.us.us
 
-._crit_edge73.split.us.us:                        ; preds = %._crit_edge.us.us, %.lr.ph.split.us
-  %.1.lcssa.us = phi i64 [ %.077.us, %.lr.ph.split.us ], [ %75, %._crit_edge.us.us ]
-  %32 = getelementptr inbounds i8, ptr %.sroa.060.076.us, i64 24
+._crit_edge74.split.us.us:                        ; preds = %._crit_edge.us.us, %.lr.ph.split.us
+  %.1.lcssa.us = phi i64 [ %.078.us, %.lr.ph.split.us ], [ %75, %._crit_edge.us.us ]
+  %32 = getelementptr inbounds i8, ptr %.sroa.060.077.us, i64 24
   %.not64.us = icmp eq ptr %32, %24
   br i1 %.not64.us, label %._crit_edge, label %.lr.ph.split.us
 
 .preheader.us.us:                                 ; preds = %.lr.ph.split.us, %._crit_edge.us.us
-  %.172.us.us = phi i64 [ %75, %._crit_edge.us.us ], [ %.077.us, %.lr.ph.split.us ]
-  %.sroa.056.071.us.us = phi ptr [ %78, %._crit_edge.us.us ], [ %29, %.lr.ph.split.us ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.056.071.us.us, i64 48
-  %34 = getelementptr inbounds i8, ptr %.sroa.056.071.us.us, i64 72
-  %35 = getelementptr inbounds i8, ptr %.sroa.056.071.us.us, i64 8
-  %36 = getelementptr inbounds i8, ptr %.sroa.056.071.us.us, i64 16
-  %37 = getelementptr inbounds i8, ptr %.sroa.056.071.us.us, i64 24
-  %38 = getelementptr inbounds i8, ptr %.sroa.056.071.us.us, i64 40
-  %39 = getelementptr inbounds i8, ptr %.sroa.056.071.us.us, i64 32
+  %.173.us.us = phi i64 [ %75, %._crit_edge.us.us ], [ %.078.us, %.lr.ph.split.us ]
+  %.sroa.056.072.us.us = phi ptr [ %78, %._crit_edge.us.us ], [ %29, %.lr.ph.split.us ]
+  %33 = getelementptr inbounds i8, ptr %.sroa.056.072.us.us, i64 48
+  %34 = getelementptr inbounds i8, ptr %.sroa.056.072.us.us, i64 72
+  %35 = getelementptr inbounds i8, ptr %.sroa.056.072.us.us, i64 8
+  %36 = getelementptr inbounds i8, ptr %.sroa.056.072.us.us, i64 16
+  %37 = getelementptr inbounds i8, ptr %.sroa.056.072.us.us, i64 24
+  %38 = getelementptr inbounds i8, ptr %.sroa.056.072.us.us, i64 40
+  %39 = getelementptr inbounds i8, ptr %.sroa.056.072.us.us, i64 32
   br label %40
 
 40:                                               ; preds = %74, %.preheader.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.preheader.us.us ]
-  %.269.us.us = phi i64 [ %75, %74 ], [ %.172.us.us, %.preheader.us.us ]
-  %.04768.us.us = phi i32 [ %spec.select55.us.us, %74 ], [ 0, %.preheader.us.us ]
-  %.04967.us.us = phi i32 [ %spec.select.us.us, %74 ], [ 0, %.preheader.us.us ]
-  %41 = zext nneg i32 %.04768.us.us to i64
-  %42 = load ptr, ptr %33, align 8
-  %43 = getelementptr inbounds %"struct.gmx::CorrelationBlockData::CoordData", ptr %42, i64 %41
-  %44 = sext i32 %.04967.us.us to i64
-  %45 = getelementptr inbounds %"struct.gmx::CorrelationBlockData::CoordData", ptr %42, i64 %44
-  %46 = getelementptr inbounds %"struct.gmx::CorrelationBlockDataHistory", ptr %6, i64 %.269.us.us
+  %.270.us.us = phi i64 [ %75, %74 ], [ %.173.us.us, %.preheader.us.us ]
+  %.04769.us.us = phi i32 [ %spec.select55.us.us, %74 ], [ 0, %.preheader.us.us ]
+  %.04968.us.us = phi i32 [ %spec.select.us.us, %74 ], [ 0, %.preheader.us.us ]
+  %41 = load ptr, ptr %33, align 8
+  %.scale.us.us = shl nuw nsw i32 %.04769.us.us, 1
+  %42 = zext nneg i32 %.scale.us.us to i64
+  %43 = getelementptr inbounds double, ptr %41, i64 %42
+  %.scale66.us.us = shl nsw i32 %.04968.us.us, 1
+  %44 = sext i32 %.scale66.us.us to i64
+  %45 = getelementptr inbounds double, ptr %41, i64 %44
+  %46 = getelementptr inbounds %"struct.gmx::CorrelationBlockDataHistory", ptr %6, i64 %.270.us.us
   %47 = load double, ptr %43, align 8
   %48 = getelementptr inbounds i8, ptr %46, i64 16
   store double %47, ptr %48, align 8
@@ -469,7 +470,7 @@ define void @_ZN3gmx28updateCorrelationGridHistoryEPNS_22CorrelationGridHistoryE
   br i1 %61, label %62, label %74
 
 62:                                               ; preds = %40
-  %63 = load double, ptr %.sroa.056.071.us.us, align 8
+  %63 = load double, ptr %.sroa.056.072.us.us, align 8
   store double %63, ptr %46, align 8
   %64 = load double, ptr %35, align 8
   %65 = getelementptr inbounds i8, ptr %46, i64 8
@@ -489,23 +490,23 @@ define void @_ZN3gmx28updateCorrelationGridHistoryEPNS_22CorrelationGridHistoryE
   br label %74
 
 74:                                               ; preds = %62, %40
-  %75 = add nsw i64 %.269.us.us, 1
-  %76 = add nsw i32 %.04967.us.us, 1
-  %.not54.us.us = icmp sge i32 %.04967.us.us, %.04768.us.us
+  %75 = add nsw i64 %.270.us.us, 1
+  %76 = add nsw i32 %.04968.us.us, 1
+  %.not54.us.us = icmp sge i32 %.04968.us.us, %.04769.us.us
   %spec.select.us.us = select i1 %.not54.us.us, i32 0, i32 %76
   %77 = zext i1 %.not54.us.us to i32
-  %spec.select55.us.us = add nuw nsw i32 %.04768.us.us, %77
+  %spec.select55.us.us = add nuw nsw i32 %.04769.us.us, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us, label %40, !llvm.loop !7
 
 ._crit_edge.us.us:                                ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %.sroa.056.071.us.us, i64 96
+  %78 = getelementptr inbounds i8, ptr %.sroa.056.072.us.us, i64 96
   %.not65.us.us = icmp eq ptr %78, %31
-  br i1 %.not65.us.us, label %._crit_edge73.split.us.us, label %.preheader.us.us
+  br i1 %.not65.us.us, label %._crit_edge74.split.us.us, label %.preheader.us.us
 
-._crit_edge:                                      ; preds = %._crit_edge73.split.us.us, %4
-  %.0.lcssa = phi i64 [ 0, %4 ], [ %.1.lcssa.us, %._crit_edge73.split.us.us ]
+._crit_edge:                                      ; preds = %._crit_edge74.split.us.us, %4
+  %.0.lcssa = phi i64 [ 0, %4 ], [ %.1.lcssa.us, %._crit_edge74.split.us.us ]
   %79 = sdiv exact i64 %11, 88
   %80 = icmp eq i64 %.0.lcssa, %79
   br i1 %80, label %82, label %81
@@ -784,17 +785,17 @@ define void @_ZN3gmx17CorrelationTensor18restoreFromHistoryERKSt6vectorINS_27Cor
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %.not8089 = icmp eq ptr %8, %10
-  br i1 %.not8089, label %._crit_edge93, label %.lr.ph92
+  %.not8092 = icmp eq ptr %8, %10
+  br i1 %.not8092, label %._crit_edge96, label %.lr.ph95
 
-.lr.ph92:                                         ; preds = %3
+.lr.ph95:                                         ; preds = %3
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   br label %14
 
-14:                                               ; preds = %.lr.ph92, %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit
-  %.sroa.071.090 = phi ptr [ %8, %.lr.ph92 ], [ %151, %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit ]
+14:                                               ; preds = %.lr.ph95, %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit
+  %.sroa.071.093 = phi ptr [ %8, %.lr.ph95 ], [ %151, %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit ]
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = getelementptr inbounds i8, ptr %15, i64 56
@@ -841,7 +842,7 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit
 
 37:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #16
-          to label %.noexc58 unwind label %.loopexit.split-lp82
+          to label %.noexc58 unwind label %.loopexit.split-lp85
 
 .noexc58:                                         ; preds = %37
   unreachable
@@ -854,7 +855,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt12_Vector
 38:                                               ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %39 = ashr exact i64 %sext48, 29
   %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #17
-          to label %.noexc59 unwind label %.loopexit81
+          to label %.noexc59 unwind label %.loopexit84
 
 .noexc59:                                         ; preds = %38
   store ptr %40, ptr %4, align 8
@@ -879,15 +880,15 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 
 .lr.ph:                                           ; preds = %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
   %47 = add nuw nsw i64 %30, 4294967295
-  %48 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 8
-  %49 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 16
-  %50 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 24
-  %51 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 40
-  %52 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 32
-  %53 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 48
-  %54 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 64
-  %55 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 56
-  %56 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 72
+  %48 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 8
+  %49 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 16
+  %50 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 24
+  %51 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 40
+  %52 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 32
+  %53 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 48
+  %54 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 64
+  %55 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 56
+  %56 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 72
   %57 = and i64 %47, 4294967295
   %wide.trip.count = and i64 %30, 2147483647
   %.pre = load i64, ptr %2, align 8
@@ -906,8 +907,8 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 66:                                               ; preds = %.lr.ph, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit
   %67 = phi i64 [ %.pre, %.lr.ph ], [ %145, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
-  %.088 = phi i32 [ 0, %.lr.ph ], [ %spec.select55, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
-  %.04486 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
+  %.091 = phi i32 [ 0, %.lr.ph ], [ %spec.select55, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
+  %.04489 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit ]
   %68 = load ptr, ptr %13, align 8
   %69 = load ptr, ptr %1, align 8
   %70 = ptrtoint ptr %68 to i64
@@ -942,13 +943,13 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   invoke void @__cxa_throw(ptr %75, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #16
           to label %156 unwind label %82
 
-.loopexit81:                                      ; preds = %38
-  %lpad.loopexit83 = landingpad { ptr, i32 }
+.loopexit84:                                      ; preds = %38
+  %lpad.loopexit86 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit65
 
-.loopexit.split-lp82:                             ; preds = %37
-  %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
+.loopexit.split-lp85:                             ; preds = %37
+  %lpad.loopexit.split-lp87 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit65
 
@@ -981,21 +982,23 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   %86 = getelementptr inbounds %"struct.gmx::CorrelationBlockDataHistory", ptr %69, i64 %67
   %87 = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load double, ptr %87, align 8
-  %89 = zext nneg i32 %.088 to i64
-  %90 = getelementptr inbounds %"struct.gmx::CorrelationBlockData::CoordData", ptr %.sroa.0.1, i64 %89
+  %.scale = shl nuw nsw i32 %.091, 1
+  %89 = zext nneg i32 %.scale to i64
+  %90 = getelementptr inbounds double, ptr %.sroa.0.1, i64 %89
   store double %88, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %86, i64 24
   %92 = load double, ptr %91, align 8
-  %93 = sext i32 %.04486 to i64
-  %94 = getelementptr inbounds %"struct.gmx::CorrelationBlockData::CoordData", ptr %.sroa.0.1, i64 %93
+  %.scale81 = shl nsw i32 %.04489, 1
+  %93 = sext i32 %.scale81 to i64
+  %94 = getelementptr inbounds double, ptr %.sroa.0.1, i64 %93
   store double %92, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %86, i64 48
   %96 = load double, ptr %95, align 8
-  %97 = getelementptr inbounds %"struct.gmx::CorrelationBlockData::CoordData", ptr %.sroa.0.1, i64 %89, i32 1
+  %97 = getelementptr inbounds i8, ptr %90, i64 8
   store double %96, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %86, i64 56
   %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds %"struct.gmx::CorrelationBlockData::CoordData", ptr %.sroa.0.1, i64 %93, i32 1
+  %100 = getelementptr inbounds i8, ptr %94, i64 8
   store double %99, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %86, i64 80
   %102 = load double, ptr %101, align 8
@@ -1007,7 +1010,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 
 106:                                              ; preds = %85
   %107 = load double, ptr %86, align 8
-  store double %107, ptr %.sroa.071.090, align 8
+  store double %107, ptr %.sroa.071.093, align 8
   %108 = getelementptr inbounds i8, ptr %86, i64 8
   %109 = load double, ptr %108, align 8
   store double %109, ptr %48, align 8
@@ -1130,21 +1133,21 @@ _ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHis
   %144 = load i64, ptr %2, align 8
   %145 = add i64 %144, 1
   store i64 %145, ptr %2, align 8
-  %146 = add nsw i32 %.04486, 1
-  %.not49 = icmp sge i32 %.04486, %.088
+  %146 = add nsw i32 %.04489, 1
+  %.not49 = icmp sge i32 %.04489, %.091
   %spec.select = select i1 %.not49, i32 0, i32 %146
   %147 = zext i1 %.not49 to i32
-  %spec.select55 = add nuw nsw i32 %.088, %147
+  %spec.select55 = add nuw nsw i32 %.091, %147
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %66, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit
-  %.pre101 = load ptr, ptr %4, align 8
+  %.pre106 = load ptr, ptr %4, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
-  %148 = phi ptr [ %.pre101, %._crit_edge.loopexit ], [ %45, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
+  %148 = phi ptr [ %.pre106, %._crit_edge.loopexit ], [ %45, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i ]
   %.not.i.i.i = icmp eq ptr %148, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %149
 
@@ -1161,9 +1164,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge, %149
   br label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %150
-  %151 = getelementptr inbounds i8, ptr %.sroa.071.090, i64 96
+  %151 = getelementptr inbounds i8, ptr %.sroa.071.093, i64 96
   %.not80 = icmp eq ptr %151, %10
-  br i1 %.not80, label %._crit_edge93, label %14
+  br i1 %.not80, label %._crit_edge96, label %14
 
 152:                                              ; preds = %.loopexit, %.loopexit.split-lp, %82, %84
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn76, %84 ], [ %83, %82 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1175,8 +1178,8 @@ _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = 
   call void @_ZdlPv(ptr noundef nonnull %153) #18
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit65
 
-_ZNSt6vectorIdSaIdEED2Ev.exit65:                  ; preds = %.loopexit81, %.loopexit.split-lp82, %154, %152
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %152 ], [ %.pn.pn.pn, %154 ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit65:                  ; preds = %.loopexit84, %.loopexit.split-lp85, %154, %152
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %152 ], [ %.pn.pn.pn, %154 ], [ %lpad.loopexit86, %.loopexit84 ], [ %lpad.loopexit.split-lp87, %.loopexit.split-lp85 ]
   %.not.i.i.i66 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i66, label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit67, label %155
 
@@ -1184,7 +1187,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit65:                  ; preds = %.loopexit81, %.loop
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #18
   br label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit67
 
-._crit_edge93:                                    ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit, %3
+._crit_edge96:                                    ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit, %3
   ret void
 
 _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit67: ; preds = %155, %_ZNSt6vectorIdSaIdEED2Ev.exit65

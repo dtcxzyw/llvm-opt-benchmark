@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct._value_string = type { i32, ptr }
 %struct._val64_string = type { i64, ptr }
-%struct._string_string = type { ptr, ptr }
 %struct._range_string = type { i64, i64, ptr }
 %struct._bytes_string = type { ptr, i64, ptr }
 
@@ -1418,8 +1417,9 @@ define ptr @str_to_str(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.018.i.i15 = phi i32 [ %12, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
   %12 = add i32 %.018.i.i15, 1
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct._string_string, ptr %1, i64 %13
+  %.scale.i.i = shl i32 %12, 1
+  %13 = sext i32 %.scale.i.i to i64
+  %14 = getelementptr ptr, ptr %1, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not13.i.i = icmp eq ptr %16, null
@@ -1461,8 +1461,9 @@ define ptr @try_str_to_str(ptr nocapture noundef readonly %0, ptr noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.018.i5 = phi i32 [ %9, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %9 = add i32 %.018.i5, 1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct._string_string, ptr %1, i64 %10
+  %.scale.i = shl i32 %9, 1
+  %10 = sext i32 %.scale.i to i64
+  %11 = getelementptr ptr, ptr %1, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not13.i = icmp eq ptr %13, null
@@ -1500,8 +1501,9 @@ define ptr @try_str_to_str_idx(ptr nocapture noundef readonly %0, ptr noundef re
 
 12:                                               ; preds = %.lr.ph
   %13 = add i32 %.018, 1
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct._string_string, ptr %1, i64 %14
+  %.scale = shl i32 %13, 1
+  %14 = sext i32 %.scale to i64
+  %15 = getelementptr ptr, ptr %1, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13 = icmp eq ptr %17, null

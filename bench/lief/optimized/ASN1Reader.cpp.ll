@@ -13591,13 +13591,14 @@ define linkonce_odr hidden { i64, i32 } @_ZN3fmt2v96detail9dragonbox10to_decimal
   %16 = ashr i32 %15, 19
   %17 = add nsw i32 %16, %8
   %18 = trunc nsw i32 %13 to i16
-  %.lhs.trunc225 = sub nsw i16 292, %18
-  %19 = udiv i16 %.lhs.trunc225, 27
-  %.zext226 = zext nneg i16 %19 to i32
-  %20 = mul nuw nsw i32 %.zext226, 27
+  %.lhs.trunc226 = sub nsw i16 292, %18
+  %19 = udiv i16 %.lhs.trunc226, 27
+  %.zext227 = zext nneg i16 %19 to i32
+  %20 = mul nuw nsw i32 %.zext227, 27
   %21 = add nsw i32 %20, -292
-  %22 = zext nneg i16 %19 to i64
-  %23 = getelementptr inbounds [23 x %"class.fmt::v9::detail::uint128_fallback"], ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 0, i64 %22
+  %.scale.i = shl nuw nsw i32 %.zext227, 1
+  %22 = zext nneg i32 %.scale.i to i64
+  %23 = getelementptr inbounds i64, ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 %22
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %24 = icmp eq i32 %21, %14
@@ -13663,8 +13664,8 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
   %73 = and i128 %71, 1237940020838636201189572608
   %74 = icmp eq i128 %73, 0
   %75 = icmp ult i64 %72, -6067343680855748867
-  %or.cond227 = and i1 %75, %74
-  br i1 %or.cond227, label %76, label %.preheader238
+  %or.cond228 = and i1 %75, %74
+  br i1 %or.cond228, label %76, label %.preheader239
 
 76:                                               ; preds = %68
   %77 = lshr i128 %71, 90
@@ -13690,16 +13691,16 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
   %88 = zext i32 %spec.select178 to i64
   br label %97
 
-.preheader238:                                    ; preds = %68, %.preheader238
-  %.sroa.0139.1 = phi i64 [ %90, %.preheader238 ], [ %66, %68 ]
-  %.0122 = phi i32 [ %92, %.preheader238 ], [ 0, %68 ]
+.preheader239:                                    ; preds = %68, %.preheader239
+  %.sroa.0139.1 = phi i64 [ %90, %.preheader239 ], [ %66, %68 ]
+  %.0122 = phi i32 [ %92, %.preheader239 ], [ 0, %68 ]
   %89 = mul i64 %.sroa.0139.1, -8116567392432202711
   %90 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0139.1, i64 %89, i64 62)
   %91 = icmp ugt i64 %90, 184467440737095516
   %92 = add nuw nsw i32 %.0122, 2
-  br i1 %91, label %93, label %.preheader238, !llvm.loop !39
+  br i1 %91, label %93, label %.preheader239, !llvm.loop !39
 
-93:                                               ; preds = %.preheader238
+93:                                               ; preds = %.preheader239
   %94 = mul i64 %.sroa.0139.1, -3689348814741910323
   %95 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0139.1, i64 %94, i64 63)
   %.not175 = icmp ult i64 %95, 1844674407370955162
@@ -13753,18 +13754,19 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
   %.zext = zext nneg i16 %119 to i32
   %120 = mul nuw nsw i32 %.zext, 27
   %121 = add nsw i32 %120, -292
-  %122 = zext nneg i16 %119 to i64
-  %123 = getelementptr inbounds [23 x %"class.fmt::v9::detail::uint128_fallback"], ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 0, i64 %122
-  %.sroa.034.0.copyload.i189 = load i64, ptr %123, align 16
-  %.sroa.3.0..sroa_idx.i190 = getelementptr inbounds i8, ptr %123, i64 8
-  %.sroa.3.0.copyload.i191 = load i64, ptr %.sroa.3.0..sroa_idx.i190, align 8
+  %.scale.i189 = shl nuw nsw i32 %.zext, 1
+  %122 = zext nneg i32 %.scale.i189 to i64
+  %123 = getelementptr inbounds i64, ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 %122
+  %.sroa.034.0.copyload.i190 = load i64, ptr %123, align 16
+  %.sroa.3.0..sroa_idx.i191 = getelementptr inbounds i8, ptr %123, i64 8
+  %.sroa.3.0.copyload.i192 = load i64, ptr %.sroa.3.0..sroa_idx.i191, align 8
   %124 = icmp eq i32 %117, %121
-  br i1 %124, label %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196_crit_edge, label %125
+  br i1 %124, label %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197_crit_edge, label %125
 
-._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196_crit_edge: ; preds = %114
+._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197_crit_edge: ; preds = %114
   %.pre = mul nsw i32 %117, 1741647
-  %.pre239 = ashr i32 %.pre, 19
-  br label %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196
+  %.pre240 = ashr i32 %.pre, 19
+  br label %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197
 
 125:                                              ; preds = %114
   %126 = sub nsw i32 %117, %121
@@ -13777,13 +13779,13 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
   %133 = sext i32 %126 to i64
   %134 = getelementptr inbounds [27 x i64], ptr @_ZZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEiE14powers_of_5_64, i64 0, i64 %133
   %135 = load i64, ptr %134, align 8
-  %136 = zext i64 %.sroa.3.0.copyload.i191 to i128
+  %136 = zext i64 %.sroa.3.0.copyload.i192 to i128
   %137 = zext i64 %135 to i128
   %138 = mul nuw i128 %137, %136
   %139 = lshr i128 %138, 64
   %140 = trunc nuw i128 %139 to i64
   %141 = trunc i128 %138 to i64
-  %142 = zext i64 %.sroa.034.0.copyload.i189 to i128
+  %142 = zext i64 %.sroa.034.0.copyload.i190 to i128
   %143 = mul nuw i128 %137, %142
   %144 = lshr i128 %143, 64
   %145 = trunc nuw i128 %144 to i64
@@ -13803,28 +13805,28 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
   %159 = lshr i64 %146, %156
   %160 = or i64 %155, %159
   %161 = add i64 %160, 1
-  br label %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196
+  br label %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197
 
-_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196: ; preds = %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196_crit_edge, %125
-  %.pre-phi240 = phi i32 [ %.pre239, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196_crit_edge ], [ %128, %125 ]
-  %.sroa.038.0.i192 = phi i64 [ %.sroa.034.0.copyload.i189, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196_crit_edge ], [ %161, %125 ]
-  %.sroa.339.0.i193 = phi i64 [ %.sroa.3.0.copyload.i191, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196_crit_edge ], [ %158, %125 ]
-  %162 = add nsw i32 %.pre-phi240, %.0126
+_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197: ; preds = %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197_crit_edge, %125
+  %.pre-phi241 = phi i32 [ %.pre240, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197_crit_edge ], [ %128, %125 ]
+  %.sroa.038.0.i193 = phi i64 [ %.sroa.034.0.copyload.i190, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197_crit_edge ], [ %161, %125 ]
+  %.sroa.339.0.i194 = phi i64 [ %.sroa.3.0.copyload.i192, %._ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197_crit_edge ], [ %158, %125 ]
+  %162 = add nsw i32 %.pre-phi241, %.0126
   %163 = sub nsw i32 63, %162
   %164 = zext nneg i32 %163 to i64
-  %165 = lshr i64 %.sroa.339.0.i193, %164
+  %165 = lshr i64 %.sroa.339.0.i194, %164
   %166 = trunc i64 %165 to i32
   %167 = shl nuw nsw i64 %.0125, 1
   %168 = or disjoint i64 %167, 1
   %169 = zext nneg i32 %162 to i64
   %170 = shl i64 %168, %169
   %171 = zext i64 %170 to i128
-  %172 = zext i64 %.sroa.339.0.i193 to i128
+  %172 = zext i64 %.sroa.339.0.i194 to i128
   %173 = mul nuw i128 %172, %171
   %174 = lshr i128 %173, 64
   %175 = trunc nuw i128 %174 to i64
   %176 = trunc i128 %173 to i64
-  %177 = zext i64 %.sroa.038.0.i192 to i128
+  %177 = zext i64 %.sroa.038.0.i193 to i128
   %178 = mul nuw i128 %177, %171
   %179 = lshr i128 %178, 64
   %180 = trunc nuw i128 %179 to i64
@@ -13844,27 +13846,27 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196: ; pr
   %192 = icmp ugt i32 %166, %191
   br i1 %192, label %193, label %199
 
-193:                                              ; preds = %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196
+193:                                              ; preds = %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197
   %194 = icmp eq i32 %191, 0
   br i1 %194, label %195, label %223
 
 195:                                              ; preds = %193
   %196 = and i64 %.0125, 1
-  %.not168229 = icmp eq i64 %196, 0
-  %.not168 = select i1 %186, i1 true, i1 %.not168229
+  %.not168230 = icmp eq i64 %196, 0
+  %.not168 = select i1 %186, i1 true, i1 %.not168230
   br i1 %.not168, label %223, label %197
 
 197:                                              ; preds = %195
   %198 = add nsw i64 %189, -1
   br label %253
 
-199:                                              ; preds = %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196
+199:                                              ; preds = %_ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit197
   %200 = icmp ult i32 %166, %191
   br i1 %200, label %253, label %201
 
 201:                                              ; preds = %199
   %202 = add nsw i64 %167, -1
-  %203 = mul i64 %.sroa.339.0.i193, %202
+  %203 = mul i64 %.sroa.339.0.i194, %202
   %204 = zext nneg i64 %202 to i128
   %205 = mul nuw nsw i128 %177, %204
   %206 = lshr i128 %205, 64
@@ -13895,8 +13897,8 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196: ; pr
   %227 = and i128 %225, 1237940020838636201189572608
   %228 = icmp eq i128 %227, 0
   %229 = icmp ult i64 %226, -6067343680855748867
-  %or.cond228 = and i1 %229, %228
-  br i1 %or.cond228, label %230, label %.preheader
+  %or.cond229 = and i1 %229, %228
+  br i1 %or.cond229, label %230, label %.preheader
 
 230:                                              ; preds = %223
   %231 = lshr i128 %225, 90
@@ -13962,7 +13964,7 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196: ; pr
   br i1 %260, label %264, label %287
 
 264:                                              ; preds = %253
-  %265 = mul i64 %.sroa.339.0.i193, %167
+  %265 = mul i64 %.sroa.339.0.i194, %167
   %266 = zext nneg i64 %167 to i128
   %267 = mul nuw nsw i128 %177, %266
   %268 = lshr i128 %267, 64
@@ -13988,8 +13990,8 @@ _ZN3fmt2v96detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit196: ; pr
   %283 = or i64 %280, %282
   %284 = icmp eq i64 %283, 0
   %285 = and i32 %258, 65536
-  %.not173230 = icmp ne i32 %285, 0
-  %.not173.not = and i1 %284, %.not173230
+  %.not173231 = icmp ne i32 %285, 0
+  %.not173.not = and i1 %284, %.not173231
   %286 = sext i1 %.not173.not to i64
   %spec.select186 = add nsw i64 %263, %286
   br label %287

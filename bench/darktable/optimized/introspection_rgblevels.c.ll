@@ -1107,7 +1107,7 @@ define internal float @_action_process(ptr noundef %0, i32 noundef %1, i32 nound
 
 12:                                               ; preds = %4
   %13 = sext i32 %1 to i64
-  br label %61
+  br label %62
 
 14:                                               ; preds = %4
   switch i32 %2, label %48 [
@@ -1172,29 +1172,31 @@ define internal float @_action_process(ptr noundef %0, i32 noundef %1, i32 nound
 
 49:                                               ; preds = %48, %15
   %50 = sext i32 %1 to i64
-  %51 = getelementptr inbounds [4 x %struct.dt_action_element_def_t], ptr @_action_elements_levels, i64 0, i64 %50
-  %52 = load ptr, ptr %51, align 16, !tbaa !98
-  %53 = getelementptr inbounds i8, ptr %10, i64 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 172
-  %55 = load i32, ptr %54, align 4, !tbaa !63
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds [3 x [3 x float]], ptr %53, i64 0, i64 %56, i64 %50
-  %58 = load float, ptr %57, align 4, !tbaa !26
-  %59 = fpext float %58 to double
-  %60 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, ptr noundef %52, double noundef %59) #21
-  tail call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %60) #21
-  tail call void @g_free(ptr noundef %60) #21
-  br label %61
+  %.scale = shl nsw i32 %1, 1
+  %51 = sext i32 %.scale to i64
+  %52 = getelementptr inbounds ptr, ptr @_action_elements_levels, i64 %51
+  %53 = load ptr, ptr %52, align 16, !tbaa !98
+  %54 = getelementptr inbounds i8, ptr %10, i64 8
+  %55 = getelementptr inbounds i8, ptr %8, i64 172
+  %56 = load i32, ptr %55, align 4, !tbaa !63
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds [3 x [3 x float]], ptr %54, i64 0, i64 %57, i64 %50
+  %59 = load float, ptr %58, align 4, !tbaa !26
+  %60 = fpext float %59 to double
+  %61 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, ptr noundef %53, double noundef %60) #21
+  tail call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %61) #21
+  tail call void @g_free(ptr noundef %61) #21
+  br label %62
 
-61:                                               ; preds = %49, %12
-  %62 = phi i64 [ %13, %12 ], [ %50, %49 ]
-  %63 = getelementptr inbounds i8, ptr %10, i64 8
-  %64 = getelementptr inbounds i8, ptr %8, i64 172
-  %65 = load i32, ptr %64, align 4, !tbaa !63
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds [3 x [3 x float]], ptr %63, i64 0, i64 %66, i64 %62
-  %68 = load float, ptr %67, align 4, !tbaa !26
-  ret float %68
+62:                                               ; preds = %49, %12
+  %63 = phi i64 [ %13, %12 ], [ %50, %49 ]
+  %64 = getelementptr inbounds i8, ptr %10, i64 8
+  %65 = getelementptr inbounds i8, ptr %8, i64 172
+  %66 = load i32, ptr %65, align 4, !tbaa !63
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds [3 x [3 x float]], ptr %64, i64 0, i64 %67, i64 %63
+  %69 = load float, ptr %68, align 4, !tbaa !26
+  ret float %69
 }
 
 ; Function Attrs: nounwind uwtable

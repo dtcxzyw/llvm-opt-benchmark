@@ -232,8 +232,9 @@ define ptr @Abc_NodeReadInputDrive(ptr nocapture noundef readonly %0, i32 nounde
   %5 = getelementptr inbounds i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %6, i64 %7
+  %.scale = shl nsw i32 %1, 1
+  %7 = sext i32 %.scale to i64
+  %8 = getelementptr inbounds float, ptr %6, i64 %7
   %9 = select i1 %.not, ptr null, ptr %8
   ret ptr %9
 }
@@ -245,8 +246,9 @@ define ptr @Abc_NodeReadOutputLoad(ptr nocapture noundef readonly %0, i32 nounde
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %6, i64 %7
+  %.scale = shl nsw i32 %1, 1
+  %7 = sext i32 %.scale to i64
+  %8 = getelementptr inbounds float, ptr %6, i64 %7
   %9 = select i1 %.not, ptr null, ptr %8
   ret ptr %9
 }
@@ -258,8 +260,9 @@ define float @Abc_NodeReadInputDriveWorst(ptr nocapture noundef readonly %0, i32
   %5 = getelementptr inbounds i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %6, i64 %7
+  %.scale.i = shl nsw i32 %1, 1
+  %7 = sext i32 %.scale.i to i64
+  %8 = getelementptr inbounds float, ptr %6, i64 %7
   %9 = select i1 %.not.i, ptr null, ptr %8
   %10 = load float, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %9, i64 4
@@ -276,8 +279,9 @@ define float @Abc_NodeReadOutputLoadWorst(ptr nocapture noundef readonly %0, i32
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
-  %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.Abc_Time_t_, ptr %6, i64 %7
+  %.scale.i = shl nsw i32 %1, 1
+  %7 = sext i32 %.scale.i to i64
+  %8 = getelementptr inbounds float, ptr %6, i64 %7
   %9 = select i1 %.not.i, ptr null, ptr %8
   %10 = load float, ptr %9, align 4
   %11 = getelementptr inbounds i8, ptr %9, i64 4
@@ -1056,8 +1060,9 @@ define void @Abc_NtkTimeSetInputDrive(ptr nocapture noundef %0, i32 noundef %1, 
   %39 = load ptr, ptr %5, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = sext i32 %1 to i64
-  %43 = getelementptr inbounds %struct.Abc_Time_t_, ptr %41, i64 %42
+  %.scale = shl nsw i32 %1, 1
+  %42 = sext i32 %.scale to i64
+  %43 = getelementptr inbounds float, ptr %41, i64 %42
   store float %2, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %43, i64 4
   store float %3, ptr %44, align 4
@@ -1136,8 +1141,9 @@ define void @Abc_NtkTimeSetOutputLoad(ptr nocapture noundef %0, i32 noundef %1, 
   %39 = load ptr, ptr %5, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 56
   %41 = load ptr, ptr %40, align 8
-  %42 = sext i32 %1 to i64
-  %43 = getelementptr inbounds %struct.Abc_Time_t_, ptr %41, i64 %42
+  %.scale = shl nsw i32 %1, 1
+  %42 = sext i32 %.scale to i64
+  %43 = getelementptr inbounds float, ptr %41, i64 %42
   store float %2, ptr %43, align 4
   %44 = getelementptr inbounds i8, ptr %43, i64 4
   store float %3, ptr %44, align 4

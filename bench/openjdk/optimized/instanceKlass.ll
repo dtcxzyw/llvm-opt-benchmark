@@ -8196,8 +8196,9 @@ _ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4push
   %.sroa.9.2 = phi i32 [ %.sroa.9.049, %46 ], [ %.0.i.i.i.i.i, %_ZN13GrowableArrayI4PairIii11ResourceObjEE8allocateEv.exit.i ], [ %.0.i.i.i.i.i, %.lr.ph.i ]
   %.sroa.14.2 = phi ptr [ %.sroa.14.050, %46 ], [ %61, %_ZN13GrowableArrayI4PairIii11ResourceObjEE8allocateEv.exit.i ], [ %61, %.lr.ph.i ]
   %67 = add nsw i32 %.sroa.022.048, 1
-  %68 = sext i32 %.sroa.022.048 to i64
-  %69 = getelementptr inbounds %class.Pair, ptr %.sroa.14.2, i64 %68
+  %.scale.i.i = shl nsw i32 %.sroa.022.048, 1
+  %68 = sext i32 %.scale.i.i to i64
+  %69 = getelementptr inbounds i32, ptr %.sroa.14.2, i64 %68
   %.sroa.2.0.insert.ext = zext i32 %52 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %51 to i64
@@ -8205,11 +8206,11 @@ _ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4push
   store i64 %.sroa.0.0.insert.insert, ptr %69, align 4
   %70 = add nsw i32 %.01151, 1
   %.pre = load i32, ptr %27, align 8
-  %.pre58 = load i32, ptr %28, align 4
+  %.pre59 = load i32, ptr %28, align 4
   br label %71
 
 71:                                               ; preds = %42, %_ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4pushERKS2_.exit
-  %72 = phi i32 [ %43, %42 ], [ %.pre58, %_ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4pushERKS2_.exit ]
+  %72 = phi i32 [ %43, %42 ], [ %.pre59, %_ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4pushERKS2_.exit ]
   %73 = phi i32 [ %44, %42 ], [ %.pre, %_ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4pushERKS2_.exit ]
   %.sroa.022.1 = phi i32 [ %.sroa.022.048, %42 ], [ %67, %_ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4pushERKS2_.exit ]
   %.sroa.9.1 = phi i32 [ %.sroa.9.049, %42 ], [ %.sroa.9.2, %_ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4pushERKS2_.exit ]
@@ -8222,13 +8223,13 @@ _ZN26GrowableArrayWithAllocatorI4PairIii11ResourceObjE13GrowableArrayIS2_EE4push
 
 75:                                               ; preds = %71
   call void @_ZN15FieldInfoReader15read_field_infoER9FieldInfo(ptr noundef nonnull align 8 dereferenceable(20) %36, ptr noundef nonnull align 4 dereferenceable(26) %37)
-  %.pre59 = load i32, ptr %27, align 8
-  %.pre60 = load i32, ptr %28, align 4
+  %.pre60 = load i32, ptr %27, align 8
+  %.pre61 = load i32, ptr %28, align 4
   br label %_ZN15FieldStreamBase4nextEv.exit
 
 _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %71, %75
-  %76 = phi i32 [ %72, %71 ], [ %.pre60, %75 ]
-  %77 = phi i32 [ %74, %71 ], [ %.pre59, %75 ]
+  %76 = phi i32 [ %72, %71 ], [ %.pre61, %75 ]
+  %77 = phi i32 [ %74, %71 ], [ %.pre60, %75 ]
   %.not45 = icmp slt i32 %77, %76
   br i1 %.not45, label %42, label %._crit_edge.loopexit, !llvm.loop !54
 
@@ -8241,44 +8242,46 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %71, %75
   br label %.lr.ph55.preheader
 
 .lr.ph55.preheader:                               ; preds = %80, %78
+  %invariant.gep = getelementptr inbounds i8, ptr %.sroa.14.0.lcssa, i64 4
   %wide.trip.count = zext nneg i32 %.011.lcssa to i64
   br label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
   %indvars.iv = phi i64 [ 0, %.lr.ph55.preheader ], [ %indvars.iv.next, %.lr.ph55 ]
-  %81 = getelementptr inbounds %class.Pair, ptr %.sroa.14.0.lcssa, i64 %indvars.iv, i32 1
-  %82 = load i32, ptr %81, align 4
-  call void @_ZN15fieldDescriptor12reinitializeEP13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %0, i32 noundef %82) #26
-  %83 = load ptr, ptr %1, align 8
-  %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3) #26
+  %gep.idx = shl nsw i64 %indvars.iv, 3
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx
+  %81 = load i32, ptr %gep, align 4
+  call void @_ZN15fieldDescriptor12reinitializeEP13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %0, i32 noundef %81) #26
+  %82 = load ptr, ptr %1, align 8
+  %83 = load ptr, ptr %82, align 8
+  call void %83(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond57.not, label %_ZN13GrowableArrayI4PairIii11ResourceObjEED2Ev.exit, label %.lr.ph55, !llvm.loop !55
+  %exitcond58.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond58.not, label %_ZN13GrowableArrayI4PairIii11ResourceObjEED2Ev.exit, label %.lr.ph55, !llvm.loop !55
 
 _ZN13GrowableArrayI4PairIii11ResourceObjEED2Ev.exit: ; preds = %.lr.ph55, %._crit_edge
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #26
-  %85 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %85, null
-  br i1 %.not.i.i.i.i, label %87, label %86
+  %84 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %84, null
+  br i1 %.not.i.i.i.i, label %86, label %85
 
-86:                                               ; preds = %_ZN13GrowableArrayI4PairIii11ResourceObjEED2Ev.exit
+85:                                               ; preds = %_ZN13GrowableArrayI4PairIii11ResourceObjEED2Ev.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %19) #26
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %13) #26
-  br label %87
+  br label %86
 
-87:                                               ; preds = %86, %_ZN13GrowableArrayI4PairIii11ResourceObjEED2Ev.exit
-  %88 = load ptr, ptr %14, align 8
-  %.not8.i.i.i.i = icmp eq ptr %88, %15
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %89
+86:                                               ; preds = %85, %_ZN13GrowableArrayI4PairIii11ResourceObjEED2Ev.exit
+  %87 = load ptr, ptr %14, align 8
+  %.not8.i.i.i.i = icmp eq ptr %87, %15
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %88
 
-89:                                               ; preds = %87
+88:                                               ; preds = %86
   store ptr %13, ptr %12, align 8
   store ptr %15, ptr %14, align 8
   store ptr %17, ptr %16, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %87, %89
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %86, %88
   ret void
 }
 

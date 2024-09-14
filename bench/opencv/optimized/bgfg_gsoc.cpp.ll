@@ -2667,8 +2667,9 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   %528 = load i32, ptr %510, align 4
   %529 = mul nsw i32 %528, %.01827.i
   %530 = add nsw i32 %529, %.01930.i
-  %531 = sext i32 %530 to i64
-  %532 = getelementptr inbounds %"class.cv::Point_", ptr %517, i64 %531
+  %.scale.i = shl nsw i32 %530, 1
+  %531 = sext i32 %.scale.i to i64
+  %532 = getelementptr inbounds float, ptr %517, i64 %531
   %533 = load float, ptr %532, align 4
   %534 = insertelement <4 x float> poison, float %533, i64 0
   %535 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %534)
@@ -5727,9 +5728,10 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   %543 = load i32, ptr %526, align 4
   %544 = mul nsw i32 %543, %.01827.i
   %545 = add nsw i32 %544, %.01930.i
-  %546 = sext i32 %545 to i64
-  %547 = load ptr, ptr %30, align 8
-  %548 = getelementptr inbounds %"class.cv::Point_", ptr %547, i64 %546
+  %546 = load ptr, ptr %30, align 8
+  %.scale.i = shl nsw i32 %545, 1
+  %547 = sext i32 %.scale.i to i64
+  %548 = getelementptr inbounds float, ptr %546, i64 %547
   %549 = load float, ptr %548, align 4
   %550 = insertelement <4 x float> poison, float %549, i64 0
   %551 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %550)

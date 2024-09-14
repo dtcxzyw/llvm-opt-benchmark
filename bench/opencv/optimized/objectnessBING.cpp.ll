@@ -35,13 +35,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::pair" = type { float, i32 }
-%"class.cv::Point_" = type { i32, i32 }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x i32] }
 %"class.cv::MatExpr" = type { ptr, i32, %"class.cv::Mat", %"class.cv::Mat", %"class.cv::Mat", double, double, %"class.cv::Scalar_" }
 %"class.cv::Scalar_" = type { %"class.cv::Vec.24" }
 %"class.cv::Vec.24" = type { %"class.cv::Matx.25" }
 %"class.cv::Matx.25" = type { [4 x double] }
+%"class.cv::Point_" = type { i32, i32 }
 %"class.cv::Vec.26" = type { %"class.cv::Matx.27" }
 %"class.cv::Matx.27" = type { [3 x i8] }
 %"struct.cv::saliency::ObjectnessBING::ValStructVec" = type { %"class.std::vector.8", i32, %"class.std::vector.13", %"class.std::vector.8" }
@@ -1448,9 +1448,10 @@ _ZN2cv8saliency14ObjectnessBING11gradientMagERNS_3MatES3_.exit: ; preds = %114, 
   %131 = load i32, ptr %130, align 4
   %132 = getelementptr inbounds %"struct.std::pair", ptr %129, i64 %indvars.iv, i32 1
   %133 = load i32, ptr %132, align 4
-  %134 = sext i32 %133 to i64
-  %135 = load ptr, ptr %13, align 8
-  %136 = getelementptr inbounds %"class.cv::Point_", ptr %135, i64 %134
+  %134 = load ptr, ptr %13, align 8
+  %.scale.i = shl nsw i32 %133, 1
+  %135 = sext i32 %.scale.i to i64
+  %136 = getelementptr inbounds i32, ptr %134, i64 %135
   %.sroa.0.0.copyload = load i32, ptr %136, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %136, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
@@ -2509,9 +2510,10 @@ _ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_6Point_IiEEE4sortEb.exit: ; pr
   %222 = load ptr, ptr %25, align 8
   %223 = getelementptr inbounds %"struct.std::pair", ptr %222, i64 %indvars.iv221, i32 1
   %224 = load i32, ptr %223, align 4
-  %225 = sext i32 %224 to i64
-  %226 = load ptr, ptr %9, align 8
-  %227 = getelementptr inbounds %"class.cv::Point_", ptr %226, i64 %225
+  %225 = load ptr, ptr %9, align 8
+  %.scale.i = shl nsw i32 %224, 1
+  %226 = sext i32 %.scale.i to i64
+  %227 = getelementptr inbounds i32, ptr %225, i64 %226
   %.sroa.011.0.copyload = load i64, ptr %227, align 4
   %228 = load ptr, ptr %213, align 8
   %229 = load ptr, ptr %214, align 8
@@ -2898,56 +2900,58 @@ _ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds
   %.pre = phi ptr [ %.pre.pre, %26 ], [ %9, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
   store ptr %25, ptr %0, align 8
   store ptr %25, ptr %5, align 8
-  %27 = getelementptr inbounds %"class.cv::Point_", ptr %25, i64 %13
-  store ptr %27, ptr %17, align 8
+  %.scale = shl nuw nsw i32 %1, 1
+  %27 = zext nneg i32 %.scale to i64
+  %28 = getelementptr inbounds i32, ptr %25, i64 %27
+  store ptr %28, ptr %17, align 8
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit.i, %16
-  %28 = phi ptr [ %.pre, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ %9, %16 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %28 to i64
-  %33 = sub i64 %31, %32
-  %34 = ashr exact i64 %33, 3
-  %35 = icmp ult i64 %34, %13
-  br i1 %35, label %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorISt4pairIfiESaIS1_EE7reserveEm.exit
+  %29 = phi ptr [ %.pre, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ %9, %16 ]
+  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = load ptr, ptr %30, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %29 to i64
+  %34 = sub i64 %32, %33
+  %35 = ashr exact i64 %34, 3
+  %36 = icmp ult i64 %35, %13
+  br i1 %36, label %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorISt4pairIfiESaIS1_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE7reserveEm.exit
-  %36 = load ptr, ptr %10, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = sub i64 %37, %32
-  %39 = shl nuw nsw i64 %13, 3
-  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #28
-  %.not10.i.i.i.i.i2 = icmp eq ptr %28, %36
+  %37 = load ptr, ptr %10, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %38, %33
+  %40 = shl nuw nsw i64 %13, 3
+  %41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #28
+  %.not10.i.i.i.i.i2 = icmp eq ptr %29, %37
   br i1 %.not10.i.i.i.i.i2, label %_ZNSt6vectorISt4pairIfiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i.i3
 
 .lr.ph.i.i.i.i.i3:                                ; preds = %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.i3
-  %.012.i.i.i.i.i4 = phi ptr [ %43, %.lr.ph.i.i.i.i.i3 ], [ %40, %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i.i5 = phi ptr [ %42, %.lr.ph.i.i.i.i.i3 ], [ %28, %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i ]
+  %.012.i.i.i.i.i4 = phi ptr [ %44, %.lr.ph.i.i.i.i.i3 ], [ %41, %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i ]
+  %.0911.i.i.i.i.i5 = phi ptr [ %43, %.lr.ph.i.i.i.i.i3 ], [ %29, %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %41 = load i64, ptr %.0911.i.i.i.i.i5, align 4, !alias.scope !64, !noalias !61
-  store i64 %41, ptr %.012.i.i.i.i.i4, align 4, !alias.scope !61, !noalias !64
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i5, i64 8
-  %43 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i4, i64 8
-  %.not.i.i.i.i.i6 = icmp eq ptr %42, %36
+  %42 = load i64, ptr %.0911.i.i.i.i.i5, align 4, !alias.scope !64, !noalias !61
+  store i64 %42, ptr %.012.i.i.i.i.i4, align 4, !alias.scope !61, !noalias !64
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i5, i64 8
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i4, i64 8
+  %.not.i.i.i.i.i6 = icmp eq ptr %43, %37
   br i1 %.not.i.i.i.i.i6, label %_ZNSt6vectorISt4pairIfiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %.lr.ph.i.i.i.i.i3, !llvm.loop !18
 
 _ZNSt6vectorISt4pairIfiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %.lr.ph.i.i.i.i.i3, %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE11_M_allocateEm.exit.i
-  %.not.i8.i7 = icmp eq ptr %28, null
-  br i1 %.not.i8.i7, label %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE13_M_deallocateEPS1_m.exit.i, label %44
+  %.not.i8.i7 = icmp eq ptr %29, null
+  br i1 %.not.i8.i7, label %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE13_M_deallocateEPS1_m.exit.i, label %45
 
-44:                                               ; preds = %_ZNSt6vectorISt4pairIfiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %28) #26
+45:                                               ; preds = %_ZNSt6vectorISt4pairIfiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %29) #26
   br label %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE13_M_deallocateEPS1_m.exit.i
 
-_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %44, %_ZNSt6vectorISt4pairIfiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  store ptr %40, ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 %38
-  store ptr %45, ptr %10, align 8
-  %46 = getelementptr inbounds %"struct.std::pair", ptr %40, i64 %13
-  store ptr %46, ptr %29, align 8
+_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %45, %_ZNSt6vectorISt4pairIfiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+  store ptr %41, ptr %8, align 8
+  %46 = getelementptr inbounds i8, ptr %41, i64 %39
+  store ptr %46, ptr %10, align 8
+  %47 = getelementptr inbounds %"struct.std::pair", ptr %41, i64 %13
+  store ptr %47, ptr %30, align 8
   br label %_ZNSt6vectorISt4pairIfiESaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorISt4pairIfiESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE7reserveEm.exit, %_ZNSt12_Vector_baseISt4pairIfiESaIS1_EE13_M_deallocateEPS1_m.exit.i

@@ -1500,7 +1500,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 .preheader:                                       ; preds = %5
   %13 = sitofp i32 %1 to float
   %14 = sitofp i32 %2 to float
-  switch i32 %0, label %70 [
+  switch i32 %0, label %71 [
     i32 1, label %.preheader.split.us
     i32 4, label %55
     i32 0, label %56
@@ -1535,7 +1535,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !35
 
 29:                                               ; preds = %5
-  switch i32 %0, label %70 [
+  switch i32 %0, label %71 [
     i32 1, label %30
     i32 4, label %55
     i32 0, label %56
@@ -1622,37 +1622,40 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %34, %_ZNSt6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
-  switch i32 %0, label %70 [
+  switch i32 %0, label %71 [
     i32 4, label %55
     i32 0, label %56
   ]
 
 55:                                               ; preds = %.preheader, %29, %.loopexit
   store i8 0, ptr @dragging, align 1
-  br label %70
+  br label %71
 
 56:                                               ; preds = %.preheader, %29, %.loopexit
   %57 = load i8, ptr @dragging, align 1
   %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %70
+  br i1 %58, label %59, label %71
 
 59:                                               ; preds = %56
   %60 = sitofp i32 %1 to float
   %61 = load i32, ptr @selected_corner_index, align 4
-  %62 = sext i32 %61 to i64
-  %63 = load ptr, ptr @roi_corners, align 8
-  %64 = getelementptr inbounds %"class.cv::Point_", ptr %63, i64 %62
+  %62 = load ptr, ptr @roi_corners, align 8
+  %.scale = shl nsw i32 %61, 1
+  %63 = sext i32 %.scale to i64
+  %64 = getelementptr inbounds float, ptr %62, i64 %63
   store float %60, ptr %64, align 4
   %65 = sitofp i32 %2 to float
   %66 = load i32, ptr @selected_corner_index, align 4
-  %67 = sext i32 %66 to i64
-  %68 = load ptr, ptr @roi_corners, align 8
-  %69 = getelementptr inbounds %"class.cv::Point_", ptr %68, i64 %67, i32 1
-  store float %65, ptr %69, align 4
+  %67 = load ptr, ptr @roi_corners, align 8
+  %.scale20 = shl nsw i32 %66, 1
+  %68 = sext i32 %.scale20 to i64
+  %69 = getelementptr inbounds float, ptr %67, i64 %68
+  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  store float %65, ptr %70, align 4
   store i8 1, ptr @validation_needed, align 1
-  br label %70
+  br label %71
 
-70:                                               ; preds = %.preheader, %55, %29, %.loopexit, %59, %56
+71:                                               ; preds = %.preheader, %55, %29, %.loopexit, %59, %56
   ret void
 }
 

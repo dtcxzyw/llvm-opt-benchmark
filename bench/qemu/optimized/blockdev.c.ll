@@ -998,7 +998,8 @@ if.else:                                          ; preds = %entry
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr [15 x %struct.anon.16], ptr @drive_new.opt_renames, i64 0, i64 %indvars.iv
+  %arrayidx.idx = shl i64 %indvars.iv, 4
+  %arrayidx = getelementptr i8, ptr @drive_new.opt_renames, i64 %arrayidx.idx
   %0 = load ptr, ptr %arrayidx, align 16
   %to = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %to, align 8
@@ -1146,24 +1147,24 @@ if.end71:                                         ; preds = %if.end58
   br i1 %tobool78.not, label %if.end96, label %land.rhs
 
 land.rhs:                                         ; preds = %5, %for.inc88
-  %indvars.iv221 = phi i64 [ %indvars.iv.next222, %for.inc88 ], [ 0, %5 ]
-  %arrayidx84 = getelementptr [9 x ptr], ptr @if_name, i64 0, i64 %indvars.iv221
+  %indvars.iv222 = phi i64 [ %indvars.iv.next223, %for.inc88 ], [ 0, %5 ]
+  %arrayidx84 = getelementptr [9 x ptr], ptr @if_name, i64 0, i64 %indvars.iv222
   %7 = load ptr, ptr %arrayidx84, align 8
   %call85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call77, ptr noundef nonnull dereferenceable(1) %7) #19
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.end96.loopexit, label %for.inc88
 
 for.inc88:                                        ; preds = %land.rhs
-  %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next222, 9
-  br i1 %exitcond224.not, label %if.then93, label %land.rhs, !llvm.loop !14
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %exitcond225.not = icmp eq i64 %indvars.iv.next223, 9
+  br i1 %exitcond225.not, label %if.then93, label %land.rhs, !llvm.loop !14
 
 if.then93:                                        ; preds = %for.inc88
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 908, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.66, ptr noundef nonnull %call77) #15
   br label %fail
 
 if.end96.loopexit:                                ; preds = %land.rhs
-  %8 = trunc nuw nsw i64 %indvars.iv221 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv222 to i32
   br label %if.end96
 
 if.end96:                                         ; preds = %if.end96.loopexit, %5

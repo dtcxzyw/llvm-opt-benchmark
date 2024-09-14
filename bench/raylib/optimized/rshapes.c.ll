@@ -348,7 +348,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #8
 ; Function Attrs: nounwind uwtable
 define void @DrawTriangleStrip(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %1, 2
-  br i1 %4, label %5, label %22
+  br i1 %4, label %5, label %28
 
 5:                                                ; preds = %3
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
@@ -372,29 +372,37 @@ define void @DrawTriangleStrip(ptr nocapture noundef readonly %0, i32 noundef %1
   %11 = getelementptr inbounds i8, ptr %9, i64 4
   %12 = load float, ptr %11, align 4
   tail call void @rlVertex2f(float noundef %10, float noundef %12) #16
-  %. = select i1 %8, i64 -16, i64 -8
-  %.41 = select i1 %8, i64 -12, i64 -4
-  %.42 = select i1 %8, i64 -8, i64 -16
-  %.43 = select i1 %8, i64 -4, i64 -12
-  %13 = getelementptr i8, ptr %9, i64 %.
-  %14 = load float, ptr %13, align 4
-  %15 = getelementptr i8, ptr %9, i64 %.41
-  %16 = load float, ptr %15, align 4
-  tail call void @rlVertex2f(float noundef %14, float noundef %16) #16
-  %17 = getelementptr i8, ptr %9, i64 %.42
-  %18 = load float, ptr %17, align 4
-  %19 = getelementptr i8, ptr %9, i64 %.43
-  %20 = load float, ptr %19, align 4
-  tail call void @rlVertex2f(float noundef %18, float noundef %20) #16
+  %13 = shl i64 %indvars.iv, 33
+  %sext = add i64 %13, -17179869184
+  %14 = ashr exact i64 %sext, 30
+  %15 = getelementptr inbounds i8, ptr %0, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr i8, ptr %9, i64 -8
+  %18 = getelementptr i8, ptr %9, i64 -4
+  %.sink44 = select i1 %8, ptr %16, ptr %18
+  %.sink.in = select i1 %8, ptr %15, ptr %17
+  %.sink42 = select i1 %8, i32 -2, i32 -4
+  %.sink = load float, ptr %.sink.in, align 4
+  %19 = load float, ptr %.sink44, align 4
+  tail call void @rlVertex2f(float noundef %.sink, float noundef %19) #16
+  %indvars.iv.tr36 = trunc i64 %indvars.iv to i32
+  %20 = shl i32 %indvars.iv.tr36, 1
+  %21 = add i32 %20, %.sink42
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds float, ptr %0, i64 %22
+  %24 = load float, ptr %23, align 4
+  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = load float, ptr %25, align 4
+  tail call void @rlVertex2f(float noundef %24, float noundef %26) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %21, label %6
+  br i1 %exitcond.not, label %27, label %6
 
-21:                                               ; preds = %6
+27:                                               ; preds = %6
   tail call void @rlEnd() #16
-  br label %22
+  br label %28
 
-22:                                               ; preds = %21, %3
+28:                                               ; preds = %27, %3
   ret void
 }
 
@@ -4250,8 +4258,9 @@ define zeroext i1 @CheckCollisionPointPoly(<2 x float> %0, ptr nocapture noundef
   %9 = getelementptr inbounds i8, ptr %8, i64 4
   %10 = load float, ptr %9, align 4
   %11 = fcmp ogt float %10, %.sroa.0.4.vec.extract
-  %12 = sext i32 %.031 to i64
-  %13 = getelementptr inbounds %struct.Vector2, ptr %1, i64 %12
+  %.scale = shl nsw i32 %.031, 1
+  %12 = sext i32 %.scale to i64
+  %13 = getelementptr inbounds float, ptr %1, i64 %12
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load float, ptr %14, align 4
   %16 = fcmp ule float %15, %.sroa.0.4.vec.extract

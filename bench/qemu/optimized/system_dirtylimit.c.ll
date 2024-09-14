@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_internal_list = type { ptr, ptr }
 %union.CPUTailQ = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
-%struct.DirtyRateVcpu = type { i64, i64 }
 %struct.VcpuStat = type { i32, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.VcpuDirtyLimitState = type { i32, i8, i64 }
@@ -66,10 +65,12 @@ entry:
   %0 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
   %rates1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %rates1, align 8
-  %idxprom = sext i32 %cpu_index to i64
-  %dirty_rate = getelementptr %struct.DirtyRateVcpu, ptr %1, i64 %idxprom, i32 1
-  %2 = load atomic i64, ptr %dirty_rate monotonic, align 8
-  ret i64 %2
+  %idxprom.scale = shl i32 %cpu_index, 1
+  %2 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr i64, ptr %1, i64 %2
+  %dirty_rate = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %3 = load atomic i64, ptr %dirty_rate monotonic, align 8
+  ret i64 %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -128,36 +129,41 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   %period.0.i = phi i64 [ %2, %if.then.i ], [ 1000, %land.lhs.true.i ], [ 1000, %while.body3 ]
   %call3.i = call i64 @vcpu_calculate_dirtyrate(i64 noundef %period.0.i, ptr noundef nonnull %stat.i, i32 noundef 4, i1 noundef zeroext false) #10
   %3 = load i32, ptr %stat.i, align 8
-  %cmp7.i = icmp sgt i32 %3, 0
-  br i1 %cmp7.i, label %for.body.i, label %vcpu_dirty_rate_stat_collect.exit
+  %cmp9.i = icmp sgt i32 %3, 0
+  br i1 %cmp9.i, label %for.body.i, label %vcpu_dirty_rate_stat_collect.exit
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end.i ]
   %4 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
   %rates.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %rates.i, align 8
-  %arrayidx.i = getelementptr %struct.DirtyRateVcpu, ptr %5, i64 %indvars.iv.i
+  %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
+  %6 = shl i32 %indvars.iv.tr.i, 1
+  %7 = sext i32 %6 to i64
+  %arrayidx.i = getelementptr i64, ptr %5, i64 %7
   store i64 %indvars.iv.i, ptr %arrayidx.i, align 8
-  %6 = load ptr, ptr %rates5.i, align 8
-  %dirty_rate.i = getelementptr %struct.DirtyRateVcpu, ptr %6, i64 %indvars.iv.i, i32 1
-  %7 = load i64, ptr %dirty_rate.i, align 8
-  %8 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates9.i = getelementptr inbounds i8, ptr %8, i64 8
-  %9 = load ptr, ptr %rates9.i, align 8
-  %dirty_rate12.i = getelementptr %struct.DirtyRateVcpu, ptr %9, i64 %indvars.iv.i, i32 1
-  store i64 %7, ptr %dirty_rate12.i, align 8
+  %8 = load ptr, ptr %rates5.i, align 8
+  %arrayidx7.i = getelementptr i64, ptr %8, i64 %7
+  %dirty_rate.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 8
+  %9 = load i64, ptr %dirty_rate.i, align 8
+  %10 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
+  %rates9.i = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %rates9.i, align 8
+  %arrayidx11.i = getelementptr i64, ptr %11, i64 %7
+  %dirty_rate12.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 8
+  store i64 %9, ptr %dirty_rate12.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %10 = load i32, ptr %stat.i, align 8
-  %11 = sext i32 %10 to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %11
+  %12 = load i32, ptr %stat.i, align 8
+  %13 = sext i32 %12 to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %13
   br i1 %cmp.i, label %for.body.i, label %vcpu_dirty_rate_stat_collect.exit, !llvm.loop !5
 
 vcpu_dirty_rate_stat_collect.exit:                ; preds = %for.body.i, %if.end.i
-  %12 = load ptr, ptr %rates5.i, align 8
-  call void @g_free(ptr noundef %12) #10
+  %14 = load ptr, ptr %rates5.i, align 8
+  call void @g_free(ptr noundef %14) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stat.i)
-  %13 = load ptr, ptr @dirtylimit_state, align 8
-  %tobool.i.not = icmp eq ptr %13, null
+  %15 = load ptr, ptr @dirtylimit_state, align 8
+  %tobool.i.not = icmp eq ptr %15, null
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %vcpu_dirty_rate_stat_collect.exit
@@ -165,10 +171,10 @@ if.then:                                          ; preds = %vcpu_dirty_rate_sta
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %vcpu_dirty_rate_stat_collect.exit
-  %14 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %running = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = load atomic i8, ptr %running monotonic, align 8
-  %tobool = trunc i8 %15 to i1
+  %16 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
+  %running = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = load atomic i8, ptr %running monotonic, align 8
+  %tobool = trunc i8 %17 to i1
   br i1 %tobool, label %while.body3, label %while.end4, !llvm.loop !7
 
 while.end4:                                       ; preds = %if.end, %entry
@@ -449,7 +455,7 @@ for.body.lr.ph:                                   ; preds = %while.end7
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end18
-  %cpu.06.in = phi i64 [ %4, %for.body.lr.ph ], [ %24, %while.end18 ]
+  %cpu.06.in = phi i64 [ %4, %for.body.lr.ph ], [ %25, %while.end18 ]
   %cpu.06 = inttoptr i64 %cpu.06.in to ptr
   %cpu_index = getelementptr inbounds i8, ptr %cpu.06, i64 712
   %5 = load i32, ptr %cpu_index, align 8
@@ -467,16 +473,19 @@ if.end13:                                         ; preds = %for.body
   %10 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
   %rates1.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %rates1.i.i, align 8
-  %dirty_rate.i.i = getelementptr %struct.DirtyRateVcpu, ptr %11, i64 %idxprom.i, i32 1
-  %12 = load atomic i64, ptr %dirty_rate.i.i monotonic, align 8
-  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %12)
-  %cond6.i.i = tail call i64 @llvm.umax.i64(i64 %9, i64 %12)
+  %idxprom.scale.i.i = shl i32 %5, 1
+  %12 = sext i32 %idxprom.scale.i.i to i64
+  %arrayidx.i5.i = getelementptr i64, ptr %11, i64 %12
+  %dirty_rate.i.i = getelementptr inbounds i8, ptr %arrayidx.i5.i, i64 8
+  %13 = load atomic i64, ptr %dirty_rate.i.i monotonic, align 8
+  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %13)
+  %cond6.i.i = tail call i64 @llvm.umax.i64(i64 %9, i64 %13)
   %sub.i.i = sub i64 %cond6.i.i, %cond.i.i
   %cmp7.i.i = icmp ult i64 %sub.i.i, 26
   br i1 %cmp7.i.i, label %while.end18, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end13
-  %cmp.i.i = icmp eq i64 %12, 0
+  %cmp.i.i = icmp eq i64 %13, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
@@ -488,44 +497,44 @@ if.end.i.i:                                       ; preds = %if.then.i
   %call.i.i.i = tail call i32 @kvm_dirty_ring_size() #10
   %conv.i.i.i = zext i32 %call.i.i.i to i64
   %call1.i.i.i = tail call i64 @qemu_target_pages_to_MiB(i64 noundef %conv.i.i.i) #10
-  %13 = load i64, ptr @dirtylimit_dirty_ring_full_time.max_dirtyrate, align 8
-  %cmp.i.i.i = icmp ult i64 %13, %12
+  %14 = load i64, ptr @dirtylimit_dirty_ring_full_time.max_dirtyrate, align 8
+  %cmp.i.i.i = icmp ult i64 %14, %13
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %dirtylimit_dirty_ring_full_time.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  store i64 %12, ptr @dirtylimit_dirty_ring_full_time.max_dirtyrate, align 8
+  store i64 %13, ptr @dirtylimit_dirty_ring_full_time.max_dirtyrate, align 8
   br label %dirtylimit_dirty_ring_full_time.exit.i.i
 
 dirtylimit_dirty_ring_full_time.exit.i.i:         ; preds = %if.then.i.i.i, %if.end.i.i
-  %14 = phi i64 [ %12, %if.then.i.i.i ], [ %13, %if.end.i.i ]
+  %15 = phi i64 [ %13, %if.then.i.i.i ], [ %14, %if.end.i.i ]
   %mul.i.i.i = mul i64 %call1.i.i.i, 1000000
-  %div.i.i.i = udiv i64 %mul.i.i.i, %14
+  %div.i.i.i = udiv i64 %mul.i.i.i, %15
   %mul.i36.i.i = mul i64 %sub.i.i, 100
   %div.i37.i.i = udiv i64 %mul.i36.i.i, %cond6.i.i
   %cmp7.i.i.i = icmp ugt i64 %div.i37.i.i, 50
-  %cmp3.i.i = icmp ult i64 %9, %12
+  %cmp3.i.i = icmp ult i64 %9, %13
   %throttle_us_per_full10.i.i = getelementptr inbounds i8, ptr %cpu.06, i64 752
-  %15 = load i64, ptr %throttle_us_per_full10.i.i, align 16
+  %16 = load i64, ptr %throttle_us_per_full10.i.i, align 16
   br i1 %cmp7.i.i.i, label %if.then2.i.i, label %if.else23.i.i
 
 if.then2.i.i:                                     ; preds = %dirtylimit_dirty_ring_full_time.exit.i.i
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else.i.i
 
 if.then4.i.i:                                     ; preds = %if.then2.i.i
-  %sub.i7.i = sub nuw i64 %12, %9
+  %sub.i7.i = sub nuw i64 %13, %9
   %mul.i.i = mul i64 %sub.i7.i, 100
-  %div.i.i = udiv i64 %mul.i.i, %12
+  %div.i.i = udiv i64 %mul.i.i, %13
   %mul5.i.i = mul i64 %div.i.i, %div.i.i.i
   %conv.i.i = uitofp i64 %mul5.i.i to double
   %sub6.i.i = sub i64 100, %div.i.i
   %conv7.i.i = uitofp i64 %sub6.i.i to double
   %div8.i.i = fdiv double %conv.i.i, %conv7.i.i
   %conv9.i.i = fptoui double %div8.i.i to i64
-  %add.i.i = add i64 %15, %conv9.i.i
+  %add.i.i = add i64 %16, %conv9.i.i
   br label %if.end22.i.i
 
 if.else.i.i:                                      ; preds = %if.then2.i.i
-  %sub11.i.i = sub nuw i64 %9, %12
+  %sub11.i.i = sub nuw i64 %9, %13
   %mul12.i.i = mul i64 %sub11.i.i, 100
   %div13.i.i = udiv i64 %mul12.i.i, %9
   %mul14.i.i = mul i64 %div13.i.i, %div.i.i.i
@@ -534,7 +543,7 @@ if.else.i.i:                                      ; preds = %if.then2.i.i
   %conv17.i.i = uitofp i64 %sub16.i.i to double
   %div18.i.i = fdiv double %conv15.i.i, %conv17.i.i
   %conv19.i.i = fptoui double %div18.i.i to i64
-  %sub21.i.i = sub i64 %15, %conv19.i.i
+  %sub21.i.i = sub i64 %16, %conv19.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.else.i.i, %if.then4.i.i
@@ -542,36 +551,36 @@ if.end22.i.i:                                     ; preds = %if.else.i.i, %if.th
   %throttle_us.0.i.i = phi i64 [ %conv19.i.i, %if.else.i.i ], [ %conv9.i.i, %if.then4.i.i ]
   %sleep_pct.0.i.i = phi i64 [ %div13.i.i, %if.else.i.i ], [ %div.i.i, %if.then4.i.i ]
   store i64 %sub21.sink.i.i, ptr %throttle_us_per_full10.i.i, align 16
-  %16 = load i32, ptr %cpu_index, align 8
+  %17 = load i32, ptr %cpu_index, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %17 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i = icmp ne i32 %17, 0
-  %18 = load i16, ptr @_TRACE_DIRTYLIMIT_THROTTLE_PCT_DSTATE, align 2
-  %tobool4.i.i.i.i = icmp ne i16 %18, 0
+  %18 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i.i = icmp ne i32 %18, 0
+  %19 = load i16, ptr @_TRACE_DIRTYLIMIT_THROTTLE_PCT_DSTATE, align 2
+  %tobool4.i.i.i.i = icmp ne i16 %19, 0
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %trace_dirtylimit_throttle_pct.exit.i.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %if.end22.i.i
-  %19 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i = and i32 %19, 32768
+  %20 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i.i = and i32 %20, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i, label %trace_dirtylimit_throttle_pct.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.i.i
-  %20 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i.i = trunc i8 %20 to i1
+  %21 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i.i = trunc i8 %21 to i1
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #10
   %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #10
-  %21 = load i64, ptr %_now.i.i.i.i, align 8
-  %22 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i.i.i, i64 noundef %21, i64 noundef %22, i32 noundef %16, i64 noundef %sleep_pct.0.i.i, i64 noundef %throttle_us.0.i.i) #10
+  %22 = load i64, ptr %_now.i.i.i.i, align 8
+  %23 = load i64, ptr %tv_usec.i.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i.i.i, i64 noundef %22, i64 noundef %23, i32 noundef %17, i64 noundef %sleep_pct.0.i.i, i64 noundef %throttle_us.0.i.i) #10
   br label %trace_dirtylimit_throttle_pct.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %16, i64 noundef %sleep_pct.0.i.i, i64 noundef %throttle_us.0.i.i) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %17, i64 noundef %sleep_pct.0.i.i, i64 noundef %throttle_us.0.i.i) #10
   br label %trace_dirtylimit_throttle_pct.exit.i.i
 
 trace_dirtylimit_throttle_pct.exit.i.i:           ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end22.i.i
@@ -584,27 +593,27 @@ if.else23.i.i:                                    ; preds = %dirtylimit_dirty_ri
 
 if.then26.i.i:                                    ; preds = %if.else23.i.i
   %div27.i.i = sdiv i64 %div.i.i.i, 10
-  %add29.i.i = add i64 %15, %div27.i.i
+  %add29.i.i = add i64 %16, %div27.i.i
   br label %if.end35.i.i
 
 if.else30.i.i:                                    ; preds = %if.else23.i.i
   %div31.neg.i.i = sdiv i64 %div.i.i.i, -10
-  %sub33.i.i = add i64 %15, %div31.neg.i.i
+  %sub33.i.i = add i64 %16, %div31.neg.i.i
   br label %if.end35.i.i
 
 if.end35.i.i:                                     ; preds = %if.else30.i.i, %if.then26.i.i, %trace_dirtylimit_throttle_pct.exit.i.i
-  %23 = phi i64 [ %add29.i.i, %if.then26.i.i ], [ %sub33.i.i, %if.else30.i.i ], [ %.pre.i.i, %trace_dirtylimit_throttle_pct.exit.i.i ]
+  %24 = phi i64 [ %add29.i.i, %if.then26.i.i ], [ %sub33.i.i, %if.else30.i.i ], [ %.pre.i.i, %trace_dirtylimit_throttle_pct.exit.i.i ]
   %mul37.i.i = mul i64 %div.i.i.i, 99
-  %cond.i6.i = tail call i64 @llvm.smin.i64(i64 %23, i64 %mul37.i.i)
+  %cond.i6.i = tail call i64 @llvm.smin.i64(i64 %24, i64 %mul37.i.i)
   %cond48.i.i = tail call i64 @llvm.smax.i64(i64 %cond.i6.i, i64 0)
   store i64 %cond48.i.i, ptr %throttle_us_per_full10.i.i, align 16
   br label %while.end18
 
 while.end18:                                      ; preds = %if.end35.i.i, %if.then.i.i, %if.end13, %for.body
   %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
-  %24 = load atomic i64, ptr %node monotonic, align 8
+  %25 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %tobool9.not = icmp eq i64 %24, 0
+  %tobool9.not = icmp eq i64 %25, 0
   br i1 %tobool9.not, label %if.end20.sink.split, label %for.body, !llvm.loop !11
 
 if.end20.sink.split:                              ; preds = %while.end18, %while.end7, %if.then
@@ -1169,7 +1178,7 @@ entry:
   br i1 %tobool.not9, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %while.end6
-  %cpu.012.in = phi i64 [ %6, %while.end6 ], [ %0, %entry ]
+  %cpu.012.in = phi i64 [ %7, %while.end6 ], [ %0, %entry ]
   %curr_rate.011 = phi i64 [ %curr_rate.1, %while.end6 ], [ 0, %entry ]
   %nvcpus.010 = phi i32 [ %nvcpus.1, %while.end6 ], [ 0, %entry ]
   %cpu.012 = inttoptr i64 %cpu.012.in to ptr
@@ -1185,19 +1194,21 @@ if.then:                                          ; preds = %for.body
   %3 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
   %rates1.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %rates1.i, align 8
-  %idxprom.i = sext i32 %2 to i64
-  %dirty_rate.i = getelementptr %struct.DirtyRateVcpu, ptr %4, i64 %idxprom.i, i32 1
-  %5 = load atomic i64, ptr %dirty_rate.i monotonic, align 8
-  %add = add i64 %5, %curr_rate.011
+  %idxprom.scale.i = shl i32 %2, 1
+  %5 = sext i32 %idxprom.scale.i to i64
+  %arrayidx.i = getelementptr i64, ptr %4, i64 %5
+  %dirty_rate.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %6 = load atomic i64, ptr %dirty_rate.i monotonic, align 8
+  %add = add i64 %6, %curr_rate.011
   br label %while.end6
 
 while.end6:                                       ; preds = %for.body, %if.then
   %nvcpus.1 = phi i32 [ %inc, %if.then ], [ %nvcpus.010, %for.body ]
   %curr_rate.1 = phi i64 [ %add, %if.then ], [ %curr_rate.011, %for.body ]
   %node = getelementptr inbounds i8, ptr %cpu.012, i64 568
-  %6 = load atomic i64, ptr %node monotonic, align 8
+  %7 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
-  %tobool.not = icmp eq i64 %6, 0
+  %tobool.not = icmp eq i64 %7, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %while.end6
@@ -1212,8 +1223,8 @@ if.end11:                                         ; preds = %for.end
   %call.i = tail call i32 @kvm_dirty_ring_size() #10
   %conv.i = zext i32 %call.i to i64
   %call1.i = tail call i64 @qemu_target_pages_to_MiB(i64 noundef %conv.i) #10
-  %7 = load i64, ptr @dirtylimit_dirty_ring_full_time.max_dirtyrate, align 8
-  %cmp.i = icmp ult i64 %7, %div
+  %8 = load i64, ptr @dirtylimit_dirty_ring_full_time.max_dirtyrate, align 8
+  %cmp.i = icmp ult i64 %8, %div
   br i1 %cmp.i, label %if.then.i, label %dirtylimit_dirty_ring_full_time.exit
 
 if.then.i:                                        ; preds = %if.end11
@@ -1221,9 +1232,9 @@ if.then.i:                                        ; preds = %if.end11
   br label %dirtylimit_dirty_ring_full_time.exit
 
 dirtylimit_dirty_ring_full_time.exit:             ; preds = %if.end11, %if.then.i
-  %8 = phi i64 [ %div, %if.then.i ], [ %7, %if.end11 ]
+  %9 = phi i64 [ %div, %if.then.i ], [ %8, %if.end11 ]
   %mul.i = mul i64 %call1.i, 1000000
-  %div.i = udiv i64 %mul.i, %8
+  %div.i = udiv i64 %mul.i, %9
   br label %return
 
 return:                                           ; preds = %entry, %for.end, %dirtylimit_dirty_ring_full_time.exit
@@ -1251,7 +1262,7 @@ for.cond.preheader.i:                             ; preds = %entry
   br i1 %cmp7.i, label %for.body.i, label %dirtylimit_query_all.exit
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
-  %4 = phi ptr [ %15, %for.inc.i ], [ %2, %for.cond.preheader.i ]
+  %4 = phi ptr [ %16, %for.inc.i ], [ %2, %for.cond.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %tail.09.i = phi ptr [ %tail.1.i, %for.inc.i ], [ %head.i, %for.cond.preheader.i ]
   %5 = load ptr, ptr %4, align 8
@@ -1275,26 +1286,29 @@ if.then2.i:                                       ; preds = %for.body.i
   %11 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
   %rates1.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %rates1.i.i.i, align 8
-  %dirty_rate.i.i.i = getelementptr %struct.DirtyRateVcpu, ptr %12, i64 %idxprom.i.i, i32 1
-  %13 = load atomic i64, ptr %dirty_rate.i.i.i monotonic, align 8
+  %idxprom.scale.i.i.i = shl i32 %6, 1
+  %13 = sext i32 %idxprom.scale.i.i.i to i64
+  %arrayidx.i6.i.i = getelementptr i64, ptr %12, i64 %13
+  %dirty_rate.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i6.i.i, i64 8
+  %14 = load atomic i64, ptr %dirty_rate.i.i.i monotonic, align 8
   %current_rate.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  store i64 %13, ptr %current_rate.i.i, align 8
+  store i64 %14, ptr %current_rate.i.i, align 8
   %call4.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call4.i, ptr %tail.09.i, align 8
   %value.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   store ptr %call.i.i, ptr %value.i, align 8
-  %14 = load ptr, ptr %tail.09.i, align 8
+  %15 = load ptr, ptr %tail.09.i, align 8
   %.pre.i = load ptr, ptr @dirtylimit_state, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then2.i, %for.body.i
-  %15 = phi ptr [ %.pre.i, %if.then2.i ], [ %4, %for.body.i ]
-  %tail.1.i = phi ptr [ %14, %if.then2.i ], [ %tail.09.i, %for.body.i ]
+  %16 = phi ptr [ %.pre.i, %if.then2.i ], [ %4, %for.body.i ]
+  %tail.1.i = phi ptr [ %15, %if.then2.i ], [ %tail.09.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %max_cpus.i = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load i32, ptr %max_cpus.i, align 8
-  %17 = sext i32 %16 to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %17
+  %max_cpus.i = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load i32, ptr %max_cpus.i, align 8
+  %18 = sext i32 %17 to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %18
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !19
 
 for.end.loopexit.i:                               ; preds = %for.inc.i

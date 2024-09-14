@@ -1585,13 +1585,13 @@ define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef %0, ptr n
   %10 = icmp eq i8 %8, 93
   %11 = getelementptr inbounds i8, ptr %.064, i64 2
   %spec.select = select i1 %10, ptr %9, ptr %.064
-  %spec.select75 = select i1 %10, ptr %11, ptr %9
+  %spec.select78 = select i1 %10, ptr %11, ptr %9
   br label %12
 
 12:                                               ; preds = %16, %7
   %.2 = phi ptr [ %spec.select, %7 ], [ %.1, %16 ]
   %.060 = phi i32 [ 0, %7 ], [ %.161, %16 ]
-  %.1 = phi ptr [ %spec.select75, %7 ], [ %17, %16 ]
+  %.1 = phi ptr [ %spec.select78, %7 ], [ %17, %16 ]
   %13 = load i8, ptr %.2, align 1
   switch i8 %13, label %16 [
     i8 93, label %18
@@ -1641,28 +1641,28 @@ define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef %0, ptr n
   %35 = load ptr, ptr %24, align 8
   store i32 1, ptr %32, align 4
   store i8 %33, ptr %35, align 1
-  %.pre80 = load i8, ptr %9, align 1
+  %.pre83 = load i8, ptr %9, align 1
   br label %36
 
 36:                                               ; preds = %29, %34
-  %37 = phi i8 [ %.pre80, %34 ], [ %33, %29 ]
+  %37 = phi i8 [ %.pre83, %34 ], [ %33, %29 ]
   %.167 = phi ptr [ %11, %34 ], [ %9, %29 ]
   %.3 = phi ptr [ %9, %34 ], [ %.064, %29 ]
-  %.not7476 = icmp eq i8 %37, 93
-  br i1 %.not7476, label %._crit_edge, label %.lr.ph
+  %.not7479 = icmp eq i8 %37, 93
+  br i1 %.not7479, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %36, %80
-  %38 = phi i8 [ %81, %80 ], [ %37, %36 ]
-  %.06279 = phi i8 [ %.163, %80 ], [ %33, %36 ]
-  %.478 = phi ptr [ %.369, %80 ], [ %.3, %36 ]
-  %.26877 = phi ptr [ %82, %80 ], [ %.167, %36 ]
-  %39 = load i8, ptr %.26877, align 1
+.lr.ph:                                           ; preds = %36, %81
+  %38 = phi i8 [ %82, %81 ], [ %37, %36 ]
+  %.06282 = phi i8 [ %.163, %81 ], [ %33, %36 ]
+  %.481 = phi ptr [ %.369, %81 ], [ %.3, %36 ]
+  %.26880 = phi ptr [ %83, %81 ], [ %.167, %36 ]
+  %39 = load i8, ptr %.26880, align 1
   %40 = icmp eq i8 %39, 45
-  br i1 %40, label %80, label %41
+  br i1 %40, label %81, label %41
 
 41:                                               ; preds = %.lr.ph
   %42 = icmp eq i8 %38, 45
-  br i1 %42, label %43, label %74
+  br i1 %42, label %43, label %75
 
 43:                                               ; preds = %41
   %44 = icmp eq i8 %39, 93
@@ -1675,8 +1675,8 @@ define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef %0, ptr n
   store i32 %48, ptr %32, align 4
   %49 = sext i32 %47 to i64
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
-  store i8 %.06279, ptr %50, align 1
-  %51 = load i8, ptr %.478, align 1
+  store i8 %.06282, ptr %50, align 1
+  %51 = load i8, ptr %.481, align 1
   %52 = load ptr, ptr %24, align 8
   %53 = load i32, ptr %32, align 4
   %54 = add nsw i32 %53, 1
@@ -1687,17 +1687,18 @@ define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef %0, ptr n
   br label %thread-pre-split
 
 57:                                               ; preds = %43
-  %58 = getelementptr inbounds i8, ptr %.26877, i64 1
-  %59 = icmp slt i8 %.06279, %39
+  %58 = getelementptr inbounds i8, ptr %.26880, i64 1
+  %59 = icmp slt i8 %.06282, %39
   %60 = load ptr, ptr %30, align 8
   %61 = load i32, ptr %31, align 8
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.Range, ptr %60, i64 %62
+  %.scale76 = shl nsw i32 %61, 1
+  %62 = sext i32 %.scale76 to i64
+  %63 = getelementptr inbounds i8, ptr %60, i64 %62
   br i1 %59, label %64, label %66
 
 64:                                               ; preds = %57
-  store i8 %.06279, ptr %63, align 1
-  %65 = load i8, ptr %.26877, align 1
+  store i8 %.06282, ptr %63, align 1
+  %65 = load i8, ptr %.26880, align 1
   br label %67
 
 66:                                               ; preds = %57
@@ -1705,42 +1706,44 @@ define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef %0, ptr n
   br label %67
 
 67:                                               ; preds = %66, %64
-  %.06279.sink = phi i8 [ %.06279, %66 ], [ %65, %64 ]
+  %.06282.sink = phi i8 [ %.06282, %66 ], [ %65, %64 ]
   %68 = load ptr, ptr %30, align 8
   %69 = load i32, ptr %31, align 8
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.Range, ptr %68, i64 %70, i32 1
-  store i8 %.06279.sink, ptr %71, align 1
-  %72 = load i32, ptr %31, align 8
-  %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %31, align 8
+  %.scale75 = shl nsw i32 %69, 1
+  %70 = sext i32 %.scale75 to i64
+  %71 = getelementptr inbounds i8, ptr %68, i64 %70
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  store i8 %.06282.sink, ptr %72, align 1
+  %73 = load i32, ptr %31, align 8
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %31, align 8
   br label %thread-pre-split
 
-74:                                               ; preds = %41
-  %75 = load ptr, ptr %24, align 8
-  %76 = load i32, ptr %32, align 4
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %32, align 4
-  %78 = sext i32 %76 to i64
-  %79 = getelementptr inbounds i8, ptr %75, i64 %78
-  store i8 %38, ptr %79, align 1
+75:                                               ; preds = %41
+  %76 = load ptr, ptr %24, align 8
+  %77 = load i32, ptr %32, align 4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %32, align 4
+  %79 = sext i32 %77 to i64
+  %80 = getelementptr inbounds i8, ptr %76, i64 %79
+  store i8 %38, ptr %80, align 1
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %45, %67, %74
-  %.369.ph = phi ptr [ %.26877, %74 ], [ %58, %67 ], [ %.26877, %45 ]
+thread-pre-split:                                 ; preds = %45, %67, %75
+  %.369.ph = phi ptr [ %.26880, %75 ], [ %58, %67 ], [ %.26880, %45 ]
   %.pr = load i8, ptr %.369.ph, align 1
-  br label %80
+  br label %81
 
-80:                                               ; preds = %thread-pre-split, %.lr.ph
-  %81 = phi i8 [ %.pr, %thread-pre-split ], [ 45, %.lr.ph ]
-  %.369 = phi ptr [ %.369.ph, %thread-pre-split ], [ %.26877, %.lr.ph ]
-  %.163 = phi i8 [ %.06279, %thread-pre-split ], [ %38, %.lr.ph ]
-  %82 = getelementptr inbounds i8, ptr %.369, i64 1
-  %.not74 = icmp eq i8 %81, 93
+81:                                               ; preds = %thread-pre-split, %.lr.ph
+  %82 = phi i8 [ %.pr, %thread-pre-split ], [ 45, %.lr.ph ]
+  %.369 = phi ptr [ %.369.ph, %thread-pre-split ], [ %.26880, %.lr.ph ]
+  %.163 = phi i8 [ %.06282, %thread-pre-split ], [ %38, %.lr.ph ]
+  %83 = getelementptr inbounds i8, ptr %.369, i64 1
+  %.not74 = icmp eq i8 %82, 93
   br i1 %.not74, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %80, %36
-  %.268.lcssa = phi ptr [ %.167, %36 ], [ %82, %80 ]
+._crit_edge:                                      ; preds = %81, %36
+  %.268.lcssa = phi ptr [ %.167, %36 ], [ %83, %81 ]
   ret ptr %.268.lcssa
 }
 

@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator.0" = type { i8 }
-%struct.gmx_enxnm_t = type { ptr, ptr }
 
 $_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6formatE = comdat any
 
@@ -2189,7 +2188,8 @@ define internal fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %
   %.02234 = phi i32 [ 0, %.preheader ], [ %20, %14 ]
   %15 = load ptr, ptr @stderr, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds %struct.gmx_enxnm_t, ptr %1, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %16 = getelementptr inbounds i8, ptr %1, i64 %.idx
   %17 = load ptr, ptr %16, align 8
   %18 = trunc nsw i64 %indvars.iv.next to i32
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.81, i32 noundef %18, ptr noundef %17) #24
@@ -2257,8 +2257,8 @@ define internal fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next41, %51 ]
-  %42 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv40
+  %indvars.iv41 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next42, %51 ]
+  %42 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv41
   %43 = load i8, ptr %42, align 1
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %51
@@ -2269,13 +2269,13 @@ define internal fastcc noundef ptr @_ZL9select_itiP11gmx_enxnm_tPi(i32 noundef %
   store i32 %47, ptr %2, align 4
   %48 = sext i32 %46 to i64
   %49 = getelementptr inbounds i32, ptr %41, i64 %48
-  %50 = trunc nuw nsw i64 %indvars.iv40 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv41 to i32
   store i32 %50, ptr %49, align 4
   br label %51
 
 51:                                               ; preds = %.lr.ph, %45
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %51, %40

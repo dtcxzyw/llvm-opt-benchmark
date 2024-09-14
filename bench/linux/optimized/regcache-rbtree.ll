@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.regcache_ops = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.reg_default = type { i32, i32 }
-%struct.regmap_range = type { i32, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"rbtree\00", align 1
 @regcache_rbtree_ops = dso_local local_unnamed_addr global %struct.regcache_ops { ptr @.str, i32 1, ptr @regcache_rbtree_init, ptr @regcache_rbtree_exit, ptr @rbtree_debugfs_init, ptr @regcache_rbtree_read, ptr @regcache_rbtree_write, ptr @regcache_rbtree_sync, ptr @regcache_rbtree_drop }, align 8
@@ -44,8 +42,9 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_init(ptr noundef %0) #0 a
 16:                                               ; preds = %12, %10
   %17 = phi i32 [ 0, %10 ], [ %13, %12 ]
   %18 = load ptr, ptr %11, align 8
-  %19 = sext i32 %17 to i64
-  %20 = getelementptr %struct.reg_default, ptr %18, i64 %19
+  %.scale = shl i32 %17, 1
+  %19 = sext i32 %.scale to i64
+  %20 = getelementptr i32, ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = getelementptr inbounds i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4
@@ -229,7 +228,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %19 = icmp ugt i32 %11, %1
   %20 = icmp ult i32 %18, %1
   %21 = select i1 %19, i1 true, i1 %20
-  br i1 %21, label %22, label %.thread23
+  br i1 %21, label %22, label %.thread24
 
 22:                                               ; preds = %9, %3
   %23 = load ptr, ptr %5, align 8
@@ -274,18 +273,18 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %50 = getelementptr i8, ptr %29, i64 -24
   store ptr %50, ptr %6, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread, label %..thread23_crit_edge
+  br i1 %51, label %.thread, label %..thread24_crit_edge
 
-..thread23_crit_edge:                             ; preds = %49
+..thread24_crit_edge:                             ; preds = %49
   %.phi.trans.insert = getelementptr i8, ptr %29, i64 -8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.pre50 = load i32, ptr %26, align 4
-  br label %.thread23
+  %.pre51 = load i32, ptr %26, align 4
+  br label %.thread24
 
-.thread23:                                        ; preds = %..thread23_crit_edge, %9
-  %52 = phi i32 [ %.pre50, %..thread23_crit_edge ], [ %16, %9 ]
-  %53 = phi i32 [ %.pre, %..thread23_crit_edge ], [ %11, %9 ]
-  %54 = phi ptr [ %50, %..thread23_crit_edge ], [ %7, %9 ]
+.thread24:                                        ; preds = %..thread24_crit_edge, %9
+  %52 = phi i32 [ %.pre51, %..thread24_crit_edge ], [ %16, %9 ]
+  %53 = phi i32 [ %.pre, %..thread24_crit_edge ], [ %11, %9 ]
+  %54 = phi ptr [ %50, %..thread24_crit_edge ], [ %7, %9 ]
   %55 = sub i32 %1, %53
   %56 = udiv i32 %55, %52
   %57 = getelementptr inbounds i8, ptr %54, i64 8
@@ -294,7 +293,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, i64 %59) #10, !srcloc !11
   %60 = load ptr, ptr %54, align 8
   tail call void @regcache_set_val(ptr noundef %0, ptr noundef %60, i32 noundef %56, i32 noundef %2) #10
-  br label %.thread31
+  br label %.thread32
 
 .thread:                                          ; preds = %46, %22, %49
   %61 = getelementptr inbounds i8, ptr %0, i64 508
@@ -308,7 +307,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %69 = trunc i64 %68 to i32
   %70 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 %69)
   %71 = add i32 %1, %69
-  br i1 %24, label %.thread24, label %.preheader
+  br i1 %24, label %.thread25, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %105
   %72 = phi ptr [ %108, %105 ], [ %23, %.thread ]
@@ -363,7 +362,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
 
 110:                                              ; preds = %105, %103
   %111 = icmp eq ptr %101, null
-  br i1 %111, label %.thread24, label %112
+  br i1 %111, label %.thread25, label %112
 
 112:                                              ; preds = %110
   %113 = sub i32 %98, %100
@@ -382,7 +381,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %126 = load i32, ptr %125, align 8
   %127 = tail call ptr @krealloc(ptr noundef %122, i64 noundef %124, i32 noundef %126) #11
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %.thread31, label %129
+  br i1 %128, label %.thread32, label %129
 
 129:                                              ; preds = %112
   store ptr %127, ptr %101, align 8
@@ -404,7 +403,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %143 = load i32, ptr %125, align 8
   %144 = tail call ptr @krealloc(ptr noundef %140, i64 noundef %142, i32 noundef %143) #11
   %145 = icmp eq ptr %144, null
-  br i1 %145, label %.thread31, label %146
+  br i1 %145, label %.thread32, label %146
 
 146:                                              ; preds = %141
   %147 = load i32, ptr %133, align 4
@@ -420,7 +419,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
 154:                                              ; preds = %146, %129
   %155 = phi ptr [ %144, %146 ], [ %140, %129 ]
   %156 = icmp ugt i32 %62, %116
-  br i1 %156, label %157, label %.thread32
+  br i1 %156, label %157, label %.thread33
 
 157:                                              ; preds = %154
   %158 = load i32, ptr %65, align 8
@@ -432,9 +431,9 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %164 = zext i32 %163 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %161, ptr nonnull align 1 %127, i64 %164, i1 false)
   tail call void @__bitmap_shift_left(ptr noundef %155, ptr noundef %155, i32 noundef %121, i32 noundef %115) #10
-  br label %.thread32
+  br label %.thread33
 
-.thread32:                                        ; preds = %157, %154
+.thread33:                                        ; preds = %157, %154
   store i32 %115, ptr %133, align 4
   store i32 %100, ptr %118, align 8
   store ptr %155, ptr %139, align 8
@@ -443,35 +442,35 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   %166 = load ptr, ptr %101, align 8
   tail call void @regcache_set_val(ptr noundef %0, ptr noundef %166, i32 noundef %117, i32 noundef %2) #10
   store ptr %101, ptr %6, align 8
-  br label %.thread31
+  br label %.thread32
 
-.thread24:                                        ; preds = %.thread, %110
+.thread25:                                        ; preds = %.thread, %110
   %167 = getelementptr inbounds i8, ptr %0, i64 56
   %168 = load i32, ptr %167, align 8
   %169 = and i32 %168, 17
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %175, label %171, !prof !13
 
-171:                                              ; preds = %.thread24
+171:                                              ; preds = %.thread25
   %172 = and i32 %168, 1
   %173 = icmp eq i32 %172, 0
   %174 = select i1 %173, i64 1, i64 2
   br label %175
 
-175:                                              ; preds = %171, %.thread24
-  %176 = phi i64 [ 0, %.thread24 ], [ %174, %171 ]
+175:                                              ; preds = %171, %.thread25
+  %176 = phi i64 [ 0, %.thread25 ], [ %174, %171 ]
   %177 = or i32 %168, 256
   %178 = getelementptr [3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 %176, i64 6
   %179 = load ptr, ptr %178, align 16
   %180 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %179, i32 noundef %177, i64 noundef 48) #9
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.thread31, label %182
+  br i1 %181, label %.thread32, label %182
 
 182:                                              ; preds = %175
   %183 = getelementptr inbounds i8, ptr %0, i64 400
   %184 = load ptr, ptr %183, align 8
   %185 = icmp eq ptr %184, null
-  br i1 %185, label %.thread27, label %186
+  br i1 %185, label %.thread28, label %186
 
 186:                                              ; preds = %182
   %187 = getelementptr inbounds i8, ptr %184, i64 8
@@ -485,8 +484,9 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
 
 192:                                              ; preds = %202, %190
   %193 = phi i32 [ 0, %190 ], [ %203, %202 ]
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr %struct.regmap_range, ptr %191, i64 %194
+  %.scale = shl i32 %193, 1
+  %194 = sext i32 %.scale to i64
+  %195 = getelementptr i32, ptr %191, i64 %194
   %196 = load i32, ptr %195, align 4
   %197 = icmp ugt i32 %196, %1
   br i1 %197, label %202, label %198
@@ -500,17 +500,18 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
 202:                                              ; preds = %198, %192
   %203 = add nuw i32 %193, 1
   %204 = icmp eq i32 %203, %188
-  br i1 %204, label %.thread27, label %192, !llvm.loop !14
+  br i1 %204, label %.thread28, label %192, !llvm.loop !14
 
 .loopexit:                                        ; preds = %198, %186
   %205 = phi i32 [ 0, %186 ], [ %193, %198 ]
   %206 = icmp eq i32 %205, %188
-  br i1 %206, label %.thread27, label %207
+  br i1 %206, label %.thread28, label %207
 
 207:                                              ; preds = %.loopexit
   %208 = load ptr, ptr %184, align 8
-  %209 = sext i32 %205 to i64
-  %210 = getelementptr %struct.regmap_range, ptr %208, i64 %209
+  %.scale23 = shl i32 %205, 1
+  %209 = sext i32 %.scale23 to i64
+  %210 = getelementptr i32, ptr %208, i64 %209
   %211 = getelementptr inbounds i8, ptr %210, i64 4
   %212 = load i32, ptr %211, align 4
   %213 = load i32, ptr %210, align 4
@@ -522,22 +523,22 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   store i32 %217, ptr %218, align 4
   %219 = getelementptr inbounds i8, ptr %180, i64 16
   store i32 %213, ptr %219, align 8
-  br label %.thread27
+  br label %.thread28
 
-.thread27:                                        ; preds = %202, %207, %.loopexit, %182
+.thread28:                                        ; preds = %202, %207, %.loopexit, %182
   %220 = getelementptr inbounds i8, ptr %180, i64 20
   %221 = load i32, ptr %220, align 4
   %222 = icmp eq i32 %221, 0
   br i1 %222, label %223, label %225
 
-223:                                              ; preds = %.thread27
+223:                                              ; preds = %.thread28
   store i32 1, ptr %220, align 4
   %224 = getelementptr inbounds i8, ptr %180, i64 16
   store i32 %1, ptr %224, align 8
   br label %225
 
-225:                                              ; preds = %223, %.thread27
-  %226 = phi i32 [ 1, %223 ], [ %221, %.thread27 ]
+225:                                              ; preds = %223, %.thread28
+  %226 = phi i32 [ 1, %223 ], [ %221, %.thread28 ]
   %227 = load i32, ptr %65, align 8
   %228 = zext i32 %227 to i64
   %229 = zext i32 %226 to i64
@@ -567,7 +568,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
 
 245:                                              ; preds = %243, %225
   tail call void @kfree(ptr noundef nonnull %180) #10
-  br label %.thread31
+  br label %.thread32
 
 246:                                              ; preds = %234
   %247 = getelementptr inbounds i8, ptr %180, i64 16
@@ -626,14 +627,14 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
   store ptr %284, ptr %283, align 8
   tail call void @rb_insert_color(ptr noundef %284, ptr noundef %5) #10
   store ptr %180, ptr %6, align 8
-  br label %.thread31
+  br label %.thread32
 
 286:                                              ; preds = %259
   store ptr %180, ptr %6, align 8
-  br label %.thread31
+  br label %.thread32
 
-.thread31:                                        ; preds = %281, %286, %175, %245, %141, %112, %.thread23, %.thread32
-  %287 = phi i32 [ 0, %.thread32 ], [ 0, %281 ], [ 0, %286 ], [ 0, %.thread23 ], [ -12, %112 ], [ -12, %141 ], [ -12, %245 ], [ -12, %175 ]
+.thread32:                                        ; preds = %281, %286, %175, %245, %141, %112, %.thread24, %.thread33
+  %287 = phi i32 [ 0, %.thread33 ], [ 0, %281 ], [ 0, %286 ], [ 0, %.thread24 ], [ -12, %112 ], [ -12, %141 ], [ -12, %245 ], [ -12, %175 ]
   ret i32 %287
 }
 

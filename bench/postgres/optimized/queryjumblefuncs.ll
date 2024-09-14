@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/queryjumblefuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.LocationLen = type { i32, i32 }
 %union.ListCell = type { ptr }
 
 @compute_query_id = dso_local local_unnamed_addr global i32 2, align 4
@@ -2136,24 +2135,27 @@ AppendJumble.exit:                                ; preds = %10
   %30 = shl nsw i64 %29, 3
   %31 = tail call ptr @repalloc(ptr noundef %28, i64 noundef %30) #9
   store ptr %31, ptr %27, align 8
-  %.pre13.i = load i32, ptr %21, align 4
+  %.pre14.i = load i32, ptr %21, align 4
   br label %32
 
 32:                                               ; preds = %25, %._crit_edge.i
-  %33 = phi i32 [ %22, %._crit_edge.i ], [ %.pre13.i, %25 ]
+  %33 = phi i32 [ %22, %._crit_edge.i ], [ %.pre14.i, %25 ]
   %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %31, %25 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = sext i32 %33 to i64
-  %37 = getelementptr %struct.LocationLen, ptr %34, i64 %36
+  %.scale.i = shl i32 %33, 1
+  %36 = sext i32 %.scale.i to i64
+  %37 = getelementptr i32, ptr %34, i64 %36
   store i32 %18, ptr %37, align 4
   %38 = load ptr, ptr %35, align 8
   %39 = load i32, ptr %21, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr %struct.LocationLen, ptr %38, i64 %40, i32 1
-  store i32 -1, ptr %41, align 4
-  %42 = load i32, ptr %21, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %21, align 4
+  %.scale13.i = shl i32 %39, 1
+  %40 = sext i32 %.scale13.i to i64
+  %41 = getelementptr i32, ptr %38, i64 %40
+  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  store i32 -1, ptr %42, align 4
+  %43 = load i32, ptr %21, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %21, align 4
   br label %RecordConstLocation.exit
 
 RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, %32
@@ -18602,24 +18604,27 @@ AppendJumble.exit15:                              ; preds = %25
   %45 = shl nsw i64 %44, 3
   %46 = tail call ptr @repalloc(ptr noundef %43, i64 noundef %45) #9
   store ptr %46, ptr %42, align 8
-  %.pre13.i = load i32, ptr %36, align 4
+  %.pre14.i = load i32, ptr %36, align 4
   br label %47
 
 47:                                               ; preds = %40, %._crit_edge.i
-  %48 = phi i32 [ %37, %._crit_edge.i ], [ %.pre13.i, %40 ]
+  %48 = phi i32 [ %37, %._crit_edge.i ], [ %.pre14.i, %40 ]
   %49 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %46, %40 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 16
-  %51 = sext i32 %48 to i64
-  %52 = getelementptr %struct.LocationLen, ptr %49, i64 %51
+  %.scale.i = shl i32 %48, 1
+  %51 = sext i32 %.scale.i to i64
+  %52 = getelementptr i32, ptr %49, i64 %51
   store i32 %33, ptr %52, align 4
   %53 = load ptr, ptr %50, align 8
   %54 = load i32, ptr %36, align 4
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr %struct.LocationLen, ptr %53, i64 %55, i32 1
-  store i32 -1, ptr %56, align 4
-  %57 = load i32, ptr %36, align 4
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %36, align 4
+  %.scale13.i = shl i32 %54, 1
+  %55 = sext i32 %.scale13.i to i64
+  %56 = getelementptr i32, ptr %53, i64 %55
+  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  store i32 -1, ptr %57, align 4
+  %58 = load i32, ptr %36, align 4
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %36, align 4
   br label %RecordConstLocation.exit
 
 RecordConstLocation.exit:                         ; preds = %AppendJumble.exit15, %47
@@ -20327,24 +20332,27 @@ AppendJumble.exit:                                ; preds = %10
   %30 = shl nsw i64 %29, 3
   %31 = tail call ptr @repalloc(ptr noundef %28, i64 noundef %30) #9
   store ptr %31, ptr %27, align 8
-  %.pre13.i = load i32, ptr %21, align 4
+  %.pre14.i = load i32, ptr %21, align 4
   br label %32
 
 32:                                               ; preds = %25, %._crit_edge.i
-  %33 = phi i32 [ %22, %._crit_edge.i ], [ %.pre13.i, %25 ]
+  %33 = phi i32 [ %22, %._crit_edge.i ], [ %.pre14.i, %25 ]
   %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %31, %25 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = sext i32 %33 to i64
-  %37 = getelementptr %struct.LocationLen, ptr %34, i64 %36
+  %.scale.i = shl i32 %33, 1
+  %36 = sext i32 %.scale.i to i64
+  %37 = getelementptr i32, ptr %34, i64 %36
   store i32 %18, ptr %37, align 4
   %38 = load ptr, ptr %35, align 8
   %39 = load i32, ptr %21, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr %struct.LocationLen, ptr %38, i64 %40, i32 1
-  store i32 -1, ptr %41, align 4
-  %42 = load i32, ptr %21, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %21, align 4
+  %.scale13.i = shl i32 %39, 1
+  %40 = sext i32 %.scale13.i to i64
+  %41 = getelementptr i32, ptr %38, i64 %40
+  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  store i32 -1, ptr %42, align 4
+  %43 = load i32, ptr %21, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %21, align 4
   br label %RecordConstLocation.exit
 
 RecordConstLocation.exit:                         ; preds = %AppendJumble.exit, %32

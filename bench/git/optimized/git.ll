@@ -2760,13 +2760,14 @@ if.then14:                                        ; preds = %match_token.exit54
   br i1 %cmp6.not.i, label %if.end36, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then14, %if.end.i
-  %5 = phi i64 [ %8, %if.end.i ], [ %4, %if.then14 ]
-  %conv8.i = phi i64 [ %conv.i57, %if.end.i ], [ 0, %if.then14 ]
+  %5 = phi i64 [ %9, %if.end.i ], [ %4, %if.then14 ]
   %i.07.i = phi i32 [ %i.1.i, %if.end.i ], [ 0, %if.then14 ]
   %6 = load ptr, ptr %list, align 8
-  %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %conv8.i
-  %7 = load ptr, ptr %arrayidx.i, align 8
-  %call.i55 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.225) #16
+  %conv.scale.i = shl nsw i32 %i.07.i, 1
+  %7 = sext i32 %conv.scale.i to i64
+  %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = load ptr, ptr %arrayidx.i, align 8
+  %call.i55 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.225) #16
   %tobool.not.i56 = icmp eq ptr %call.i55, null
   br i1 %tobool.not.i56, label %if.else.i, label %if.then.i
 
@@ -2780,10 +2781,10 @@ if.else.i:                                        ; preds = %while.body.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %8 = phi i64 [ %.pre.i, %if.then.i ], [ %5, %if.else.i ]
+  %9 = phi i64 [ %.pre.i, %if.then.i ], [ %5, %if.else.i ]
   %i.1.i = phi i32 [ %i.07.i, %if.then.i ], [ %inc.i, %if.else.i ]
   %conv.i57 = sext i32 %i.1.i to i64
-  %cmp.i58 = icmp ugt i64 %8, %conv.i57
+  %cmp.i58 = icmp ugt i64 %9, %conv.i57
   br i1 %cmp.i58, label %while.body.i, label %if.end36, !llvm.loop !15
 
 match_token.exit68:                               ; preds = %while.body
@@ -2819,8 +2820,8 @@ if.then27:                                        ; preds = %land.lhs.true
   %sub = add i64 %sub.ptr.sub, 4294967291
   %conv28 = and i64 %sub, 4294967295
   call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %add.ptr, i64 noundef %conv28) #15
-  %9 = load ptr, ptr %buf, align 8
-  call void @list_cmds_by_category(ptr noundef nonnull %list, ptr noundef %9) #15
+  %10 = load ptr, ptr %buf, align 8
+  call void @list_cmds_by_category(ptr noundef nonnull %list, ptr noundef %10) #15
   call void @strbuf_release(ptr noundef nonnull %sb) #15
   br label %if.end36
 
@@ -2833,23 +2834,23 @@ if.end36:                                         ; preds = %if.end.i, %for.body
   %sext = shl i64 %sub.ptr.sub, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr37 = getelementptr inbounds i8, ptr %spec.addr.094, i64 %idx.ext
-  %10 = load i8, ptr %add.ptr37, align 1
-  %cmp39 = icmp eq i8 %10, 44
+  %11 = load i8, ptr %add.ptr37, align 1
+  %cmp39 = icmp eq i8 %11, 44
   %spec.select.idx = zext i1 %cmp39 to i64
   %spec.select = getelementptr inbounds i8, ptr %add.ptr37, i64 %spec.select.idx
-  %11 = load i8, ptr %spec.select, align 1
-  %tobool.not = icmp eq i8 %11, 0
+  %12 = load i8, ptr %spec.select, align 1
+  %tobool.not = icmp eq i8 %12, 0
   br i1 %tobool.not, label %for.cond.preheader, label %while.body, !llvm.loop !16
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %12 = load ptr, ptr %list, align 8
-  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %indvars.iv
-  %13 = load ptr, ptr %arrayidx, align 8
-  %call46 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %13)
+  %13 = load ptr, ptr %list, align 8
+  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %indvars.iv
+  %14 = load ptr, ptr %arrayidx, align 8
+  %call46 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i64, ptr %nr, align 8
-  %cmp44 = icmp ugt i64 %14, %indvars.iv.next
+  %15 = load i64, ptr %nr, align 8
+  %cmp44 = icmp ugt i64 %15, %indvars.iv.next
   br i1 %cmp44, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %entry, %for.cond.preheader

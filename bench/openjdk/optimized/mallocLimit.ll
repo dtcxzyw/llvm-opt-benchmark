@@ -156,68 +156,69 @@ _ZL12mode_to_name15MallocLimitMode.exit:          ; preds = %_Z25proper_unit_for
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6, i64 noundef %.0.i23, ptr noundef nonnull %.0.i11, ptr noundef nonnull %.0.i12) #14
   br label %.loopexit
 
-19:                                               ; preds = %.preheader, %38
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
+19:                                               ; preds = %.preheader, %39
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
   %20 = getelementptr inbounds [28 x %struct.malloclimit], ptr %4, i64 0, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8
   %.not10 = icmp eq i64 %21, 0
-  br i1 %.not10, label %38, label %22
+  br i1 %.not10, label %39, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 16
-  %25 = icmp ugt i64 %21, 107374182399
-  br i1 %25, label %_Z24byte_size_in_proper_unitImET_S0_.exit15, label %26
+  %23 = shl nuw nsw i64 %indvars.iv, 4
+  %24 = getelementptr inbounds i8, ptr @_ZN7NMTUtil8_stringsE, i64 %23
+  %25 = load ptr, ptr %24, align 16
+  %26 = icmp ugt i64 %21, 107374182399
+  br i1 %26, label %_Z24byte_size_in_proper_unitImET_S0_.exit15, label %27
 
-26:                                               ; preds = %22
-  %27 = icmp ugt i64 %21, 104857599
-  br i1 %27, label %.thread28, label %30
+27:                                               ; preds = %22
+  %28 = icmp ugt i64 %21, 104857599
+  br i1 %28, label %.thread28, label %31
 
-.thread28:                                        ; preds = %26
-  %28 = lshr i64 %21, 20
+.thread28:                                        ; preds = %27
+  %29 = lshr i64 %21, 20
   br label %_Z25proper_unit_for_byte_sizem.exit18
 
 _Z24byte_size_in_proper_unitImET_S0_.exit15:      ; preds = %22
-  %29 = lshr i64 %21, 30
+  %30 = lshr i64 %21, 30
   br label %_Z25proper_unit_for_byte_sizem.exit18
 
-30:                                               ; preds = %26
-  %31 = icmp ugt i64 %21, 102399
-  %32 = lshr i64 %21, 10
-  %spec.select.i13 = select i1 %31, i64 %32, i64 %21
-  %.str.19..str.20.i16 = select i1 %31, ptr @.str.19, ptr @.str.20
+31:                                               ; preds = %27
+  %32 = icmp ugt i64 %21, 102399
+  %33 = lshr i64 %21, 10
+  %spec.select.i13 = select i1 %32, i64 %33, i64 %21
+  %.str.19..str.20.i16 = select i1 %32, ptr @.str.19, ptr @.str.20
   br label %_Z25proper_unit_for_byte_sizem.exit18
 
-_Z25proper_unit_for_byte_sizem.exit18:            ; preds = %.thread28, %_Z24byte_size_in_proper_unitImET_S0_.exit15, %30
-  %.0.i1427 = phi i64 [ %29, %_Z24byte_size_in_proper_unitImET_S0_.exit15 ], [ %spec.select.i13, %30 ], [ %28, %.thread28 ]
-  %.0.i17 = phi ptr [ @.str.17, %_Z24byte_size_in_proper_unitImET_S0_.exit15 ], [ %.str.19..str.20.i16, %30 ], [ @.str.18, %.thread28 ]
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
-  %34 = load i32, ptr %33, align 8
-  switch i32 %34, label %36 [
+_Z25proper_unit_for_byte_sizem.exit18:            ; preds = %.thread28, %_Z24byte_size_in_proper_unitImET_S0_.exit15, %31
+  %.0.i1427 = phi i64 [ %30, %_Z24byte_size_in_proper_unitImET_S0_.exit15 ], [ %spec.select.i13, %31 ], [ %29, %.thread28 ]
+  %.0.i17 = phi ptr [ @.str.17, %_Z24byte_size_in_proper_unitImET_S0_.exit15 ], [ %.str.19..str.20.i16, %31 ], [ @.str.18, %.thread28 ]
+  %34 = getelementptr inbounds i8, ptr %20, i64 8
+  %35 = load i32, ptr %34, align 8
+  switch i32 %35, label %37 [
     i32 0, label %_ZL12mode_to_name15MallocLimitMode.exit20
-    i32 1, label %35
+    i32 1, label %36
   ]
 
-35:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit18
+36:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit18
   br label %_ZL12mode_to_name15MallocLimitMode.exit20
 
-36:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit18
-  %37 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %37, align 1
+37:                                               ; preds = %_Z25proper_unit_for_byte_sizem.exit18
+  %38 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %38, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.21, i32 noundef 46) #13
   unreachable
 
-_ZL12mode_to_name15MallocLimitMode.exit20:        ; preds = %_Z25proper_unit_for_byte_sizem.exit18, %35
-  %.0.i19 = phi ptr [ @.str.5, %35 ], [ @.str, %_Z25proper_unit_for_byte_sizem.exit18 ]
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, ptr noundef %24, i64 noundef %.0.i1427, ptr noundef nonnull %.0.i17, ptr noundef nonnull %.0.i19) #14
-  br label %38
+_ZL12mode_to_name15MallocLimitMode.exit20:        ; preds = %_Z25proper_unit_for_byte_sizem.exit18, %36
+  %.0.i19 = phi ptr [ @.str.5, %36 ], [ @.str, %_Z25proper_unit_for_byte_sizem.exit18 ]
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, ptr noundef %25, i64 noundef %.0.i1427, ptr noundef nonnull %.0.i17, ptr noundef nonnull %.0.i19) #14
+  br label %39
 
-38:                                               ; preds = %19, %_ZL12mode_to_name15MallocLimitMode.exit20
+39:                                               ; preds = %19, %_ZL12mode_to_name15MallocLimitMode.exit20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !8
 
-.loopexit:                                        ; preds = %38, %_ZL12mode_to_name15MallocLimitMode.exit
+.loopexit:                                        ; preds = %39, %_ZL12mode_to_name15MallocLimitMode.exit
   ret void
 }
 

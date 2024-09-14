@@ -572,9 +572,10 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %62, %64, %70, %72
   %74 = load ptr, ptr %1, align 8
   %75 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv35
   %76 = load i32, ptr %75, align 4
-  %77 = sext i32 %76 to i64
-  %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %78, i64 %77
+  %77 = load ptr, ptr %0, align 8
+  %.scale = shl nsw i32 %76, 1
+  %78 = sext i32 %.scale to i64
+  %79 = getelementptr inbounds i32, ptr %77, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.lr.ph.preheader, label %._crit_edge

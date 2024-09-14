@@ -7,8 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.t_pbc = type { i32, i32, i32, i32, [3 x [3 x float]], [3 x float], [3 x float], [3 x float], float, i32, [12 x [3 x i32]], [12 x [3 x float]] }
 %"class.gmx::BasicVector" = type { [3 x float] }
 %"class.gmx::Site" = type { i32, %"class.gmx::BasicVector" }
-%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
 %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry" = type { i32, %"struct.gmx_ga2la_t::Entry", i32 }
+%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
 %"class.gmx::InvalidInputError" = type { %"class.gmx::UserInputError" }
 %"class.gmx::UserInputError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr.5" }
@@ -168,8 +168,8 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   %22 = ptrtoint ptr %20 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
-  %.not115 = icmp eq i64 %24, 16
-  br i1 %.not115, label %._crit_edge, label %.lr.ph
+  %.not116 = icmp eq i64 %24, 16
+  br i1 %.not116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %.sroa.225.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
@@ -180,10 +180,10 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
 
 27:                                               ; preds = %.lr.ph, %27
   %28 = phi ptr [ %21, %.lr.ph ], [ %44, %27 ]
-  %.068113 = phi i64 [ 0, %.lr.ph ], [ %32, %27 ]
-  %.sroa.8.0112 = phi float [ %.fca.1.extract32, %.lr.ph ], [ %42, %27 ]
-  %.sroa.091.0111 = phi <2 x float> [ %.fca.0.extract31, %.lr.ph ], [ %.sroa.091.4.vec.insert98, %27 ]
-  %29 = getelementptr inbounds %"class.gmx::Site", ptr %28, i64 %.068113
+  %.068114 = phi i64 [ 0, %.lr.ph ], [ %32, %27 ]
+  %.sroa.8.0113 = phi float [ %.fca.1.extract32, %.lr.ph ], [ %42, %27 ]
+  %.sroa.092.0112 = phi <2 x float> [ %.fca.0.extract31, %.lr.ph ], [ %.sroa.092.4.vec.insert99, %27 ]
+  %29 = getelementptr inbounds %"class.gmx::Site", ptr %28, i64 %.068114
   %.sroa.026.0.copyload = load ptr, ptr %1, align 8
   %.sroa.227.0.copyload = load ptr, ptr %.sroa.236.0..sroa_idx, align 8
   %30 = load double, ptr %13, align 8
@@ -192,7 +192,7 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   %.fca.1.extract23 = extractvalue { <2 x float>, float } %31, 1
   store <2 x float> %.fca.0.extract22, ptr %6, align 8
   store float %.fca.1.extract23, ptr %.sroa.225.0..sroa_idx, align 8
-  %32 = add nuw i64 %.068113, 1
+  %32 = add nuw i64 %.068114, 1
   %33 = load ptr, ptr %14, align 8
   %34 = getelementptr inbounds %"class.gmx::Site", ptr %33, i64 %32
   %.sroa.020.0.copyload = load ptr, ptr %1, align 8
@@ -205,15 +205,15 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   store float %.fca.1.extract, ptr %.sroa.219.0..sroa_idx, align 8
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %37 = load float, ptr %5, align 4
-  %.sroa.091.0.vec.extract = extractelement <2 x float> %.sroa.091.0111, i64 0
-  %38 = fadd float %.sroa.091.0.vec.extract, %37
-  %.sroa.091.0.vec.insert95 = insertelement <2 x float> poison, float %38, i64 0
+  %.sroa.092.0.vec.extract = extractelement <2 x float> %.sroa.092.0112, i64 0
+  %38 = fadd float %.sroa.092.0.vec.extract, %37
+  %.sroa.092.0.vec.insert96 = insertelement <2 x float> poison, float %38, i64 0
   %39 = load float, ptr %25, align 4
-  %.sroa.091.4.vec.extract = extractelement <2 x float> %.sroa.091.0111, i64 1
-  %40 = fadd float %.sroa.091.4.vec.extract, %39
-  %.sroa.091.4.vec.insert98 = insertelement <2 x float> %.sroa.091.0.vec.insert95, float %40, i64 1
+  %.sroa.092.4.vec.extract = extractelement <2 x float> %.sroa.092.0112, i64 1
+  %40 = fadd float %.sroa.092.4.vec.extract, %39
+  %.sroa.092.4.vec.insert99 = insertelement <2 x float> %.sroa.092.0.vec.insert96, float %40, i64 1
   %41 = load float, ptr %26, align 4
-  %42 = fadd float %.sroa.8.0112, %41
+  %42 = fadd float %.sroa.8.0113, %41
   %43 = load ptr, ptr %19, align 8
   %44 = load ptr, ptr %14, align 8
   %45 = ptrtoint ptr %43 to i64
@@ -225,7 +225,7 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   br i1 %50, label %27, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %27, %3
-  %.sroa.091.0.lcssa = phi <2 x float> [ %.fca.0.extract31, %3 ], [ %.sroa.091.4.vec.insert98, %27 ]
+  %.sroa.092.0.lcssa = phi <2 x float> [ %.fca.0.extract31, %3 ], [ %.sroa.092.4.vec.insert99, %27 ]
   %.sroa.8.0.lcssa = phi float [ %.fca.1.extract32, %3 ], [ %42, %27 ]
   %51 = getelementptr inbounds i8, ptr %12, i64 96
   %52 = load ptr, ptr %51, align 8
@@ -251,7 +251,7 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   %66 = load ptr, ptr %64, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(8) %64, <2 x float> %.fca.0.extract31, float %.fca.1.extract32, <2 x float> %.sroa.091.0.lcssa, float %.sroa.8.0.lcssa, double noundef %65)
+  call void %68(ptr noundef nonnull align 8 dereferenceable(8) %64, <2 x float> %.fca.0.extract31, float %.fca.1.extract32, <2 x float> %.sroa.092.0.lcssa, float %.sroa.8.0.lcssa, double noundef %65)
   %.val.pre = load ptr, ptr %51, align 8
   %69 = icmp eq ptr %.val.pre, null
   br i1 %69, label %72, label %.thread
@@ -269,7 +269,7 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   %76 = load ptr, ptr %74, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = call { <2 x float>, <2 x float> } %78(ptr noundef nonnull align 8 dereferenceable(8) %74, <2 x float> %.fca.0.extract31, float %.fca.1.extract32, <2 x float> %.sroa.091.0.lcssa, float %.sroa.8.0.lcssa, double noundef %75)
+  %79 = call { <2 x float>, <2 x float> } %78(ptr noundef nonnull align 8 dereferenceable(8) %74, <2 x float> %.fca.0.extract31, float %.fca.1.extract32, <2 x float> %.sroa.092.0.lcssa, float %.sroa.8.0.lcssa, double noundef %75)
   %80 = extractvalue { <2 x float>, <2 x float> } %79, 0
   %81 = extractvalue { <2 x float>, <2 x float> } %79, 1
   %82 = load ptr, ptr %14, align 8
@@ -288,9 +288,10 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   br i1 %92, label %93, label %103
 
 93:                                               ; preds = %87
-  %94 = sext i32 %83 to i64
-  %95 = load ptr, ptr %89, align 8
-  %96 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %95, i64 %94
+  %94 = load ptr, ptr %89, align 8
+  %.scale.i.i = shl nsw i32 %83, 1
+  %95 = sext i32 %.scale.i.i to i64
+  %96 = getelementptr inbounds i32, ptr %94, i64 %95
   %97 = getelementptr inbounds i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, -1
@@ -360,16 +361,16 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit:                ; preds = %_ZNK11gmx_ga2la_t4f
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %130, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %125, align 4
   store float %133, ptr %131, align 4
-  %.pre121 = load ptr, ptr %51, align 8
+  %.pre122 = load ptr, ptr %51, align 8
   br label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit.thread:         ; preds = %115, %_ZNK11gmx_ga2la_t4findEi.exit.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit
-  %134 = phi ptr [ %85, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %.pre121, %_ZNK11gmx_ga2la_t8findHomeEi.exit ], [ %85, %115 ]
+  %134 = phi ptr [ %85, %_ZNK11gmx_ga2la_t4findEi.exit.i ], [ %.pre122, %_ZNK11gmx_ga2la_t8findHomeEi.exit ], [ %85, %115 ]
   %135 = load ptr, ptr %19, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 -16
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq ptr %134, null
-  br i1 %138, label %_ZNK11gmx_ga2la_t8findHomeEi.exit82, label %139
+  br i1 %138, label %_ZNK11gmx_ga2la_t8findHomeEi.exit83, label %139
 
 139:                                              ; preds = %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.thread, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread
   %140 = phi i32 [ %102, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.thread ], [ %137, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread ]
@@ -382,13 +383,14 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.thread:         ; preds = %115, %_ZNK11gmx_ga2
   br i1 %146, label %147, label %154
 
 147:                                              ; preds = %139
-  %148 = sext i32 %140 to i64
-  %149 = load ptr, ptr %143, align 8
-  %150 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %149, i64 %148
+  %148 = load ptr, ptr %143, align 8
+  %.scale.i.i82 = shl nsw i32 %140, 1
+  %149 = sext i32 %.scale.i.i82 to i64
+  %150 = getelementptr inbounds i32, ptr %148, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = icmp eq i32 %152, -1
-  br i1 %153, label %_ZNK11gmx_ga2la_t8findHomeEi.exit82.thread, label %_ZNK11gmx_ga2la_t4findEi.exit.i79
+  br i1 %153, label %_ZNK11gmx_ga2la_t8findHomeEi.exit83.thread, label %_ZNK11gmx_ga2la_t4findEi.exit.i79
 
 154:                                              ; preds = %139
   %155 = getelementptr inbounds i8, ptr %143, i64 24
@@ -415,42 +417,42 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.thread:         ; preds = %115, %_ZNK11gmx_ga2
   %167 = getelementptr inbounds i8, ptr %161, i64 12
   %168 = load i32, ptr %167, align 4
   %169 = icmp sgt i32 %168, -1
-  br i1 %169, label %159, label %_ZNK11gmx_ga2la_t8findHomeEi.exit82.thread, !llvm.loop !7
+  br i1 %169, label %159, label %_ZNK11gmx_ga2la_t8findHomeEi.exit83.thread, !llvm.loop !7
 
 _ZNK11gmx_ga2la_t4findEi.exit.i79:                ; preds = %164, %147
   %170 = phi i32 [ %.pre.i78, %164 ], [ %152, %147 ]
   %.0.i.i80 = phi ptr [ %165, %164 ], [ %150, %147 ]
   %171 = icmp eq i32 %170, 0
-  br i1 %171, label %_ZNK11gmx_ga2la_t4findEi.exit.i79._ZNK11gmx_ga2la_t8findHomeEi.exit82_crit_edge, label %_ZNK11gmx_ga2la_t8findHomeEi.exit82.thread
+  br i1 %171, label %_ZNK11gmx_ga2la_t4findEi.exit.i79._ZNK11gmx_ga2la_t8findHomeEi.exit83_crit_edge, label %_ZNK11gmx_ga2la_t8findHomeEi.exit83.thread
 
-_ZNK11gmx_ga2la_t4findEi.exit.i79._ZNK11gmx_ga2la_t8findHomeEi.exit82_crit_edge: ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i79
-  %.pre122 = load i32, ptr %.0.i.i80, align 4
-  br label %_ZNK11gmx_ga2la_t8findHomeEi.exit82
+_ZNK11gmx_ga2la_t4findEi.exit.i79._ZNK11gmx_ga2la_t8findHomeEi.exit83_crit_edge: ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i79
+  %.pre123 = load i32, ptr %.0.i.i80, align 4
+  br label %_ZNK11gmx_ga2la_t8findHomeEi.exit83
 
-_ZNK11gmx_ga2la_t8findHomeEi.exit82:              ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i79._ZNK11gmx_ga2la_t8findHomeEi.exit82_crit_edge, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread
-  %172 = phi i32 [ %137, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread ], [ %.pre122, %_ZNK11gmx_ga2la_t4findEi.exit.i79._ZNK11gmx_ga2la_t8findHomeEi.exit82_crit_edge ]
+_ZNK11gmx_ga2la_t8findHomeEi.exit83:              ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i79._ZNK11gmx_ga2la_t8findHomeEi.exit83_crit_edge, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread
+  %172 = phi i32 [ %137, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread ], [ %.pre123, %_ZNK11gmx_ga2la_t4findEi.exit.i79._ZNK11gmx_ga2la_t8findHomeEi.exit83_crit_edge ]
   %173 = sext i32 %172 to i64
   %174 = load i64, ptr %84, align 8
   %175 = inttoptr i64 %174 to ptr
   %176 = getelementptr inbounds %"class.gmx::BasicVector", ptr %175, i64 %173
   %177 = load float, ptr %176, align 4
-  %.sroa.0.0.vec.extract86 = extractelement <2 x float> %80, i64 0
-  %178 = fsub float %177, %.sroa.0.0.vec.extract86
+  %.sroa.0.0.vec.extract87 = extractelement <2 x float> %80, i64 0
+  %178 = fsub float %177, %.sroa.0.0.vec.extract87
   %179 = getelementptr inbounds i8, ptr %176, i64 4
   %180 = load float, ptr %179, align 4
-  %.sroa.0.4.vec.extract88 = extractelement <2 x float> %80, i64 1
-  %181 = fsub float %180, %.sroa.0.4.vec.extract88
+  %.sroa.0.4.vec.extract89 = extractelement <2 x float> %80, i64 1
+  %181 = fsub float %180, %.sroa.0.4.vec.extract89
   %182 = getelementptr inbounds i8, ptr %176, i64 8
   %183 = load float, ptr %182, align 4
-  %.sroa.5.8.vec.extract90 = extractelement <2 x float> %81, i64 0
-  %184 = fsub float %183, %.sroa.5.8.vec.extract90
-  %.sroa.0.0.vec.insert.i.i83 = insertelement <2 x float> poison, float %178, i64 0
-  %.sroa.0.4.vec.insert.i.i84 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i83, float %181, i64 1
-  store <2 x float> %.sroa.0.4.vec.insert.i.i84, ptr %176, align 4
+  %.sroa.5.8.vec.extract91 = extractelement <2 x float> %81, i64 0
+  %184 = fsub float %183, %.sroa.5.8.vec.extract91
+  %.sroa.0.0.vec.insert.i.i84 = insertelement <2 x float> poison, float %178, i64 0
+  %.sroa.0.4.vec.insert.i.i85 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i84, float %181, i64 1
+  store <2 x float> %.sroa.0.4.vec.insert.i.i85, ptr %176, align 4
   store float %184, ptr %182, align 4
-  br label %_ZNK11gmx_ga2la_t8findHomeEi.exit82.thread
+  br label %_ZNK11gmx_ga2la_t8findHomeEi.exit83.thread
 
-_ZNK11gmx_ga2la_t8findHomeEi.exit82.thread:       ; preds = %166, %147, %_ZNK11gmx_ga2la_t4findEi.exit.i79, %_ZNK11gmx_ga2la_t8findHomeEi.exit82
+_ZNK11gmx_ga2la_t8findHomeEi.exit83.thread:       ; preds = %166, %147, %_ZNK11gmx_ga2la_t4findEi.exit.i79, %_ZNK11gmx_ga2la_t8findHomeEi.exit83
   ret void
 }
 
@@ -1245,9 +1247,10 @@ define linkonce_odr { <2 x float>, float } @_ZN3gmx4Site12centerOfMassERK9t_comm
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %9
-  %17 = sext i32 %12 to i64
-  %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %18, i64 %17
+  %17 = load ptr, ptr %11, align 8
+  %.scale.i.i = shl nsw i32 %12, 1
+  %18 = sext i32 %.scale.i.i to i64
+  %19 = getelementptr inbounds i32, ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, -1

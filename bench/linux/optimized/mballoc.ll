@@ -6635,8 +6635,9 @@ ext4_mb_mark_diskspace_used.exit:                 ; preds = %1027, %1036
   %1128 = getelementptr inbounds i8, ptr %1122, i64 192
   tail call void @_raw_spin_lock(ptr noundef %1128) #16
   %1129 = getelementptr inbounds i8, ptr %1122, i64 32
-  %1130 = sext i32 %1127 to i64
-  %1131 = getelementptr [10 x %struct.list_head], ptr %1129, i64 0, i64 %1130
+  %.scale = shl i32 %1127, 1
+  %1130 = sext i32 %.scale to i64
+  %1131 = getelementptr ptr, ptr %1129, i64 %1130
   %1132 = load volatile ptr, ptr %1131, align 8
   %1133 = icmp eq ptr %1132, %1131
   br i1 %1133, label %.thread44, label %1134
@@ -13517,8 +13518,9 @@ define internal fastcc void @mb_set_largest_free_order(i8 %.20.val, ptr nocaptur
   %56 = getelementptr inbounds i8, ptr %.872.val, i64 848
   %57 = load ptr, ptr %56, align 16
   %58 = load i32, ptr %24, align 8
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.list_head, ptr %57, i64 %59
+  %.scale = shl i32 %58, 1
+  %59 = sext i32 %.scale to i64
+  %60 = getelementptr ptr, ptr %57, i64 %59
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   store ptr %55, ptr %61, align 8
@@ -13616,8 +13618,9 @@ define internal fastcc void @mb_update_avg_fragment_size(ptr nocapture noundef r
   %55 = getelementptr inbounds i8, ptr %4, i64 832
   %56 = load ptr, ptr %55, align 64
   %57 = load i32, ptr %30, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr %struct.list_head, ptr %56, i64 %58
+  %.scale = shl i32 %57, 1
+  %58 = sext i32 %.scale to i64
+  %59 = getelementptr ptr, ptr %56, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   store ptr %54, ptr %60, align 8

@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
 %struct.b2Vec2 = type { float, float }
 %union.anon = type { i32 }
-%struct.b2Pair = type { i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -401,18 +400,21 @@ if.end19:                                         ; preds = %if.then7, %if.end5
   %cond.i = tail call noundef i32 @llvm.smin.i32(i32 %proxyId, i32 %8)
   %m_pairBuffer22 = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load ptr, ptr %m_pairBuffer22, align 8
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds %struct.b2Pair, ptr %9, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %7, 1
+  %10 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i32, ptr %9, i64 %10
   store i32 %cond.i, ptr %arrayidx, align 4
-  %10 = load i32, ptr %m_queryProxyId, align 8
-  %cond.i6 = tail call noundef i32 @llvm.smax.i32(i32 %proxyId, i32 %10)
-  %11 = load ptr, ptr %m_pairBuffer22, align 8
-  %12 = load i32, ptr %m_pairCount, align 4
-  %idxprom28 = sext i32 %12 to i64
-  %proxyIdB = getelementptr inbounds %struct.b2Pair, ptr %11, i64 %idxprom28, i32 1
-  store i32 %cond.i6, ptr %proxyIdB, align 4
+  %11 = load i32, ptr %m_queryProxyId, align 8
+  %cond.i6 = tail call noundef i32 @llvm.smax.i32(i32 %proxyId, i32 %11)
+  %12 = load ptr, ptr %m_pairBuffer22, align 8
   %13 = load i32, ptr %m_pairCount, align 4
-  %inc = add nsw i32 %13, 1
+  %idxprom28.scale = shl nsw i32 %13, 1
+  %14 = sext i32 %idxprom28.scale to i64
+  %arrayidx29 = getelementptr inbounds i32, ptr %12, i64 %14
+  %proxyIdB = getelementptr inbounds i8, ptr %arrayidx29, i64 4
+  store i32 %cond.i6, ptr %proxyIdB, align 4
+  %15 = load i32, ptr %m_pairCount, align 4
+  %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %m_pairCount, align 4
   br label %return
 

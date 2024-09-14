@@ -6934,8 +6934,9 @@ tailrecurse:                                      ; preds = %26
   %34 = getelementptr inbounds %struct.huffman_tree_node, ptr %33, i64 %15, i32 0, i64 1
   %35 = load i32, ptr %34, align 4
   %36 = sdiv i32 %14, 2
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.huffman_table_entry, ptr %.tr5678132, i64 %37
+  %.scale = shl nsw i32 %36, 1
+  %37 = sext i32 %.scale to i64
+  %38 = getelementptr inbounds i32, ptr %.tr5678132, i64 %37
   %39 = or i32 %32, %accumulator.tr76134
   %40 = icmp slt i32 %35, 0
   br i1 %40, label %._crit_edge, label %.lr.ph135

@@ -295,7 +295,7 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %31 = call ptr @cairo_region_create_rectangle(ptr noundef nonnull %10) #29
   %32 = call ptr @cairo_region_create() #29
   %33 = icmp eq ptr %29, null
-  br i1 %33, label %.loopexit59, label %34
+  br i1 %33, label %.loopexit62, label %34
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %11, i64 12
@@ -343,9 +343,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %64 = getelementptr inbounds i8, ptr %39, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !61
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit59, label %37
+  br i1 %66, label %.loopexit62, label %37
 
-.loopexit59:                                      ; preds = %62, %28
+.loopexit62:                                      ; preds = %62, %28
   %67 = phi ptr [ null, %28 ], [ %63, %62 ]
   call void @cairo_region_get_extents(ptr noundef %32, ptr noundef %6) #29
   call void @cairo_region_destroy(ptr noundef %32) #29
@@ -355,7 +355,7 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %69 = icmp eq ptr %8, null
   br i1 %69, label %590, label %70
 
-70:                                               ; preds = %.loopexit59
+70:                                               ; preds = %.loopexit62
   %71 = getelementptr inbounds i8, ptr %6, i64 8
   %72 = load i32, ptr %71, align 4, !tbaa !30
   %73 = getelementptr inbounds i8, ptr %6, i64 12
@@ -371,13 +371,13 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   call void @llvm.assume(i1 true) [ "align"(ptr %80, i64 64) ]
   call void @llvm.memset.p0.i64(ptr align 64 %80, i8 0, i64 %79, i1 false)
   %81 = icmp eq ptr %68, null
-  br i1 %81, label %.loopexit58, label %82
+  br i1 %81, label %.loopexit61, label %82
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %6, i64 4
   br label %85
 
-.loopexit58:                                      ; preds = %468, %77
+.loopexit61:                                      ; preds = %468, %77
   %84 = icmp eq i32 %7, 0
   br i1 %84, label %.loopexit, label %472
 
@@ -446,14 +446,14 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %122, align 64, !noalias !74
   %136 = getelementptr i8, ptr %122, i64 8
   %137 = icmp sgt i32 %114, 0
-  br i1 %137, label %138, label %.loopexit57
+  br i1 %137, label %138, label %.loopexit60
 
 138:                                              ; preds = %129
   %139 = fmul reassoc nsz arcp contract afn float %116, 6.000000e+00
   %140 = fsub reassoc nsz arcp contract afn float %130, %139
   %141 = and i64 %113, 2147483646
   %142 = icmp ult i64 %141, 32
-  br i1 %142, label %.preheader105, label %143
+  br i1 %142, label %.preheader108, label %143
 
 143:                                              ; preds = %138
   %144 = and i64 %113, 30
@@ -549,20 +549,20 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %226 = or disjoint i32 %147, 1
   %227 = getelementptr i8, ptr %122, i64 %146
   %228 = icmp eq i64 %144, 0
-  br i1 %228, label %.loopexit57, label %.preheader105
+  br i1 %228, label %.loopexit60, label %.preheader108
 
-.preheader105:                                    ; preds = %224, %138
+.preheader108:                                    ; preds = %224, %138
   %.ph = phi ptr [ %225, %224 ], [ %136, %138 ]
-  %.ph106 = phi i32 [ %226, %224 ], [ 1, %138 ]
-  %.ph107 = phi float [ %150, %224 ], [ %135, %138 ]
-  %.ph108 = phi ptr [ %227, %224 ], [ %122, %138 ]
+  %.ph109 = phi i32 [ %226, %224 ], [ 1, %138 ]
+  %.ph110 = phi float [ %150, %224 ], [ %135, %138 ]
+  %.ph111 = phi ptr [ %227, %224 ], [ %122, %138 ]
   br label %229
 
-229:                                              ; preds = %.preheader105, %229
-  %230 = phi ptr [ %247, %229 ], [ %.ph, %.preheader105 ]
-  %231 = phi i32 [ %246, %229 ], [ %.ph106, %.preheader105 ]
-  %232 = phi float [ %245, %229 ], [ %.ph107, %.preheader105 ]
-  %233 = phi ptr [ %230, %229 ], [ %.ph108, %.preheader105 ]
+229:                                              ; preds = %.preheader108, %229
+  %230 = phi ptr [ %247, %229 ], [ %.ph, %.preheader108 ]
+  %231 = phi i32 [ %246, %229 ], [ %.ph109, %.preheader108 ]
+  %232 = phi float [ %245, %229 ], [ %.ph110, %.preheader108 ]
+  %233 = phi ptr [ %230, %229 ], [ %.ph111, %.preheader108 ]
   %234 = fmul reassoc nsz arcp contract afn float %232, %133
   %235 = fmul reassoc nsz arcp contract afn float %232, 2.000000e+00
   %236 = fadd reassoc nsz arcp contract afn float %234, %140
@@ -580,9 +580,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %246 = add nuw nsw i32 %231, 1
   %247 = getelementptr inbounds i8, ptr %230, i64 8
   %248 = icmp eq i32 %231, %114
-  br i1 %248, label %.loopexit57, label %229, !llvm.loop !78
+  br i1 %248, label %.loopexit60, label %229, !llvm.loop !78
 
-.loopexit57:                                      ; preds = %229, %224, %129
+.loopexit60:                                      ; preds = %229, %224, %129
   %249 = phi ptr [ %122, %129 ], [ %227, %224 ], [ %230, %229 ]
   %250 = phi ptr [ %136, %129 ], [ %225, %224 ], [ %247, %229 ]
   %251 = getelementptr inbounds i8, ptr %249, i64 12
@@ -597,18 +597,18 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   store float 1.000000e+00, ptr %124, align 64, !tbaa !11, !noalias !74
   %258 = getelementptr inbounds i8, ptr %124, i64 4
   %259 = icmp sgt i32 %114, 1
-  br i1 %259, label %.preheader55, label %.loopexit56
+  br i1 %259, label %.preheader58, label %.loopexit59
 
-.preheader55:                                     ; preds = %.loopexit57, %272
-  %260 = phi ptr [ %286, %272 ], [ %258, %.loopexit57 ]
-  %261 = phi i32 [ %285, %272 ], [ 1, %.loopexit57 ]
-  %262 = phi float [ %264, %272 ], [ 0.000000e+00, %.loopexit57 ]
-  %263 = phi ptr [ %266, %272 ], [ %136, %.loopexit57 ]
+.preheader58:                                     ; preds = %.loopexit60, %272
+  %260 = phi ptr [ %286, %272 ], [ %258, %.loopexit60 ]
+  %261 = phi i32 [ %285, %272 ], [ 1, %.loopexit60 ]
+  %262 = phi float [ %264, %272 ], [ 0.000000e+00, %.loopexit60 ]
+  %263 = phi ptr [ %266, %272 ], [ %136, %.loopexit60 ]
   %264 = fadd reassoc nsz arcp contract afn float %262, %257
   br label %265
 
-265:                                              ; preds = %265, %.preheader55
-  %266 = phi ptr [ %263, %.preheader55 ], [ %271, %265 ]
+265:                                              ; preds = %265, %.preheader58
+  %266 = phi ptr [ %263, %.preheader58 ], [ %271, %265 ]
   %267 = load float, ptr %266, align 4, !noalias !74
   %268 = fcmp reassoc nsz arcp contract afn olt float %267, %264
   %269 = icmp ult ptr %266, %255
@@ -634,10 +634,10 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %286 = getelementptr inbounds i8, ptr %260, i64 4
   %287 = icmp slt i32 %285, %114
   %288 = select i1 %287, i1 %269, i1 false
-  br i1 %288, label %.preheader55, label %.loopexit56
+  br i1 %288, label %.preheader58, label %.loopexit59
 
-.loopexit56:                                      ; preds = %272, %.loopexit57
-  %289 = phi ptr [ %258, %.loopexit57 ], [ %286, %272 ]
+.loopexit59:                                      ; preds = %272, %.loopexit60
+  %289 = phi ptr [ %258, %.loopexit60 ], [ %286, %272 ]
   store float 0.000000e+00, ptr %289, align 4, !tbaa !11, !noalias !74
   call void @free(ptr noundef %122) #29, !noalias !74
   %290 = load i32, ptr %71, align 4, !tbaa !30, !alias.scope !67, !noalias !64
@@ -660,15 +660,15 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %307 = getelementptr inbounds { float, float }, ptr %303, i64 %306
   %308 = icmp eq i32 %109, 0
   %309 = fneg reassoc nsz arcp contract afn <2 x float> %105
-  br i1 %308, label %.preheader52, label %310
+  br i1 %308, label %.preheader55, label %310
 
-310:                                              ; preds = %.loopexit56
+310:                                              ; preds = %.loopexit59
   %311 = uitofp i64 %100 to float
   %312 = fdiv reassoc nsz arcp contract afn float %112, %311
   br label %383
 
-.preheader52:                                     ; preds = %.loopexit56, %.loopexit45
-  %313 = phi i64 [ %381, %.loopexit45 ], [ 0, %.loopexit56 ]
+.preheader55:                                     ; preds = %.loopexit59, %.loopexit48
+  %313 = phi i64 [ %381, %.loopexit48 ], [ 0, %.loopexit59 ]
   %314 = mul i64 %313, %313
   %315 = uitofp i64 %314 to float
   %316 = mul i64 %313, %291
@@ -676,10 +676,10 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %318 = getelementptr inbounds { float, float }, ptr %307, i64 %317
   %319 = getelementptr inbounds { float, float }, ptr %307, i64 %316
   %320 = icmp eq i64 %313, 0
-  br i1 %320, label %.preheader44, label %.preheader46
+  br i1 %320, label %.preheader47, label %.preheader49
 
-.preheader46:                                     ; preds = %.preheader52, %349
-  %321 = phi i64 [ %352, %349 ], [ 0, %.preheader52 ]
+.preheader49:                                     ; preds = %.preheader55, %349
+  %321 = phi i64 [ %352, %349 ], [ 0, %.preheader55 ]
   %322 = uitofp i64 %321 to float
   %323 = fmul reassoc nsz arcp contract afn float %322, %322
   %324 = fadd reassoc nsz arcp contract afn float %323, %315
@@ -688,9 +688,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %327 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %326)
   %328 = fptoui float %327 to i64
   %329 = icmp ugt i64 %113, %328
-  br i1 %329, label %330, label %.loopexit45
+  br i1 %329, label %330, label %.loopexit48
 
-330:                                              ; preds = %.preheader46
+330:                                              ; preds = %.preheader49
   %331 = getelementptr inbounds { float, float }, ptr %318, i64 %321
   %332 = getelementptr inbounds { float, float }, ptr %319, i64 %321
   %333 = getelementptr inbounds float, ptr %124, i64 %328
@@ -722,10 +722,10 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   store <2 x float> %351, ptr %332, align 8, !noalias !74
   %352 = add i64 %321, 1
   %353 = icmp ugt i64 %352, %100
-  br i1 %353, label %.loopexit45, label %.preheader46
+  br i1 %353, label %.loopexit48, label %.preheader49
 
-.preheader44:                                     ; preds = %.preheader52, %378
-  %354 = phi i64 [ %379, %378 ], [ 0, %.preheader52 ]
+.preheader47:                                     ; preds = %.preheader55, %378
+  %354 = phi i64 [ %379, %378 ], [ 0, %.preheader55 ]
   %355 = uitofp i64 %354 to float
   %356 = fmul reassoc nsz arcp contract afn float %355, %355
   %357 = fadd reassoc nsz arcp contract afn float %356, %315
@@ -734,9 +734,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %360 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %359)
   %361 = fptoui float %360 to i64
   %362 = icmp ugt i64 %113, %361
-  br i1 %362, label %363, label %.loopexit45
+  br i1 %362, label %363, label %.loopexit48
 
-363:                                              ; preds = %.preheader44
+363:                                              ; preds = %.preheader47
   %364 = getelementptr inbounds { float, float }, ptr %318, i64 %354
   %365 = getelementptr inbounds float, ptr %124, i64 %361
   %366 = load float, ptr %365, align 4, !tbaa !11, !noalias !74
@@ -760,19 +760,19 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
 378:                                              ; preds = %373, %363
   %379 = add i64 %354, 1
   %380 = icmp ugt i64 %379, %100
-  br i1 %380, label %.loopexit45, label %.preheader44
+  br i1 %380, label %.loopexit48, label %.preheader47
 
-.loopexit45:                                      ; preds = %349, %.preheader46, %378, %.preheader44
+.loopexit48:                                      ; preds = %349, %.preheader49, %378, %.preheader47
   %381 = add i64 %313, 1
   %382 = icmp ugt i64 %381, %100
-  br i1 %382, label %.loopexit53, label %.preheader52
+  br i1 %382, label %.loopexit56, label %.preheader55
 
-.loopexit53:                                      ; preds = %.loopexit49, %.loopexit45
+.loopexit56:                                      ; preds = %.loopexit52, %.loopexit48
   call void @free(ptr noundef %124) #29, !noalias !74
   br label %468
 
-383:                                              ; preds = %.loopexit49, %310
-  %384 = phi i64 [ %466, %.loopexit49 ], [ 0, %310 ]
+383:                                              ; preds = %.loopexit52, %310
+  %384 = phi i64 [ %466, %.loopexit52 ], [ 0, %310 ]
   %385 = uitofp i64 %384 to float
   %386 = mul i64 %384, %384
   %387 = uitofp i64 %386 to float
@@ -782,9 +782,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %391 = getelementptr inbounds { float, float }, ptr %307, i64 %388
   %392 = fneg reassoc nsz arcp contract afn float %385
   %393 = icmp eq i64 %384, 0
-  br i1 %393, label %.preheader48, label %.preheader50
+  br i1 %393, label %.preheader51, label %.preheader53
 
-.preheader48:                                     ; preds = %383, %423
+.preheader51:                                     ; preds = %383, %423
   %394 = phi i64 [ %424, %423 ], [ 0, %383 ]
   %395 = uitofp i64 %394 to float
   %396 = fmul reassoc nsz arcp contract afn float %395, %395
@@ -794,9 +794,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %400 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %399)
   %401 = fptoui float %400 to i64
   %402 = icmp ugt i64 %113, %401
-  br i1 %402, label %403, label %.loopexit49
+  br i1 %402, label %403, label %.loopexit52
 
-403:                                              ; preds = %.preheader48
+403:                                              ; preds = %.preheader51
   %404 = getelementptr inbounds { float, float }, ptr %390, i64 %394
   %405 = getelementptr inbounds float, ptr %124, i64 %401
   %406 = load float, ptr %405, align 4, !tbaa !11, !noalias !74
@@ -825,9 +825,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
 423:                                              ; preds = %418, %403
   %424 = add i64 %394, 1
   %425 = icmp ugt i64 %424, %100
-  br i1 %425, label %.loopexit49, label %.preheader48
+  br i1 %425, label %.loopexit52, label %.preheader51
 
-.preheader50:                                     ; preds = %383, %461
+.preheader53:                                     ; preds = %383, %461
   %426 = phi i64 [ %464, %461 ], [ 0, %383 ]
   %427 = uitofp i64 %426 to float
   %428 = fmul reassoc nsz arcp contract afn float %427, %427
@@ -837,9 +837,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %432 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %431)
   %433 = fptoui float %432 to i64
   %434 = icmp ugt i64 %113, %433
-  br i1 %434, label %435, label %.loopexit49
+  br i1 %434, label %435, label %.loopexit52
 
-435:                                              ; preds = %.preheader50
+435:                                              ; preds = %.preheader53
   %436 = getelementptr inbounds { float, float }, ptr %390, i64 %426
   %437 = getelementptr inbounds { float, float }, ptr %391, i64 %426
   %438 = getelementptr inbounds float, ptr %124, i64 %433
@@ -882,50 +882,51 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   store <2 x float> %463, ptr %437, align 8, !noalias !74
   %464 = add i64 %426, 1
   %465 = icmp ugt i64 %464, %100
-  br i1 %465, label %.loopexit49, label %.preheader50
+  br i1 %465, label %.loopexit52, label %.preheader53
 
-.loopexit49:                                      ; preds = %461, %.preheader50, %423, %.preheader48
+.loopexit52:                                      ; preds = %461, %.preheader53, %423, %.preheader51
   %466 = add i64 %384, 1
   %467 = icmp ugt i64 %466, %100
-  br i1 %467, label %.loopexit53, label %383
+  br i1 %467, label %.loopexit56, label %383
 
-468:                                              ; preds = %.loopexit53, %128
+468:                                              ; preds = %.loopexit56, %128
   %469 = getelementptr inbounds i8, ptr %86, i64 8
   %470 = load ptr, ptr %469, align 8, !tbaa !79
   %471 = icmp eq ptr %470, null
-  br i1 %471, label %.loopexit58, label %85
+  br i1 %471, label %.loopexit61, label %85
 
-472:                                              ; preds = %.loopexit58
+472:                                              ; preds = %.loopexit61
   %473 = call ptr @dt_alloc_aligned(i64 noundef %79) #29
   call void @llvm.assume(i1 true) [ "align"(ptr %473, i64 64) ]
   call void @llvm.memset.p0.i64(ptr align 64 %473, i8 0, i64 %79, i1 false)
   %474 = load i32, ptr %73, align 4, !tbaa !32
   %475 = icmp sgt i32 %474, 0
-  br i1 %475, label %476, label %.loopexit43
+  br i1 %475, label %476, label %.loopexit46
 
 476:                                              ; preds = %472
   %477 = load i32, ptr %71, align 4, !tbaa !30
   %478 = icmp sgt i32 %477, 0
-  br i1 %478, label %.preheader42, label %.loopexit43
+  br i1 %478, label %.preheader45, label %.loopexit46
 
-.loopexit43:                                      ; preds = %493, %476, %472
+.loopexit46:                                      ; preds = %493, %476, %472
   call void @free(ptr noundef %80) #29
   %479 = load i32, ptr %73, align 4, !tbaa !32
   %480 = icmp sgt i32 %479, 0
   br i1 %480, label %481, label %.loopexit
 
-481:                                              ; preds = %.loopexit43
+481:                                              ; preds = %.loopexit46
   %482 = load i32, ptr %71, align 4, !tbaa !30
   br label %531
 
-.preheader42:                                     ; preds = %476, %493
+.preheader45:                                     ; preds = %476, %493
   %483 = phi i32 [ %494, %493 ], [ %474, %476 ]
   %484 = phi i32 [ %495, %493 ], [ %477, %476 ]
   %485 = phi i32 [ %496, %493 ], [ %477, %476 ]
   %486 = phi i32 [ %497, %493 ], [ 0, %476 ]
-  %487 = mul nsw i32 %486, %485
-  %488 = sext i32 %487 to i64
-  %489 = getelementptr inbounds { float, float }, ptr %80, i64 %488
+  %487 = shl i32 %485, 1
+  %.scale = mul i32 %487, %486
+  %488 = sext i32 %.scale to i64
+  %489 = getelementptr inbounds float, ptr %80, i64 %488
   %490 = icmp sgt i32 %485, 0
   br i1 %490, label %.preheader, label %493
 
@@ -933,18 +934,18 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %492 = load i32, ptr %73, align 4, !tbaa !32
   br label %493
 
-493:                                              ; preds = %491, %.preheader42
-  %494 = phi i32 [ %492, %491 ], [ %483, %.preheader42 ]
-  %495 = phi i32 [ %527, %491 ], [ %484, %.preheader42 ]
-  %496 = phi i32 [ %527, %491 ], [ %485, %.preheader42 ]
+493:                                              ; preds = %491, %.preheader45
+  %494 = phi i32 [ %492, %491 ], [ %483, %.preheader45 ]
+  %495 = phi i32 [ %527, %491 ], [ %484, %.preheader45 ]
+  %496 = phi i32 [ %527, %491 ], [ %485, %.preheader45 ]
   %497 = add nuw nsw i32 %486, 1
   %498 = icmp slt i32 %497, %494
-  br i1 %498, label %.preheader42, label %.loopexit43, !llvm.loop !80
+  br i1 %498, label %.preheader45, label %.loopexit46, !llvm.loop !80
 
-.preheader:                                       ; preds = %.preheader42, %526
-  %499 = phi i32 [ %527, %526 ], [ %484, %.preheader42 ]
-  %500 = phi i64 [ %528, %526 ], [ 0, %.preheader42 ]
-  %501 = phi i32 [ %527, %526 ], [ %485, %.preheader42 ]
+.preheader:                                       ; preds = %.preheader45, %526
+  %499 = phi i32 [ %527, %526 ], [ %484, %.preheader45 ]
+  %500 = phi i64 [ %528, %526 ], [ 0, %.preheader45 ]
+  %501 = phi i32 [ %527, %526 ], [ %485, %.preheader45 ]
   %502 = getelementptr inbounds { float, float }, ptr %489, i64 %500
   %503 = load <2 x float>, ptr %502, align 8
   %504 = extractelement <2 x float> %503, i64 0
@@ -991,9 +992,10 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %534 = phi i32 [ %552, %549 ], [ %482, %481 ]
   %535 = phi i32 [ %553, %549 ], [ %482, %481 ]
   %536 = phi i32 [ %554, %549 ], [ 0, %481 ]
-  %537 = mul nsw i32 %536, %535
-  %538 = sext i32 %537 to i64
-  %539 = getelementptr inbounds { float, float }, ptr %473, i64 %538
+  %537 = shl i32 %535, 1
+  %.scale42 = mul i32 %537, %536
+  %538 = sext i32 %.scale42 to i64
+  %539 = getelementptr inbounds float, ptr %473, i64 %538
   %540 = icmp slt i32 %535, -1
   br i1 %540, label %549, label %541
 
@@ -1002,8 +1004,8 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   br i1 %542, label %543, label %549
 
 543:                                              ; preds = %541
-  %544 = sext i32 %535 to i64
-  %545 = getelementptr inbounds { float, float }, ptr %539, i64 %544
+  %544 = sext i32 %537 to i64
+  %545 = getelementptr inbounds float, ptr %539, i64 %544
   %546 = load <2 x float>, ptr %545, align 8
   br label %556
 
@@ -1026,8 +1028,9 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %559 = phi ptr [ %561, %582 ], [ %539, %543 ]
   %560 = phi <2 x float> [ %583, %582 ], [ %546, %543 ]
   %561 = getelementptr inbounds { float, float }, ptr %539, i64 %557
-  %562 = sext i32 %558 to i64
-  %563 = getelementptr inbounds { float, float }, ptr %539, i64 %562
+  %.scale44 = shl nsw i32 %558, 1
+  %562 = sext i32 %.scale44 to i64
+  %563 = getelementptr inbounds float, ptr %539, i64 %562
   %564 = sub nsw i64 0, %557
   %565 = getelementptr inbounds { float, float }, ptr %563, i64 %564
   %566 = load float, ptr %561, align 8
@@ -1065,12 +1068,12 @@ define internal fastcc void @_build_global_distortion_map(ptr nocapture noundef 
   %588 = icmp slt i64 %557, %587
   br i1 %588, label %556, label %547, !llvm.loop !82
 
-.loopexit:                                        ; preds = %549, %.loopexit43, %.loopexit58, %70
-  %589 = phi ptr [ null, %70 ], [ %80, %.loopexit58 ], [ %473, %.loopexit43 ], [ %473, %549 ]
+.loopexit:                                        ; preds = %549, %.loopexit46, %.loopexit61, %70
+  %589 = phi ptr [ null, %70 ], [ %80, %.loopexit61 ], [ %473, %.loopexit46 ], [ %473, %549 ]
   store ptr %589, ptr %8, align 8, !tbaa !84
   br label %590
 
-590:                                              ; preds = %.loopexit, %.loopexit59
+590:                                              ; preds = %.loopexit, %.loopexit62
   call void @g_slist_free(ptr noundef %68) #29
   call void @g_list_free_full(ptr noundef %29, ptr noundef nonnull @free) #29
   call void @llvm.lifetime.end.p0(i64 7600, ptr nonnull %13) #29

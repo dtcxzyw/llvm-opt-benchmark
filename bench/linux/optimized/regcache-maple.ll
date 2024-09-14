@@ -4,8 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.regcache_ops = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.reg_default = type { i32, i32 }
 %struct.ma_state = type { ptr, i64, i64, ptr, i64, i64, ptr, i32, i8, i8, i8, i8 }
+%struct.reg_default = type { i32, i32 }
 
 @.str = private unnamed_addr constant [6 x i8] c"maple\00", align 1
 @regcache_maple_ops = dso_local local_unnamed_addr global %struct.regcache_ops { ptr @.str, i32 3, ptr @regcache_maple_init, ptr @regcache_maple_exit, ptr null, ptr @regcache_maple_read, ptr @regcache_maple_write, ptr @regcache_maple_sync, ptr @regcache_maple_drop }, align 8
@@ -30,7 +30,7 @@ define internal i32 @regcache_maple_init(ptr nocapture noundef %0) #0 align 16 {
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %11 [
     i32 0, label %42
-    i32 1, label %.loopexit6
+    i32 1, label %.loopexit7
   ]
 
 11:                                               ; preds = %5
@@ -42,12 +42,14 @@ define internal i32 @regcache_maple_init(ptr nocapture noundef %0) #0 align 16 {
   %15 = phi i32 [ 0, %11 ], [ %32, %30 ]
   %16 = phi i32 [ 1, %11 ], [ %33, %30 ]
   %17 = load ptr, ptr %12, align 8
-  %18 = sext i32 %16 to i64
-  %19 = getelementptr %struct.reg_default, ptr %17, i64 %18
+  %.scale = shl i32 %16, 1
+  %18 = sext i32 %.scale to i64
+  %19 = getelementptr i32, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %16, -1
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.reg_default, ptr %17, i64 %22
+  %.scale6 = shl i32 %21, 1
+  %22 = sext i32 %.scale6 to i64
+  %23 = getelementptr i32, ptr %17, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   %26 = icmp eq i32 %20, %25
@@ -67,26 +69,26 @@ define internal i32 @regcache_maple_init(ptr nocapture noundef %0) #0 align 16 {
   %32 = phi i32 [ %15, %13 ], [ %16, %._crit_edge ]
   %33 = add nuw i32 %16, 1
   %34 = icmp ult i32 %33, %31
-  br i1 %34, label %13, label %.loopexit6.loopexit, !llvm.loop !5
+  br i1 %34, label %13, label %.loopexit7.loopexit, !llvm.loop !5
 
-.loopexit6.loopexit:                              ; preds = %30
+.loopexit7.loopexit:                              ; preds = %30
   %35 = add i32 %31, -1
-  br label %.loopexit6
+  br label %.loopexit7
 
-.loopexit6:                                       ; preds = %.loopexit6.loopexit, %5
-  %36 = phi i32 [ 0, %5 ], [ %32, %.loopexit6.loopexit ]
-  %37 = phi i32 [ 0, %5 ], [ %35, %.loopexit6.loopexit ]
+.loopexit7:                                       ; preds = %.loopexit7.loopexit, %5
+  %36 = phi i32 [ 0, %5 ], [ %32, %.loopexit7.loopexit ]
+  %37 = phi i32 [ 0, %5 ], [ %35, %.loopexit7.loopexit ]
   %38 = tail call fastcc i32 @regcache_maple_insert_block(ptr noundef %0, i32 noundef %36, i32 noundef %37)
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %42, label %.loopexit
 
-.loopexit:                                        ; preds = %27, %.loopexit6
-  %40 = phi i32 [ %38, %.loopexit6 ], [ %28, %27 ]
+.loopexit:                                        ; preds = %27, %.loopexit7
+  %40 = phi i32 [ %38, %.loopexit7 ], [ %28, %27 ]
   %41 = tail call i32 @regcache_maple_exit(ptr noundef %0)
   br label %42
 
-42:                                               ; preds = %5, %.loopexit, %.loopexit6, %1
-  %43 = phi i32 [ %40, %.loopexit ], [ -12, %1 ], [ %10, %5 ], [ 0, %.loopexit6 ]
+42:                                               ; preds = %5, %.loopexit, %.loopexit7, %1
+  %43 = phi i32 [ %40, %.loopexit ], [ -12, %1 ], [ %10, %5 ], [ 0, %.loopexit7 ]
   ret i32 %43
 }
 
@@ -562,84 +564,86 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr nocapture noundef re
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
   store ptr %6, ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 0, ptr %13, align 8
-  store i64 -1, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 56
-  %16 = getelementptr inbounds i8, ptr %4, i64 60
-  %17 = sub i32 %2, %1
-  %18 = add i32 %17, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 0, ptr %16, align 4
-  %20 = icmp slt i32 %18, 0
-  br i1 %20, label %.thread, label %21, !prof !12
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 0, ptr %11, align 8
+  store i64 -1, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr null, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 56
+  %14 = getelementptr inbounds i8, ptr %4, i64 60
+  %15 = sub i32 %2, %1
+  %16 = add i32 %15, 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  store i32 0, ptr %14, align 4
+  %18 = icmp slt i32 %16, 0
+  br i1 %18, label %.thread, label %19, !prof !12
 
-21:                                               ; preds = %3
-  %22 = zext nneg i32 %18 to i64
-  %23 = shl nuw nsw i64 %22, 3
-  %24 = load i32, ptr %19, align 8
-  %25 = or i32 %24, 256
-  %26 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %23, i32 noundef %25) #11
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread, label %28
+19:                                               ; preds = %3
+  %20 = zext nneg i32 %16 to i64
+  %21 = shl nuw nsw i64 %20, 3
+  %22 = load i32, ptr %17, align 8
+  %23 = or i32 %22, 256
+  %24 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %21, i32 noundef %23) #11
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %.thread, label %26
 
-28:                                               ; preds = %21
-  %29 = icmp ult i32 %17, 2147483647
-  br i1 %29, label %30, label %.loopexit
+26:                                               ; preds = %19
+  %27 = icmp ult i32 %15, 2147483647
+  br i1 %27, label %28, label %.loopexit
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 552
-  %32 = load ptr, ptr %31, align 8
-  br label %33
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds i8, ptr %0, i64 552
+  %30 = load ptr, ptr %29, align 8
+  br label %31
 
-33:                                               ; preds = %33, %30
-  %34 = phi i64 [ 0, %30 ], [ %42, %33 ]
-  %35 = trunc i64 %34 to i32
-  %36 = add i32 %1, %35
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.reg_default, ptr %32, i64 %37, i32 1
-  %39 = load i32, ptr %38, align 4
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr i64, ptr %26, i64 %34
-  store i64 %40, ptr %41, align 8
-  %42 = add nuw nsw i64 %34, 1
-  %43 = icmp eq i64 %42, %22
-  br i1 %43, label %.loopexit, label %33, !llvm.loop !13
+31:                                               ; preds = %31, %28
+  %32 = phi i64 [ 0, %28 ], [ %40, %31 ]
+  %33 = trunc i64 %32 to i32
+  %34 = add i32 %1, %33
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr %struct.reg_default, ptr %30, i64 %35, i32 1
+  %37 = load i32, ptr %36, align 4
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr i64, ptr %24, i64 %32
+  store i64 %38, ptr %39, align 8
+  %40 = add nuw nsw i64 %32, 1
+  %41 = icmp eq i64 %40, %20
+  br i1 %41, label %.loopexit, label %31, !llvm.loop !13
 
-.loopexit:                                        ; preds = %33, %28
+.loopexit:                                        ; preds = %31, %26
   tail call void @_raw_spin_lock(ptr noundef %6) #10
-  %44 = getelementptr inbounds i8, ptr %0, i64 552
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr %struct.reg_default, ptr %45, i64 %8
-  %47 = load i32, ptr %46, align 4
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.reg_default, ptr %45, i64 %10
+  %42 = getelementptr inbounds i8, ptr %0, i64 552
+  %43 = load ptr, ptr %42, align 8
+  %.scale = shl i32 %1, 1
+  %44 = sext i32 %.scale to i64
+  %45 = getelementptr i32, ptr %43, i64 %44
+  %46 = load i32, ptr %45, align 4
+  %47 = zext i32 %46 to i64
+  %.scale3 = shl i32 %2, 1
+  %48 = sext i32 %.scale3 to i64
+  %49 = getelementptr i32, ptr %43, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
-  store i32 1, ptr %15, align 8
-  store ptr null, ptr %11, align 8
-  store i64 %48, ptr %7, align 8
-  store i64 %51, ptr %9, align 8
-  %52 = load i32, ptr %19, align 8
-  %53 = call i32 @mas_store_gfp(ptr noundef nonnull %4, ptr noundef nonnull %26, i32 noundef %52) #10
+  store i32 1, ptr %13, align 8
+  store ptr null, ptr %9, align 8
+  store i64 %47, ptr %7, align 8
+  store i64 %51, ptr %8, align 8
+  %52 = load i32, ptr %17, align 8
+  %53 = call i32 @mas_store_gfp(ptr noundef nonnull %4, ptr noundef nonnull %24, i32 noundef %52) #10
   %54 = load ptr, ptr %4, align 8
   call void @_raw_spin_unlock(ptr noundef %54) #10
   %55 = icmp eq i32 %53, 0
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %.loopexit
-  call void @kfree(ptr noundef nonnull %26) #10
+  call void @kfree(ptr noundef nonnull %24) #10
   br label %.thread
 
-.thread:                                          ; preds = %3, %56, %.loopexit, %21
-  %57 = phi i32 [ -12, %21 ], [ %53, %56 ], [ 0, %.loopexit ], [ -12, %3 ]
+.thread:                                          ; preds = %3, %56, %.loopexit, %19
+  %57 = phi i32 [ -12, %19 ], [ %53, %56 ], [ 0, %.loopexit ], [ -12, %3 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
   ret i32 %57
 }

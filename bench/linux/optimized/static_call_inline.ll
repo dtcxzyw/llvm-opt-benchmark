@@ -142,8 +142,9 @@ thread-pre-split:                                 ; preds = %.loopexit
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %21, i64 1092
   %33 = load i32, ptr %32, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.static_call_site, ptr %31, i64 %34
+  %.scale = shl i32 %33, 1
+  %34 = sext i32 %.scale to i64
+  %35 = getelementptr i32, ptr %31, i64 %34
   %36 = load i32, ptr %21, align 64
   %37 = icmp eq i32 %36, 1
   br label %38
@@ -403,8 +404,9 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %49, i64 1092
   %62 = load i32, ptr %61, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr %struct.static_call_site, ptr %60, i64 %63
+  %.scale = shl i32 %62, 1
+  %63 = sext i32 %.scale to i64
+  %64 = getelementptr i32, ptr %60, i64 %63
   %65 = icmp ult ptr %60, %64
   br i1 %65, label %.preheader, label %.loopexit
 
@@ -778,7 +780,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   tail call void @cpus_read_lock() #12
   tail call void @mutex_lock(ptr noundef nonnull @static_call_mutex) #12
-  switch i64 %1, label %.loopexit18 [
+  switch i64 %1, label %.loopexit20 [
     i64 1, label %4
     i64 2, label %99
   ]
@@ -788,17 +790,18 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 1092
   %8 = load i32, ptr %7, align 4
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.static_call_site, ptr %6, i64 %9
+  %.scale14 = shl i32 %8, 1
+  %9 = sext i32 %.scale14 to i64
+  %10 = getelementptr i32, ptr %6, i64 %9
   %11 = icmp eq i32 %8, 0
-  br i1 %11, label %.loopexit22, label %.preheader20
+  br i1 %11, label %.loopexit24, label %.preheader22
 
-.preheader20:                                     ; preds = %4
+.preheader22:                                     ; preds = %4
   %12 = icmp eq ptr @__start_static_call_tramp_key, @__stop_static_call_tramp_key
-  br i1 %12, label %.preheader20.split.us, label %.preheader20.split
+  br i1 %12, label %.preheader22.split.us, label %.preheader22.split
 
-.preheader20.split.us:                            ; preds = %.preheader20, %22
-  %13 = phi ptr [ %23, %22 ], [ %6, %.preheader20 ]
+.preheader22.split.us:                            ; preds = %.preheader22, %22
+  %13 = phi ptr [ %23, %22 ], [ %6, %.preheader22 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
@@ -807,15 +810,15 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %19 = and i64 %18, -4
   %20 = tail call i32 @kernel_text_address(i64 noundef %19) #12
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %.thread17
+  br i1 %21, label %22, label %.thread19
 
-22:                                               ; preds = %.preheader20.split.us
+22:                                               ; preds = %.preheader22.split.us
   %23 = getelementptr i8, ptr %13, i64 8
   %24 = icmp eq ptr %23, %10
-  br i1 %24, label %.loopexit22, label %.preheader20.split.us, !llvm.loop !36
+  br i1 %24, label %.loopexit24, label %.preheader22.split.us, !llvm.loop !36
 
-.preheader20.split:                               ; preds = %.preheader20, %62
-  %25 = phi ptr [ %63, %62 ], [ %6, %.preheader20 ]
+.preheader22.split:                               ; preds = %.preheader22, %62
+  %25 = phi ptr [ %63, %62 ], [ %6, %.preheader22 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
@@ -824,15 +827,15 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %31 = and i64 %30, -4
   %32 = tail call i32 @kernel_text_address(i64 noundef %31) #12
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %62, label %.preheader19
+  br i1 %33, label %62, label %.preheader21
 
-34:                                               ; preds = %.preheader19
+34:                                               ; preds = %.preheader21
   %35 = getelementptr i8, ptr %37, i64 8
   %36 = icmp eq ptr %35, @__stop_static_call_tramp_key
-  br i1 %36, label %.thread17, label %.preheader19, !llvm.loop !37
+  br i1 %36, label %.thread19, label %.preheader21, !llvm.loop !37
 
-.preheader19:                                     ; preds = %.preheader20.split, %34
-  %37 = phi ptr [ %35, %34 ], [ @__start_static_call_tramp_key, %.preheader20.split ]
+.preheader21:                                     ; preds = %.preheader22.split, %34
+  %37 = phi ptr [ %35, %34 ], [ @__start_static_call_tramp_key, %.preheader22.split ]
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = ptrtoint ptr %37 to i64
@@ -840,14 +843,14 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %42 = icmp eq i64 %41, %31
   br i1 %42, label %43, label %34
 
-43:                                               ; preds = %.preheader19
+43:                                               ; preds = %.preheader21
   %44 = getelementptr inbounds i8, ptr %37, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = ptrtoint ptr %44 to i64
   %48 = add i64 %46, %47
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %.thread17, label %50
+  br i1 %49, label %.thread19, label %50
 
 50:                                               ; preds = %43
   %51 = and i64 %30, 3
@@ -857,8 +860,8 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   store i32 %54, ptr %26, align 4
   br label %62
 
-.thread17:                                        ; preds = %43, %34, %.preheader20.split.us
-  %55 = phi ptr [ %13, %.preheader20.split.us ], [ %25, %34 ], [ %25, %43 ]
+.thread19:                                        ; preds = %43, %34, %.preheader22.split.us
+  %55 = phi ptr [ %13, %.preheader22.split.us ], [ %25, %34 ], [ %25, %43 ]
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = ptrtoint ptr %55 to i64
@@ -867,18 +870,18 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %61 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %60) #13
   br label %67
 
-62:                                               ; preds = %50, %.preheader20.split
+62:                                               ; preds = %50, %.preheader22.split
   %63 = getelementptr i8, ptr %25, i64 8
   %64 = icmp eq ptr %63, %10
-  br i1 %64, label %.loopexit22, label %.preheader20.split, !llvm.loop !36
+  br i1 %64, label %.loopexit24, label %.preheader22.split, !llvm.loop !36
 
-.loopexit22:                                      ; preds = %62, %22, %4
+.loopexit24:                                      ; preds = %62, %22, %4
   %65 = tail call fastcc i32 @__static_call_init(ptr noundef %2, ptr noundef %6, ptr noundef %10)
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.loopexit18, label %67
+  br i1 %66, label %.loopexit20, label %67
 
-67:                                               ; preds = %.thread17, %.loopexit22
-  %68 = phi i32 [ -22, %.thread17 ], [ %65, %.loopexit22 ]
+67:                                               ; preds = %.thread19, %.loopexit24
+  %68 = phi i32 [ -22, %.thread19 ], [ %65, %.loopexit24 ]
   tail call void asm sideeffect "325: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 325b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 325) #12, !srcloc !38
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.4) #12
   tail call void asm sideeffect "326: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 326b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 326) #12, !srcloc !39
@@ -887,10 +890,11 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   tail call void asm sideeffect "328: nop\0A\09.pushsection .discard.instr_end\0A\09.long 328b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 328) #12, !srcloc !42
   %69 = load ptr, ptr %5, align 8
   %70 = load i32, ptr %7, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr %struct.static_call_site, ptr %69, i64 %71
+  %.scale15 = shl i32 %70, 1
+  %71 = sext i32 %.scale15 to i64
+  %72 = getelementptr i32, ptr %69, i64 %71
   %73 = icmp ult ptr %69, %72
-  br i1 %73, label %.preheader, label %.loopexit18
+  br i1 %73, label %.preheader, label %.loopexit20
 
 .preheader:                                       ; preds = %67, %.loopexit
   %74 = phi ptr [ %97, %.loopexit ], [ %69, %67 ]
@@ -931,21 +935,22 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %96 = phi ptr [ %75, %.preheader ], [ %82, %94 ], [ %82, %86 ]
   %97 = getelementptr i8, ptr %74, i64 8
   %98 = icmp ult ptr %97, %72
-  br i1 %98, label %.preheader, label %.loopexit18, !llvm.loop !44
+  br i1 %98, label %.preheader, label %.loopexit20, !llvm.loop !44
 
 99:                                               ; preds = %3
   %100 = getelementptr inbounds i8, ptr %2, i64 1096
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %2, i64 1092
   %103 = load i32, ptr %102, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr %struct.static_call_site, ptr %101, i64 %104
+  %.scale = shl i32 %103, 1
+  %104 = sext i32 %.scale to i64
+  %105 = getelementptr i32, ptr %101, i64 %104
   %106 = icmp ult ptr %101, %105
-  br i1 %106, label %.preheader24, label %.loopexit18
+  br i1 %106, label %.preheader26, label %.loopexit20
 
-.preheader24:                                     ; preds = %99, %.loopexit23
-  %107 = phi ptr [ %130, %.loopexit23 ], [ %101, %99 ]
-  %108 = phi ptr [ %129, %.loopexit23 ], [ null, %99 ]
+.preheader26:                                     ; preds = %99, %.loopexit25
+  %107 = phi ptr [ %130, %.loopexit25 ], [ %101, %99 ]
+  %108 = phi ptr [ %129, %.loopexit25 ], [ null, %99 ]
   %109 = getelementptr inbounds i8, ptr %107, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
@@ -954,9 +959,9 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %114 = and i64 %113, -4
   %115 = inttoptr i64 %114 to ptr
   %116 = icmp eq ptr %108, %115
-  br i1 %116, label %.loopexit23, label %117
+  br i1 %116, label %.loopexit25, label %117
 
-117:                                              ; preds = %.preheader24
+117:                                              ; preds = %.preheader26
   %118 = getelementptr inbounds i8, ptr %115, i64 8
   br label %119
 
@@ -964,7 +969,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %120 = phi ptr [ %118, %117 ], [ %121, %123 ]
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.loopexit23, label %123
+  br i1 %122, label %.loopexit25, label %123
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds i8, ptr %121, i64 8
@@ -976,16 +981,16 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   %128 = load ptr, ptr %121, align 8
   store ptr %128, ptr %120, align 8
   tail call void @kfree(ptr noundef nonnull %121) #12
-  br label %.loopexit23
+  br label %.loopexit25
 
-.loopexit23:                                      ; preds = %119, %127, %.preheader24
-  %129 = phi ptr [ %108, %.preheader24 ], [ %115, %127 ], [ %115, %119 ]
+.loopexit25:                                      ; preds = %119, %127, %.preheader26
+  %129 = phi ptr [ %108, %.preheader26 ], [ %115, %127 ], [ %115, %119 ]
   %130 = getelementptr i8, ptr %107, i64 8
   %131 = icmp ult ptr %130, %105
-  br i1 %131, label %.preheader24, label %.loopexit18, !llvm.loop !44
+  br i1 %131, label %.preheader26, label %.loopexit20, !llvm.loop !44
 
-.loopexit18:                                      ; preds = %.loopexit23, %.loopexit, %99, %67, %.loopexit22, %3
-  %132 = phi i32 [ 0, %3 ], [ 0, %.loopexit22 ], [ %68, %67 ], [ 0, %99 ], [ %68, %.loopexit ], [ 0, %.loopexit23 ]
+.loopexit20:                                      ; preds = %.loopexit25, %.loopexit, %99, %67, %.loopexit24, %3
+  %132 = phi i32 [ 0, %3 ], [ 0, %.loopexit24 ], [ %68, %67 ], [ 0, %99 ], [ %68, %.loopexit ], [ 0, %.loopexit25 ]
   tail call void @mutex_unlock(ptr noundef nonnull @static_call_mutex) #12
   tail call void @cpus_read_unlock() #12
   %133 = icmp eq i32 %132, 0

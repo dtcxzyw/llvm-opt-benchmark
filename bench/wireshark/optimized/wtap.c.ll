@@ -1747,29 +1747,32 @@ define i32 @wtap_name_to_encap(ptr nocapture noundef readonly %0) local_unnamed_
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %6
 
-6:                                                ; preds = %.lr.ph, %12
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %7 = getelementptr %struct.encap_type_info, ptr %5, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %12, label %9
+6:                                                ; preds = %.lr.ph, %14
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %7 = shl i32 %indvars.iv.tr, 1
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr ptr, ptr %5, i64 %8
+  %10 = load ptr, ptr %9, align 8
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %14, label %11
 
-9:                                                ; preds = %6
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %8) #19
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %._crit_edge.loopexit.split.loop.exit12, label %12
+11:                                               ; preds = %6
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %10) #19
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %._crit_edge.loopexit.split.loop.exit13, label %14
 
-12:                                               ; preds = %6, %9
+14:                                               ; preds = %6, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !8
 
-._crit_edge.loopexit.split.loop.exit12:           ; preds = %9
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit.split.loop.exit13:           ; preds = %11
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit12, %1
-  %.06 = phi i32 [ -1, %1 ], [ %13, %._crit_edge.loopexit.split.loop.exit12 ], [ -1, %12 ]
+._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit.split.loop.exit13, %1
+  %.06 = phi i32 [ -1, %1 ], [ %15, %._crit_edge.loopexit.split.loop.exit13 ], [ -1, %14 ]
   ret i32 %.06
 }
 

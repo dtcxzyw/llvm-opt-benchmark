@@ -477,8 +477,9 @@ define hidden noundef i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noun
   br i1 %exitcond79.not, label %.loopexit, label %.preheader62.us, !llvm.loop !16
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us68, %33, %.preheader61
-  %49 = sext i32 %7 to i64
-  %50 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %49
+  %.scale = shl nsw i32 %7, 1
+  %49 = sext i32 %.scale to i64
+  %50 = getelementptr inbounds [2 x i32], ptr @av1_sgr_params, i64 %49
   %51 = load i32, ptr %50, align 16
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %151
@@ -771,8 +772,9 @@ selfguided_restoration_internal.exit:             ; preds = %._crit_edge.us.i, %
 define hidden void @av1_apply_selfguided_restoration_c(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6, i32 noundef %7, ptr nocapture noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #4 {
   %12 = getelementptr inbounds i8, ptr %8, i64 646352
   %13 = tail call i32 @av1_selfguided_restoration_c(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %8, ptr noundef nonnull %12, i32 noundef %1, i32 noundef %4, i32 noundef %9, i32 noundef %10)
-  %14 = sext i32 %4 to i64
-  %15 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %14
+  %.scale = shl nsw i32 %4, 1
+  %14 = sext i32 %.scale to i64
+  %15 = getelementptr inbounds [2 x i32], ptr @av1_sgr_params, i64 %14
   %16 = load i32, ptr %15, align 16
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %22
@@ -2804,56 +2806,57 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @calculate_intermediate_result(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #9 {
-  %11 = sext i32 %5 to i64
-  %12 = getelementptr inbounds [16 x %struct.sgr_params_type], ptr @av1_sgr_params, i64 0, i64 %11
-  %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4
-  %16 = add nsw i32 %1, 6
-  %17 = add nsw i32 %2, 6
-  %18 = add nsw i32 %1, 9
-  %19 = and i32 %18, -4
-  %20 = add nsw i32 %19, 16
-  %21 = icmp eq i32 %7, 0
-  %22 = select i1 %21, i64 1, i64 2
-  %23 = mul nsw i32 %3, 3
-  %24 = sext i32 %23 to i64
-  %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds i32, ptr %0, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 -12
-  tail call fastcc void @boxsum(ptr noundef nonnull %27, i32 noundef %16, i32 noundef %17, i32 noundef %3, i32 noundef %15, i32 noundef 0, ptr noundef %9, i32 noundef %20)
-  tail call fastcc void @boxsum(ptr noundef nonnull %27, i32 noundef %16, i32 noundef %17, i32 noundef %3, i32 noundef %15, i32 noundef 1, ptr noundef %8, i32 noundef %20)
-  %28 = mul nsw i32 %20, 3
-  %29 = or disjoint i32 %28, 3
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %8, i64 %30
-  %32 = getelementptr inbounds i32, ptr %9, i64 %30
+  %.scale = shl nsw i32 %5, 1
+  %11 = sext i32 %.scale to i64
+  %12 = zext nneg i32 %6 to i64
+  %13 = getelementptr inbounds [2 x i32], ptr @av1_sgr_params, i64 %11, i64 %12
+  %14 = load i32, ptr %13, align 4
+  %15 = add nsw i32 %1, 6
+  %16 = add nsw i32 %2, 6
+  %17 = add nsw i32 %1, 9
+  %18 = and i32 %17, -4
+  %19 = add nsw i32 %18, 16
+  %20 = icmp eq i32 %7, 0
+  %21 = select i1 %20, i64 1, i64 2
+  %22 = mul nsw i32 %3, 3
+  %23 = sext i32 %22 to i64
+  %24 = sub nsw i64 0, %23
+  %25 = getelementptr inbounds i32, ptr %0, i64 %24
+  %26 = getelementptr inbounds i8, ptr %25, i64 -12
+  tail call fastcc void @boxsum(ptr noundef nonnull %26, i32 noundef %15, i32 noundef %16, i32 noundef %3, i32 noundef %14, i32 noundef 0, ptr noundef %9, i32 noundef %19)
+  tail call fastcc void @boxsum(ptr noundef nonnull %26, i32 noundef %15, i32 noundef %16, i32 noundef %3, i32 noundef %14, i32 noundef 1, ptr noundef %8, i32 noundef %19)
+  %27 = mul nsw i32 %19, 3
+  %28 = or disjoint i32 %27, 3
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i32, ptr %8, i64 %29
+  %31 = getelementptr inbounds i32, ptr %9, i64 %29
   %.not75 = icmp slt i32 %2, -1
   br i1 %.not75, label %._crit_edge77, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %10
   %.not7273 = icmp slt i32 %1, -1
-  %33 = shl nsw i32 %15, 1
-  %34 = or disjoint i32 %33, 1
-  %35 = mul nsw i32 %34, %34
-  %36 = add nsw i32 %4, -8
-  %37 = shl nsw i32 %36, 1
-  %38 = shl nuw i32 1, %37
-  %39 = lshr i32 %38, 1
-  %40 = shl nuw i32 1, %36
-  %41 = ashr i32 %40, 1
+  %32 = shl nsw i32 %14, 1
+  %33 = or disjoint i32 %32, 1
+  %34 = mul nsw i32 %33, %33
+  %35 = add nsw i32 %4, -8
+  %36 = shl nsw i32 %35, 1
+  %37 = shl nuw i32 1, %36
+  %38 = lshr i32 %37, 1
+  %39 = shl nuw i32 1, %35
+  %40 = ashr i32 %39, 1
   br i1 %.not7273, label %._crit_edge77, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %42 = add nsw i32 %35, -1
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds [25 x i32], ptr @av1_one_by_x, i64 0, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %46 = getelementptr inbounds [2 x i32], ptr %45, i64 0, i64 %13
+  %41 = add nsw i32 %34, -1
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr inbounds [25 x i32], ptr @av1_one_by_x, i64 0, i64 %42
+  %44 = getelementptr inbounds [2 x i32], ptr @av1_sgr_params, i64 %11
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = getelementptr inbounds [2 x i32], ptr %45, i64 0, i64 %12
   %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr %44, align 8
+  %48 = load i32, ptr %43, align 8
   %49 = add i32 %1, 1
-  %50 = sext i32 %20 to i64
+  %50 = sext i32 %19 to i64
   %51 = sext i32 %2 to i64
   %wide.trip.count = zext i32 %49 to i64
   br label %.preheader
@@ -2866,15 +2869,15 @@ define internal fastcc void @calculate_intermediate_result(ptr nocapture noundef
 53:                                               ; preds = %.preheader, %53
   %indvars.iv = phi i64 [ -1, %.preheader ], [ %indvars.iv.next, %53 ]
   %54 = add nsw i64 %indvars.iv, %52
-  %55 = getelementptr inbounds i32, ptr %31, i64 %54
+  %55 = getelementptr inbounds i32, ptr %30, i64 %54
   %56 = load i32, ptr %55, align 4
-  %57 = add nsw i32 %56, %39
-  %58 = ashr i32 %57, %37
-  %59 = getelementptr inbounds i32, ptr %32, i64 %54
+  %57 = add nsw i32 %56, %38
+  %58 = ashr i32 %57, %36
+  %59 = getelementptr inbounds i32, ptr %31, i64 %54
   %60 = load i32, ptr %59, align 4
-  %61 = add nsw i32 %60, %41
-  %62 = ashr i32 %61, %36
-  %63 = mul i32 %58, %35
+  %61 = add nsw i32 %60, %40
+  %62 = ashr i32 %61, %35
+  %63 = mul i32 %58, %34
   %64 = mul i32 %62, %62
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %63, i32 %64)
   %65 = mul i32 %spec.select, %47
@@ -2897,7 +2900,7 @@ define internal fastcc void @calculate_intermediate_result(ptr nocapture noundef
   br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %53
-  %indvars.iv.next81 = add nsw i64 %indvars.iv80, %22
+  %indvars.iv.next81 = add nsw i64 %indvars.iv80, %21
   %.not = icmp sgt i64 %indvars.iv.next81, %51
   br i1 %.not, label %._crit_edge77, label %.preheader, !llvm.loop !40
 

@@ -1594,7 +1594,8 @@ _ZN10NMTPreInit13handle_mallocEPPvm.exit:         ; preds = %3
   br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %41
+  %.idx.i.i.i.i = shl nuw nsw i64 %41, 6
+  %45 = getelementptr inbounds i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %.idx.i.i.i.i
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   %47 = load volatile i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 40
@@ -1744,7 +1745,8 @@ define hidden noundef ptr @_ZN2os7reallocEPvm8MEMFLAGSRK15NativeCallStack(ptr no
   br i1 %.not19.i.i.i, label %_ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %43
+  %.idx.i.i.i.i = shl nuw nsw i64 %43, 6
+  %47 = getelementptr inbounds i8, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %.idx.i.i.i.i
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load volatile i64, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %47, i64 40

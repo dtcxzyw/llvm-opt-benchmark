@@ -167,8 +167,9 @@ define dso_local void @intset_add_member(ptr nocapture noundef %0, i64 noundef %
 
 55:                                               ; preds = %54
   %56 = add i32 %.053.i.i.ph, 1
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr [17 x %struct.simple8b_mode], ptr @simple8b_modes, i64 0, i64 %57
+  %.scale.i.i = shl i32 %56, 1
+  %57 = sext i32 %.scale.i.i to i64
+  %58 = getelementptr i8, ptr @simple8b_modes, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
@@ -538,8 +539,9 @@ intset_binsrch_uint64.exit48:                     ; preds = %.lr.ph.split.us.i
   %54 = sub i32 %.01719.i, %.020.i
   %55 = sdiv i32 %54, 2
   %56 = add i32 %55, %.020.i
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr %struct.leaf_item, ptr %50, i64 %57
+  %.scale.i = shl i32 %56, 1
+  %57 = sext i32 %.scale.i to i64
+  %58 = getelementptr i64, ptr %50, i64 %57
   %59 = load i64, ptr %58, align 8
   %.not.i = icmp ult i64 %1, %59
   %60 = add i32 %56, 1
@@ -553,9 +555,10 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i50
   br i1 %62, label %simple8b_contains.exit, label %63
 
 63:                                               ; preds = %intset_binsrch_leaf.exit
-  %64 = add i32 %.1.i, -1
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr [64 x %struct.leaf_item], ptr %50, i64 0, i64 %65
+  %64 = shl i32 %.1.i, 1
+  %.scale = add i32 %64, -2
+  %65 = sext i32 %.scale to i64
+  %66 = getelementptr i64, ptr %50, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, %1
   br i1 %68, label %simple8b_contains.exit, label %69
@@ -705,8 +708,9 @@ define dso_local noundef zeroext i1 @intset_iterate_next(ptr noundef %0, ptr noc
   %36 = getelementptr inbounds i8, ptr %26, i64 16
   %37 = add nsw i32 %30, 1
   store i32 %37, ptr %9, align 8
-  %38 = sext i32 %30 to i64
-  %39 = getelementptr [64 x %struct.leaf_item], ptr %36, i64 0, i64 %38
+  %.scale = shl i32 %30, 1
+  %38 = sext i32 %.scale to i64
+  %39 = getelementptr i64, ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8
   store i64 %40, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 8

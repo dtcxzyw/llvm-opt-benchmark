@@ -41,7 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.75" = type { %"struct.re2::PODArray<re2::SparseArray<int>::IndexValue>::Deleter" }
 %"struct.re2::PODArray<re2::SparseArray<int>::IndexValue>::Deleter" = type { i32 }
 %"struct.std::_Head_base.76" = type { ptr }
-%"class.re2::SparseArray<int>::IndexValue" = type { i32, i32 }
 %"class.absl::debian2::FixedArray" = type { %"class.absl::debian2::FixedArray<absl::debian2::string_view, 17>::Storage" }
 %"class.absl::debian2::FixedArray<absl::debian2::string_view, 17>::Storage" = type { %"class.absl::debian2::FixedArray<absl::debian2::string_view, 17>::NonEmptyInlinedStorage", %"class.absl::debian2::container_internal::CompressedTuple", ptr }
 %"class.absl::debian2::FixedArray<absl::debian2::string_view, 17>::NonEmptyInlinedStorage" = type { [272 x i8] }
@@ -1600,7 +1599,7 @@ if.end4.i.i.i:                                    ; preds = %entry
           to label %_ZN3re211SparseArrayIiEC2Ei.exit unwind label %_ZN3re28PODArrayIiED2Ev.exit.i
 
 common.resume:                                    ; preds = %lpad, %_ZN3re28PODArrayIiED2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %_ZN3re28PODArrayIiED2Ev.exit.i ], [ %7, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %2, %_ZN3re28PODArrayIiED2Ev.exit.i ], [ %8, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN3re28PODArrayIiED2Ev.exit.i:                   ; preds = %if.end4.i.i.i
@@ -1621,8 +1620,9 @@ invoke.cont:                                      ; preds = %_ZN3re211SparseArra
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %data, i8 0, i64 128, i1 false)
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %fanout, align 8
-  %idx.ext.i = sext i32 %5 to i64
-  %add.ptr.i = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %4, i64 %idx.ext.i
+  %idx.ext.scale.i = shl nsw i32 %5, 1
+  %6 = sext i32 %idx.ext.scale.i to i64
+  %add.ptr.i = getelementptr inbounds i32, ptr %4, i64 %6
   %cmp.not18 = icmp eq i32 %5, 0
   br i1 %cmp.not18, label %for.end, label %for.body
 
@@ -1630,26 +1630,26 @@ for.body:                                         ; preds = %invoke.cont, %for.i
   %i.020 = phi ptr [ %incdec.ptr, %for.inc ], [ %4, %invoke.cont ]
   %size.019 = phi i32 [ %size.1, %for.inc ], [ 0, %invoke.cont ]
   %value_.i = getelementptr inbounds i8, ptr %i.020, i64 4
-  %6 = load i32, ptr %value_.i, align 4
-  %cmp7 = icmp eq i32 %6, 0
+  %7 = load i32, ptr %value_.i, align 4
+  %cmp7 = icmp eq i32 %7, 0
   br i1 %cmp7, label %for.inc, label %if.end
 
 lpad:                                             ; preds = %if.then16, %_ZN3re211SparseArrayIiEC2Ei.exit
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3re211SparseArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %fanout) #30
   br label %common.resume
 
 if.end:                                           ; preds = %for.body
-  %8 = add i32 %6, -1
-  %9 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 false)
-  %add = sub nuw nsw i32 32, %9
+  %9 = add i32 %7, -1
+  %10 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 false)
+  %add = sub nuw nsw i32 32, %10
   %idxprom = zext nneg i32 %add to i64
   %arrayidx = getelementptr inbounds [32 x i32], ptr %data, i64 0, i64 %idxprom
-  %10 = load i32, ptr %arrayidx, align 4
-  %inc = add nsw i32 %10, 1
+  %11 = load i32, ptr %arrayidx, align 4
+  %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %arrayidx, align 4
-  %add12 = sub nuw nsw i32 33, %9
+  %add12 = sub nuw nsw i32 33, %10
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %size.019, i32 %add12)
   br label %for.inc
 
@@ -1675,22 +1675,22 @@ if.then16.if.end19_crit_edge:                     ; preds = %if.then16
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16.if.end19_crit_edge, %for.end
-  %11 = phi ptr [ %.pre, %if.then16.if.end19_crit_edge ], [ %4, %for.end ]
-  %cmp.not.i.i.i = icmp eq ptr %11, null
+  %12 = phi ptr [ %.pre, %if.then16.if.end19_crit_edge ], [ %4, %for.end ]
+  %cmp.not.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i, label %_ZN3re28PODArrayINS_11SparseArrayIiE10IndexValueEED2Ev.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end19
-  call void @_ZdlPv(ptr noundef nonnull %11) #32
+  call void @_ZdlPv(ptr noundef nonnull %12) #32
   br label %_ZN3re28PODArrayINS_11SparseArrayIiE10IndexValueEED2Ev.exit.i
 
 _ZN3re28PODArrayINS_11SparseArrayIiE10IndexValueEED2Ev.exit.i: ; preds = %if.then.i.i.i, %if.end19
   store ptr null, ptr %3, align 8
-  %12 = load ptr, ptr %1, align 8
-  %cmp.not.i.i2.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr %1, align 8
+  %cmp.not.i.i2.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i2.i, label %_ZN3re211SparseArrayIiED2Ev.exit, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %_ZN3re28PODArrayINS_11SparseArrayIiE10IndexValueEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %12) #32
+  call void @_ZdlPv(ptr noundef nonnull %13) #32
   br label %_ZN3re211SparseArrayIiED2Ev.exit
 
 _ZN3re211SparseArrayIiED2Ev.exit:                 ; preds = %_ZN3re28PODArrayINS_11SparseArrayIiE10IndexValueEED2Ev.exit.i, %if.then.i.i3.i

@@ -1400,7 +1400,7 @@ define linkonce_odr void @_ZN3gmx20CorrelationBlockDataC2Eid(ptr noundef nonnull
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 -1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = sext i32 %1 to i64
+  %7 = zext i32 %1 to i64
   %8 = icmp slt i32 %1, 0
   br i1 %8, label %.noexc, label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
 
@@ -1421,66 +1421,68 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit
   %9 = shl nuw nsw i64 %7, 4
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #19
   store ptr %10, ptr %6, align 8
-  %11 = getelementptr inbounds %"struct.gmx::CorrelationBlockData::CoordData", ptr %10, i64 %7
+  %.scale = shl nuw nsw i32 %1, 1
+  %11 = zext nneg i32 %.scale to i64
+  %12 = getelementptr inbounds double, ptr %10, i64 %11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %10, i8 0, i64 %9, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %10, i64 %9
   br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.lr.ph.preheader.i.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i
-  %12 = phi ptr [ null, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %10, %.lr.ph.preheader.i.i.i.i.i ]
-  %.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %11, %.lr.ph.preheader.i.i.i.i.i ]
+  %13 = phi ptr [ null, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %10, %.lr.ph.preheader.i.i.i.i.i ]
+  %.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %12, %.lr.ph.preheader.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %.sink.i, ptr %14, align 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
-  %16 = add nuw nsw i32 %1, 1
-  %17 = mul nuw nsw i32 %16, %1
-  %18 = lshr i32 %17, 1
-  %19 = zext nneg i32 %18 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i9 = icmp ult i32 %17, 2
-  br i1 %.not.i.i.i.i9, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i, label %20
+  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %.sink.i, ptr %15, align 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = add nuw nsw i32 %1, 1
+  %18 = mul nuw nsw i32 %17, %1
+  %19 = lshr i32 %18, 1
+  %20 = zext nneg i32 %19 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i9 = icmp ult i32 %18, 2
+  br i1 %.not.i.i.i.i9, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i, label %21
 
-20:                                               ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %21 = shl nuw nsw i64 %19, 3
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #19
-          to label %.noexc11 unwind label %29
+21:                                               ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  %22 = shl nuw nsw i64 %20, 3
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #19
+          to label %.noexc11 unwind label %30
 
-.noexc11:                                         ; preds = %20
-  store ptr %22, ptr %15, align 8
-  %23 = getelementptr double, ptr %22, i64 %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %23, ptr %24, align 8
-  store double 0.000000e+00, ptr %22, align 8
-  %25 = getelementptr i8, ptr %22, i64 8
-  %26 = icmp eq i32 %18, 1
-  br i1 %26, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
+.noexc11:                                         ; preds = %21
+  store ptr %23, ptr %16, align 8
+  %24 = getelementptr double, ptr %23, i64 %20
+  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %24, ptr %25, align 8
+  store double 0.000000e+00, ptr %23, align 8
+  %26 = getelementptr i8, ptr %23, i64 8
+  %27 = icmp eq i32 %19, 1
+  br i1 %27, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc11
-  %27 = add nsw i64 %21, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %27, i1 false)
+  %28 = add nsw i64 %22, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %28, i1 false)
   br label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i
 
 _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc11
-  %.0.i.i.i.i.i = phi ptr [ %25, %.noexc11 ], [ %23, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %.0.i.i.i.i.i, ptr %28, align 8
+  %.0.i.i.i.i.i = phi ptr [ %26, %.noexc11 ], [ %24, %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %.0.i.i.i.i.i, ptr %29, align 8
   ret void
 
-29:                                               ; preds = %20
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %21
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit, label %31
+  %.not.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit, label %32
 
-31:                                               ; preds = %29
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #20
+32:                                               ; preds = %30
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #20
   br label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = %31, %29
-  resume { ptr, i32 } %30
+_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = %32, %30
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: noreturn

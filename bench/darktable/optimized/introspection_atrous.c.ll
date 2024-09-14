@@ -2461,8 +2461,9 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
   %34 = load float, ptr %33, align 4, !tbaa !60
   %35 = getelementptr inbounds [5 x [6 x float]], ptr %30, i64 0, i64 %32, i64 %27
   store float %34, ptr %35, align 4, !tbaa !60
-  %36 = sext i32 %1 to i64
-  %37 = getelementptr inbounds [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %36
+  %.scale7 = shl nsw i32 %1, 1
+  %36 = sext i32 %.scale7 to i64
+  %37 = getelementptr inbounds ptr, ptr @_action_elements_equalizer, i64 %36
   %38 = load ptr, ptr %37, align 16, !tbaa !184
   %39 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.67, ptr noundef %38, ptr noundef nonnull @.str.24) #21
   br label %254
@@ -2547,8 +2548,9 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
   %114 = select <2 x i1> %113, <2 x double> zeroinitializer, <2 x double> %112
   %115 = fptrunc <2 x double> %114 to <2 x float>
   store <2 x float> %115, ptr %89, align 4, !tbaa !60
-  %116 = sext i32 %1 to i64
-  %117 = getelementptr inbounds [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %116
+  %.scale6 = shl nsw i32 %1, 1
+  %116 = sext i32 %.scale6 to i64
+  %117 = getelementptr inbounds ptr, ptr @_action_elements_equalizer, i64 %116
   %118 = load ptr, ptr %117, align 16, !tbaa !184
   %119 = icmp eq i32 %15, 2
   %120 = select i1 %119, ptr @.str.69, ptr @.str.25
@@ -2640,8 +2642,9 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
   %201 = select <2 x i1> %200, <2 x double> zeroinitializer, <2 x double> %199
   %202 = fptrunc <2 x double> %201 to <2 x float>
   store <2 x float> %202, ptr %176, align 4, !tbaa !60
-  %203 = sext i32 %1 to i64
-  %204 = getelementptr inbounds [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %203
+  %.scale5 = shl nsw i32 %1, 1
+  %203 = sext i32 %.scale5 to i64
+  %204 = getelementptr inbounds ptr, ptr @_action_elements_equalizer, i64 %203
   %205 = load ptr, ptr %204, align 16, !tbaa !184
   %206 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #21
   %207 = load float, ptr %138, align 4, !tbaa !60
@@ -2693,8 +2696,9 @@ define internal float @_action_process_equalizer(ptr noundef %0, i32 noundef %1,
 241:                                              ; preds = %219, %216
   %242 = phi i64 [ %218, %216 ], [ %230, %219 ]
   %243 = phi i64 [ %217, %216 ], [ %221, %219 ]
-  %244 = sext i32 %1 to i64
-  %245 = getelementptr inbounds [8 x %struct.dt_action_element_def_t], ptr @_action_elements_equalizer, i64 0, i64 %244
+  %.scale = shl nsw i32 %1, 1
+  %244 = sext i32 %.scale to i64
+  %245 = getelementptr inbounds ptr, ptr @_action_elements_equalizer, i64 %244
   %246 = load ptr, ptr %245, align 16, !tbaa !184
   %247 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #21
   %248 = getelementptr inbounds i8, ptr %10, i64 4

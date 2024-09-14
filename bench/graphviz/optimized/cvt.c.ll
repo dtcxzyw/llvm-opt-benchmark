@@ -45,8 +45,8 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br label %61
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.0.lcssa108 = phi i64 [ %10, %._crit_edge ], [ 0, %.preheader ]
-  %13 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa108, i64 noundef 16) #12
+  %.0.lcssa109 = phi i64 [ %10, %._crit_edge ], [ 0, %.preheader ]
+  %13 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 16) #12
   %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %13, ptr %14, align 8
   %15 = sext i32 %1 to i64
@@ -54,13 +54,13 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #12
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %17, ptr %18, align 8
-  %19 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa108, i64 noundef 4) #12
+  %19 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 4) #12
   %20 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %19, ptr %20, align 8
-  %21 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa108, i64 noundef 4) #12
+  %21 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa109, i64 noundef 4) #12
   %22 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %21, ptr %22, align 8
-  %23 = trunc nuw nsw i64 %.0.lcssa108 to i32
+  %23 = trunc nuw nsw i64 %.0.lcssa109 to i32
   %24 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %23, ptr %24, align 4
   store i32 %1, ptr %3, align 8
@@ -68,7 +68,7 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %25, label %31, label %26
 
 26:                                               ; preds = %._crit_edge.thread
-  %.not75 = icmp eq i64 %.0.lcssa108, 0
+  %.not75 = icmp eq i64 %.0.lcssa109, 0
   br i1 %.not75, label %32, label %27
 
 27:                                               ; preds = %26
@@ -91,15 +91,15 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %4, label %.lr.ph88.preheader, label %._crit_edge89
 
 .lr.ph88.preheader:                               ; preds = %32
-  %wide.trip.count105 = zext nneg i32 %1 to i64
+  %wide.trip.count106 = zext nneg i32 %1 to i64
   br label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %._crit_edge83
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next103, %._crit_edge83 ]
+  %indvars.iv103 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next104, %._crit_edge83 ]
   %.07085 = phi i32 [ 0, %.lr.ph88.preheader ], [ %.171.lcssa, %._crit_edge83 ]
-  %33 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv102
+  %33 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv103
   store i32 %.07085, ptr %33, align 4
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv102
+  %34 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv103
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
@@ -115,12 +115,13 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next98, %.lr.ph82 ]
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next99, %.lr.ph82 ]
   %indvars.iv95 = phi i64 [ %41, %.lr.ph82.preheader ], [ %indvars.iv.next96, %.lr.ph82 ]
   %44 = phi ptr [ %35, %.lr.ph82.preheader ], [ %42, %.lr.ph82 ]
-  %45 = getelementptr inbounds %struct.Pxy_t, ptr %13, i64 %indvars.iv95
+  %.idx = shl nsw i64 %indvars.iv95, 4
+  %45 = getelementptr inbounds i8, ptr %13, i64 %.idx
   %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds %struct.Pxy_t, ptr %46, i64 %indvars.iv97
+  %47 = getelementptr inbounds %struct.Pxy_t, ptr %46, i64 %indvars.iv98
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %48 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv95
@@ -130,10 +131,10 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %51 = trunc i64 %indvars.iv95 to i32
   %52 = add i32 %51, -1
   store i32 %52, ptr %50, align 4
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %53 = load i32, ptr %43, align 8
   %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv.next98, %54
+  %55 = icmp slt i64 %indvars.iv.next99, %54
   br i1 %55, label %.lr.ph82, label %._crit_edge83
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %.lr.ph88
@@ -143,9 +144,9 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   store i32 %.07085, ptr %57, align 4
   %58 = getelementptr inbounds i32, ptr %21, i64 %41
   store i32 %39, ptr %58, align 4
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge89.loopexit, label %.lr.ph88
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
+  br i1 %exitcond107.not, label %._crit_edge89.loopexit, label %.lr.ph88
 
 ._crit_edge89.loopexit:                           ; preds = %._crit_edge83
   %59 = zext nneg i32 %1 to i64
@@ -258,42 +259,44 @@ gv_calloc.exit:                                   ; preds = %21
   store double %4, ptr %29, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store double %5, ptr %.sroa.4.0..sroa_idx, align 8
-  %30 = sext i32 %13 to i64
-  %.049 = add nsw i64 %.046, -1
-  %.1.in50 = getelementptr inbounds i32, ptr %11, i64 %30
-  %.151 = load i32, ptr %.1.in50, align 4
-  %.not4852 = icmp eq i32 %.151, %14
-  br i1 %.not4852, label %._crit_edge, label %.lr.ph
+  %.pn4749 = sext i32 %13 to i64
+  %.050 = add nsw i64 %.046, -1
+  %.1.in51 = getelementptr inbounds i32, ptr %11, i64 %.pn4749
+  %.152 = load i32, ptr %.1.in51, align 4
+  %.not4853 = icmp eq i32 %.152, %14
+  br i1 %.not4853, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gv_calloc.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  br label %33
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8
+  br label %32
 
-33:                                               ; preds = %.lr.ph, %33
-  %.154 = phi i32 [ %.151, %.lr.ph ], [ %.1, %33 ]
-  %.053 = phi i64 [ %.049, %.lr.ph ], [ %.0, %33 ]
-  %34 = getelementptr inbounds %struct.Pxy_t, ptr %23, i64 %.053
-  %35 = sext i32 %.154 to i64
-  %36 = getelementptr inbounds %struct.Pxy_t, ptr %32, i64 %35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
-  %.0 = add i64 %.053, -1
-  %.1.in = getelementptr inbounds i32, ptr %11, i64 %35
+32:                                               ; preds = %.lr.ph, %32
+  %.155 = phi i32 [ %.152, %.lr.ph ], [ %.1, %32 ]
+  %.054 = phi i64 [ %.050, %.lr.ph ], [ %.0, %32 ]
+  %33 = getelementptr inbounds %struct.Pxy_t, ptr %23, i64 %.054
+  %.scale = shl nsw i32 %.155, 1
+  %34 = sext i32 %.scale to i64
+  %35 = getelementptr inbounds double, ptr %31, i64 %34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
+  %.pn47 = sext i32 %.155 to i64
+  %.0 = add i64 %.054, -1
+  %.1.in = getelementptr inbounds i32, ptr %11, i64 %.pn47
   %.1 = load i32, ptr %.1.in, align 4
   %.not48 = icmp eq i32 %.1, %14
-  br i1 %.not48, label %._crit_edge, label %33
+  br i1 %.not48, label %._crit_edge, label %32
 
-._crit_edge:                                      ; preds = %33, %gv_calloc.exit
-  %.0.lcssa = phi i64 [ %.049, %gv_calloc.exit ], [ %.0, %33 ]
-  %37 = getelementptr inbounds %struct.Pxy_t, ptr %23, i64 %.0.lcssa
-  store double %1, ptr %37, align 8
-  %.sroa.443.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
+._crit_edge:                                      ; preds = %32, %gv_calloc.exit
+  %.0.lcssa = phi i64 [ %.050, %gv_calloc.exit ], [ %.0, %32 ]
+  %36 = getelementptr inbounds %struct.Pxy_t, ptr %23, i64 %.0.lcssa
+  store double %1, ptr %36, align 8
+  %.sroa.443.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 8
   store double %2, ptr %.sroa.443.0..sroa_idx, align 8
   tail call void @free(ptr noundef %9) #11
   tail call void @free(ptr noundef %10) #11
-  %38 = trunc i64 %16 to i32
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %38, ptr %39, align 8
+  %37 = trunc i64 %16 to i32
+  %38 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %37, ptr %38, align 8
   store ptr %23, ptr %7, align 8
   tail call void @free(ptr noundef nonnull %11) #11
   ret void

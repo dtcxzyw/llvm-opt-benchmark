@@ -684,46 +684,48 @@ entry:
   %mul4 = fmul double %1, 6.000000e+00
   %peak_index = getelementptr inbounds i8, ptr %stats, i64 524280
   %2 = load i32, ptr %peak_index, align 8
-  %idxprom = sext i32 %2 to i64
-  %count = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %idxprom, i32 1
-  %3 = load i32, ptr %count, align 4
-  %conv = uitofp i32 %3 to double
+  %idxprom.scale = shl nsw i32 %2, 1
+  %3 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i32, ptr %stats, i64 %3
+  %count = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %4 = load i32, ptr %count, align 4
+  %conv = uitofp i32 %4 to double
   %call = tail call noalias ptr @fopen64(ptr noundef %filename, ptr noundef nonnull @.str.15)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr @stderr, align 8
+  %5 = load ptr, ptr @stderr, align 8
   %call6 = tail call ptr @__errno_location() #11
-  %5 = load i32, ptr %call6, align 4
-  %call7 = tail call ptr @strerror(i32 noundef %5) #10
-  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.16, ptr noundef %filename, ptr noundef %call7) #12
+  %6 = load i32, ptr %call6, align 4
+  %call7 = tail call ptr @strerror(i32 noundef %6) #10
+  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.16, ptr noundef %filename, ptr noundef %call7) #12
   br label %return
 
 if.end:                                           ; preds = %entry
-  %6 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 263, i64 1, ptr nonnull %call)
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 263, i64 1, ptr nonnull %call)
   %nbuckets = getelementptr inbounds i8, ptr %stats, i64 524284
-  %7 = load i32, ptr %nbuckets, align 4
-  %cmp1058.not = icmp eq i32 %7, 0
+  %8 = load i32, ptr %nbuckets, align 4
+  %cmp1058.not = icmp eq i32 %8, 0
   br i1 %cmp1058.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end ]
   %arrayidx14 = getelementptr inbounds [65535 x %struct.pair_t], ptr %stats, i64 0, i64 %indvars.iv
-  %8 = load i32, ptr %arrayidx14, align 8
+  %9 = load i32, ptr %arrayidx14, align 8
   %count18 = getelementptr inbounds i8, ptr %arrayidx14, i64 4
-  %9 = load i32, ptr %count18, align 4
-  %call19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.18, i32 noundef %8, i32 noundef %9)
+  %10 = load i32, ptr %count18, align 4
+  %call19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.18, i32 noundef %9, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr %nbuckets, align 4
-  %11 = zext i32 %10 to i64
-  %cmp10 = icmp ult i64 %indvars.iv.next, %11
+  %11 = load i32, ptr %nbuckets, align 4
+  %12 = zext i32 %11 to i64
+  %cmp10 = icmp ult i64 %indvars.iv.next, %12
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !19
 
 for.end:                                          ; preds = %for.body, %if.end
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %call)
-  %13 = load double, ptr %mean, align 8
-  %call22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.20, double noundef %13, double noundef %conv)
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %call)
+  %14 = load double, ptr %mean, align 8
+  %call22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.20, double noundef %14, double noundef %conv)
   %sub = fsub double %0, %1
   %mul23 = fmul double %conv, 8.000000e-01
   %add = fadd double %0, %1
@@ -748,7 +750,7 @@ for.end:                                          ; preds = %for.body, %if.end
   %mul47 = fmul double %conv, 3.000000e-01
   %add48 = fadd double %0, %mul4
   %call50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call, ptr noundef nonnull @.str.21, double noundef %sub46, double noundef %mul47, double noundef %add48, double noundef %mul47)
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 22, i64 1, ptr nonnull %call)
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 22, i64 1, ptr nonnull %call)
   %call52 = tail call i32 @fclose(ptr noundef nonnull %call)
   br label %return
 

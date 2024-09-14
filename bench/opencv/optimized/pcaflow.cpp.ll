@@ -3330,7 +3330,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %175, %178
   br i1 %266, label %.preheader71.lr.ph.i, label %..preheader70_crit_edge.i
 
 ..preheader70_crit_edge.i:                        ; preds = %260
-  %.pre104.i = load i32, ptr %267, align 4
+  %.pre105.i = load i32, ptr %267, align 4
   br label %.preheader70.i
 
 .preheader71.lr.ph.i:                             ; preds = %260
@@ -3363,7 +3363,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %175, %178
 
 .preheader70.i:                                   ; preds = %._crit_edge.i, %..preheader70_crit_edge.i
   %286 = phi i32 [ %265, %..preheader70_crit_edge.i ], [ %388, %._crit_edge.i ]
-  %287 = phi i32 [ %.pre104.i, %..preheader70_crit_edge.i ], [ %389, %._crit_edge.i ]
+  %287 = phi i32 [ %.pre105.i, %..preheader70_crit_edge.i ], [ %389, %._crit_edge.i ]
   %288 = icmp sgt i32 %287, 0
   br i1 %288, label %.lr.ph75.i, label %.preheader69.i
 
@@ -3523,11 +3523,11 @@ _ZNK2cv3Mat2atIfEERKT_i.exit63.i:                 ; preds = %363, %356, %348
   br i1 %391, label %.preheader71.i, label %.preheader70.i, !llvm.loop !79
 
 .preheader69.loopexit.i:                          ; preds = %396
-  %.pre105.i = load i32, ptr %254, align 8
+  %.pre106.i = load i32, ptr %254, align 8
   br label %.preheader69.i
 
 .preheader69.i:                                   ; preds = %.preheader69.loopexit.i, %.preheader70.i
-  %392 = phi i32 [ %.pre105.i, %.preheader69.loopexit.i ], [ %286, %.preheader70.i ]
+  %392 = phi i32 [ %.pre106.i, %.preheader69.loopexit.i ], [ %286, %.preheader70.i ]
   %393 = icmp sgt i32 %392, 0
   br i1 %393, label %.lr.ph77.i, label %._crit_edge78.i
 
@@ -3633,7 +3633,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit63.i:                 ; preds = %363, %356, %348
   br i1 %446, label %.preheader.us.i, label %.loopexit
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %._crit_edge81.us.i
-  %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %._crit_edge81.us.i ], [ 0, %.preheader.lr.ph.i ]
+  %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %._crit_edge81.us.i ], [ 0, %.preheader.lr.ph.i ]
   br label %453
 
 453:                                              ; preds = %453, %.preheader.us.i
@@ -3641,23 +3641,24 @@ _ZNK2cv3Mat2atIfEERKT_i.exit63.i:                 ; preds = %363, %356, %348
   %454 = load ptr, ptr %447, align 8
   %455 = load ptr, ptr %448, align 8
   %456 = load i64, ptr %455, align 8
-  %457 = mul i64 %456, %indvars.iv99.i
+  %457 = mul i64 %456, %indvars.iv100.i
   %458 = getelementptr inbounds i8, ptr %454, i64 %457
   %459 = getelementptr inbounds float, ptr %458, i64 %indvars.iv96.i
   %460 = load i32, ptr %459, align 4
   %461 = load ptr, ptr %449, align 8
   %462 = load ptr, ptr %450, align 8
   %463 = load i64, ptr %462, align 8
-  %464 = mul i64 %463, %indvars.iv99.i
+  %464 = mul i64 %463, %indvars.iv100.i
   %465 = getelementptr inbounds i8, ptr %461, i64 %464
   %466 = getelementptr inbounds float, ptr %465, i64 %indvars.iv96.i
   %467 = load i32, ptr %466, align 4
   %468 = load ptr, ptr %451, align 8
   %469 = load ptr, ptr %452, align 8
   %470 = load i64, ptr %469, align 8
-  %471 = mul i64 %470, %indvars.iv99.i
+  %471 = mul i64 %470, %indvars.iv100.i
   %472 = getelementptr inbounds i8, ptr %468, i64 %471
-  %473 = getelementptr inbounds %"class.cv::Point_", ptr %472, i64 %indvars.iv96.i
+  %.idx.i = shl nsw i64 %indvars.iv96.i, 3
+  %473 = getelementptr inbounds i8, ptr %472, i64 %.idx.i
   store i32 %460, ptr %473, align 4
   %.sroa_idx64.us.i = getelementptr inbounds i8, ptr %473, i64 4
   store i32 %467, ptr %.sroa_idx64.us.i, align 4
@@ -3666,9 +3667,9 @@ _ZNK2cv3Mat2atIfEERKT_i.exit63.i:                 ; preds = %363, %356, %348
   br i1 %exitcond.not.i, label %._crit_edge81.us.i, label %453, !llvm.loop !82
 
 ._crit_edge81.us.i:                               ; preds = %453
-  %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
-  %exitcond103.not.i = icmp eq i64 %indvars.iv.next100.i, %.sroa.2.0.insert.ext.i.i
-  br i1 %exitcond103.not.i, label %.loopexit, label %.preheader.us.i, !llvm.loop !83
+  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
+  %exitcond104.not.i = icmp eq i64 %indvars.iv.next101.i, %.sroa.2.0.insert.ext.i.i
+  br i1 %exitcond104.not.i, label %.loopexit, label %.preheader.us.i, !llvm.loop !83
 
 474:                                              ; preds = %._crit_edge78.i
   %475 = landingpad { ptr, i32 }

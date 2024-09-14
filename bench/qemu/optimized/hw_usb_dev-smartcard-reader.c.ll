@@ -755,23 +755,24 @@ for.body.lr.ph:                                   ; preds = %if.end13
   %3 = load i32, ptr %pending_answers_start, align 8
   %pending_answers = getelementptr inbounds i8, ptr %s, i64 74720
   %rem20 = srem i32 %3, 128
-  %idxprom21 = sext i32 %rem20 to i64
-  %arrayidx22 = getelementptr [128 x %struct.Answer], ptr %pending_answers, i64 0, i64 %idxprom21
+  %idxprom.scale21 = shl nsw i32 %rem20, 1
+  %4 = sext i32 %idxprom.scale21 to i64
+  %arrayidx22 = getelementptr i8, ptr %pending_answers, i64 %4
   %cmp1623 = icmp eq i32 %s.val, 1
   br i1 %cmp1623, label %do.body19, label %do.body30
 
 do.body19:                                        ; preds = %for.inc, %for.body.lr.ph
   %arrayidx.lcssa = phi ptr [ %arrayidx22, %for.body.lr.ph ], [ %arrayidx, %for.inc ]
-  %4 = load i8, ptr %debug, align 1
-  %cmp22 = icmp ugt i8 %4, 3
+  %5 = load i8, ptr %debug, align 1
+  %cmp22 = icmp ugt i8 %5, 3
   br i1 %cmp22, label %if.then24, label %for.end
 
 if.then24:                                        ; preds = %do.body19
-  %5 = load i8, ptr %arrayidx.lcssa, align 1
-  %conv25 = zext i8 %5 to i32
+  %6 = load i8, ptr %arrayidx.lcssa, align 1
+  %conv25 = zext i8 %6 to i32
   %seq = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 1
-  %6 = load i8, ptr %seq, align 1
-  %conv26 = zext i8 %6 to i32
+  %7 = load i8, ptr %seq, align 1
+  %conv26 = zext i8 %7 to i32
   %call27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %conv25, i32 noundef %conv26)
   br label %for.end
 
@@ -779,16 +780,16 @@ do.body30:                                        ; preds = %for.body.lr.ph, %fo
   %arrayidx26 = phi ptr [ %arrayidx, %for.inc ], [ %arrayidx22, %for.body.lr.ph ]
   %i.01525 = phi i32 [ %inc, %for.inc ], [ %3, %for.body.lr.ph ]
   %count.01624 = phi i32 [ %dec, %for.inc ], [ %s.val, %for.body.lr.ph ]
-  %7 = load i8, ptr %debug, align 1
-  %cmp33 = icmp ugt i8 %7, 3
+  %8 = load i8, ptr %debug, align 1
+  %cmp33 = icmp ugt i8 %8, 3
   br i1 %cmp33, label %if.then35, label %for.inc
 
 if.then35:                                        ; preds = %do.body30
-  %8 = load i8, ptr %arrayidx26, align 1
-  %conv37 = zext i8 %8 to i32
+  %9 = load i8, ptr %arrayidx26, align 1
+  %conv37 = zext i8 %9 to i32
   %seq38 = getelementptr inbounds i8, ptr %arrayidx26, i64 1
-  %9 = load i8, ptr %seq38, align 1
-  %conv39 = zext i8 %9 to i32
+  %10 = load i8, ptr %seq38, align 1
+  %conv39 = zext i8 %10 to i32
   %call40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %conv37, i32 noundef %conv39)
   br label %for.inc
 
@@ -796,8 +797,9 @@ for.inc:                                          ; preds = %do.body30, %if.then
   %dec = add nsw i32 %count.01624, -1
   %inc = add i32 %i.01525, 1
   %rem = srem i32 %inc, 128
-  %idxprom = sext i32 %rem to i64
-  %arrayidx = getelementptr [128 x %struct.Answer], ptr %pending_answers, i64 0, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %rem, 1
+  %11 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr i8, ptr %pending_answers, i64 %11
   %cmp16 = icmp eq i32 %dec, 1
   br i1 %cmp16, label %do.body19, label %do.body30, !llvm.loop !7
 

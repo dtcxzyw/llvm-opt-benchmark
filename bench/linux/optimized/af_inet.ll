@@ -4027,8 +4027,9 @@ define internal i32 @inet_create(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %8 = phi i32 [ %17, %.split32.split.us.backedge ], [ 0, %.split32 ]
   tail call void @__rcu_read_lock() #15
   %9 = load i16, ptr %6, align 4
-  %10 = sext i16 %9 to i64
-  %11 = getelementptr [11 x %struct.list_head], ptr @inetsw, i64 0, i64 %10
+  %.scale.us = shl i16 %9, 1
+  %10 = sext i16 %.scale.us to i64
+  %11 = getelementptr ptr, ptr @inetsw, i64 %10
   %12 = load volatile ptr, ptr %11, align 16
   %13 = icmp eq ptr %12, %11
   br i1 %13, label %.loopexit.split.us.us, label %.split.us.us, !prof !71
@@ -4073,8 +4074,9 @@ define internal i32 @inet_create(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %32 = phi i32 [ %50, %.split32.split.backedge ], [ 0, %.split32 ]
   tail call void @__rcu_read_lock() #15
   %33 = load i16, ptr %6, align 4
-  %34 = sext i16 %33 to i64
-  %35 = getelementptr [11 x %struct.list_head], ptr @inetsw, i64 0, i64 %34
+  %.scale = shl i16 %33, 1
+  %34 = sext i16 %.scale to i64
+  %35 = getelementptr ptr, ptr @inetsw, i64 %34
   %36 = load volatile ptr, ptr %35, align 16
   %37 = icmp eq ptr %36, %35
   br i1 %37, label %.loopexit.split, label %.split, !prof !71

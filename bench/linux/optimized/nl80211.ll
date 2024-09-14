@@ -40713,8 +40713,9 @@ define internal i32 @nl80211_set_sar_specs(ptr nocapture readnone %0, ptr nounde
 .loopexit19.us:                                   ; preds = %118, %109
   %121 = getelementptr i8, ptr %97, i64 4
   %122 = load i32, ptr %121, align 4
-  %123 = sext i32 %80 to i64
-  %124 = getelementptr [0 x %struct.cfg80211_sar_sub_specs], ptr %76, i64 0, i64 %123
+  %.scale.us = shl i32 %80, 1
+  %123 = sext i32 %.scale.us to i64
+  %124 = getelementptr i32, ptr %76, i64 %123
   store i32 %122, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 4
   store i32 %104, ptr %125, align 4
@@ -50184,7 +50185,7 @@ define internal fastcc i32 @nl80211_parse_sched_scan_plans(ptr nocapture noundef
   %12 = getelementptr i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %101, label %15
+  br i1 %14, label %103, label %15
 
 15:                                               ; preds = %9
   %16 = zext i32 %13 to i64
@@ -50197,17 +50198,17 @@ define internal fastcc i32 @nl80211_parse_sched_scan_plans(ptr nocapture noundef
   %22 = load ptr, ptr %20, align 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %101, label %25
+  br i1 %24, label %103, label %25
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds i8, ptr %0, i64 132
   %27 = load i32, ptr %26, align 4
   %28 = icmp ugt i32 %23, %27
-  br i1 %28, label %29, label %101
+  br i1 %28, label %29, label %103
 
 29:                                               ; preds = %25
   store i32 %27, ptr %22, align 4
-  br label %101
+  br label %103
 
 30:                                               ; preds = %4
   %31 = load i16, ptr %7, align 2
@@ -50233,10 +50234,10 @@ define internal fastcc i32 @nl80211_parse_sched_scan_plans(ptr nocapture noundef
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %87
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %87 ]
-  %43 = phi ptr [ %41, %.lr.ph.preheader ], [ %94, %87 ]
-  %44 = phi i32 [ %40, %.lr.ph.preheader ], [ %92, %87 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %89
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %89 ]
+  %43 = phi ptr [ %41, %.lr.ph.preheader ], [ %96, %89 ]
+  %44 = phi i32 [ %40, %.lr.ph.preheader ], [ %94, %89 ]
   %45 = load i16, ptr %43, align 2
   %46 = icmp ult i16 %45, 4
   %47 = zext i16 %45 to i32
@@ -50273,74 +50274,77 @@ define internal fastcc i32 @nl80211_parse_sched_scan_plans(ptr nocapture noundef
   %60 = getelementptr i8, ptr %57, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = load ptr, ptr %34, align 8
-  %63 = getelementptr %struct.cfg80211_sched_scan_plan, ptr %62, i64 %indvars.iv
-  store i32 %61, ptr %63, align 4
-  %64 = load ptr, ptr %34, align 8
-  %65 = getelementptr %struct.cfg80211_sched_scan_plan, ptr %64, i64 %indvars.iv
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.thread, label %68
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %63 = shl i32 %indvars.iv.tr, 1
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr i32, ptr %62, i64 %64
+  store i32 %61, ptr %65, align 4
+  %66 = load ptr, ptr %34, align 8
+  %67 = getelementptr i32, ptr %66, i64 %64
+  %68 = load i32, ptr %67, align 4
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %.thread, label %70
 
-68:                                               ; preds = %59
-  %69 = load i32, ptr %35, align 4
-  %70 = icmp ugt i32 %66, %69
-  br i1 %70, label %.thread, label %71
+70:                                               ; preds = %59
+  %71 = load i32, ptr %35, align 4
+  %72 = icmp ugt i32 %68, %71
+  br i1 %72, label %.thread, label %73
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %36, align 16
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %85, label %74
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %36, align 16
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %87, label %76
 
-74:                                               ; preds = %71
-  %75 = getelementptr i8, ptr %72, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr %struct.cfg80211_sched_scan_plan, ptr %64, i64 %indvars.iv, i32 1
-  store i32 %76, ptr %77, align 4
-  %78 = load ptr, ptr %34, align 8
-  %79 = getelementptr %struct.cfg80211_sched_scan_plan, ptr %78, i64 %indvars.iv, i32 1
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.thread, label %82
+76:                                               ; preds = %73
+  %77 = getelementptr i8, ptr %74, i64 4
+  %78 = load i32, ptr %77, align 4
+  %79 = getelementptr %struct.cfg80211_sched_scan_plan, ptr %66, i64 %indvars.iv, i32 1
+  store i32 %78, ptr %79, align 4
+  %80 = load ptr, ptr %34, align 8
+  %81 = getelementptr %struct.cfg80211_sched_scan_plan, ptr %80, i64 %indvars.iv, i32 1
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %.thread, label %84
 
-82:                                               ; preds = %74
-  %83 = load i32, ptr %37, align 8
-  %84 = icmp ugt i32 %80, %83
-  br i1 %84, label %.thread, label %87
+84:                                               ; preds = %76
+  %85 = load i32, ptr %37, align 8
+  %86 = icmp ugt i32 %82, %85
+  br i1 %86, label %.thread, label %89
 
-85:                                               ; preds = %71
-  %86 = icmp slt i64 %indvars.iv, %42
-  br i1 %86, label %.thread, label %87
+87:                                               ; preds = %73
+  %88 = icmp slt i64 %indvars.iv, %42
+  br i1 %88, label %.thread, label %89
 
-.thread:                                          ; preds = %50, %56, %68, %59, %82, %74, %85, %49
-  %.ph = phi i32 [ -22, %49 ], [ %54, %50 ], [ -22, %56 ], [ -22, %68 ], [ -22, %59 ], [ -22, %82 ], [ -22, %74 ], [ -22, %85 ]
+.thread:                                          ; preds = %50, %56, %70, %59, %84, %76, %87, %49
+  %.ph = phi i32 [ -22, %49 ], [ %54, %50 ], [ -22, %56 ], [ -22, %70 ], [ -22, %59 ], [ -22, %84 ], [ -22, %76 ], [ -22, %87 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
-  br label %101
+  br label %103
 
-87:                                               ; preds = %85, %82
+89:                                               ; preds = %87, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26
-  %88 = load i16, ptr %43, align 2
-  %89 = zext i16 %88 to i32
-  %90 = add nuw nsw i32 %89, 3
-  %91 = and i32 %90, 131068
-  %92 = sub nsw i32 %44, %91
-  %93 = zext nneg i32 %91 to i64
-  %94 = getelementptr i8, ptr %43, i64 %93
-  %95 = icmp sgt i32 %92, 3
-  br i1 %95, label %.lr.ph, label %.critedge, !llvm.loop !739
+  %90 = load i16, ptr %43, align 2
+  %91 = zext i16 %90 to i32
+  %92 = add nuw nsw i32 %91, 3
+  %93 = and i32 %92, 131068
+  %94 = sub nsw i32 %44, %93
+  %95 = zext nneg i32 %93 to i64
+  %96 = getelementptr i8, ptr %43, i64 %95
+  %97 = icmp sgt i32 %94, 3
+  br i1 %97, label %.lr.ph, label %.critedge, !llvm.loop !739
 
-.critedge:                                        ; preds = %87, %.lr.ph, %..critedge_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %..critedge_crit_edge ], [ %42, %.lr.ph ], [ %42, %87 ]
-  %96 = load ptr, ptr %34, align 8
-  %97 = getelementptr %struct.cfg80211_sched_scan_plan, ptr %96, i64 %.pre-phi, i32 1
-  %98 = load i32, ptr %97, align 4
-  %99 = icmp eq i32 %98, 0
-  %100 = select i1 %99, i32 0, i32 -22
-  br label %101
+.critedge:                                        ; preds = %89, %.lr.ph, %..critedge_crit_edge
+  %.pre-phi = phi i64 [ %.pre, %..critedge_crit_edge ], [ %42, %.lr.ph ], [ %42, %89 ]
+  %98 = load ptr, ptr %34, align 8
+  %99 = getelementptr %struct.cfg80211_sched_scan_plan, ptr %98, i64 %.pre-phi, i32 1
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp eq i32 %100, 0
+  %102 = select i1 %101, i32 0, i32 -22
+  br label %103
 
-101:                                              ; preds = %.thread, %.critedge, %29, %25, %15, %9
-  %102 = phi i32 [ -22, %9 ], [ -22, %15 ], [ 0, %29 ], [ 0, %25 ], [ %100, %.critedge ], [ %.ph, %.thread ]
-  ret i32 %102
+103:                                              ; preds = %.thread, %.critedge, %29, %25, %15, %9
+  %104 = phi i32 [ -22, %9 ], [ -22, %15 ], [ 0, %29 ], [ 0, %25 ], [ %102, %.critedge ], [ %.ph, %.thread ]
+  ret i32 %104
 }
 
 ; Function Attrs: null_pointer_is_valid

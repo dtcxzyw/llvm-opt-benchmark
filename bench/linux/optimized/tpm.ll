@@ -5,7 +5,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_efi_tpm_fina
 
 %struct.efi = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.efi_memory_map, i64 }
 %struct.efi_memory_map = type { i64, ptr, ptr, i32, i64, i64, i64 }
-%struct.tcg_efi_specid_event_algs = type { i16, i16 }
 
 @efi_tpm_final_log_size = dso_local global i32 0, align 4
 @__UNIQUE_ID___addressable_efi_tpm_final_log_size452 = internal global ptr @efi_tpm_final_log_size, section ".discard.addressable", align 8
@@ -130,7 +129,7 @@ declare dso_local i32 @memblock_reserve(i64 noundef, i64 noundef) local_unnamed_
 define internal fastcc i32 @tpm2_calc_event_log_size(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca [20 x i8], align 16
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %.loopexit16
+  br i1 %5, label %6, label %.loopexit17
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %2, i64 4
@@ -152,7 +151,7 @@ define internal fastcc i32 @tpm2_calc_event_log_size(ptr noundef %0, i32 noundef
   %19 = ptrtoint ptr %17 to i64
   %20 = tail call ptr @early_memremap(i64 noundef %19, i64 noundef 12) #6
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread10, label %22
+  br i1 %21, label %.thread11, label %22
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds i8, ptr %20, i64 8
@@ -161,36 +160,36 @@ define internal fastcc i32 @tpm2_calc_event_log_size(ptr noundef %0, i32 noundef
   %26 = load i32, ptr %25, align 1
   %27 = load i32, ptr %2, align 1
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %.thread10
+  br i1 %28, label %29, label %.thread11
 
 29:                                               ; preds = %22
   %30 = load i32, ptr %7, align 1
   %31 = icmp eq i32 %30, 3
-  br i1 %31, label %32, label %.thread10
+  br i1 %31, label %32, label %.thread11
 
 32:                                               ; preds = %29
   %33 = call i32 @bcmp(ptr noundef dereferenceable(20) %8, ptr noundef nonnull dereferenceable(20) %4, i64 20)
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %.thread10
+  br i1 %34, label %35, label %.thread11
 
 35:                                               ; preds = %32
   %36 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %9, ptr noundef nonnull dereferenceable(16) @.str.5, i64 16)
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.thread10
+  br i1 %37, label %38, label %.thread11
 
 38:                                               ; preds = %35
   %39 = load i32, ptr %10, align 1
   %40 = icmp ne i32 %39, 0
   %41 = icmp eq i32 %24, %39
   %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %.preheader12, label %.thread10
+  br i1 %42, label %.preheader13, label %.thread11
 
 43:                                               ; preds = %71
   %44 = add nuw i32 %46, 1
   %45 = icmp eq i32 %44, %24
-  br i1 %45, label %.loopexit, label %.preheader12, !llvm.loop !5
+  br i1 %45, label %.loopexit, label %.preheader13, !llvm.loop !5
 
-.preheader12:                                     ; preds = %38, %43
+.preheader13:                                     ; preds = %38, %43
   %46 = phi i32 [ %44, %43 ], [ 0, %38 ]
   %47 = phi ptr [ %73, %43 ], [ %18, %38 ]
   %48 = phi i64 [ 2, %43 ], [ 12, %38 ]
@@ -199,9 +198,9 @@ define internal fastcc i32 @tpm2_calc_event_log_size(ptr noundef %0, i32 noundef
   %50 = ptrtoint ptr %47 to i64
   %51 = tail call ptr @early_memremap(i64 noundef %50, i64 noundef 2) #6
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread10, label %53
+  br i1 %52, label %.thread11, label %53
 
-53:                                               ; preds = %.preheader12
+53:                                               ; preds = %.preheader13
   %54 = load i16, ptr %51, align 1
   %55 = getelementptr i8, ptr %47, i64 2
   %56 = load i32, ptr %10, align 1
@@ -210,14 +209,15 @@ define internal fastcc i32 @tpm2_calc_event_log_size(ptr noundef %0, i32 noundef
 
 .preheader:                                       ; preds = %53, %68
   %58 = phi i32 [ %69, %68 ], [ 0, %53 ]
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr [0 x %struct.tcg_efi_specid_event_algs], ptr %11, i64 0, i64 %59
+  %.scale = shl i32 %58, 1
+  %59 = sext i32 %.scale to i64
+  %60 = getelementptr i16, ptr %11, i64 %59
   %61 = load i16, ptr %60, align 1
   %62 = icmp eq i16 %54, %61
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %.preheader
-  %64 = getelementptr [0 x %struct.tcg_efi_specid_event_algs], ptr %12, i64 0, i64 %59
+  %64 = getelementptr i16, ptr %12, i64 %59
   %65 = load i16, ptr %64, align 1
   %66 = zext i16 %65 to i64
   %67 = getelementptr i8, ptr %55, i64 %66
@@ -226,20 +226,20 @@ define internal fastcc i32 @tpm2_calc_event_log_size(ptr noundef %0, i32 noundef
 68:                                               ; preds = %.preheader
   %69 = add nuw i32 %58, 1
   %70 = icmp eq i32 %69, %56
-  br i1 %70, label %.thread10, label %.preheader, !llvm.loop !8
+  br i1 %70, label %.thread11, label %.preheader, !llvm.loop !8
 
 71:                                               ; preds = %63, %53
   %72 = phi i32 [ %58, %63 ], [ 0, %53 ]
   %73 = phi ptr [ %67, %63 ], [ %55, %53 ]
   %74 = icmp eq i32 %72, %56
-  br i1 %74, label %.thread10, label %43
+  br i1 %74, label %.thread11, label %43
 
 .loopexit:                                        ; preds = %43
   tail call void @early_memunmap(ptr noundef nonnull %51, i64 noundef 2) #6
   %75 = ptrtoint ptr %73 to i64
   %76 = tail call ptr @early_memremap(i64 noundef %75, i64 noundef 6) #6
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.thread10, label %78
+  br i1 %77, label %.thread11, label %78
 
 78:                                               ; preds = %.loopexit
   %79 = getelementptr i8, ptr %73, i64 4
@@ -252,30 +252,30 @@ define internal fastcc i32 @tpm2_calc_event_log_size(ptr noundef %0, i32 noundef
   %86 = icmp eq i32 %80, 0
   %87 = select i1 %85, i1 %86, i1 false
   %88 = trunc i64 %84 to i32
-  br i1 %87, label %.thread10, label %90
+  br i1 %87, label %.thread11, label %90
 
-.thread10:                                        ; preds = %13, %32, %29, %22, %38, %35, %.loopexit, %78, %.preheader12, %71, %68
-  %.ph = phi ptr [ %51, %68 ], [ null, %.preheader12 ], [ %51, %71 ], [ %76, %78 ], [ null, %13 ], [ %20, %32 ], [ %20, %29 ], [ %20, %22 ], [ %20, %38 ], [ %20, %35 ], [ null, %.loopexit ]
-  %.ph9 = phi i32 [ 2, %68 ], [ 2, %71 ], [ 2, %.preheader12 ], [ 6, %78 ], [ 12, %13 ], [ 12, %32 ], [ 12, %29 ], [ 12, %22 ], [ 12, %38 ], [ 12, %35 ], [ 6, %.loopexit ]
-  %89 = zext nneg i32 %.ph9 to i64
+.thread11:                                        ; preds = %13, %32, %29, %22, %38, %35, %.loopexit, %78, %.preheader13, %71, %68
+  %.ph = phi ptr [ %51, %68 ], [ null, %.preheader13 ], [ %51, %71 ], [ %76, %78 ], [ null, %13 ], [ %20, %32 ], [ %20, %29 ], [ %20, %22 ], [ %20, %38 ], [ %20, %35 ], [ null, %.loopexit ]
+  %.ph10 = phi i32 [ 2, %68 ], [ 2, %71 ], [ 2, %.preheader13 ], [ 6, %78 ], [ 12, %13 ], [ 12, %32 ], [ 12, %29 ], [ 12, %22 ], [ 12, %38 ], [ 12, %35 ], [ 6, %.loopexit ]
+  %89 = zext nneg i32 %.ph10 to i64
   tail call void @early_memunmap(ptr noundef %.ph, i64 noundef %89) #6
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #6
-  br label %.loopexit16
+  br label %.loopexit17
 
 90:                                               ; preds = %78
   tail call void @early_memunmap(ptr noundef nonnull %76, i64 noundef 6) #6
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #6
   %91 = icmp eq i32 %88, 0
-  br i1 %91, label %.loopexit16, label %92
+  br i1 %91, label %.loopexit17, label %92
 
 92:                                               ; preds = %90
   %93 = add i32 %14, %88
   %94 = add nsw i32 %15, -1
   %95 = icmp sgt i32 %15, 1
-  br i1 %95, label %13, label %.loopexit16, !llvm.loop !9
+  br i1 %95, label %13, label %.loopexit17, !llvm.loop !9
 
-.loopexit16:                                      ; preds = %92, %90, %.thread10, %3
-  %96 = phi i32 [ 0, %3 ], [ -1, %.thread10 ], [ %93, %92 ], [ -1, %90 ]
+.loopexit17:                                      ; preds = %92, %90, %.thread11, %3
+  %96 = phi i32 [ 0, %3 ], [ -1, %.thread11 ], [ %93, %92 ], [ -1, %90 ]
   ret i32 %96
 }
 

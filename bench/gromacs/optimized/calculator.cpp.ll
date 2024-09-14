@@ -190,13 +190,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._Guard = type { ptr }
 %"class.nblib::KernelEnergy" = type { %"struct.std::array.273" }
 %"struct.std::array.273" = type { [4 x float] }
-%"class.nblib::TwoParameterInteraction" = type { float, float }
-%"class.nblib::G96BondType" = type { %"class.nblib::TwoParameterInteraction.196" }
-%"class.nblib::TwoParameterInteraction.196" = type { float, float }
 %"class.nblib::CubicBondType" = type { float, float, float }
 %"class.nblib::MorseBondType" = type { float, float, float }
-%"class.nblib::TwoParameterInteraction.203" = type { float, float }
-%"class.nblib::TwoParameterInteraction.206" = type { float, float }
 %"class.nblib::PairLJType" = type { %"struct.nblib::StrongType", %"struct.nblib::StrongType.209" }
 %"struct.nblib::StrongType" = type { float }
 %"struct.nblib::StrongType.209" = type { float }
@@ -213,8 +208,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.nblib::CrossBondAngle" = type { float, float, float, float }
 %"class.nblib::TwoParameterInteraction.233" = type { float, float }
 %"class.nblib::ProperDihedral" = type { float, float, i32 }
-%"class.nblib::ImproperDihedral" = type { %"class.nblib::TwoParameterInteraction.241" }
-%"class.nblib::TwoParameterInteraction.241" = type { float, float }
 %"class.nblib::RyckaertBellemanDihedral" = type { %"struct.std::array.244" }
 %"struct.std::array.244" = type { [6 x float] }
 %"class.gmx::ArrayRef.429" = type { %"struct.gmx::ArrayRefIter.430", %"struct.gmx::ArrayRefIter.430" }
@@ -7988,8 +7981,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %26 = ashr i64 %.sroa.01.0.copyload, 32
   %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false)
-  %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::TwoParameterInteraction", ptr %2, i64 %28
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %28 = sext i32 %.scale to i64
+  %29 = getelementptr inbounds float, ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
@@ -8740,8 +8734,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %26 = ashr i64 %.sroa.01.0.copyload, 32
   %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false)
-  %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::G96BondType", ptr %2, i64 %28
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %28 = sext i32 %.scale to i64
+  %29 = getelementptr inbounds float, ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
@@ -10385,8 +10380,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %27 = ashr i64 %.sroa.01.0.copyload, 32
   %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false)
-  %29 = sext i32 %.sroa.22.0.copyload to i64
-  %30 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.203", ptr %2, i64 %29
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %29 = sext i32 %.scale to i64
+  %30 = getelementptr inbounds float, ptr %2, i64 %29
   %31 = load float, ptr %30, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %30, i64 4
   %32 = load float, ptr %.sroa_idx, align 4
@@ -10935,8 +10931,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %26 = ashr i64 %.sroa.01.0.copyload, 32
   %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false)
-  %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.206", ptr %2, i64 %28
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %28 = sext i32 %.scale to i64
+  %29 = getelementptr inbounds float, ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
@@ -19200,8 +19197,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %59 = sext i32 %54 to i64
   %60 = getelementptr inbounds %"class.gmx::BasicVector", ptr %42, i64 %59
   %61 = getelementptr inbounds i8, ptr %42, i64 264
-  %62 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
-  %63 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %62
+  %.scale = shl nsw i32 %.sroa.0.sroa.5.0.copyload, 1
+  %62 = sext i32 %.scale to i64
+  %63 = getelementptr inbounds float, ptr %2, i64 %62
   %64 = load float, ptr %63, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %63, i64 4
   %65 = load float, ptr %.sroa_idx, align 4
@@ -22018,8 +22016,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2127.0.copyload = load float, ptr %.sroa.2127.0..sroa_idx, align 4
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   %.sroa.3128.0.copyload = load float, ptr %.sroa.3128.0..sroa_idx, align 4
-  %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::TwoParameterInteraction", ptr %2, i64 %25
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %25 = sext i32 %.scale to i64
+  %26 = getelementptr inbounds float, ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -22547,8 +22546,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2127.0.copyload = load float, ptr %.sroa.2127.0..sroa_idx, align 4
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   %.sroa.3128.0.copyload = load float, ptr %.sroa.3128.0..sroa_idx, align 4
-  %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::G96BondType", ptr %2, i64 %25
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %25 = sext i32 %.scale to i64
+  %26 = getelementptr inbounds float, ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -24150,8 +24150,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2127.0.copyload = load float, ptr %.sroa.2127.0..sroa_idx, align 4
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   %.sroa.3128.0.copyload = load float, ptr %.sroa.3128.0..sroa_idx, align 4
-  %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.203", ptr %2, i64 %25
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %25 = sext i32 %.scale to i64
+  %26 = getelementptr inbounds float, ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -24685,8 +24686,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2127.0.copyload = load float, ptr %.sroa.2127.0..sroa_idx, align 4
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   %.sroa.3128.0.copyload = load float, ptr %.sroa.3128.0..sroa_idx, align 4
-  %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.206", ptr %2, i64 %25
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %25 = sext i32 %.scale to i64
+  %26 = getelementptr inbounds float, ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -32516,8 +32518,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   store <2 x float> %.sroa.0.4.vec.insert.i.i73, ptr %16, align 8
   store float %54, ptr %.sroa.22.0..sroa_idx.i74, align 8
   %55 = getelementptr inbounds i8, ptr %37, i64 264
-  %56 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
-  %57 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %56
+  %.scale = shl nsw i32 %.sroa.0.sroa.5.0.copyload, 1
+  %56 = sext i32 %.scale to i64
+  %57 = getelementptr inbounds float, ptr %2, i64 %56
   %58 = load float, ptr %57, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %57, i64 4
   %59 = load float, ptr %.sroa_idx, align 4
@@ -35742,8 +35745,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %25 = ashr i64 %.sroa.01.0.copyload, 32
   %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
-  %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::TwoParameterInteraction", ptr %2, i64 %27
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %27 = sext i32 %.scale to i64
+  %28 = getelementptr inbounds float, ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -36254,8 +36258,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %25 = ashr i64 %.sroa.01.0.copyload, 32
   %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
-  %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::G96BondType", ptr %2, i64 %27
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %27 = sext i32 %.scale to i64
+  %28 = getelementptr inbounds float, ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -37809,8 +37814,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %26 = ashr i64 %.sroa.01.0.copyload, 32
   %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false)
-  %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.203", ptr %2, i64 %28
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %28 = sext i32 %.scale to i64
+  %29 = getelementptr inbounds float, ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
@@ -38328,8 +38334,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %25 = ashr i64 %.sroa.01.0.copyload, 32
   %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
-  %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.206", ptr %2, i64 %27
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %27 = sext i32 %.scale to i64
+  %28 = getelementptr inbounds float, ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -46050,8 +46057,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %15)
   %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16)
   %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %17)
-  %40 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
-  %41 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %40
+  %.scale = shl nsw i32 %.sroa.0.sroa.5.0.copyload, 1
+  %40 = sext i32 %.scale to i64
+  %41 = getelementptr inbounds float, ptr %2, i64 %40
   %42 = load float, ptr %41, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %41, i64 4
   %43 = load float, ptr %.sroa_idx, align 4
@@ -48993,8 +49001,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2127.0.copyload = load float, ptr %.sroa.2127.0..sroa_idx, align 4
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.3128.0.copyload = load float, ptr %.sroa.3128.0..sroa_idx, align 4
-  %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::TwoParameterInteraction", ptr %2, i64 %24
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %24 = sext i32 %.scale to i64
+  %25 = getelementptr inbounds float, ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -49505,8 +49514,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2127.0.copyload = load float, ptr %.sroa.2127.0..sroa_idx, align 4
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.3128.0.copyload = load float, ptr %.sroa.3128.0..sroa_idx, align 4
-  %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::G96BondType", ptr %2, i64 %24
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %24 = sext i32 %.scale to i64
+  %25 = getelementptr inbounds float, ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -51057,8 +51067,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2127.0.copyload = load float, ptr %.sroa.2127.0..sroa_idx, align 4
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.3128.0.copyload = load float, ptr %.sroa.3128.0..sroa_idx, align 4
-  %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.203", ptr %2, i64 %24
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %24 = sext i32 %.scale to i64
+  %25 = getelementptr inbounds float, ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -51575,8 +51586,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.2127.0.copyload = load float, ptr %.sroa.2127.0..sroa_idx, align 4
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
   %.sroa.3128.0.copyload = load float, ptr %.sroa.3128.0..sroa_idx, align 4
-  %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.206", ptr %2, i64 %24
+  %.scale = shl nsw i32 %.sroa.22.0.copyload, 1
+  %24 = sext i32 %.scale to i64
+  %25 = getelementptr inbounds float, ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -59206,8 +59218,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %34 = fsub float %.sroa.0291.0.copyload, %.sroa.0285.0.copyload
   %35 = fsub float %.sroa.3293.0.copyload, %.sroa.3287.0.copyload
   %36 = fsub float %.sroa.5295.0.copyload, %.sroa.5289.0.copyload
-  %37 = sext i32 %.sroa.0.sroa.5.0.copyload to i64
-  %38 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %37
+  %.scale = shl nsw i32 %.sroa.0.sroa.5.0.copyload, 1
+  %37 = sext i32 %.scale to i64
+  %38 = getelementptr inbounds float, ptr %2, i64 %37
   %39 = load float, ptr %38, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load float, ptr %.sroa_idx, align 4

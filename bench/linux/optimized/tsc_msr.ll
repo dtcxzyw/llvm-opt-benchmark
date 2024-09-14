@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local range(i64 0, 4294967296) i64 @cpu_khz_from_msr() local_unnamed_addr #0 align 16 {
   %1 = tail call ptr @x86_match_cpu(ptr noundef nonnull @tsc_msr_cpu_ids) #3
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %74, label %3
+  br i1 %2, label %75, label %3
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 16
@@ -100,8 +100,9 @@ define dso_local range(i64 0, 4294967296) i64 @cpu_khz_from_msr() local_unnamed_
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, %40
   %44 = getelementptr inbounds i8, ptr %6, i64 4
-  %45 = sext i32 %43 to i64
-  %46 = getelementptr [16 x %struct.muldiv], ptr %44, i64 0, i64 %45
+  %.scale = shl i32 %43, 1
+  %45 = sext i32 %.scale to i64
+  %46 = getelementptr i32, ptr %44, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 0
@@ -116,39 +117,40 @@ define dso_local range(i64 0, 4294967296) i64 @cpu_khz_from_msr() local_unnamed_
   %56 = mul i32 %52, %32
   %57 = add i32 %56, %53
   %58 = udiv i32 %57, %48
-  br label %64
+  br label %65
 
 59:                                               ; preds = %39
-  %60 = getelementptr inbounds i8, ptr %6, i64 132
-  %61 = getelementptr [16 x i32], ptr %60, i64 0, i64 %45
-  %62 = load i32, ptr %61, align 4
-  %63 = mul i32 %62, %32
-  br label %64
+  %60 = sext i32 %43 to i64
+  %61 = getelementptr inbounds i8, ptr %6, i64 132
+  %62 = getelementptr [16 x i32], ptr %61, i64 0, i64 %60
+  %63 = load i32, ptr %62, align 4
+  %64 = mul i32 %63, %32
+  br label %65
 
-64:                                               ; preds = %59, %50
-  %65 = phi i32 [ %58, %50 ], [ %63, %59 ]
-  %66 = phi i32 [ %55, %50 ], [ %62, %59 ]
-  %67 = zext i32 %65 to i64
-  %68 = icmp eq i32 %66, 0
-  br i1 %68, label %69, label %71
+65:                                               ; preds = %59, %50
+  %66 = phi i32 [ %58, %50 ], [ %64, %59 ]
+  %67 = phi i32 [ %55, %50 ], [ %63, %59 ]
+  %68 = zext i32 %66 to i64
+  %69 = icmp eq i32 %67, 0
+  br i1 %69, label %70, label %72
 
-69:                                               ; preds = %64
-  %70 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %43) #4
-  br label %71
+70:                                               ; preds = %65
+  %71 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %43) #4
+  br label %72
 
-71:                                               ; preds = %69, %64
-  %72 = mul i32 %66, 1000
-  %73 = udiv i32 %72, 1000
-  store i32 %73, ptr @lapic_timer_period, align 4
+72:                                               ; preds = %70, %65
+  %73 = mul i32 %67, 1000
+  %74 = udiv i32 %73, 1000
+  store i32 %74, ptr @lapic_timer_period, align 4
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 55), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 55)) #3, !srcloc !9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 15), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 15)) #3, !srcloc !9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 54), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 54)) #3, !srcloc !9
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 14), i32 128, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 14)) #3, !srcloc !9
-  br label %74
+  br label %75
 
-74:                                               ; preds = %71, %0
-  %75 = phi i64 [ %67, %71 ], [ 0, %0 ]
-  ret i64 %75
+75:                                               ; preds = %72, %0
+  %76 = phi i64 [ %68, %72 ], [ 0, %0 ]
+  ret i64 %76
 }
 
 ; Function Attrs: null_pointer_is_valid

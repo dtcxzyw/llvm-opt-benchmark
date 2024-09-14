@@ -2010,17 +2010,18 @@ invoke.cont45:                                    ; preds = %invoke.cont19
   %mul37 = mul nsw i32 %add, %samplesPerPixel
   %add40 = add nsw i32 %mul37, %20
   %22 = load ptr, ptr %pixelSamples, align 8
-  %conv42 = sext i32 %add40 to i64
   %ptr.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %ptr.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pbrt::Point2.14", ptr %23, i64 %conv42
-  %24 = load float, ptr %arrayidx.i, align 4
-  %cmp.i37 = fcmp oeq float %24, 0.000000e+00
+  %conv42.scale = shl nsw i32 %add40, 1
+  %24 = sext i32 %conv42.scale to i64
+  %arrayidx.i = getelementptr inbounds float, ptr %23, i64 %24
+  %25 = load float, ptr %arrayidx.i, align 4
+  %cmp.i37 = fcmp oeq float %25, 0.000000e+00
   %y.i38 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %25 = load float, ptr %y.i38, align 4
-  %cmp4.i = fcmp oeq float %25, 0.000000e+00
-  %26 = select i1 %cmp.i37, i1 %cmp4.i, i1 false
-  br i1 %26, label %invoke.cont61, label %land.rhs49
+  %26 = load float, ptr %y.i38, align 4
+  %cmp4.i = fcmp oeq float %26, 0.000000e+00
+  %27 = select i1 %cmp.i37, i1 %cmp4.i, i1 false
+  br i1 %27, label %invoke.cont61, label %land.rhs49
 
 land.rhs49:                                       ; preds = %invoke.cont45
   invoke void @_ZN4pbrt8LogFatalIJRA47_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef 198, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(47) @.str.21) #23
@@ -2030,14 +2031,14 @@ invoke.cont50:                                    ; preds = %land.rhs49
   unreachable
 
 invoke.cont61:                                    ; preds = %invoke.cont45
-  %27 = call noundef float @llvm.floor.f32(float %mul.i31)
-  %28 = call noundef float @llvm.floor.f32(float %mul3.i)
-  %sub.i = fsub float %mul.i31, %27
-  %sub4.i = fsub float %mul3.i, %28
+  %28 = call noundef float @llvm.floor.f32(float %mul.i31)
+  %29 = call noundef float @llvm.floor.f32(float %mul3.i)
+  %sub.i = fsub float %mul.i31, %28
+  %sub4.i = fsub float %mul3.i, %29
   store float %sub.i, ptr %arrayidx.i, align 4
   store float %sub4.i, ptr %y.i38, align 4
-  %29 = load i32, ptr %add.ptr.i, align 4
-  %inc = add nsw i32 %29, 1
+  %30 = load i32, ptr %add.ptr.i, align 4
+  %inc = add nsw i32 %30, 1
   store i32 %inc, ptr %add.ptr.i, align 4
   br label %for.inc
 
@@ -2054,12 +2055,12 @@ for.cond74:                                       ; preds = %do.body
 do.body:                                          ; preds = %do.body.preheader, %for.cond74
   %indvars.iv90 = phi i64 [ 0, %do.body.preheader ], [ %indvars.iv.next91, %for.cond74 ]
   %add.ptr.i48 = getelementptr inbounds i32, ptr %nStored.sroa.0.0, i64 %indvars.iv90
-  %30 = load i32, ptr %add.ptr.i48, align 4
-  %cmp81 = icmp eq i32 %30, %samplesPerPixel
+  %31 = load i32, ptr %add.ptr.i48, align 4
+  %cmp81 = icmp eq i32 %31, %samplesPerPixel
   br i1 %cmp81, label %for.cond74, label %if.then82
 
 if.then82:                                        ; preds = %do.body
-  store i32 %30, ptr %va, align 4
+  store i32 %31, ptr %va, align 4
   store i32 %samplesPerPixel, ptr %vb, align 4
   invoke void @_ZN4pbrt8LogFatalIJRA11_KcRA16_S1_S3_RiS5_S6_EEEvNS_8LogLevelEPS1_iS8_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef 204, ptr noundef nonnull @.str.22, ptr noundef nonnull align 1 dereferenceable(11) @.str.23, ptr noundef nonnull align 1 dereferenceable(16) @.str.24, ptr noundef nonnull align 1 dereferenceable(11) @.str.23, ptr noundef nonnull align 4 dereferenceable(4) %va, ptr noundef nonnull align 1 dereferenceable(16) @.str.24, ptr noundef nonnull align 4 dereferenceable(4) %vb) #23
           to label %invoke.cont83 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit

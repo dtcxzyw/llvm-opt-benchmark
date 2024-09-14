@@ -2027,11 +2027,11 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   %22 = add i32 %21, %16
   store i32 0, ptr %3, align 4
   %23 = icmp ugt i32 %22, %20
-  br i1 %23, label %24, label %._crit_edge59.i
+  br i1 %23, label %24, label %._crit_edge60.i
 
-._crit_edge59.i:                                  ; preds = %18
+._crit_edge60.i:                                  ; preds = %18
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 128
-  %.pre60.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.pre61.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %45
 
 24:                                               ; preds = %18
@@ -2070,25 +2070,26 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
 44:                                               ; preds = %39
   store i32 %30, ptr %19, align 4
   %.pre.i = load i32, ptr %8, align 8
-  %.pre61.i = load i32, ptr %12, align 8
-  %.pre62.i = load i32, ptr %14, align 4
+  %.pre62.i = load i32, ptr %12, align 8
+  %.pre63.i = load i32, ptr %14, align 4
   br label %45
 
-45:                                               ; preds = %44, %._crit_edge59.i
-  %46 = phi i32 [ %15, %._crit_edge59.i ], [ %.pre62.i, %44 ]
-  %47 = phi i32 [ %13, %._crit_edge59.i ], [ %.pre61.i, %44 ]
-  %48 = phi ptr [ %.pre60.i, %._crit_edge59.i ], [ %42, %44 ]
-  %49 = phi i32 [ %21, %._crit_edge59.i ], [ %.pre.i, %44 ]
+45:                                               ; preds = %44, %._crit_edge60.i
+  %46 = phi i32 [ %15, %._crit_edge60.i ], [ %.pre63.i, %44 ]
+  %47 = phi i32 [ %13, %._crit_edge60.i ], [ %.pre62.i, %44 ]
+  %48 = phi ptr [ %.pre61.i, %._crit_edge60.i ], [ %42, %44 ]
+  %49 = phi i32 [ %21, %._crit_edge60.i ], [ %.pre.i, %44 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %50 = getelementptr inbounds i8, ptr %0, i64 168
   %51 = load ptr, ptr %50, align 8
   %52 = zext i32 %47 to i64
   %53 = getelementptr inbounds %struct.FT_Vector_, ptr %51, i64 %52
   %.04251.i = getelementptr inbounds i8, ptr %53, i64 -16
-  %54 = sext i32 %46 to i64
-  %55 = getelementptr inbounds %struct.FT_Vector_, ptr %51, i64 %54
-  %.not4752.i = icmp ult ptr %.04251.i, %55
-  br i1 %.not4752.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %.scale52.i = shl nsw i32 %46, 1
+  %54 = sext i32 %.scale52.i to i64
+  %55 = getelementptr inbounds i64, ptr %51, i64 %54
+  %.not4753.i = icmp ult ptr %.04251.i, %55
+  br i1 %.not4753.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %45
   %56 = getelementptr inbounds i8, ptr %0, i64 176
@@ -2102,31 +2103,32 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.04256.i = phi ptr [ %.042.i, %.lr.ph.i ], [ %.04251.i, %.lr.ph.preheader.i ]
-  %.pn4855.i = phi ptr [ %.041.i, %.lr.ph.i ], [ %58, %.lr.ph.preheader.i ]
-  %.04354.i = phi ptr [ %67, %.lr.ph.i ], [ %60, %.lr.ph.preheader.i ]
-  %.04453.i = phi ptr [ %66, %.lr.ph.i ], [ %63, %.lr.ph.preheader.i ]
-  %.041.i = getelementptr inbounds i8, ptr %.pn4855.i, i64 -1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04453.i, ptr noundef nonnull align 8 dereferenceable(16) %.04256.i, i64 16, i1 false)
+  %.04257.i = phi ptr [ %.042.i, %.lr.ph.i ], [ %.04251.i, %.lr.ph.preheader.i ]
+  %.pn4856.i = phi ptr [ %.041.i, %.lr.ph.i ], [ %58, %.lr.ph.preheader.i ]
+  %.04355.i = phi ptr [ %67, %.lr.ph.i ], [ %60, %.lr.ph.preheader.i ]
+  %.04454.i = phi ptr [ %66, %.lr.ph.i ], [ %63, %.lr.ph.preheader.i ]
+  %.041.i = getelementptr inbounds i8, ptr %.pn4856.i, i64 -1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.04454.i, ptr noundef nonnull align 8 dereferenceable(16) %.04257.i, i64 16, i1 false)
   %64 = load i8, ptr %.041.i, align 1
   %65 = and i8 %64, -13
-  store i8 %65, ptr %.04354.i, align 1
-  %66 = getelementptr inbounds i8, ptr %.04453.i, i64 16
-  %67 = getelementptr inbounds i8, ptr %.04354.i, i64 1
-  %.042.i = getelementptr inbounds i8, ptr %.04256.i, i64 -16
+  store i8 %65, ptr %.04355.i, align 1
+  %66 = getelementptr inbounds i8, ptr %.04454.i, i64 16
+  %67 = getelementptr inbounds i8, ptr %.04355.i, i64 1
+  %.042.i = getelementptr inbounds i8, ptr %.04257.i, i64 -16
   %68 = load ptr, ptr %50, align 8
   %69 = load i32, ptr %14, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.FT_Vector_, ptr %68, i64 %70
+  %.scale.i = shl nsw i32 %69, 1
+  %70 = sext i32 %.scale.i to i64
+  %71 = getelementptr inbounds i64, ptr %68, i64 %70
   %.not47.i = icmp ult ptr %.042.i, %71
   br i1 %.not47.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre63.i = load i32, ptr %8, align 8
+  %.pre64.i = load i32, ptr %8, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %45
-  %72 = phi i32 [ %49, %45 ], [ %.pre63.i, %._crit_edge.loopexit.i ]
+  %72 = phi i32 [ %49, %45 ], [ %.pre64.i, %._crit_edge.loopexit.i ]
   %.lcssa.i = phi i32 [ %46, %45 ], [ %69, %._crit_edge.loopexit.i ]
   store i32 %.lcssa.i, ptr %12, align 8
   %73 = add i32 %72, %16

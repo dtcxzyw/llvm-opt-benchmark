@@ -25,7 +25,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.absl::debian2::str_format_internal::FormatArgImpl" = type { %"union.absl::debian2::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::debian2::str_format_internal::FormatArgImpl::Data" = type { ptr }
-%"struct.re2::RuneRange" = type { i32, i32 }
 %"struct.re2::WalkState" = type { ptr, i32, i32, i32, i32, ptr }
 
 $_ZN3re214ToStringWalkerD2Ev = comdat any
@@ -591,7 +590,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad108, %lpad121, %lpad132, %lpad223, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i ], [ %89, %lpad223 ], [ %46, %lpad108 ], [ %50, %lpad121 ], [ %53, %lpad132 ], [ %24, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i ], [ %90, %lpad223 ], [ %46, %lpad108 ], [ %50, %lpad121 ], [ %53, %lpad132 ], [ %24, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %if.else
@@ -929,14 +928,15 @@ _ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.
   %incdec.ptr = getelementptr inbounds i8, ptr %i199.0107, i64 8
   %80 = load ptr, ptr %ranges_.i, align 8
   %81 = load i32, ptr %nranges_.i, align 8
-  %idx.ext.i = sext i32 %81 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.re2::RuneRange", ptr %80, i64 %idx.ext.i
+  %idx.ext.scale.i = shl nsw i32 %81, 1
+  %82 = sext i32 %idx.ext.scale.i to i64
+  %add.ptr.i = getelementptr inbounds i32, ptr %80, i64 %82
   %cmp203.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp203.not, label %for.end207, label %for.body204, !llvm.loop !16
 
 for.end207:                                       ; preds = %_ZN3re2L13AppendCCRangeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit, %if.end198
-  %82 = load ptr, ptr %68, align 8
-  %cmp209.not = icmp eq ptr %cc.0, %82
+  %83 = load ptr, ptr %68, align 8
+  %cmp209.not = icmp eq ptr %cc.0, %83
   br i1 %cmp209.not, label %if.end211, label %if.then210
 
 if.then210:                                       ; preds = %for.end207
@@ -944,30 +944,30 @@ if.then210:                                       ; preds = %for.end207
   br label %if.end211
 
 if.end211:                                        ; preds = %if.then210, %for.end207
-  %83 = load ptr, ptr %t_186, align 8
-  %call213 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %83, ptr noundef nonnull @.str.27)
+  %84 = load ptr, ptr %t_186, align 8
+  %call213 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull @.str.27)
   br label %sw.epilog
 
 sw.bb214:                                         ; preds = %entry
   %t_215 = getelementptr inbounds i8, ptr %this, i64 96
-  %84 = load ptr, ptr %t_215, align 8
-  %call216 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef nonnull @.str.9)
+  %85 = load ptr, ptr %t_215, align 8
+  %call216 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull @.str.9)
   br label %sw.epilog
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit95: ; preds = %entry
   %t_218 = getelementptr inbounds i8, ptr %this, i64 96
-  %85 = load ptr, ptr %t_218, align 8
-  %86 = getelementptr inbounds i8, ptr %re, i64 24
-  %87 = load i32, ptr %86, align 8
+  %86 = load ptr, ptr %t_218, align 8
+  %87 = getelementptr inbounds i8, ptr %re, i64 24
+  %88 = load i32, ptr %87, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i96)
-  %retval.sroa.0.0.insert.ext.i.i.i.i101 = zext i32 %87 to i64
-  %88 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i101 to ptr
-  store ptr %88, ptr %ref.tmp.i96, align 8, !noalias !17
+  %retval.sroa.0.0.insert.ext.i.i.i.i101 = zext i32 %88 to i64
+  %89 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i101 to ptr
+  store ptr %89, ptr %ref.tmp.i96, align 8, !noalias !17
   %dispatcher_.i.i.i102 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i102, align 8, !noalias !17
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp219, ptr nonnull @.str.28, i64 15, ptr nonnull %ref.tmp.i96, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i96)
-  %call225 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219)
+  %call225 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219)
           to label %invoke.cont224 unwind label %lpad223
 
 invoke.cont224:                                   ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit95
@@ -975,7 +975,7 @@ invoke.cont224:                                   ; preds = %_ZN4absl7debian219s
   br label %sw.epilog
 
 lpad223:                                          ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit95
-  %89 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219) #16
   br label %common.resume
@@ -986,8 +986,8 @@ sw.epilog:                                        ; preds = %if.then168, %if.els
 
 if.then227:                                       ; preds = %sw.epilog
   %t_228 = getelementptr inbounds i8, ptr %this, i64 96
-  %90 = load ptr, ptr %t_228, align 8
-  %call229 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull @.str.29)
+  %91 = load ptr, ptr %t_228, align 8
+  %call229 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull @.str.29)
   br label %if.end230
 
 if.end230:                                        ; preds = %sw.bb3, %if.then21, %if.then27, %if.then51, %if.then65, %if.then80, %if.then95, %if.then145, %if.then227, %sw.epilog

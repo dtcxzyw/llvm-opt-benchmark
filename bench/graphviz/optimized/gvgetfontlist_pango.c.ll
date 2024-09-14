@@ -441,6 +441,7 @@ gv_get_ps_fontlist.exit:                          ; preds = %strview_str.exit.i
   call void @g_free(ptr noundef %82) #23, !noalias !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  %invariant.gep = getelementptr i8, ptr %9, i64 8
   %83 = getelementptr inbounds i8, ptr %6, i64 31
   %84 = getelementptr inbounds i8, ptr %6, i64 8
   %85 = getelementptr inbounds i8, ptr %6, i64 16
@@ -450,13 +451,14 @@ gv_get_ps_fontlist.exit:                          ; preds = %strview_str.exit.i
   br label %89
 
 89:                                               ; preds = %gv_get_ps_fontlist.exit, %gv_get_font.exit
-  %.041 = phi i64 [ 0, %gv_get_ps_fontlist.exit ], [ %368, %gv_get_font.exit ]
-  %90 = getelementptr inbounds [35 x %struct._PostscriptAlias], ptr @postscript_alias, i64 0, i64 %.041
+  %.042 = phi i64 [ 0, %gv_get_ps_fontlist.exit ], [ %367, %gv_get_font.exit ]
+  %90 = getelementptr inbounds [35 x %struct._PostscriptAlias], ptr @postscript_alias, i64 0, i64 %.042
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %90, i64 40
   %93 = load i32, ptr %92, align 8
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.gv_font_map, ptr %9, i64 %94
+  %.scale = shl nsw i32 %93, 1
+  %94 = sext i32 %.scale to i64
+  %95 = getelementptr inbounds ptr, ptr %9, i64 %94
   store ptr %91, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %3, ptr noundef nonnull align 8 dereferenceable(240) %8, i64 240, i1 false)
@@ -487,8 +489,8 @@ gv_get_ps_fontlist.exit:                          ; preds = %strview_str.exit.i
   %107 = getelementptr inbounds [11 x %struct.face_t], ptr @facelist, i64 0, i64 %.06.i.i
   %108 = load i32, ptr %107, align 16
   %109 = and i32 %108, %99
-  %.not.i.i15 = icmp eq i32 %109, 0
-  br i1 %.not.i.i15, label %113, label %110
+  %.not.i.i16 = icmp eq i32 %109, 0
+  br i1 %.not.i.i16, label %113, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %107, i64 8
@@ -662,8 +664,8 @@ agxbsizeof.exit.i.i.i:                            ; preds = %agxbputc.exit.i, %a
 
 agxbputc.exit.i.i:                                ; preds = %171, %166
   %177 = load i8, ptr %158, align 1
-  %.not.i58.i16 = icmp eq i8 %177, 0
-  br i1 %.not.i58.i16, label %copyUpper.exit.i, label %agxbsizeof.exit.i.i.i
+  %.not.i58.i17 = icmp eq i8 %177, 0
+  br i1 %.not.i58.i17, label %copyUpper.exit.i, label %agxbsizeof.exit.i.i.i
 
 178:                                              ; preds = %get_avail_faces.exit.i
   %179 = call ptr @strcasestr(ptr noundef %133, ptr noundef nonnull @.str.63)
@@ -1029,27 +1031,27 @@ agxblen.exit.i.i130.i:                            ; preds = %308
 328:                                              ; preds = %326
   %329 = call ptr @strcasestr(ptr noundef %133, ptr noundef nonnull @.str.59)
   %.not54.i = icmp eq ptr %329, null
-  br i1 %.not54.i, label %copyUpper.exit126.ithread-pre-split, label %agxblen.exit.i.i23
+  br i1 %.not54.i, label %copyUpper.exit126.ithread-pre-split, label %agxblen.exit.i.i24
 
-agxblen.exit.i.i23:                               ; preds = %328
-  %.val.i.i.i20 = load i8, ptr %86, align 1
-  %.not.i.i.i21 = icmp eq i8 %.val.i.i.i20, -1
-  %330 = zext i8 %.val.i.i.i20 to i64
+agxblen.exit.i.i24:                               ; preds = %328
+  %.val.i.i.i21 = load i8, ptr %86, align 1
+  %.not.i.i.i22 = icmp eq i8 %.val.i.i.i21, -1
+  %330 = zext i8 %.val.i.i.i21 to i64
   %331 = load i64, ptr %88, align 8
   %332 = load i64, ptr %87, align 8
-  %.0.i30.i.i = select i1 %.not.i.i.i21, i64 %331, i64 31
-  %.0.i24.i.i = select i1 %.not.i.i.i21, i64 %332, i64 %330
+  %.0.i30.i.i = select i1 %.not.i.i.i22, i64 %331, i64 31
+  %.0.i24.i.i = select i1 %.not.i.i.i22, i64 %332, i64 %330
   %333 = sub i64 %.0.i30.i.i, %.0.i24.i.i
   %334 = icmp ult i64 %333, 7
   br i1 %334, label %335, label %336
 
-335:                                              ; preds = %agxblen.exit.i.i23
+335:                                              ; preds = %agxblen.exit.i.i24
   call fastcc void @agxbmore(ptr noundef nonnull %7, i64 noundef 7)
   %.val.i25.pre.i.i = load i8, ptr %86, align 1
   br label %336
 
-336:                                              ; preds = %335, %agxblen.exit.i.i23
-  %.val.i25.i.i = phi i8 [ %.val.i25.pre.i.i, %335 ], [ %.val.i.i.i20, %agxblen.exit.i.i23 ]
+336:                                              ; preds = %335, %agxblen.exit.i.i24
+  %.val.i25.i.i = phi i8 [ %.val.i25.pre.i.i, %335 ], [ %.val.i.i.i21, %agxblen.exit.i.i24 ]
   %.not.i26.i.i = icmp eq i8 %.val.i25.i.i, -1
   br i1 %.not.i26.i.i, label %342, label %337
 
@@ -1070,9 +1072,9 @@ agxblen.exit.i.i23:                               ; preds = %328
   br label %copyUpper.exit126.ithread-pre-split.sink.split
 
 copyUpper.exit126.ithread-pre-split.sink.split:   ; preds = %342, %322
-  %.sink78 = phi i64 [ 8, %322 ], [ 7, %342 ]
+  %.sink80 = phi i64 [ 8, %322 ], [ 7, %342 ]
   %346 = load i64, ptr %87, align 8
-  %347 = add i64 %346, %.sink78
+  %347 = add i64 %346, %.sink80
   store i64 %347, ptr %87, align 8
   br label %copyUpper.exit126.ithread-pre-split
 
@@ -1135,72 +1137,73 @@ agxbdisown.exit.i:                                ; preds = %agxbputc.exit.i142.
   %.0.i.i = phi ptr [ %364, %agxbputc.exit.i142.i ], [ %349, %agxblen.exit.i138.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %.pre = load i32, ptr %92, align 8
-  %.pre59 = sext i32 %.pre to i64
+  %.pre60 = shl nsw i32 %.pre, 1
+  %.pre61 = sext i32 %.pre60 to i64
   br label %gv_get_font.exit
 
 365:                                              ; preds = %100, %96
   %366 = add nuw nsw i64 %.0144.i, 1
-  %exitcond.not.i17 = icmp eq i64 %366, 10
-  br i1 %exitcond.not.i17, label %gv_get_font.exit, label %96
+  %exitcond.not.i18 = icmp eq i64 %366, 10
+  br i1 %exitcond.not.i18, label %gv_get_font.exit, label %96
 
 gv_get_font.exit:                                 ; preds = %365, %agxbdisown.exit.i
-  %.pre-phi = phi i64 [ %.pre59, %agxbdisown.exit.i ], [ %94, %365 ]
+  %.pre-phi = phi i64 [ %.pre61, %agxbdisown.exit.i ], [ %94, %365 ]
   %.038.i = phi ptr [ %.0.i.i, %agxbdisown.exit.i ], [ null, %365 ]
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %3)
-  %367 = getelementptr inbounds %struct.gv_font_map, ptr %9, i64 %.pre-phi, i32 1
-  store ptr %.038.i, ptr %367, align 8
-  %368 = add nuw nsw i64 %.041, 1
-  %exitcond.not = icmp eq i64 %368, 35
-  br i1 %exitcond.not, label %369, label %89
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %.pre-phi
+  store ptr %.038.i, ptr %gep, align 8
+  %367 = add nuw nsw i64 %.042, 1
+  %exitcond.not = icmp eq i64 %367, 35
+  br i1 %exitcond.not, label %368, label %89
 
-369:                                              ; preds = %gv_get_font.exit
+368:                                              ; preds = %gv_get_font.exit
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(240) %8, i64 240, i1 false)
-  br label %370
+  br label %369
 
-370:                                              ; preds = %370, %369
-  %.03.i = phi i64 [ 0, %369 ], [ %373, %370 ]
-  %371 = getelementptr inbounds [10 x %struct.availfont_t], ptr %2, i64 0, i64 %.03.i, i32 1
-  %372 = load ptr, ptr %371, align 8
-  call void @free(ptr noundef %372) #23
-  %373 = add nuw nsw i64 %.03.i, 1
-  %exitcond.not.i18 = icmp eq i64 %373, 10
-  br i1 %exitcond.not.i18, label %gv_flist_free_af.exit, label %370
+369:                                              ; preds = %369, %368
+  %.03.i = phi i64 [ 0, %368 ], [ %372, %369 ]
+  %370 = getelementptr inbounds [10 x %struct.availfont_t], ptr %2, i64 0, i64 %.03.i, i32 1
+  %371 = load ptr, ptr %370, align 8
+  call void @free(ptr noundef %371) #23
+  %372 = add nuw nsw i64 %.03.i, 1
+  %exitcond.not.i19 = icmp eq i64 %372, 10
+  br i1 %exitcond.not.i19, label %gv_flist_free_af.exit, label %369
 
-gv_flist_free_af.exit:                            ; preds = %370
+gv_flist_free_af.exit:                            ; preds = %369
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %2)
-  %.val12 = load i8, ptr %83, align 1
-  %374 = icmp eq i8 %.val12, -1
-  br i1 %374, label %375, label %agxbfree.exit
+  %.val13 = load i8, ptr %83, align 1
+  %373 = icmp eq i8 %.val13, -1
+  br i1 %373, label %374, label %agxbfree.exit
 
-375:                                              ; preds = %gv_flist_free_af.exit
+374:                                              ; preds = %gv_flist_free_af.exit
   %.val = load ptr, ptr %6, align 8
   call void @free(ptr noundef %.val) #23
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %gv_flist_free_af.exit, %375
-  %.val14 = load i8, ptr %86, align 1
-  %376 = icmp eq i8 %.val14, -1
-  br i1 %376, label %377, label %agxbfree.exit19
+agxbfree.exit:                                    ; preds = %gv_flist_free_af.exit, %374
+  %.val15 = load i8, ptr %86, align 1
+  %375 = icmp eq i8 %.val15, -1
+  br i1 %375, label %376, label %agxbfree.exit20
 
-377:                                              ; preds = %agxbfree.exit
-  %.val13 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %.val13) #23
-  br label %agxbfree.exit19
+376:                                              ; preds = %agxbfree.exit
+  %.val14 = load ptr, ptr %7, align 8
+  call void @free(ptr noundef %.val14) #23
+  br label %agxbfree.exit20
 
-agxbfree.exit19:                                  ; preds = %agxbfree.exit, %377
-  %378 = load i8, ptr @Verbose, align 1
-  %379 = icmp ugt i8 %378, 1
-  br i1 %379, label %380, label %384
+agxbfree.exit20:                                  ; preds = %agxbfree.exit, %376
+  %377 = load i8, ptr @Verbose, align 1
+  %378 = icmp ugt i8 %377, 1
+  br i1 %378, label %379, label %383
 
-380:                                              ; preds = %agxbfree.exit19
-  %381 = zext i8 %378 to i32
-  %382 = load ptr, ptr @stderr, align 8
-  %383 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %382, ptr noundef nonnull @.str, i32 noundef %381) #21
+379:                                              ; preds = %agxbfree.exit20
+  %380 = zext i8 %377 to i32
+  %381 = load ptr, ptr @stderr, align 8
+  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %381, ptr noundef nonnull @.str, i32 noundef %380) #21
   call fastcc void @printFontMap(ptr noundef nonnull %9)
-  br label %384
+  br label %383
 
-384:                                              ; preds = %380, %agxbfree.exit19
+383:                                              ; preds = %379, %agxbfree.exit20
   ret ptr %9
 }
 

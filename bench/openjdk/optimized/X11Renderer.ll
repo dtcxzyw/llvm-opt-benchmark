@@ -554,61 +554,62 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 46:                                               ; preds = %45
   %47 = load i32, ptr %13, align 4
   %48 = add nsw i32 %47, %3
-  %spec.select118 = tail call i32 @llvm.smax.i32(i32 %48, i32 -32768)
-  %49 = tail call i32 @llvm.smin.i32(i32 %spec.select118, i32 32767)
+  %spec.select119 = tail call i32 @llvm.smax.i32(i32 %48, i32 -32768)
+  %49 = tail call i32 @llvm.smin.i32(i32 %spec.select119, i32 32767)
   %50 = load i32, ptr %19, align 4
   %51 = add nsw i32 %50, %4
-  %spec.select119 = tail call i32 @llvm.smax.i32(i32 %51, i32 -32768)
-  %52 = tail call i32 @llvm.smin.i32(i32 %spec.select119, i32 32767)
+  %spec.select120 = tail call i32 @llvm.smax.i32(i32 %51, i32 -32768)
+  %52 = tail call i32 @llvm.smin.i32(i32 %spec.select120, i32 32767)
   %53 = trunc nsw i32 %49 to i16
   store i16 %53, ptr %.097, align 2
   %54 = trunc nsw i32 %52 to i16
   %55 = getelementptr inbounds i8, ptr %.097, i64 2
   store i16 %54, ptr %55, align 2
   %56 = sext i1 %.0104.shrunk to i32
-  %spec.select120 = add nsw i32 %.0105, %56
-  %57 = icmp sgt i32 %spec.select120, 1
+  %spec.select121 = add nsw i32 %.0105, %56
+  %57 = icmp sgt i32 %spec.select121, 1
   br i1 %57, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %46
-  %wide.trip.count = zext nneg i32 %spec.select120 to i64
+  %wide.trip.count = zext nneg i32 %spec.select121 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %73
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %73 ]
-  %.098127 = phi i32 [ %52, %.lr.ph.preheader ], [ %.1, %73 ]
-  %.099126 = phi i32 [ %49, %.lr.ph.preheader ], [ %.1100, %73 ]
-  %.0101125 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %73 ]
+  %.098128 = phi i32 [ %52, %.lr.ph.preheader ], [ %.1, %73 ]
+  %.099127 = phi i32 [ %49, %.lr.ph.preheader ], [ %.1100, %73 ]
+  %.0101126 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %73 ]
   %58 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, %3
-  %spec.select121 = tail call i32 @llvm.smax.i32(i32 %60, i32 -32768)
-  %61 = tail call i32 @llvm.smin.i32(i32 %spec.select121, i32 32767)
+  %spec.select122 = tail call i32 @llvm.smax.i32(i32 %60, i32 -32768)
+  %61 = tail call i32 @llvm.smin.i32(i32 %spec.select122, i32 32767)
   %62 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, %4
-  %spec.select122 = tail call i32 @llvm.smax.i32(i32 %64, i32 -32768)
-  %65 = tail call i32 @llvm.smin.i32(i32 %spec.select122, i32 32767)
-  %.not116 = icmp eq i32 %61, %.099126
-  %.not117 = icmp eq i32 %65, %.098127
+  %spec.select123 = tail call i32 @llvm.smax.i32(i32 %64, i32 -32768)
+  %65 = tail call i32 @llvm.smin.i32(i32 %spec.select123, i32 32767)
+  %.not116 = icmp eq i32 %61, %.099127
+  %.not117 = icmp eq i32 %65, %.098128
   %or.cond = select i1 %.not116, i1 %.not117, i1 false
   br i1 %or.cond, label %73, label %66
 
 66:                                               ; preds = %.lr.ph
   %67 = trunc nsw i32 %61 to i16
-  %68 = sext i32 %.0101125 to i64
-  %69 = getelementptr inbounds %struct.XPoint, ptr %.097, i64 %68
+  %.scale118 = shl nsw i32 %.0101126, 1
+  %68 = sext i32 %.scale118 to i64
+  %69 = getelementptr inbounds i16, ptr %.097, i64 %68
   store i16 %67, ptr %69, align 2
   %70 = trunc nsw i32 %65 to i16
   %71 = getelementptr inbounds i8, ptr %69, i64 2
   store i16 %70, ptr %71, align 2
-  %72 = add nsw i32 %.0101125, 1
+  %72 = add nsw i32 %.0101126, 1
   br label %73
 
 73:                                               ; preds = %.lr.ph, %66
-  %.1102 = phi i32 [ %72, %66 ], [ %.0101125, %.lr.ph ]
-  %.1100 = phi i32 [ %61, %66 ], [ %.099126, %.lr.ph ]
-  %.1 = phi i32 [ %65, %66 ], [ %.098127, %.lr.ph ]
+  %.1102 = phi i32 [ %72, %66 ], [ %.0101126, %.lr.ph ]
+  %.1100 = phi i32 [ %61, %66 ], [ %.099127, %.lr.ph ]
+  %.1 = phi i32 [ %65, %66 ], [ %.098128, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -618,12 +619,12 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   br i1 %74, label %._crit_edge.thread, label %79
 
 ._crit_edge.thread:                               ; preds = %46, %._crit_edge
-  %.098.lcssa135 = phi i32 [ %.1, %._crit_edge ], [ %52, %46 ]
-  %.099.lcssa134 = phi i32 [ %.1100, %._crit_edge ], [ %49, %46 ]
-  %75 = trunc nsw i32 %.099.lcssa134 to i16
+  %.098.lcssa136 = phi i32 [ %.1, %._crit_edge ], [ %52, %46 ]
+  %.099.lcssa135 = phi i32 [ %.1100, %._crit_edge ], [ %49, %46 ]
+  %75 = trunc nsw i32 %.099.lcssa135 to i16
   %76 = getelementptr inbounds i8, ptr %.097, i64 4
   store i16 %75, ptr %76, align 2
-  %77 = trunc nsw i32 %.098.lcssa135 to i16
+  %77 = trunc nsw i32 %.098.lcssa136 to i16
   %78 = getelementptr inbounds i8, ptr %.097, i64 6
   store i16 %77, ptr %78, align 2
   br label %85
@@ -633,8 +634,9 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 
 80:                                               ; preds = %79
   %81 = add nsw i32 %.1102, 1
-  %82 = sext i32 %.1102 to i64
-  %83 = getelementptr inbounds %struct.XPoint, ptr %.097, i64 %82
+  %.scale = shl nsw i32 %.1102, 1
+  %82 = sext i32 %.scale to i64
+  %83 = getelementptr inbounds i16, ptr %.097, i64 %82
   %84 = load i32, ptr %.097, align 2
   store i32 %84, ptr %83, align 2
   br label %85
@@ -888,8 +890,9 @@ define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %
 
 28:                                               ; preds = %26, %5
   %.0 = phi ptr [ %27, %26 ], [ %9, %5 ]
-  %29 = sext i32 %11 to i64
-  %30 = getelementptr inbounds %struct.XPoint, ptr %.0, i64 %29
+  %.scale = shl nsw i32 %11, 1
+  %29 = sext i32 %.scale to i64
+  %30 = getelementptr inbounds i16, ptr %.0, i64 %29
   %31 = trunc i32 %1 to i16
   store i16 %31, ptr %30, align 2
   %32 = trunc i32 %2 to i16
@@ -930,8 +933,9 @@ define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %
 
 51:                                               ; preds = %49, %28
   %.052 = phi ptr [ %50, %49 ], [ %35, %28 ]
-  %52 = sext i32 %34 to i64
-  %53 = getelementptr inbounds %struct.XPoint, ptr %.052, i64 %52
+  %.scale61 = shl nsw i32 %34, 1
+  %52 = sext i32 %.scale61 to i64
+  %53 = getelementptr inbounds i16, ptr %.052, i64 %52
   %54 = trunc i32 %3 to i16
   store i16 %54, ptr %53, align 2
   %55 = trunc i32 %4 to i16
@@ -983,8 +987,9 @@ define internal void @storePoint(ptr nocapture noundef readonly %0, i32 noundef 
 
 26:                                               ; preds = %24, %3
   %.0 = phi ptr [ %25, %24 ], [ %7, %3 ]
-  %27 = sext i32 %9 to i64
-  %28 = getelementptr inbounds %struct.XPoint, ptr %.0, i64 %27
+  %.scale = shl nsw i32 %9, 1
+  %27 = sext i32 %.scale to i64
+  %28 = getelementptr inbounds i16, ptr %.0, i64 %27
   %29 = trunc i32 %1 to i16
   store i16 %29, ptr %28, align 2
   %30 = trunc i32 %2 to i16

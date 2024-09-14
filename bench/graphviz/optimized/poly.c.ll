@@ -1168,10 +1168,12 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   %137 = srem i32 %136, %128
   %138 = add i32 %130, %.071.i
   %139 = srem i32 %138, %127
-  %140 = sext i32 %.070.i to i64
-  %141 = getelementptr inbounds %struct.pointf_s, ptr %97, i64 %140
-  %142 = sext i32 %137 to i64
-  %143 = getelementptr inbounds %struct.pointf_s, ptr %97, i64 %142
+  %.scale.i = shl nsw i32 %.070.i, 1
+  %140 = sext i32 %.scale.i to i64
+  %141 = getelementptr inbounds double, ptr %97, i64 %140
+  %.scale77.i = shl nsw i32 %137, 1
+  %142 = sext i32 %.scale77.i to i64
+  %143 = getelementptr inbounds double, ptr %97, i64 %142
   %144 = load double, ptr %141, align 8
   %145 = getelementptr inbounds i8, ptr %141, i64 8
   %146 = load double, ptr %145, align 8
@@ -1179,10 +1181,12 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   %148 = getelementptr inbounds i8, ptr %143, i64 8
   %149 = load double, ptr %148, align 8
   call void @subpt(ptr noundef nonnull %7, double %144, double %146, double %147, double %149) #15
-  %150 = sext i32 %.071.i to i64
-  %151 = getelementptr inbounds %struct.pointf_s, ptr %114, i64 %150
-  %152 = sext i32 %139 to i64
-  %153 = getelementptr inbounds %struct.pointf_s, ptr %114, i64 %152
+  %.scale78.i = shl nsw i32 %.071.i, 1
+  %150 = sext i32 %.scale78.i to i64
+  %151 = getelementptr inbounds double, ptr %114, i64 %150
+  %.scale79.i = shl nsw i32 %139, 1
+  %152 = sext i32 %.scale79.i to i64
+  %153 = getelementptr inbounds double, ptr %114, i64 %152
   %154 = load double, ptr %151, align 8
   %155 = getelementptr inbounds i8, ptr %151, i64 8
   %156 = load double, ptr %155, align 8
@@ -1278,12 +1282,12 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   %.1.i = phi i32 [ %204, %201 ], [ %.070.i, %205 ], [ %.070.i, %210 ], [ %217, %214 ], [ %197, %194 ]
   %219 = icmp slt i32 %.174.i, %128
   %220 = icmp slt i32 %.176.i, %127
-  %or.cond77.i = select i1 %219, i1 true, i1 %220
+  %or.cond80.i = select i1 %219, i1 true, i1 %220
   %221 = icmp slt i32 %.174.i, %133
-  %or.cond79.i = select i1 %or.cond77.i, i1 %221, i1 false
+  %or.cond82.i = select i1 %or.cond80.i, i1 %221, i1 false
   %222 = icmp slt i32 %.176.i, %134
-  %or.cond81.i = select i1 %or.cond79.i, i1 %222, i1 false
-  br i1 %or.cond81.i, label %135, label %223
+  %or.cond84.i = select i1 %or.cond82.i, i1 %222, i1 false
+  br i1 %or.cond84.i, label %135, label %223
 
 edgesIntersect.exit:                              ; preds = %135
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1394,9 +1398,10 @@ gv_calloc.exit:                                   ; preds = %12
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %24
 
-.lr.ph46:                                         ; preds = %24
+.lr.ph49:                                         ; preds = %24
   %23 = add nsw i32 %1, -1
-  %wide.trip.count51 = zext nneg i32 %1 to i64
+  %invariant.gep = getelementptr i8, ptr %21, i64 8
+  %wide.trip.count56 = zext nneg i32 %1 to i64
   br label %33
 
 24:                                               ; preds = %.lr.ph, %24
@@ -1413,23 +1418,24 @@ gv_calloc.exit:                                   ; preds = %12
   store double %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph46, label %24
+  br i1 %exitcond.not, label %.lr.ph49, label %24
 
-33:                                               ; preds = %.lr.ph46, %75
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next49, %75 ]
-  %.045 = phi double [ 0.000000e+00, %.lr.ph46 ], [ %.1, %75 ]
-  %34 = trunc nuw nsw i64 %indvars.iv48 to i32
+33:                                               ; preds = %.lr.ph49, %80
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next54, %80 ]
+  %.048 = phi double [ 0.000000e+00, %.lr.ph49 ], [ %.1, %80 ]
+  %34 = trunc nuw nsw i64 %indvars.iv53 to i32
   %35 = add i32 %23, %34
   %36 = srem i32 %35, %1
-  %37 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %indvars.iv48
+  %37 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %indvars.iv53
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load double, ptr %38, align 8
   %40 = fcmp oeq double %39, 0.000000e+00
   br i1 %40, label %41, label %52
 
 41:                                               ; preds = %33
-  %42 = sext i32 %36 to i64
-  %43 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %42
+  %.scale = shl nsw i32 %36, 1
+  %42 = sext i32 %.scale to i64
+  %43 = getelementptr inbounds double, ptr %21, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load double, ptr %44, align 8
   %46 = fcmp oeq double %45, 0.000000e+00
@@ -1440,67 +1446,74 @@ gv_calloc.exit:                                   ; preds = %12
   %49 = load double, ptr %43, align 8
   %50 = fmul double %48, %49
   %51 = fcmp olt double %50, 0.000000e+00
-  br i1 %51, label %.loopexit, label %75
+  br i1 %51, label %.loopexit, label %80
 
 52:                                               ; preds = %41, %33
   %53 = fcmp ult double %39, 0.000000e+00
-  %.phi.trans.insert = sext i32 %36 to i64
-  %.phi.trans.insert54 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert, i32 1
-  %.pre = load double, ptr %.phi.trans.insert54, align 8
-  %54 = fcmp ugt double %.pre, 0.000000e+00
-  %or.cond56 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond56, label %._crit_edge53, label %57
+  %.pre = shl nsw i32 %36, 1
+  %.pre59 = sext i32 %.pre to i64
+  br i1 %53, label %._crit_edge58, label %54
 
-._crit_edge53:                                    ; preds = %52
-  %55 = fcmp ult double %.pre, 0.000000e+00
-  %56 = fcmp ugt double %39, 0.000000e+00
-  %or.cond41 = or i1 %56, %55
-  br i1 %or.cond41, label %75, label %57
+54:                                               ; preds = %52
+  %gep = getelementptr double, ptr %invariant.gep, i64 %.pre59
+  %55 = load double, ptr %gep, align 8
+  %56 = fcmp ugt double %55, 0.000000e+00
+  br i1 %56, label %._crit_edge58, label %60
 
-57:                                               ; preds = %52, %._crit_edge53
-  %58 = load double, ptr %37, align 8
-  %59 = getelementptr inbounds %struct.pointf_s, ptr %21, i64 %.phi.trans.insert
-  %60 = load double, ptr %59, align 8
-  %61 = fneg double %39
-  %62 = fmul double %60, %61
-  %63 = tail call double @llvm.fmuladd.f64(double %58, double %.pre, double %62)
-  %64 = fsub double %.pre, %39
-  %65 = fdiv double %63, %64
-  %66 = fcmp oeq double %65, 0.000000e+00
-  br i1 %66, label %.loopexit, label %67
+._crit_edge58:                                    ; preds = %52, %54
+  %gep51 = getelementptr double, ptr %invariant.gep, i64 %.pre59
+  %57 = load double, ptr %gep51, align 8
+  %58 = fcmp ult double %57, 0.000000e+00
+  %59 = fcmp ugt double %39, 0.000000e+00
+  %or.cond44 = or i1 %59, %58
+  br i1 %or.cond44, label %80, label %60
 
-67:                                               ; preds = %57
-  %68 = fcmp ogt double %65, 0.000000e+00
-  br i1 %68, label %69, label %75
+60:                                               ; preds = %._crit_edge58, %54
+  %61 = load double, ptr %37, align 8
+  %62 = getelementptr inbounds double, ptr %21, i64 %.pre59
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %64 = load double, ptr %63, align 8
+  %65 = load double, ptr %62, align 8
+  %66 = fneg double %39
+  %67 = fmul double %65, %66
+  %68 = tail call double @llvm.fmuladd.f64(double %61, double %64, double %67)
+  %69 = fsub double %64, %39
+  %70 = fdiv double %68, %69
+  %71 = fcmp oeq double %70, 0.000000e+00
+  br i1 %71, label %.loopexit, label %72
 
-69:                                               ; preds = %67
-  %70 = fcmp oeq double %.pre, 0.000000e+00
-  %or.cond = or i1 %40, %70
-  br i1 %or.cond, label %71, label %73
+72:                                               ; preds = %60
+  %73 = fcmp ogt double %70, 0.000000e+00
+  br i1 %73, label %74, label %80
 
-71:                                               ; preds = %69
-  %72 = fadd double %.045, 5.000000e-01
-  br label %75
+74:                                               ; preds = %72
+  %75 = fcmp oeq double %64, 0.000000e+00
+  %or.cond = or i1 %40, %75
+  br i1 %or.cond, label %76, label %78
 
-73:                                               ; preds = %69
-  %74 = fadd double %.045, 1.000000e+00
-  br label %75
+76:                                               ; preds = %74
+  %77 = fadd double %.048, 5.000000e-01
+  br label %80
 
-75:                                               ; preds = %._crit_edge53, %71, %73, %67, %47
-  %.1 = phi double [ %.045, %47 ], [ %72, %71 ], [ %74, %73 ], [ %.045, %67 ], [ %.045, %._crit_edge53 ]
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %._crit_edge.loopexit, label %33
+78:                                               ; preds = %74
+  %79 = fadd double %.048, 1.000000e+00
+  br label %80
 
-._crit_edge.loopexit:                             ; preds = %75
-  %76 = fptosi double %.1 to i32
-  %77 = and i32 %76, -2147483647
-  %78 = icmp eq i32 %77, 1
-  %79 = zext i1 %78 to i32
+80:                                               ; preds = %._crit_edge58, %76, %78, %72, %47
+  %.1 = phi double [ %.048, %47 ], [ %77, %76 ], [ %79, %78 ], [ %.048, %72 ], [ %.048, %._crit_edge58 ]
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %._crit_edge.loopexit, label %33
+
+._crit_edge.loopexit:                             ; preds = %80
+  %81 = fptosi double %.1 to i32
+  %82 = and i32 %81, -2147483647
+  %83 = icmp eq i32 %82, 1
+  %84 = zext i1 %83 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %47, %20, %._crit_edge.loopexit
-  %.036 = phi i32 [ %79, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %57 ]
+.loopexit:                                        ; preds = %60, %47, %20, %._crit_edge.loopexit
+  %.036 = phi i32 [ %84, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %60 ]
   ret i32 %.036
 }
 

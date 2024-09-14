@@ -17496,7 +17496,8 @@ define weak_odr noundef ptr @_ZN7glslang13TIntermediate10addSwizzleINS_15TMatrix
 
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds [4 x %"struct.glslang::TMatrixSelector"], ptr %59, i64 0, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %61 = getelementptr inbounds i8, ptr %59, i64 %.idx
   %.sroa.0.0.copyload.i = load i64, ptr %61, align 4
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   call void @_ZN7glslang13TIntermediate12pushSelectorERNS_7TVectorIP11TIntermNodeEERKNS_15TMatrixSelectorERKNS_10TSourceLocE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %2)

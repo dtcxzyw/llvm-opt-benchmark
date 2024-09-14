@@ -15,8 +15,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.for_each_ref_filter = type { ptr, ptr, ptr, ptr }
 %struct.interpret_branch_name_options = type { i32, i8 }
 %struct.read_ref_at_cb = type { ptr, i64, i32, i32, ptr, i32, %struct.object_id, %struct.object_id, i32, i64, ptr, ptr, ptr, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
+%struct.string_list_item = type { ptr, ptr }
 %struct.hashmap_entry = type { ptr, i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 
@@ -5437,35 +5437,38 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body.us:                                      ; preds = %for.body.lr.ph
   %1 = load ptr, ptr %extras, align 8
-  %arrayidx.us = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %conv10
-  %2 = load ptr, ptr %arrayidx.us, align 8
-  %call2.us = tail call i32 @starts_with(ptr noundef %2, ptr noundef %dirname) #23
+  %conv.scale.us = shl nsw i32 %call, 1
+  %2 = sext i32 %conv.scale.us to i64
+  %arrayidx.us = getelementptr inbounds ptr, ptr %1, i64 %2
+  %3 = load ptr, ptr %arrayidx.us, align 8
+  %call2.us = tail call i32 @starts_with(ptr noundef %3, ptr noundef %dirname) #23
   %tobool3.not.us = icmp eq i32 %call2.us, 0
-  %spec.select = select i1 %tobool3.not.us, ptr null, ptr %2
+  %spec.select = select i1 %tobool3.not.us, ptr null, ptr %3
   br label %return
 
 for.cond:                                         ; preds = %if.end5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = load i64, ptr %nr, align 8
-  %cmp = icmp ugt i64 %3, %indvars.iv.next
+  %4 = load i64, ptr %nr, align 8
+  %cmp = icmp ugt i64 %4, %indvars.iv.next
   br i1 %cmp, label %for.body, label %return, !llvm.loop !24
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ %conv10, %for.body.lr.ph ]
-  %4 = load ptr, ptr %extras, align 8
-  %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %4, i64 %indvars.iv
-  %5 = load ptr, ptr %arrayidx, align 8
-  %call2 = tail call i32 @starts_with(ptr noundef %5, ptr noundef %dirname) #23
+  %5 = load ptr, ptr %extras, align 8
+  %arrayidx.idx = shl nsw i64 %indvars.iv, 4
+  %arrayidx = getelementptr inbounds i8, ptr %5, i64 %arrayidx.idx
+  %6 = load ptr, ptr %arrayidx, align 8
+  %call2 = tail call i32 @starts_with(ptr noundef %6, ptr noundef %dirname) #23
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %for.body
-  %call7 = tail call i32 @string_list_has_string(ptr noundef nonnull %skip, ptr noundef %5) #23
+  %call7 = tail call i32 @string_list_has_string(ptr noundef nonnull %skip, ptr noundef %6) #23
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %for.cond
 
 return:                                           ; preds = %if.end5, %for.body, %for.cond, %for.body.us, %if.end, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %spec.select, %for.body.us ], [ %5, %if.end5 ], [ null, %for.body ], [ null, %for.cond ]
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %spec.select, %for.body.us ], [ %6, %if.end5 ], [ null, %for.body ], [ null, %for.cond ]
   ret ptr %retval.0
 }
 
@@ -7444,40 +7447,43 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i
   %31 = load ptr, ptr %extras, align 8
-  %arrayidx.us.i = getelementptr inbounds %struct.string_list_item, ptr %31, i64 %conv10.i
-  %32 = load ptr, ptr %arrayidx.us.i, align 8
-  %call2.us.i = call i32 @starts_with(ptr noundef %32, ptr noundef %29) #23
+  %conv.scale.us.i = shl nsw i32 %call.i37, 1
+  %32 = sext i32 %conv.scale.us.i to i64
+  %arrayidx.us.i = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = load ptr, ptr %arrayidx.us.i, align 8
+  %call2.us.i = call i32 @starts_with(ptr noundef %33, ptr noundef %29) #23
   %tobool3.not.us.i = icmp eq i32 %call2.us.i, 0
   br i1 %tobool3.not.us.i, label %cleanup, label %find_descendant_ref.exit
 
 for.cond.i:                                       ; preds = %if.end5.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = load i64, ptr %nr.i, align 8
-  %cmp.i = icmp ugt i64 %33, %indvars.iv.next.i
+  %34 = load i64, ptr %nr.i, align 8
+  %cmp.i = icmp ugt i64 %34, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %cleanup, !llvm.loop !24
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ %conv10.i, %for.body.lr.ph.i ]
-  %34 = load ptr, ptr %extras, align 8
-  %arrayidx.i39 = getelementptr inbounds %struct.string_list_item, ptr %34, i64 %indvars.iv.i
-  %35 = load ptr, ptr %arrayidx.i39, align 8
-  %call2.i = call i32 @starts_with(ptr noundef %35, ptr noundef %29) #23
+  %35 = load ptr, ptr %extras, align 8
+  %arrayidx.idx.i = shl nsw i64 %indvars.iv.i, 4
+  %arrayidx.i39 = getelementptr inbounds i8, ptr %35, i64 %arrayidx.idx.i
+  %36 = load ptr, ptr %arrayidx.i39, align 8
+  %call2.i = call i32 @starts_with(ptr noundef %36, ptr noundef %29) #23
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %cleanup, label %if.end5.i
 
 if.end5.i:                                        ; preds = %for.body.i
-  %call7.i40 = call i32 @string_list_has_string(ptr noundef nonnull %skip, ptr noundef %35) #23
+  %call7.i40 = call i32 @string_list_has_string(ptr noundef nonnull %skip, ptr noundef %36) #23
   %tobool8.not.i = icmp eq i32 %call7.i40, 0
   br i1 %tobool8.not.i, label %find_descendant_ref.exit, label %for.cond.i
 
 find_descendant_ref.exit:                         ; preds = %if.end5.i, %for.body.us.i
-  %retval.0.i38 = phi ptr [ %32, %for.body.us.i ], [ %35, %if.end5.i ]
+  %retval.0.i38 = phi ptr [ %33, %for.body.us.i ], [ %36, %if.end5.i ]
   %tobool44.not = icmp eq ptr %retval.0.i38, null
   br i1 %tobool44.not, label %cleanup, label %if.then45
 
 if.then45:                                        ; preds = %find_descendant_ref.exit
-  %36 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i42 = icmp eq i32 %36, 0
+  %37 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i42 = icmp eq i32 %37, 0
   br i1 %tobool1.not.i42, label %_.exit46, label %if.end3.i43
 
 if.end3.i43:                                      ; preds = %if.then45

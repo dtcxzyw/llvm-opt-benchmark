@@ -3259,7 +3259,9 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   resume { ptr, i32 } %.pn9
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds [13 x %"struct.folly::io::(anonymous namespace)::Factory"], ptr @_ZN5folly2io12_GLOBAL__N_114codecFactoriesE, i64 0, i64 %conv
+  %conv.scale = shl nuw nsw i32 %type, 1
+  %5 = zext nneg i32 %conv.scale to i64
+  %arrayidx = getelementptr inbounds ptr, ptr @_ZN5folly2io12_GLOBAL__N_114codecFactoriesE, i64 %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %idx) #31
   ret ptr %arrayidx
 

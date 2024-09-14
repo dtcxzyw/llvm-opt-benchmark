@@ -506,8 +506,9 @@ do.end:                                           ; preds = %entry.do.end_crit_e
   %5 = phi ptr [ %.pre, %entry.do.end_crit_edge ], [ %call16, %st_mult.exit ]
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %check, align 8
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %struct.attr_check_item, ptr %5, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %4, 1
+  %6 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %6
   store ptr %attr, ptr %arrayidx, align 8
   ret ptr %arrayidx
 }
@@ -1796,7 +1797,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %11, %for.inc ]
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %12, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %all_attrs, align 8
   %arrayidx = getelementptr inbounds %struct.all_attrs_item, ptr %2, i64 %indvars.iv
@@ -1850,8 +1851,9 @@ attr_check_append.exit:                           ; preds = %entry.do.end_crit_e
   %10 = phi ptr [ %.pre.i, %entry.do.end_crit_edge.i ], [ %call16.i, %st_mult.exit.i ]
   %inc.i = add nsw i32 %9, 1
   store i32 %inc.i, ptr %check, align 8
-  %idxprom.i = sext i32 %9 to i64
-  %arrayidx.i = getelementptr inbounds %struct.attr_check_item, ptr %10, i64 %idxprom.i
+  %idxprom.scale.i = shl nsw i32 %9, 1
+  %11 = sext i32 %idxprom.scale.i to i64
+  %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %11
   store ptr %call1.i, ptr %arrayidx.i, align 8
   %value10 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %3, ptr %value10, align 8
@@ -1859,10 +1861,10 @@ attr_check_append.exit:                           ; preds = %entry.do.end_crit_e
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %attr_check_append.exit
-  %11 = phi i32 [ %1, %for.body ], [ %.pre, %attr_check_append.exit ]
+  %12 = phi i32 [ %1, %for.body ], [ %.pre, %attr_check_append.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = sext i32 %11 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %12
+  %13 = sext i32 %12 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %13
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.inc, %entry

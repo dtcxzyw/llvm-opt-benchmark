@@ -12035,8 +12035,9 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   %.01822.i.i.i = phi i32 [ %.119.i.i.i, %41 ], [ 310, %26 ]
   %27 = add nsw i32 %.01822.i.i.i, %.01723.i.i.i
   %28 = sdiv i32 %27, 2
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.interval, ptr @mk_wcwidth.combining, i64 %29
+  %.scale.i.i.i = shl nsw i32 %28, 1
+  %29 = sext i32 %.scale.i.i.i to i64
+  %30 = getelementptr inbounds i32, ptr @mk_wcwidth.combining, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %21, %32
@@ -12096,12 +12097,13 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br i1 %or.cond15.i34.i, label %utf8_char_width.exit, label %.lr.ph.i.i35.i
 
 .lr.ph.i.i35.i:                                   ; preds = %63, %78
-  %.01723.i.i36.i = phi i32 [ %.1.i.i40.i, %78 ], [ 0, %63 ]
-  %.01822.i.i37.i = phi i32 [ %.119.i.i39.i, %78 ], [ 310, %63 ]
+  %.01723.i.i36.i = phi i32 [ %.1.i.i41.i, %78 ], [ 0, %63 ]
+  %.01822.i.i37.i = phi i32 [ %.119.i.i40.i, %78 ], [ 310, %63 ]
   %64 = add nsw i32 %.01822.i.i37.i, %.01723.i.i36.i
   %65 = sdiv i32 %64, 2
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %struct.interval, ptr @mk_wcwidth.combining, i64 %66
+  %.scale.i.i38.i = shl nsw i32 %65, 1
+  %66 = sext i32 %.scale.i.i38.i to i64
+  %67 = getelementptr inbounds i32, ptr @mk_wcwidth.combining, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = icmp sgt i32 %58, %69
@@ -12121,32 +12123,33 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br label %78
 
 78:                                               ; preds = %76, %71
-  %.119.i.i39.i = phi i32 [ %.01822.i.i37.i, %71 ], [ %77, %76 ]
-  %.1.i.i40.i = phi i32 [ %72, %71 ], [ %.01723.i.i36.i, %76 ]
-  %.not.i.i41.i = icmp slt i32 %.119.i.i39.i, %.1.i.i40.i
-  br i1 %.not.i.i41.i, label %79, label %.lr.ph.i.i35.i, !llvm.loop !75
+  %.119.i.i40.i = phi i32 [ %.01822.i.i37.i, %71 ], [ %77, %76 ]
+  %.1.i.i41.i = phi i32 [ %72, %71 ], [ %.01723.i.i36.i, %76 ]
+  %.not.i.i42.i = icmp slt i32 %.119.i.i40.i, %.1.i.i41.i
+  br i1 %.not.i.i42.i, label %79, label %.lr.ph.i.i35.i, !llvm.loop !75
 
 79:                                               ; preds = %78
-  %or.cond.i.i42.i = icmp ult i32 %53, 4352
-  br i1 %or.cond.i.i42.i, label %utf8_char_width.exit, label %.lr.ph.i.i.i43.i
+  %or.cond.i.i43.i = icmp ult i32 %53, 4352
+  br i1 %or.cond.i.i43.i, label %utf8_char_width.exit, label %.lr.ph.i.i.i44.i
 
-.lr.ph.i.i.i43.i:                                 ; preds = %79, %94
-  %.01723.i.i.i44.i = phi i32 [ %.1.i.i.i47.i, %94 ], [ 0, %79 ]
-  %.01822.i.i.i45.i = phi i32 [ %.119.i.i.i46.i, %94 ], [ 90, %79 ]
-  %80 = add nsw i32 %.01822.i.i.i45.i, %.01723.i.i.i44.i
+.lr.ph.i.i.i44.i:                                 ; preds = %79, %94
+  %.01723.i.i.i45.i = phi i32 [ %.1.i.i.i49.i, %94 ], [ 0, %79 ]
+  %.01822.i.i.i46.i = phi i32 [ %.119.i.i.i48.i, %94 ], [ 90, %79 ]
+  %80 = add nsw i32 %.01822.i.i.i46.i, %.01723.i.i.i45.i
   %81 = sdiv i32 %80, 2
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.interval, ptr @mk_is_wide_char.wide, i64 %82
+  %.scale.i.i.i47.i = shl nsw i32 %81, 1
+  %82 = sext i32 %.scale.i.i.i47.i to i64
+  %83 = getelementptr inbounds i32, ptr @mk_is_wide_char.wide, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = icmp sgt i32 %58, %85
   br i1 %86, label %87, label %89
 
-87:                                               ; preds = %.lr.ph.i.i.i43.i
+87:                                               ; preds = %.lr.ph.i.i.i44.i
   %88 = add nsw i32 %81, 1
   br label %94
 
-89:                                               ; preds = %.lr.ph.i.i.i43.i
+89:                                               ; preds = %.lr.ph.i.i.i44.i
   %90 = load i32, ptr %83, align 8
   %91 = icmp slt i32 %58, %90
   br i1 %91, label %92, label %utf8_char_width.exit
@@ -12156,10 +12159,10 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br label %94
 
 94:                                               ; preds = %92, %87
-  %.119.i.i.i46.i = phi i32 [ %.01822.i.i.i45.i, %87 ], [ %93, %92 ]
-  %.1.i.i.i47.i = phi i32 [ %88, %87 ], [ %.01723.i.i.i44.i, %92 ]
-  %.not.i.i.i48.i = icmp slt i32 %.119.i.i.i46.i, %.1.i.i.i47.i
-  br i1 %.not.i.i.i48.i, label %utf8_char_width.exit, label %.lr.ph.i.i.i43.i, !llvm.loop !75
+  %.119.i.i.i48.i = phi i32 [ %.01822.i.i.i46.i, %87 ], [ %93, %92 ]
+  %.1.i.i.i49.i = phi i32 [ %88, %87 ], [ %.01723.i.i.i45.i, %92 ]
+  %.not.i.i.i50.i = icmp slt i32 %.119.i.i.i48.i, %.1.i.i.i49.i
+  br i1 %.not.i.i.i50.i, label %utf8_char_width.exit, label %.lr.ph.i.i.i44.i, !llvm.loop !75
 
 95:                                               ; preds = %42
   %96 = icmp ult i8 %6, -11
@@ -12193,32 +12196,33 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
 119:                                              ; preds = %98
   %120 = icmp ult i32 %117, 32
   %121 = add nsw i32 %117, -127
-  %or.cond.i50.i = icmp ult i32 %121, 33
-  %or.cond10.i51.i = select i1 %120, i1 true, i1 %or.cond.i50.i
-  br i1 %or.cond10.i51.i, label %utf8_char_width.exit, label %122
+  %or.cond.i52.i = icmp ult i32 %121, 33
+  %or.cond10.i53.i = select i1 %120, i1 true, i1 %or.cond.i52.i
+  br i1 %or.cond10.i53.i, label %utf8_char_width.exit, label %122
 
 122:                                              ; preds = %119
   %123 = add nsw i32 %117, -918000
-  %or.cond15.i52.i = icmp ult i32 %123, -917827
-  br i1 %or.cond15.i52.i, label %utf8_char_width.exit, label %.lr.ph.i.i53.i
+  %or.cond15.i54.i = icmp ult i32 %123, -917827
+  br i1 %or.cond15.i54.i, label %utf8_char_width.exit, label %.lr.ph.i.i55.i
 
-.lr.ph.i.i53.i:                                   ; preds = %122, %138
-  %.01723.i.i54.i = phi i32 [ %.1.i.i58.i, %138 ], [ 0, %122 ]
-  %.01822.i.i55.i = phi i32 [ %.119.i.i57.i, %138 ], [ 310, %122 ]
-  %124 = add nsw i32 %.01822.i.i55.i, %.01723.i.i54.i
+.lr.ph.i.i55.i:                                   ; preds = %122, %138
+  %.01723.i.i56.i = phi i32 [ %.1.i.i61.i, %138 ], [ 0, %122 ]
+  %.01822.i.i57.i = phi i32 [ %.119.i.i60.i, %138 ], [ 310, %122 ]
+  %124 = add nsw i32 %.01822.i.i57.i, %.01723.i.i56.i
   %125 = sdiv i32 %124, 2
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %struct.interval, ptr @mk_wcwidth.combining, i64 %126
+  %.scale.i.i58.i = shl nsw i32 %125, 1
+  %126 = sext i32 %.scale.i.i58.i to i64
+  %127 = getelementptr inbounds i32, ptr @mk_wcwidth.combining, i64 %126
   %128 = getelementptr inbounds i8, ptr %127, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = icmp sgt i32 %117, %129
   br i1 %130, label %131, label %133
 
-131:                                              ; preds = %.lr.ph.i.i53.i
+131:                                              ; preds = %.lr.ph.i.i55.i
   %132 = add nsw i32 %125, 1
   br label %138
 
-133:                                              ; preds = %.lr.ph.i.i53.i
+133:                                              ; preds = %.lr.ph.i.i55.i
   %134 = load i32, ptr %127, align 8
   %135 = icmp slt i32 %117, %134
   br i1 %135, label %136, label %utf8_char_width.exit
@@ -12228,33 +12232,34 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br label %138
 
 138:                                              ; preds = %136, %131
-  %.119.i.i57.i = phi i32 [ %.01822.i.i55.i, %131 ], [ %137, %136 ]
-  %.1.i.i58.i = phi i32 [ %132, %131 ], [ %.01723.i.i54.i, %136 ]
-  %.not.i.i59.i = icmp slt i32 %.119.i.i57.i, %.1.i.i58.i
-  br i1 %.not.i.i59.i, label %139, label %.lr.ph.i.i53.i, !llvm.loop !75
+  %.119.i.i60.i = phi i32 [ %.01822.i.i57.i, %131 ], [ %137, %136 ]
+  %.1.i.i61.i = phi i32 [ %132, %131 ], [ %.01723.i.i56.i, %136 ]
+  %.not.i.i62.i = icmp slt i32 %.119.i.i60.i, %.1.i.i61.i
+  br i1 %.not.i.i62.i, label %139, label %.lr.ph.i.i55.i, !llvm.loop !75
 
 139:                                              ; preds = %138
   %140 = add nsw i32 %117, -262142
-  %or.cond.i.i60.i = icmp ult i32 %140, -257790
-  br i1 %or.cond.i.i60.i, label %utf8_char_width.exit, label %.lr.ph.i.i.i61.i
+  %or.cond.i.i63.i = icmp ult i32 %140, -257790
+  br i1 %or.cond.i.i63.i, label %utf8_char_width.exit, label %.lr.ph.i.i.i64.i
 
-.lr.ph.i.i.i61.i:                                 ; preds = %139, %155
-  %.01723.i.i.i62.i = phi i32 [ %.1.i.i.i65.i, %155 ], [ 0, %139 ]
-  %.01822.i.i.i63.i = phi i32 [ %.119.i.i.i64.i, %155 ], [ 90, %139 ]
-  %141 = add nsw i32 %.01822.i.i.i63.i, %.01723.i.i.i62.i
+.lr.ph.i.i.i64.i:                                 ; preds = %139, %155
+  %.01723.i.i.i65.i = phi i32 [ %.1.i.i.i69.i, %155 ], [ 0, %139 ]
+  %.01822.i.i.i66.i = phi i32 [ %.119.i.i.i68.i, %155 ], [ 90, %139 ]
+  %141 = add nsw i32 %.01822.i.i.i66.i, %.01723.i.i.i65.i
   %142 = sdiv i32 %141, 2
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds %struct.interval, ptr @mk_is_wide_char.wide, i64 %143
+  %.scale.i.i.i67.i = shl nsw i32 %142, 1
+  %143 = sext i32 %.scale.i.i.i67.i to i64
+  %144 = getelementptr inbounds i32, ptr @mk_is_wide_char.wide, i64 %143
   %145 = getelementptr inbounds i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4
   %147 = icmp sgt i32 %117, %146
   br i1 %147, label %148, label %150
 
-148:                                              ; preds = %.lr.ph.i.i.i61.i
+148:                                              ; preds = %.lr.ph.i.i.i64.i
   %149 = add nsw i32 %142, 1
   br label %155
 
-150:                                              ; preds = %.lr.ph.i.i.i61.i
+150:                                              ; preds = %.lr.ph.i.i.i64.i
   %151 = load i32, ptr %144, align 8
   %152 = icmp slt i32 %117, %151
   br i1 %152, label %153, label %utf8_char_width.exit
@@ -12264,10 +12269,10 @@ define internal fastcc range(i64 -1, 3) i64 @char_column_width(ptr noundef reado
   br label %155
 
 155:                                              ; preds = %153, %148
-  %.119.i.i.i64.i = phi i32 [ %.01822.i.i.i63.i, %148 ], [ %154, %153 ]
-  %.1.i.i.i65.i = phi i32 [ %149, %148 ], [ %.01723.i.i.i62.i, %153 ]
-  %.not.i.i.i66.i = icmp slt i32 %.119.i.i.i64.i, %.1.i.i.i65.i
-  br i1 %.not.i.i.i66.i, label %utf8_char_width.exit, label %.lr.ph.i.i.i61.i, !llvm.loop !75
+  %.119.i.i.i68.i = phi i32 [ %.01822.i.i.i66.i, %148 ], [ %154, %153 ]
+  %.1.i.i.i69.i = phi i32 [ %149, %148 ], [ %.01723.i.i.i65.i, %153 ]
+  %.not.i.i.i70.i = icmp slt i32 %.119.i.i.i68.i, %.1.i.i.i69.i
+  br i1 %.not.i.i.i70.i, label %utf8_char_width.exit, label %.lr.ph.i.i.i64.i, !llvm.loop !75
 
 utf8_char_width.exit:                             ; preds = %133, %155, %150, %73, %94, %89, %41, %36, %139, %122, %119, %98, %95, %79, %63, %60, %45, %26, %23, %14, %8, %5, %2
   %.0 = phi i64 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %95 ], [ 0, %14 ], [ -1, %23 ], [ 1, %26 ], [ 0, %45 ], [ -1, %60 ], [ 1, %79 ], [ 1, %63 ], [ 0, %98 ], [ -1, %119 ], [ 1, %139 ], [ 1, %122 ], [ 0, %36 ], [ 1, %41 ], [ 1, %94 ], [ 2, %89 ], [ 0, %73 ], [ 1, %155 ], [ 2, %150 ], [ 0, %133 ]

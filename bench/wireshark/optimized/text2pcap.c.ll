@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i32, [12 x i8] }
 %union.anon.1 = type { i32, [12 x i8] }
 %struct.wtap_dump_params = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.string_elem = type { ptr, ptr }
 
 @main.text2pcap_report_routines = internal constant %struct.report_message_routines { ptr @failure_message, ptr @failure_message, ptr @open_failure_message, ptr @read_failure_message, ptr @write_failure_message, ptr @cfile_open_failure_message, ptr @cfile_dump_open_failure_message, ptr @cfile_read_failure_message, ptr @cfile_write_failure_message, ptr @cfile_close_failure_message }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"text2pcap\00", align 1
@@ -1650,40 +1649,43 @@ define internal fastcc void @list_encap_types() unnamed_addr #0 {
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %0, %15
-  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %0 ]
-  %.019 = phi ptr [ %.1, %15 ], [ null, %0 ]
+.lr.ph:                                           ; preds = %0, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %0 ]
+  %.019 = phi ptr [ %.1, %17 ], [ null, %0 ]
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = tail call i32 @wtap_encap_requires_phdr(i32 noundef %6) #14
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %15
+  br i1 %.not, label %8, label %17
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call ptr @wtap_encap_name(i32 noundef %6) #14
-  %10 = getelementptr %struct.string_elem, ptr %3, i64 %indvars.iv
-  store ptr %9, ptr %10, align 8
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %10 = shl i32 %indvars.iv.tr, 1
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr ptr, ptr %3, i64 %11
+  store ptr %9, ptr %12, align 8
   %.not17 = icmp eq ptr %9, null
-  br i1 %.not17, label %15, label %11
+  br i1 %.not17, label %17, label %13
 
-11:                                               ; preds = %8
-  %12 = tail call ptr @wtap_encap_description(i32 noundef %6) #14
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %12, ptr %13, align 8
-  %14 = tail call ptr @g_slist_insert_sorted(ptr noundef %.019, ptr noundef nonnull %10, ptr noundef nonnull @string_nat_compare) #14
-  br label %15
+13:                                               ; preds = %8
+  %14 = tail call ptr @wtap_encap_description(i32 noundef %6) #14
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %14, ptr %15, align 8
+  %16 = tail call ptr @g_slist_insert_sorted(ptr noundef %.019, ptr noundef nonnull %12, ptr noundef nonnull @string_nat_compare) #14
+  br label %17
 
-15:                                               ; preds = %.lr.ph, %11, %8
-  %.1 = phi ptr [ %.019, %.lr.ph ], [ %14, %11 ], [ %.019, %8 ]
+17:                                               ; preds = %.lr.ph, %13, %8
+  %.1 = phi ptr [ %.019, %.lr.ph ], [ %16, %13 ], [ %.019, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = tail call i32 @wtap_get_num_encap_types() #14
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  %18 = tail call i32 @wtap_get_num_encap_types() #14
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %15, %0
-  %.0.lcssa = phi ptr [ null, %0 ], [ %.1, %15 ]
-  %19 = load ptr, ptr @stderr, align 8
-  tail call void @g_slist_foreach(ptr noundef %.0.lcssa, ptr noundef nonnull @string_elem_print, ptr noundef %19) #14
+._crit_edge:                                      ; preds = %17, %0
+  %.0.lcssa = phi ptr [ null, %0 ], [ %.1, %17 ]
+  %21 = load ptr, ptr @stderr, align 8
+  tail call void @g_slist_foreach(ptr noundef %.0.lcssa, ptr noundef nonnull @string_elem_print, ptr noundef %21) #14
   tail call void @g_slist_free(ptr noundef %.0.lcssa) #14
   tail call void @g_free(ptr noundef %3) #14
   ret void

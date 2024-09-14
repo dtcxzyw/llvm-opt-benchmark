@@ -247,7 +247,8 @@ for.cond:                                         ; preds = %if.end28
 
 for.body:                                         ; preds = %if.end9, %for.cond
   %indvars.iv = phi i64 [ 0, %if.end9 ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr1.i, i64 0, i64 %indvars.iv
+  %arrayidx.i.idx = shl i64 %indvars.iv, 4
+  %arrayidx.i = getelementptr i8, ptr %addr1.i, i64 %arrayidx.i.idx
   %6 = load i64, ptr %arrayidx.i, align 16
   %cmp.not.i = icmp ult i64 %addr, %6
   br i1 %cmp.not.i, label %if.else.i52, label %land.lhs.true.i
@@ -375,43 +376,43 @@ if.end109:                                        ; preds = %if.end109.sink.spli
   br label %return
 
 for.end:                                          ; preds = %for.cond
-  %mseccfg.i68 = getelementptr inbounds i8, ptr %env, i64 8344
-  %22 = load i64, ptr %mseccfg.i68, align 8
+  %mseccfg.i67 = getelementptr inbounds i8, ptr %env, i64 8344
+  %22 = load i64, ptr %mseccfg.i67, align 8
   %23 = and i64 %22, 2
-  %tobool.not.i69 = icmp eq i64 %23, 0
-  br i1 %tobool.not.i69, label %if.else.i72, label %pmp_hart_has_privs_default.exit88
+  %tobool.not.i68 = icmp eq i64 %23, 0
+  br i1 %tobool.not.i68, label %if.else.i71, label %pmp_hart_has_privs_default.exit87
 
-if.else.i72:                                      ; preds = %for.end
-  %and2.i73 = and i64 %22, 1
-  %tobool4.not.i74 = icmp eq i64 %and2.i73, 0
-  br i1 %tobool4.not.i74, label %if.end12.i81, label %if.then5.i75
+if.else.i71:                                      ; preds = %for.end
+  %and2.i72 = and i64 %22, 1
+  %tobool4.not.i73 = icmp eq i64 %and2.i72, 0
+  br i1 %tobool4.not.i73, label %if.end12.i80, label %if.then5.i74
 
-if.then5.i75:                                     ; preds = %if.else.i72
-  %cmp.i76 = icmp eq i64 %mode, 3
-  %and6.i77 = and i32 %privs, 4
-  %tobool7.not.i78 = icmp eq i32 %and6.i77, 0
-  %or.cond.i79 = and i1 %tobool7.not.i78, %cmp.i76
-  %storemerge10.i80 = select i1 %or.cond.i79, i32 3, i32 0
-  br label %pmp_hart_has_privs_default.exit88
+if.then5.i74:                                     ; preds = %if.else.i71
+  %cmp.i75 = icmp eq i64 %mode, 3
+  %and6.i76 = and i32 %privs, 4
+  %tobool7.not.i77 = icmp eq i32 %and6.i76, 0
+  %or.cond.i78 = and i1 %tobool7.not.i77, %cmp.i75
+  %storemerge10.i79 = select i1 %or.cond.i78, i32 3, i32 0
+  br label %pmp_hart_has_privs_default.exit87
 
-if.end12.i81:                                     ; preds = %if.else.i72
-  %pmp.i82 = getelementptr i8, ptr %env, i64 8977
-  %24 = load i8, ptr %pmp.i82, align 1
-  %tobool13.i83 = trunc i8 %24 to i1
-  %cmp14.i84 = icmp ne i64 %mode, 3
-  %or.cond.not.i85 = and i1 %cmp14.i84, %tobool13.i83
-  %..i86 = select i1 %or.cond.not.i85, i32 0, i32 7
-  %ret.1.i87 = xor i1 %or.cond.not.i85, true
-  br label %pmp_hart_has_privs_default.exit88
+if.end12.i80:                                     ; preds = %if.else.i71
+  %pmp.i81 = getelementptr i8, ptr %env, i64 8977
+  %24 = load i8, ptr %pmp.i81, align 1
+  %tobool13.i82 = trunc i8 %24 to i1
+  %cmp14.i83 = icmp ne i64 %mode, 3
+  %or.cond.not.i84 = and i1 %cmp14.i83, %tobool13.i82
+  %..i85 = select i1 %or.cond.not.i84, i32 0, i32 7
+  %ret.1.i86 = xor i1 %or.cond.not.i84, true
+  br label %pmp_hart_has_privs_default.exit87
 
-pmp_hart_has_privs_default.exit88:                ; preds = %for.end, %if.then5.i75, %if.end12.i81
-  %..sink.i70 = phi i32 [ %..i86, %if.end12.i81 ], [ %storemerge10.i80, %if.then5.i75 ], [ 0, %for.end ]
-  %retval.0.i71 = phi i1 [ %ret.1.i87, %if.end12.i81 ], [ %or.cond.i79, %if.then5.i75 ], [ false, %for.end ]
-  store i32 %..sink.i70, ptr %allowed_privs, align 4
+pmp_hart_has_privs_default.exit87:                ; preds = %for.end, %if.then5.i74, %if.end12.i80
+  %..sink.i69 = phi i32 [ %..i85, %if.end12.i80 ], [ %storemerge10.i79, %if.then5.i74 ], [ 0, %for.end ]
+  %retval.0.i70 = phi i1 [ %ret.1.i86, %if.end12.i80 ], [ %or.cond.i78, %if.then5.i74 ], [ false, %for.end ]
+  store i32 %..sink.i69, ptr %allowed_privs, align 4
   br label %return
 
-return:                                           ; preds = %pmp_hart_has_privs_default.exit88, %if.end109, %do.end, %pmp_hart_has_privs_default.exit
-  %retval.0 = phi i1 [ %retval.0.i, %pmp_hart_has_privs_default.exit ], [ false, %do.end ], [ %cmp111, %if.end109 ], [ %retval.0.i71, %pmp_hart_has_privs_default.exit88 ]
+return:                                           ; preds = %pmp_hart_has_privs_default.exit87, %if.end109, %do.end, %pmp_hart_has_privs_default.exit
+  %retval.0 = phi i1 [ %retval.0.i, %pmp_hart_has_privs_default.exit ], [ false, %do.end ], [ %cmp111, %if.end109 ], [ %retval.0.i70, %pmp_hart_has_privs_default.exit87 ]
   ret i1 %retval.0
 }
 

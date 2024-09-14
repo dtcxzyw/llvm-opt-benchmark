@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.ceres::internal::Block" = type { i32, i32 }
 
 $_ZN5ceres8internal28BlockRandomAccessDenseMatrixD2Ev = comdat any
 
@@ -194,31 +193,37 @@ define hidden noundef nonnull ptr @_ZN5ceres8internal28BlockRandomAccessDenseMat
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %10, i64 %9, i32 1
-  %12 = load i32, ptr %11, align 4
-  store i32 %12, ptr %3, align 4
-  %13 = sext i32 %2 to i64
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %14, i64 %13, i32 1
-  %16 = load i32, ptr %15, align 4
-  store i32 %16, ptr %4, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
-  %18 = load i32, ptr %17, align 4
-  store i32 %18, ptr %5, align 4
-  store i32 %18, ptr %6, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = ptrtoint ptr %21 to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %26 = ashr exact i64 %25, 3
-  %27 = mul i64 %26, %9
-  %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr %"struct.ceres::internal::CellInfo", ptr %28, i64 %27
-  %30 = getelementptr %"struct.ceres::internal::CellInfo", ptr %29, i64 %13
-  ret ptr %30
+  %.scale = shl nsw i32 %1, 1
+  %11 = sext i32 %.scale to i64
+  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = load i32, ptr %13, align 4
+  store i32 %14, ptr %3, align 4
+  %15 = sext i32 %2 to i64
+  %16 = load ptr, ptr %8, align 8
+  %.scale8 = shl nsw i32 %2, 1
+  %17 = sext i32 %.scale8 to i64
+  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %4, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 44
+  %22 = load i32, ptr %21, align 4
+  store i32 %22, ptr %5, align 4
+  store i32 %22, ptr %6, align 4
+  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 3
+  %31 = mul i64 %30, %9
+  %32 = load ptr, ptr %23, align 8
+  %33 = getelementptr %"struct.ceres::internal::CellInfo", ptr %32, i64 %31
+  %34 = getelementptr %"struct.ceres::internal::CellInfo", ptr %33, i64 %15
+  ret ptr %34
 }
 
 declare void @_ZN5ceres8internal15ParallelSetZeroEPNS0_11ContextImplEiPdi(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3

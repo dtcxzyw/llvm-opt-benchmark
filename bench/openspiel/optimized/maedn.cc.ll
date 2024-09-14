@@ -4771,7 +4771,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br label %.body136
 
 .body139:                                         ; preds = %.body155.thread, %.body155, %86
-  %eh.lpad-body156185 = phi { ptr, i32 } [ %85, %.body155.thread ], [ %80, %.body155 ], [ %80, %86 ]
+  %eh.lpad-body156186 = phi { ptr, i32 } [ %85, %.body155.thread ], [ %80, %.body155 ], [ %80, %86 ]
   br label %140
 
 140:                                              ; preds = %140, %.body139
@@ -4783,7 +4783,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
 
 .body136:                                         ; preds = %140, %138, %67
   %144 = phi i1 [ false, %67 ], [ false, %138 ], [ true, %140 ]
-  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %139, %138 ], [ %eh.lpad-body156185, %140 ]
+  %.pn = phi { ptr, i32 } [ %68, %67 ], [ %139, %138 ], [ %eh.lpad-body156186, %140 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #26
   br label %.body131
 
@@ -4886,9 +4886,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   br i1 %exitcond.not, label %.preheader, label %103, !llvm.loop !32
 
 150:                                              ; preds = %.preheader, %._crit_edge
-  %indvars.iv179 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next180, %._crit_edge ]
+  %indvars.iv180 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next181, %._crit_edge ]
   %151 = load ptr, ptr %100, align 8
-  %152 = getelementptr inbounds i32, ptr %151, i64 %indvars.iv179
+  %152 = getelementptr inbounds i32, ptr %151, i64 %indvars.iv180
   %153 = load i32, ptr %152, align 4
   %154 = load i32, ptr %101, align 4
   %155 = icmp eq i32 %154, 2
@@ -4897,23 +4897,23 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
 156:                                              ; preds = %150
   %157 = load i8, ptr %102, align 4
   %158 = trunc i8 %157 to i1
-  %159 = trunc i64 %indvars.iv179 to i32
+  %159 = trunc i64 %indvars.iv180 to i32
   %160 = add i32 %159, -1
   %or.cond.i = icmp ult i32 %160, 2
   %or.cond5.i = and i1 %or.cond.i, %158
-  %161 = sub nsw i64 3, %indvars.iv179
-  %spec.select.i = select i1 %or.cond5.i, i64 %161, i64 %indvars.iv179
+  %161 = sub nsw i64 3, %indvars.iv180
+  %spec.select.i = select i1 %or.cond5.i, i64 %161, i64 %indvars.iv180
   br label %_ZNK10open_spiel5maedn10MaednState16PlayerToPositionEi.exit
 
 _ZNK10open_spiel5maedn10MaednState16PlayerToPositionEi.exit: ; preds = %150, %156
-  %162 = phi i64 [ %indvars.iv179, %150 ], [ %spec.select.i, %156 ]
+  %162 = phi i64 [ %indvars.iv180, %150 ], [ %spec.select.i, %156 ]
   %163 = icmp sgt i32 %153, 0
   br i1 %163, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK10open_spiel5maedn10MaednState16PlayerToPositionEi.exit
   %164 = shl i64 %162, 2
   %165 = add i64 %164, 56
-  %166 = trunc i64 %indvars.iv179 to i8
+  %166 = trunc i64 %indvars.iv180 to i8
   %167 = add nuw nsw i8 %166, 49
   %168 = and i64 %165, 4294967292
   %wide.trip.count = zext nneg i32 %153 to i64
@@ -4923,7 +4923,8 @@ _ZNK10open_spiel5maedn10MaednState16PlayerToPositionEi.exit: ; preds = %150, %15
 169:                                              ; preds = %.lr.ph, %176
   %indvars.iv175 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next176, %176 ]
   %170 = add nuw nsw i64 %168, %indvars.iv175
-  %171 = getelementptr inbounds [72 x %"struct.open_spiel::maedn::Coords"], ptr @_ZN10open_spiel5maednL19kFieldToBoardStringE, i64 0, i64 %170
+  %.idx = shl nsw i64 %170, 3
+  %171 = getelementptr inbounds i8, ptr @_ZN10open_spiel5maednL19kFieldToBoardStringE, i64 %.idx
   %.sroa.0.0.copyload = load i32, ptr %171, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %171, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
@@ -4936,13 +4937,13 @@ _ZNK10open_spiel5maedn10MaednState16PlayerToPositionEi.exit: ; preds = %150, %15
 176:                                              ; preds = %169
   store i8 %167, ptr %175, align 1
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
-  %exitcond178.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count
-  br i1 %exitcond178.not, label %._crit_edge, label %169, !llvm.loop !33
+  %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count
+  br i1 %exitcond179.not, label %._crit_edge, label %169, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %176, %_ZNK10open_spiel5maedn10MaednState16PlayerToPositionEi.exit
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %exitcond182.not = icmp eq i64 %indvars.iv.next180, 4
-  br i1 %exitcond182.not, label %_ZN4absl7debian211string_viewC2EPKc.exit, label %150, !llvm.loop !34
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %exitcond183.not = icmp eq i64 %indvars.iv.next181, 4
+  br i1 %exitcond183.not, label %_ZN4absl7debian211string_viewC2EPKc.exit, label %150, !llvm.loop !34
 
 _ZN4absl7debian211string_viewC2EPKc.exit:         ; preds = %._crit_edge
   %177 = load ptr, ptr %3, align 8

@@ -8,12 +8,12 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogDecorators = type { i32 }
 %"class.OopOopIterateDispatch<ArchiveHeapWriter::EmbeddedOopRelocator>::Table" = type { [7 x ptr] }
 %struct.NarrowPtrStruct = type { ptr, i32, i8 }
-%"struct.ArchiveHeapWriter::HeapObjOrder" = type { i32, i32 }
 %"class.ArchiveHeapWriter::EmbeddedOopRelocator" = type { %class.BasicOopIterateClosure, ptr, ptr, ptr }
 %class.BasicOopIterateClosure = type { %class.OopIterateClosure }
 %class.OopIterateClosure = type { %class.OopClosure, ptr }
 %class.OopClosure = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
+%"struct.ArchiveHeapWriter::HeapObjOrder" = type { i32, i32 }
 %"struct.ArchiveHeapWriter::NativePointerInfo" = type { ptr, i32 }
 %class.OopMapBlock = type { i32, i32 }
 %class.AlwaysContains = type { i8 }
@@ -759,7 +759,8 @@ define hidden void @_ZN17ArchiveHeapWriter26copy_source_objs_to_bufferEP18Growab
   %6 = phi ptr [ %97, %_ZN27ResizeableResourceHashtableImP7oopDescLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashImEjRKT_EEXadL_Z16primitive_equalsImEbS8_S8_EEE10maybe_growEib.exit ], [ %3, %1 ]
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %8, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %9 = getelementptr inbounds i8, ptr %8, i64 %.idx
   %10 = load i32, ptr %9, align 4
   %11 = load ptr, ptr @_ZN17ArchiveHeapWriter12_source_objsE, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
@@ -1031,7 +1032,8 @@ define hidden void @_ZN17ArchiveHeapWriter22relocate_embedded_oopsEP18GrowableAr
   %20 = phi ptr [ %12, %.lr.ph ], [ %127, %_ZN7oopDesc11oop_iterateIN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvPT_.exit ]
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %22, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %23 = getelementptr inbounds i8, ptr %22, i64 %.idx
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr @_ZN17ArchiveHeapWriter12_source_objsE, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -1236,13 +1238,13 @@ _ZN7oopDesc11oop_iterateIN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvPT_.exit:
   br label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next66, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit ]
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next67, %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit ]
   %149 = load i8, ptr @UseCompressedOops, align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %.lr.ph57
-  %152 = trunc nuw nsw i64 %indvars.iv65 to i32
+  %152 = trunc nuw nsw i64 %indvars.iv66 to i32
   call void @_ZN17ArchiveHeapWriter16relocate_root_atI9narrowOopEEvP7oopDesciP11CHeapBitMap(ptr noundef %133, i32 noundef %152, ptr noundef nonnull %9)
   br label %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
 
@@ -1250,7 +1252,7 @@ _ZN7oopDesc11oop_iterateIN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvPT_.exit:
   %154 = load i8, ptr @UseCompressedClassPointers, align 1
   %155 = trunc i8 %154 to i1
   %156 = select i1 %155, i64 16, i64 24
-  %157 = shl nuw nsw i64 %indvars.iv65, 3
+  %157 = shl nuw nsw i64 %indvars.iv66, 3
   %158 = load i64, ptr @_ZN17ArchiveHeapWriter18_heap_roots_offsetE, align 8
   %159 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 8
@@ -1330,8 +1332,8 @@ _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i: ; preds 
   br label %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit
 
 _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; preds = %_ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i, %153, %151
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !19
 
 ._crit_edge58:                                    ; preds = %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit, %._crit_edge, %146
@@ -2585,8 +2587,9 @@ _ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArr
   %40 = phi i32 [ %.pre, %_ZN26GrowableArrayWithAllocatorIN17ArchiveHeapWriter12HeapObjOrderE18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE4growEi.exit ], [ %3, %._crit_edge ]
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %0, align 8
-  %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds %"struct.ArchiveHeapWriter::HeapObjOrder", ptr %39, i64 %42
+  %.scale = shl nsw i32 %40, 1
+  %42 = sext i32 %.scale to i64
+  %43 = getelementptr inbounds i32, ptr %39, i64 %42
   %44 = load i64, ptr %1, align 4
   store i64 %44, ptr %43, align 4
   ret i32 %40

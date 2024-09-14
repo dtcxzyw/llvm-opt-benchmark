@@ -41158,109 +41158,113 @@ define internal fastcc range(i32 0, 2007) i32 @_calc_arbitrary_tpn(ptr noundef %
   %13 = tail call ptr @slurm_xcalloc(i64 noundef %11, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.39, i32 noundef 8431, ptr noundef nonnull @__func__._calc_arbitrary_tpn) #28
   store ptr %13, ptr %3, align 8
   %14 = tail call ptr @hostlist_shift(ptr noundef %10) #28
-  %.not54 = icmp eq ptr %14, null
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not57 = icmp eq ptr %14, null
+  br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %31
-  %15 = phi ptr [ %.sink72, %31 ], [ %13, %1 ]
-  %16 = phi ptr [ %36, %31 ], [ %14, %1 ]
-  %.04156 = phi ptr [ %16, %31 ], [ null, %1 ]
-  %.04255 = phi i32 [ %.sink, %31 ], [ 0, %1 ]
-  %.not48 = icmp eq ptr %.04156, null
+  %15 = phi ptr [ %.sink, %31 ], [ %13, %1 ]
+  %16 = phi ptr [ %37, %31 ], [ %14, %1 ]
+  %.04159 = phi ptr [ %16, %31 ], [ null, %1 ]
+  %.04258 = phi i32 [ %.sink77, %31 ], [ 0, %1 ]
+  %.not48 = icmp eq ptr %.04159, null
   br i1 %.not48, label %31, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = tail call i32 @xstrcmp(ptr noundef nonnull %16, ptr noundef nonnull %.04156) #28
+  %18 = tail call i32 @xstrcmp(ptr noundef nonnull %16, ptr noundef nonnull %.04159) #28
   %.not49 = icmp eq i32 %18, 0
   br i1 %.not49, label %31, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @node_name_get_inx(ptr noundef nonnull %.04156) #28
-  %21 = sext i32 %.04255 to i64
-  %22 = getelementptr inbounds %struct.node_inx_cnt_t, ptr %15, i64 %21
+  %20 = tail call i32 @node_name_get_inx(ptr noundef nonnull %.04159) #28
+  %.scale51 = shl nsw i32 %.04258, 1
+  %21 = sext i32 %.scale51 to i64
+  %22 = getelementptr inbounds i32, ptr %15, i64 %21
   store i32 %20, ptr %22, align 4
-  %23 = add nsw i32 %.04255, 1
-  %.not50 = icmp slt i32 %23, %7
-  br i1 %.not50, label %29, label %24
+  %23 = add nsw i32 %.04258, 1
+  %.not52 = icmp slt i32 %23, %7
+  br i1 %.not52, label %29, label %24
 
 24:                                               ; preds = %19
   tail call void @free(ptr noundef nonnull %16) #28
-  tail call void @free(ptr noundef nonnull %.04156) #28
+  tail call void @free(ptr noundef nonnull %.04159) #28
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 384
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.310, i32 noundef %7, ptr noundef %0, ptr noundef %27) #28
-  br label %56
+  br label %57
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %3, align 8
   br label %31
 
 31:                                               ; preds = %.lr.ph, %17, %29
-  %.sink = phi i32 [ %23, %29 ], [ %.04255, %17 ], [ %.04255, %.lr.ph ]
-  %.sink72 = phi ptr [ %30, %29 ], [ %15, %17 ], [ %15, %.lr.ph ]
-  %32 = sext i32 %.sink to i64
-  %33 = getelementptr inbounds %struct.node_inx_cnt_t, ptr %.sink72, i64 %32, i32 1
-  %34 = load i32, ptr %33, align 4
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %33, align 4
-  tail call void @free(ptr noundef %.04156) #28
-  %36 = tail call ptr @hostlist_shift(ptr noundef %10) #28
-  %.not = icmp eq ptr %36, null
+  %.sink77 = phi i32 [ %23, %29 ], [ %.04258, %17 ], [ %.04258, %.lr.ph ]
+  %.sink = phi ptr [ %30, %29 ], [ %15, %17 ], [ %15, %.lr.ph ]
+  %.scale53 = shl nsw i32 %.sink77, 1
+  %32 = sext i32 %.scale53 to i64
+  %33 = getelementptr inbounds i32, ptr %.sink, i64 %32
+  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %34, align 4
+  tail call void @free(ptr noundef %.04159) #28
+  %37 = tail call ptr @hostlist_shift(ptr noundef %10) #28
+  %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %31, %1
-  %37 = phi ptr [ %13, %1 ], [ %.sink72, %31 ]
-  %.042.lcssa = phi i32 [ 0, %1 ], [ %.sink, %31 ]
+  %38 = phi ptr [ %13, %1 ], [ %.sink, %31 ]
+  %.042.lcssa = phi i32 [ 0, %1 ], [ %.sink77, %31 ]
   %.041.lcssa = phi ptr [ null, %1 ], [ %16, %31 ]
-  %38 = add nsw i32 %.042.lcssa, 1
-  %.not47 = icmp eq i32 %38, %7
-  br i1 %.not47, label %44, label %39
+  %39 = add nsw i32 %.042.lcssa, 1
+  %.not47 = icmp eq i32 %39, %7
+  br i1 %.not47, label %45, label %40
 
-39:                                               ; preds = %._crit_edge
+40:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef %.041.lcssa) #28
-  %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 384
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.311, i32 noundef %7, ptr noundef %0, ptr noundef %42) #28
-  br label %56
+  %41 = load ptr, ptr %4, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 384
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.311, i32 noundef %7, ptr noundef %0, ptr noundef %43) #28
+  br label %57
 
-44:                                               ; preds = %._crit_edge
-  %45 = tail call i32 @node_name_get_inx(ptr noundef %.041.lcssa) #28
-  %46 = sext i32 %.042.lcssa to i64
-  %47 = getelementptr inbounds %struct.node_inx_cnt_t, ptr %37, i64 %46
-  store i32 %45, ptr %47, align 4
+45:                                               ; preds = %._crit_edge
+  %46 = tail call i32 @node_name_get_inx(ptr noundef %.041.lcssa) #28
+  %.scale = shl nsw i32 %.042.lcssa, 1
+  %47 = sext i32 %.scale to i64
+  %48 = getelementptr inbounds i32, ptr %38, i64 %47
+  store i32 %46, ptr %48, align 4
   tail call void @free(ptr noundef %.041.lcssa) #28
-  %48 = load ptr, ptr %3, align 8
-  tail call void @qsort(ptr noundef %48, i64 noundef %11, i64 noundef 8, ptr noundef nonnull @_comp_node_inx) #28
-  %49 = icmp sgt i32 %7, 0
-  %.pre66 = load ptr, ptr %2, align 8
-  br i1 %49, label %.lr.ph61.preheader, label %._crit_edge62
+  %49 = load ptr, ptr %3, align 8
+  tail call void @qsort(ptr noundef %49, i64 noundef %11, i64 noundef 8, ptr noundef nonnull @_comp_node_inx) #28
+  %50 = icmp sgt i32 %7, 0
+  %.pre69 = load ptr, ptr %2, align 8
+  br i1 %50, label %.lr.ph64.preheader, label %._crit_edge65
 
-.lr.ph61.preheader:                               ; preds = %44
+.lr.ph64.preheader:                               ; preds = %45
   %wide.trip.count = zext nneg i32 %7 to i64
-  br label %.lr.ph61
+  br label %.lr.ph64
 
-.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
-  %indvars.iv = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next, %.lr.ph61 ]
-  %50 = getelementptr inbounds %struct.node_inx_cnt_t, ptr %48, i64 %indvars.iv, i32 1
-  %51 = load i32, ptr %50, align 4
-  %52 = trunc i32 %51 to i16
-  %53 = getelementptr inbounds i16, ptr %.pre66, i64 %indvars.iv
-  store i16 %52, ptr %53, align 2
+.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
+  %indvars.iv = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next, %.lr.ph64 ]
+  %51 = getelementptr inbounds %struct.node_inx_cnt_t, ptr %49, i64 %indvars.iv, i32 1
+  %52 = load i32, ptr %51, align 4
+  %53 = trunc i32 %52 to i16
+  %54 = getelementptr inbounds i16, ptr %.pre69, i64 %indvars.iv
+  store i16 %53, ptr %54, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !124
 
-._crit_edge62:                                    ; preds = %.lr.ph61, %44
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
-  store ptr %.pre66, ptr %55, align 8
+._crit_edge65:                                    ; preds = %.lr.ph64, %45
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  store ptr %.pre69, ptr %56, align 8
   store ptr null, ptr %2, align 8
-  br label %56
+  br label %57
 
-56:                                               ; preds = %._crit_edge62, %39, %24
-  %.040 = phi i32 [ 2006, %24 ], [ 2006, %39 ], [ 0, %._crit_edge62 ]
+57:                                               ; preds = %._crit_edge65, %40, %24
+  %.040 = phi i32 [ 2006, %24 ], [ 2006, %40 ], [ 0, %._crit_edge65 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #28
   call void @hostlist_destroy(ptr noundef %10) #28
   call void @slurm_xfree(ptr noundef nonnull %3) #28

@@ -6158,12 +6158,14 @@ for.body.preheader.i.i.i.i.i.i.i.i.i:             ; preds = %_ZNSt6vectorIN19Ope
 
 call5.i.i.i.i2.i.i3.i.i.i1.i.noexc:               ; preds = %for.body.preheader.i.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, ptr %m_controlPoints.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingControlPoint", ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %conv.i.i.i
+  %conv.scale.i.i.i = shl nuw nsw i32 %0, 1
+  %1 = zext nneg i32 %conv.scale.i.i.i to i64
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i3.i.i.i1.i4, i8 0, i64 %mul.i.i.i.i.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3.i.i.i1.i4, i64 %mul.i.i.i.i.i.i.i.i.i.i
   %_M_finish.i.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 32
-  %1 = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %1, align 8
+  %2 = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 40
+  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %2, align 8
   store ptr %scevgep.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i.i.i.i, align 8
   %m_slopesArray.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_slopesArray.i.i.i.i, i8 0, i64 24, i1 false)
@@ -6187,7 +6189,7 @@ call5.i.i.i.i2.i.i.noexc11.i.i.i.i:               ; preds = %call5.i.i.i.i2.i.i3
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
 ehcleanup.i.i.i.i:                                ; preds = %call5.i.i.i.i2.i.i3.i.i.i1.i.noexc
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i3.i.i.i1.i4) #24
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
@@ -6201,12 +6203,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23Gr
   ret void
 
 lpad3:                                            ; preds = %for.body.preheader.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10: ; preds = %ehcleanup.i.i.i.i, %lpad3
-  %eh.lpad-body = phi { ptr, i32 } [ %3, %lpad3 ], [ %2, %ehcleanup.i.i.i.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad3 ], [ %3, %ehcleanup.i.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i3) #24
   resume { ptr, i32 } %eh.lpad-body
 }

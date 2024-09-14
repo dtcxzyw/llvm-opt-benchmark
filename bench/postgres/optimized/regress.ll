@@ -188,9 +188,9 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -1
   %15 = icmp slt i32 %14, 1
-  br i1 %15, label %.critedge, label %.lr.ph30
+  br i1 %15, label %.critedge, label %.lr.ph33
 
-.lr.ph30:                                         ; preds = %1
+.lr.ph33:                                         ; preds = %1
   %16 = getelementptr inbounds i8, ptr %7, i64 16
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = getelementptr inbounds i8, ptr %2, i64 16
@@ -206,85 +206,97 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   br label %33
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %.pre34 = load i32, ptr %12, align 4
+  %.pre41 = load i32, ptr %12, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %33
-  %27 = phi i32 [ %34, %33 ], [ %.pre34, %.loopexit.loopexit ]
-  %28 = phi i32 [ %35, %33 ], [ %56, %.loopexit.loopexit ]
-  %.1.lcssa = phi i8 [ %.029, %33 ], [ %spec.select, %.loopexit.loopexit ]
+  %27 = phi i32 [ %34, %33 ], [ %.pre41, %.loopexit.loopexit ]
+  %28 = phi i32 [ %35, %33 ], [ %64, %.loopexit.loopexit ]
+  %.1.lcssa = phi i8 [ %.032, %33 ], [ %spec.select, %.loopexit.loopexit ]
   %29 = add i32 %27, -1
   %30 = sext i32 %29 to i64
-  %31 = icmp sge i64 %indvars.iv.next33, %30
+  %31 = icmp sge i64 %indvars.iv.next38, %30
   %32 = trunc nuw i8 %.1.lcssa to i1
   %.not23 = select i1 %31, i1 true, i1 %32
   br i1 %.not23, label %._crit_edge, label %33, !llvm.loop !4
 
-33:                                               ; preds = %.lr.ph30, %.loopexit
-  %34 = phi i32 [ %13, %.lr.ph30 ], [ %27, %.loopexit ]
-  %35 = phi i32 [ %.pre, %.lr.ph30 ], [ %28, %.loopexit ]
-  %indvars.iv32 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next33, %.loopexit ]
-  %.029 = phi i8 [ 0, %.lr.ph30 ], [ %.1.lcssa, %.loopexit ]
-  %36 = getelementptr [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv32
-  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %37 = getelementptr [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv.next33
-  %38 = load double, ptr %36, align 8
-  store double %38, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
-  %40 = load double, ptr %39, align 8
-  store double %40, ptr %17, align 8
-  %41 = load double, ptr %37, align 8
-  store double %41, ptr %18, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
-  %43 = load double, ptr %42, align 8
-  store double %43, ptr %19, align 8
-  %44 = add i32 %35, -1
-  %45 = icmp slt i32 %44, 1
-  %46 = trunc nuw i8 %.029 to i1
-  %.not2425 = select i1 %45, i1 true, i1 %46
-  br i1 %.not2425, label %.loopexit, label %.lr.ph
+33:                                               ; preds = %.lr.ph33, %.loopexit
+  %34 = phi i32 [ %13, %.lr.ph33 ], [ %27, %.loopexit ]
+  %35 = phi i32 [ %.pre, %.lr.ph33 ], [ %28, %.loopexit ]
+  %indvars.iv37 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next38, %.loopexit ]
+  %.032 = phi i8 [ 0, %.lr.ph33 ], [ %.1.lcssa, %.loopexit ]
+  %indvars.iv37.tr = trunc i64 %indvars.iv37 to i32
+  %36 = shl i32 %indvars.iv37.tr, 1
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr double, ptr %16, i64 %37
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %indvars.iv.next38.tr = trunc i64 %indvars.iv.next38 to i32
+  %39 = shl i32 %indvars.iv.next38.tr, 1
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr double, ptr %16, i64 %40
+  %42 = load double, ptr %38, align 8
+  store double %42, ptr %2, align 8
+  %43 = getelementptr inbounds i8, ptr %38, i64 8
+  %44 = load double, ptr %43, align 8
+  store double %44, ptr %17, align 8
+  %45 = load double, ptr %41, align 8
+  store double %45, ptr %18, align 8
+  %46 = getelementptr inbounds i8, ptr %41, i64 8
+  %47 = load double, ptr %46, align 8
+  store double %47, ptr %19, align 8
+  %48 = add i32 %35, -1
+  %49 = icmp slt i32 %48, 1
+  %50 = trunc nuw i8 %.032 to i1
+  %.not2528 = select i1 %49, i1 true, i1 %50
+  br i1 %.not2528, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %33 ]
-  %.127 = phi i8 [ %spec.select, %.lr.ph ], [ %.029, %33 ]
-  %47 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv
+  %.130 = phi i8 [ %spec.select, %.lr.ph ], [ %.032, %33 ]
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %51 = shl i32 %indvars.iv.tr, 1
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr double, ptr %21, i64 %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv.next
-  %49 = load double, ptr %47, align 8
-  store double %49, ptr %3, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
-  %51 = load double, ptr %50, align 8
-  store double %51, ptr %22, align 8
-  %52 = load double, ptr %48, align 8
-  store double %52, ptr %23, align 8
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
-  %54 = load double, ptr %53, align 8
-  store double %54, ptr %24, align 8
-  %55 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
-  %.not = icmp eq i64 %55, 0
-  %spec.select = select i1 %.not, i8 %.127, i8 1
-  %56 = load i32, ptr %20, align 4
-  %57 = add i32 %56, -1
-  %58 = sext i32 %57 to i64
-  %59 = icmp sge i64 %indvars.iv.next, %58
-  %60 = trunc nuw i8 %spec.select to i1
-  %.not24 = select i1 %59, i1 true, i1 %60
-  br i1 %.not24, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !6
+  %indvars.iv.next.tr = trunc i64 %indvars.iv.next to i32
+  %54 = shl i32 %indvars.iv.next.tr, 1
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr double, ptr %21, i64 %55
+  %57 = load double, ptr %53, align 8
+  store double %57, ptr %3, align 8
+  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %59 = load double, ptr %58, align 8
+  store double %59, ptr %22, align 8
+  %60 = load double, ptr %56, align 8
+  store double %60, ptr %23, align 8
+  %61 = getelementptr inbounds i8, ptr %56, i64 8
+  %62 = load double, ptr %61, align 8
+  store double %62, ptr %24, align 8
+  %63 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
+  %.not = icmp eq i64 %63, 0
+  %spec.select = select i1 %.not, i8 %.130, i8 1
+  %64 = load i32, ptr %20, align 4
+  %65 = add i32 %64, -1
+  %66 = sext i32 %65 to i64
+  %67 = icmp sge i64 %indvars.iv.next, %66
+  %68 = trunc nuw i8 %spec.select to i1
+  %.not25 = select i1 %67, i1 true, i1 %68
+  br i1 %.not25, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit
-  br i1 %32, label %62, label %.critedge
+  br i1 %32, label %70, label %.critedge
 
 .critedge:                                        ; preds = %1, %._crit_edge
-  %61 = getelementptr inbounds i8, ptr %0, i64 28
-  store i8 1, ptr %61, align 4
-  br label %64
+  %69 = getelementptr inbounds i8, ptr %0, i64 28
+  store i8 1, ptr %69, align 4
+  br label %72
 
-62:                                               ; preds = %._crit_edge
-  %63 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_interpt, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
-  br label %64
+70:                                               ; preds = %._crit_edge
+  %71 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_interpt, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
+  br label %72
 
-64:                                               ; preds = %62, %.critedge
-  %.022 = phi i64 [ %63, %62 ], [ 0, %.critedge ]
+72:                                               ; preds = %70, %.critedge
+  %.022 = phi i64 [ %71, %70 ], [ 0, %.critedge ]
   ret i64 %.022
 }
 

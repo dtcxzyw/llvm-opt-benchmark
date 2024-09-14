@@ -768,27 +768,28 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
 
 ._crit_edge:                                      ; preds = %93
   %.pre = zext i32 %51 to i64
-  %.pre153 = sub nsw i64 0, %.pre
+  %.pre154 = sub nsw i64 0, %.pre
   br label %94
 
 94:                                               ; preds = %._crit_edge, %.thread
-  %.pre-phi154 = phi i64 [ %.pre153, %._crit_edge ], [ %84, %.thread ]
+  %.pre-phi155 = phi i64 [ %.pre154, %._crit_edge ], [ %84, %.thread ]
   %.1144 = phi i32 [ %.0, %._crit_edge ], [ 3, %.thread ]
   %.1107141 = phi i32 [ 1, %._crit_edge ], [ %90, %.thread ]
-  %95 = getelementptr inbounds i8, ptr %17, i64 %.pre-phi154
+  %95 = getelementptr inbounds i8, ptr %17, i64 %.pre-phi155
   %96 = icmp ult i32 %.1144, %.0105
   br i1 %96, label %.lr.ph, label %.thread145
 
 .thread145:                                       ; preds = %103, %94
-  %97 = zext nneg i32 %.1107141 to i64
-  %98 = getelementptr %struct.lzma_match, ptr %1, i64 %97
+  %.scale147 = shl nuw nsw i32 %.1107141, 1
+  %97 = zext nneg i32 %.scale147 to i64
+  %98 = getelementptr i32, ptr %1, i64 %97
   %99 = getelementptr i8, ptr %98, i64 -8
   store i32 %.0105, ptr %99, align 4
   br label %116
 
 .lr.ph:                                           ; preds = %94, %103
-  %.0102149 = phi i32 [ %104, %103 ], [ %.1144, %94 ]
-  %100 = zext i32 %.0102149 to i64
+  %.0102150 = phi i32 [ %104, %103 ], [ %.1144, %94 ]
+  %100 = zext i32 %.0102150 to i64
   %101 = getelementptr inbounds i8, ptr %95, i64 %100
   %.val121 = load i64, ptr %101, align 1
   %102 = getelementptr inbounds i8, ptr %17, i64 %100
@@ -797,7 +798,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not117, label %103, label %106
 
 103:                                              ; preds = %.lr.ph
-  %104 = add i32 %.0102149, 8
+  %104 = add i32 %.0102150, 8
   %105 = icmp ult i32 %104, %.0105
   br i1 %105, label %.lr.ph, label %.thread145, !llvm.loop !5
 
@@ -806,14 +807,15 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   %108 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %107, i1 true)
   %109 = trunc nuw nsw i64 %108 to i32
   %110 = lshr i32 %109, 3
-  %111 = add i32 %110, %.0102149
+  %111 = add i32 %110, %.0102150
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 %.0105)
-  %113 = zext nneg i32 %.1107141 to i64
-  %114 = getelementptr %struct.lzma_match, ptr %1, i64 %113
+  %.scale = shl nuw nsw i32 %.1107141, 1
+  %113 = zext nneg i32 %.scale to i64
+  %114 = getelementptr i32, ptr %1, i64 %113
   %115 = getelementptr i8, ptr %114, i64 -8
   store i32 %112, ptr %115, align 4
-  %.not147 = icmp ugt i32 %.0105, %111
-  br i1 %.not147, label %152, label %116
+  %.not148 = icmp ugt i32 %.0105, %111
+  br i1 %.not148, label %152, label %116
 
 116:                                              ; preds = %.thread145, %106
   %117 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2556,27 +2558,28 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
 
 ._crit_edge:                                      ; preds = %97
   %.pre = zext i32 %55 to i64
-  %.pre208 = sub nsw i64 0, %.pre
+  %.pre209 = sub nsw i64 0, %.pre
   br label %98
 
 98:                                               ; preds = %._crit_edge, %.thread
-  %.pre-phi209 = phi i64 [ %.pre208, %._crit_edge ], [ %88, %.thread ]
+  %.pre-phi210 = phi i64 [ %.pre209, %._crit_edge ], [ %88, %.thread ]
   %.1158 = phi i32 [ %.0, %._crit_edge ], [ 3, %.thread ]
   %.1113155 = phi i32 [ 1, %._crit_edge ], [ %94, %.thread ]
-  %99 = getelementptr inbounds i8, ptr %21, i64 %.pre-phi209
+  %99 = getelementptr inbounds i8, ptr %21, i64 %.pre-phi210
   %100 = icmp ult i32 %.1158, %.0111
   br i1 %100, label %.lr.ph, label %.thread159
 
 .thread159:                                       ; preds = %107, %98
-  %101 = zext nneg i32 %.1113155 to i64
-  %102 = getelementptr %struct.lzma_match, ptr %1, i64 %101
+  %.scale161 = shl nuw nsw i32 %.1113155, 1
+  %101 = zext nneg i32 %.scale161 to i64
+  %102 = getelementptr i32, ptr %1, i64 %101
   %103 = getelementptr i8, ptr %102, i64 -8
   store i32 %.0111, ptr %103, align 4
   br label %120
 
 .lr.ph:                                           ; preds = %98, %107
-  %.0108184 = phi i32 [ %108, %107 ], [ %.1158, %98 ]
-  %104 = zext i32 %.0108184 to i64
+  %.0108185 = phi i32 [ %108, %107 ], [ %.1158, %98 ]
+  %104 = zext i32 %.0108185 to i64
   %105 = getelementptr inbounds i8, ptr %21, i64 %104
   %.val127 = load i64, ptr %105, align 1
   %106 = getelementptr inbounds i8, ptr %99, i64 %104
@@ -2585,7 +2588,7 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not123, label %107, label %110
 
 107:                                              ; preds = %.lr.ph
-  %108 = add i32 %.0108184, 8
+  %108 = add i32 %.0108185, 8
   %109 = icmp ult i32 %108, %.0111
   br i1 %109, label %.lr.ph, label %.thread159, !llvm.loop !5
 
@@ -2594,14 +2597,15 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %111, i1 true)
   %113 = trunc nuw nsw i64 %112 to i32
   %114 = lshr i32 %113, 3
-  %115 = add i32 %114, %.0108184
+  %115 = add i32 %114, %.0108185
   %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 %.0111)
-  %117 = zext nneg i32 %.1113155 to i64
-  %118 = getelementptr %struct.lzma_match, ptr %1, i64 %117
+  %.scale = shl nuw nsw i32 %.1113155, 1
+  %117 = zext nneg i32 %.scale to i64
+  %118 = getelementptr i32, ptr %1, i64 %117
   %119 = getelementptr i8, ptr %118, i64 -8
   store i32 %116, ptr %119, align 4
-  %.not161 = icmp ugt i32 %.0111, %115
-  br i1 %.not161, label %210, label %120
+  %.not162 = icmp ugt i32 %.0111, %115
+  br i1 %.not162, label %210, label %120
 
 120:                                              ; preds = %.thread159, %110
   %121 = getelementptr inbounds i8, ptr %0, i64 92

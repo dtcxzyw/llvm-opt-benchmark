@@ -230,13 +230,15 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr [5 x %struct.anon], ptr @drm_format_pixman_map, i64 0, i64 %indvars.iv
+  %arrayidx.idx = shl i64 %indvars.iv, 3
+  %arrayidx = getelementptr i8, ptr @drm_format_pixman_map, i64 %arrayidx.idx
   %0 = load i32, ptr %arrayidx, align 8
   %cmp3 = icmp eq i32 %drm_format, %0
   br i1 %cmp3, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %pixman_format = getelementptr [5 x %struct.anon], ptr @drm_format_pixman_map, i64 0, i64 %indvars.iv, i32 1
+  %arrayidx.le = getelementptr i8, ptr @drm_format_pixman_map, i64 %arrayidx.idx
+  %pixman_format = getelementptr inbounds i8, ptr %arrayidx.le, i64 4
   %1 = load i32, ptr %pixman_format, align 4
   br label %return
 
@@ -257,7 +259,8 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr [5 x %struct.anon], ptr @drm_format_pixman_map, i64 0, i64 %indvars.iv
+  %arrayidx.idx = shl i64 %indvars.iv, 3
+  %arrayidx = getelementptr i8, ptr @drm_format_pixman_map, i64 %arrayidx.idx
   %pixman_format2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %0 = load i32, ptr %pixman_format2, align 4
   %cmp3 = icmp eq i32 %pixman_format, %0

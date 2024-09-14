@@ -225,13 +225,14 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %if.end.i.i, %if.end
 
 if.end3.i:                                        ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i
   %dec.i = add nsw i32 %1, -1
-  %idxprom.i = sext i32 %dec.i to i64
-  %arrayidx4.i = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %entry3, i64 %idxprom.i
-  %7 = load i32, ptr %arrayidx4.i, align 4
-  %idx.ext6.i = zext i32 %7 to i64
+  %idxprom.scale.i = shl nsw i32 %dec.i, 1
+  %7 = sext i32 %idxprom.scale.i to i64
+  %arrayidx4.i = getelementptr inbounds i32, ptr %entry3, i64 %7
+  %8 = load i32, ptr %arrayidx4.i, align 4
+  %idx.ext6.i = zext i32 %8 to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext6.i
-  %8 = load i8, ptr %add.ptr7.i, align 1
-  %cmp510.i22.i = icmp ne i8 %3, %8
+  %9 = load i8, ptr %add.ptr7.i, align 1
+  %cmp510.i22.i = icmp ne i8 %3, %9
   %or.cond12.i24.i = or i1 %cmp611.i.i, %cmp510.i22.i
   br i1 %or.cond12.i24.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i, label %if.end.i25.i
 
@@ -242,17 +243,17 @@ if.end.i25.i:                                     ; preds = %if.end3.i, %if.end.
   %incdec.ptr3.i29.i = getelementptr inbounds i8, ptr %s2.addr.014.i27.i, i64 1
   %incdec.ptr.i30.i = getelementptr inbounds i8, ptr %s1.addr.015.i26.i, i64 1
   %inc.i31.i = add nuw nsw i32 %pl.013.i28.i, 1
-  %9 = load i8, ptr %incdec.ptr.i30.i, align 1
-  %10 = load i8, ptr %incdec.ptr3.i29.i, align 1
-  %cmp5.i32.i = icmp ne i8 %9, %10
-  %cmp6.i33.i = icmp eq i8 %9, 0
+  %10 = load i8, ptr %incdec.ptr.i30.i, align 1
+  %11 = load i8, ptr %incdec.ptr3.i29.i, align 1
+  %cmp5.i32.i = icmp ne i8 %10, %11
+  %cmp6.i33.i = icmp eq i8 %10, 0
   %or.cond.i34.i = or i1 %cmp6.i33.i, %cmp5.i32.i
   br i1 %or.cond.i34.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i, label %if.end.i25.i, !llvm.loop !4
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i:          ; preds = %if.end.i25.i, %if.end3.i
   %pl.0.lcssa.i35.i = phi i32 [ 0, %if.end3.i ], [ %inc.i31.i, %if.end.i25.i ]
-  %.lcssa9.i36.i = phi i8 [ %3, %if.end3.i ], [ %9, %if.end.i25.i ]
-  %.lcssa.i37.i = phi i8 [ %8, %if.end3.i ], [ %10, %if.end.i25.i ]
+  %.lcssa9.i36.i = phi i8 [ %3, %if.end3.i ], [ %10, %if.end.i25.i ]
+  %.lcssa.i37.i = phi i8 [ %9, %if.end3.i ], [ %11, %if.end.i25.i ]
   %cmp9.i = icmp eq i8 %.lcssa9.i36.i, %.lcssa.i37.i
   br i1 %cmp9.i, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit, label %while.cond.preheader.i
 
@@ -270,16 +271,16 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %cond.i = tail call i32 @llvm.smin.i32(i32 %startPrefixLength.075.i, i32 %limitPrefixLength.076.i)
   %idxprom15.i = zext nneg i32 %div18.i to i64
   %arrayidx16.i = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %entry3, i64 %idxprom15.i
-  %11 = load i32, ptr %arrayidx16.i, align 4
-  %idx.ext18.i = zext i32 %11 to i64
+  %12 = load i32, ptr %arrayidx16.i, align 4
+  %idx.ext18.i = zext i32 %12 to i64
   %add.ptr19.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext18.i
   %idx.ext.i42.i = sext i32 %cond.i to i64
   %add.ptr.i43.i = getelementptr inbounds i8, ptr %tocEntryName, i64 %idx.ext.i42.i
   %add.ptr2.i44.i = getelementptr inbounds i8, ptr %add.ptr19.i, i64 %idx.ext.i42.i
-  %12 = load i8, ptr %add.ptr.i43.i, align 1
-  %13 = load i8, ptr %add.ptr2.i44.i, align 1
-  %cmp510.i45.i = icmp ne i8 %12, %13
-  %cmp611.i46.i = icmp eq i8 %12, 0
+  %13 = load i8, ptr %add.ptr.i43.i, align 1
+  %14 = load i8, ptr %add.ptr2.i44.i, align 1
+  %cmp510.i45.i = icmp ne i8 %13, %14
+  %cmp611.i46.i = icmp eq i8 %13, 0
   %or.cond12.i47.i = or i1 %cmp611.i46.i, %cmp510.i45.i
   br i1 %or.cond12.i47.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i, label %if.end.i48.i
 
@@ -290,17 +291,17 @@ if.end.i48.i:                                     ; preds = %while.body.i, %if.e
   %incdec.ptr3.i52.i = getelementptr inbounds i8, ptr %s2.addr.014.i50.i, i64 1
   %incdec.ptr.i53.i = getelementptr inbounds i8, ptr %s1.addr.015.i49.i, i64 1
   %inc.i54.i = add nsw i32 %pl.013.i51.i, 1
-  %14 = load i8, ptr %incdec.ptr.i53.i, align 1
-  %15 = load i8, ptr %incdec.ptr3.i52.i, align 1
-  %cmp5.i55.i = icmp ne i8 %14, %15
-  %cmp6.i56.i = icmp eq i8 %14, 0
+  %15 = load i8, ptr %incdec.ptr.i53.i, align 1
+  %16 = load i8, ptr %incdec.ptr3.i52.i, align 1
+  %cmp5.i55.i = icmp ne i8 %15, %16
+  %cmp6.i56.i = icmp eq i8 %15, 0
   %or.cond.i57.i = or i1 %cmp6.i56.i, %cmp5.i55.i
   br i1 %or.cond.i57.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i, label %if.end.i48.i, !llvm.loop !4
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i:          ; preds = %if.end.i48.i, %while.body.i
   %pl.0.lcssa.i58.i = phi i32 [ %cond.i, %while.body.i ], [ %inc.i54.i, %if.end.i48.i ]
-  %.lcssa9.i59.i = phi i8 [ %12, %while.body.i ], [ %14, %if.end.i48.i ]
-  %.lcssa.i60.i = phi i8 [ %13, %while.body.i ], [ %15, %if.end.i48.i ]
+  %.lcssa9.i59.i = phi i8 [ %13, %while.body.i ], [ %15, %if.end.i48.i ]
+  %.lcssa.i60.i = phi i8 [ %14, %while.body.i ], [ %16, %if.end.i48.i ]
   %cmp21.i = icmp ult i8 %.lcssa9.i59.i, %.lcssa.i60.i
   br i1 %cmp21.i, label %if.end28.i, label %if.else.i
 
@@ -334,28 +335,28 @@ if.then5:                                         ; preds = %if.else.i, %_ZL17st
 
 if.then10:                                        ; preds = %if.then5
   %dataOffset = getelementptr inbounds i8, ptr %add.ptr, i64 12
-  %16 = load i32, ptr %dataOffset, align 4
+  %17 = load i32, ptr %dataOffset, align 4
   %dataOffset11 = getelementptr inbounds i8, ptr %add.ptr, i64 4
-  %17 = load i32, ptr %dataOffset11, align 4
-  %sub = sub i32 %16, %17
+  %18 = load i32, ptr %dataOffset11, align 4
+  %sub = sub i32 %17, %18
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then10
   %storemerge = phi i32 [ %sub, %if.then10 ], [ -1, %if.then5 ]
   store i32 %storemerge, ptr %pLength, align 4
   %dataOffset12 = getelementptr inbounds i8, ptr %add.ptr, i64 4
-  %18 = load i32, ptr %dataOffset12, align 4
-  %idx.ext13 = zext i32 %18 to i64
+  %19 = load i32, ptr %dataOffset12, align 4
+  %idx.ext13 = zext i32 %19 to i64
   %add.ptr14 = getelementptr inbounds i8, ptr %0, i64 %idx.ext13
   br label %return
 
 if.else16:                                        ; preds = %entry
   %pHeader = getelementptr inbounds i8, ptr %pData, i64 8
-  %19 = load ptr, ptr %pHeader, align 8
+  %20 = load ptr, ptr %pHeader, align 8
   br label %return
 
 return:                                           ; preds = %if.end28.i, %while.cond.preheader.i, %if.then, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit, %if.else16, %if.end
-  %retval.0 = phi ptr [ %add.ptr14, %if.end ], [ %19, %if.else16 ], [ null, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ null, %if.then ], [ null, %while.cond.preheader.i ], [ null, %if.end28.i ]
+  %retval.0 = phi ptr [ %add.ptr14, %if.end ], [ %20, %if.else16 ], [ null, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ null, %if.then ], [ null, %while.cond.preheader.i ], [ null, %if.end28.i ]
   ret ptr %retval.0
 }
 
@@ -422,32 +423,33 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %if.end.i.i, %if.end
 
 if.end3.i:                                        ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i
   %dec.i = add nsw i32 %1, -1
-  %idxprom.i = sext i32 %dec.i to i64
-  %arrayidx4.i = getelementptr inbounds %struct.PointerTOCEntry, ptr %entry4, i64 %idxprom.i
-  %7 = load ptr, ptr %arrayidx4.i, align 8
-  %8 = load i8, ptr %7, align 1
-  %cmp510.i20.i = icmp ne i8 %3, %8
+  %idxprom.scale.i = shl nsw i32 %dec.i, 1
+  %7 = sext i32 %idxprom.scale.i to i64
+  %arrayidx4.i = getelementptr inbounds ptr, ptr %entry4, i64 %7
+  %8 = load ptr, ptr %arrayidx4.i, align 8
+  %9 = load i8, ptr %8, align 1
+  %cmp510.i20.i = icmp ne i8 %3, %9
   %or.cond12.i22.i = or i1 %cmp611.i.i, %cmp510.i20.i
   br i1 %or.cond12.i22.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i, label %if.end.i23.i
 
 if.end.i23.i:                                     ; preds = %if.end3.i, %if.end.i23.i
   %s1.addr.015.i24.i = phi ptr [ %incdec.ptr.i28.i, %if.end.i23.i ], [ %name, %if.end3.i ]
-  %s2.addr.014.i25.i = phi ptr [ %incdec.ptr3.i27.i, %if.end.i23.i ], [ %7, %if.end3.i ]
+  %s2.addr.014.i25.i = phi ptr [ %incdec.ptr3.i27.i, %if.end.i23.i ], [ %8, %if.end3.i ]
   %pl.013.i26.i = phi i32 [ %inc.i29.i, %if.end.i23.i ], [ 0, %if.end3.i ]
   %incdec.ptr3.i27.i = getelementptr inbounds i8, ptr %s2.addr.014.i25.i, i64 1
   %incdec.ptr.i28.i = getelementptr inbounds i8, ptr %s1.addr.015.i24.i, i64 1
   %inc.i29.i = add nuw nsw i32 %pl.013.i26.i, 1
-  %9 = load i8, ptr %incdec.ptr.i28.i, align 1
-  %10 = load i8, ptr %incdec.ptr3.i27.i, align 1
-  %cmp5.i30.i = icmp ne i8 %9, %10
-  %cmp6.i31.i = icmp eq i8 %9, 0
+  %10 = load i8, ptr %incdec.ptr.i28.i, align 1
+  %11 = load i8, ptr %incdec.ptr3.i27.i, align 1
+  %cmp5.i30.i = icmp ne i8 %10, %11
+  %cmp6.i31.i = icmp eq i8 %10, 0
   %or.cond.i32.i = or i1 %cmp6.i31.i, %cmp5.i30.i
   br i1 %or.cond.i32.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i, label %if.end.i23.i, !llvm.loop !4
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i:          ; preds = %if.end.i23.i, %if.end3.i
   %pl.0.lcssa.i33.i = phi i32 [ 0, %if.end3.i ], [ %inc.i29.i, %if.end.i23.i ]
-  %.lcssa9.i34.i = phi i8 [ %3, %if.end3.i ], [ %9, %if.end.i23.i ]
-  %.lcssa.i35.i = phi i8 [ %8, %if.end3.i ], [ %10, %if.end.i23.i ]
+  %.lcssa9.i34.i = phi i8 [ %3, %if.end3.i ], [ %10, %if.end.i23.i ]
+  %.lcssa.i35.i = phi i8 [ %9, %if.end3.i ], [ %11, %if.end.i23.i ]
   %cmp7.i = icmp eq i8 %.lcssa9.i34.i, %.lcssa.i35.i
   br i1 %cmp7.i, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit, label %while.cond.preheader.i
 
@@ -465,14 +467,14 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %cond.i = tail call i32 @llvm.smin.i32(i32 %startPrefixLength.073.i, i32 %limitPrefixLength.074.i)
   %idxprom13.i = zext nneg i32 %div16.i to i64
   %arrayidx14.i = getelementptr inbounds %struct.PointerTOCEntry, ptr %entry4, i64 %idxprom13.i
-  %11 = load ptr, ptr %arrayidx14.i, align 8
+  %12 = load ptr, ptr %arrayidx14.i, align 8
   %idx.ext.i40.i = sext i32 %cond.i to i64
   %add.ptr.i41.i = getelementptr inbounds i8, ptr %name, i64 %idx.ext.i40.i
-  %add.ptr2.i42.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i40.i
-  %12 = load i8, ptr %add.ptr.i41.i, align 1
-  %13 = load i8, ptr %add.ptr2.i42.i, align 1
-  %cmp510.i43.i = icmp ne i8 %12, %13
-  %cmp611.i44.i = icmp eq i8 %12, 0
+  %add.ptr2.i42.i = getelementptr inbounds i8, ptr %12, i64 %idx.ext.i40.i
+  %13 = load i8, ptr %add.ptr.i41.i, align 1
+  %14 = load i8, ptr %add.ptr2.i42.i, align 1
+  %cmp510.i43.i = icmp ne i8 %13, %14
+  %cmp611.i44.i = icmp eq i8 %13, 0
   %or.cond12.i45.i = or i1 %cmp611.i44.i, %cmp510.i43.i
   br i1 %or.cond12.i45.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i, label %if.end.i46.i
 
@@ -483,17 +485,17 @@ if.end.i46.i:                                     ; preds = %while.body.i, %if.e
   %incdec.ptr3.i50.i = getelementptr inbounds i8, ptr %s2.addr.014.i48.i, i64 1
   %incdec.ptr.i51.i = getelementptr inbounds i8, ptr %s1.addr.015.i47.i, i64 1
   %inc.i52.i = add nsw i32 %pl.013.i49.i, 1
-  %14 = load i8, ptr %incdec.ptr.i51.i, align 1
-  %15 = load i8, ptr %incdec.ptr3.i50.i, align 1
-  %cmp5.i53.i = icmp ne i8 %14, %15
-  %cmp6.i54.i = icmp eq i8 %14, 0
+  %15 = load i8, ptr %incdec.ptr.i51.i, align 1
+  %16 = load i8, ptr %incdec.ptr3.i50.i, align 1
+  %cmp5.i53.i = icmp ne i8 %15, %16
+  %cmp6.i54.i = icmp eq i8 %15, 0
   %or.cond.i55.i = or i1 %cmp6.i54.i, %cmp5.i53.i
   br i1 %or.cond.i55.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i, label %if.end.i46.i, !llvm.loop !4
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i:          ; preds = %if.end.i46.i, %while.body.i
   %pl.0.lcssa.i56.i = phi i32 [ %cond.i, %while.body.i ], [ %inc.i52.i, %if.end.i46.i ]
-  %.lcssa9.i57.i = phi i8 [ %12, %while.body.i ], [ %14, %if.end.i46.i ]
-  %.lcssa.i58.i = phi i8 [ %13, %while.body.i ], [ %15, %if.end.i46.i ]
+  %.lcssa9.i57.i = phi i8 [ %13, %while.body.i ], [ %15, %if.end.i46.i ]
+  %.lcssa.i58.i = phi i8 [ %14, %while.body.i ], [ %16, %if.end.i46.i ]
   %cmp17.i = icmp ult i8 %.lcssa9.i57.i, %.lcssa.i58.i
   br i1 %cmp17.i, label %if.end24.i, label %if.else.i
 
@@ -522,17 +524,17 @@ if.then6:                                         ; preds = %if.else.i, %_ZL17st
   store i32 -1, ptr %pLength, align 4
   %idxprom = zext nneg i32 %retval.0.i12 to i64
   %pHeader = getelementptr inbounds [1 x %struct.PointerTOCEntry], ptr %entry4, i64 0, i64 %idxprom, i32 1
-  %16 = load ptr, ptr %pHeader, align 8
-  %call8 = tail call ptr @UDataMemory_normalizeDataPointer_75(ptr noundef %16)
+  %17 = load ptr, ptr %pHeader, align 8
+  %call8 = tail call ptr @UDataMemory_normalizeDataPointer_75(ptr noundef %17)
   br label %return
 
 if.else9:                                         ; preds = %entry
   %pHeader10 = getelementptr inbounds i8, ptr %pData, i64 8
-  %17 = load ptr, ptr %pHeader10, align 8
+  %18 = load ptr, ptr %pHeader10, align 8
   br label %return
 
 return:                                           ; preds = %if.end24.i, %while.cond.preheader.i, %if.then, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit, %if.else9, %if.then6
-  %retval.0 = phi ptr [ %call8, %if.then6 ], [ %17, %if.else9 ], [ null, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ null, %if.then ], [ null, %while.cond.preheader.i ], [ null, %if.end24.i ]
+  %retval.0 = phi ptr [ %call8, %if.then6 ], [ %18, %if.else9 ], [ null, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ null, %if.then ], [ null, %while.cond.preheader.i ], [ null, %if.end24.i ]
   ret ptr %retval.0
 }
 

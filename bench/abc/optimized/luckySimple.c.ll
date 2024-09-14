@@ -18,9 +18,9 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %7 = load ptr, ptr %0, align 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %63
-  %.04955 = phi i32 [ %3, %.lr.ph ], [ %64, %63 ]
-  %9 = zext nneg i32 %.04955 to i64
+8:                                                ; preds = %.lr.ph, %65
+  %.04956 = phi i32 [ %3, %.lr.ph ], [ %66, %65 ]
+  %9 = zext nneg i32 %.04956 to i64
   %10 = getelementptr inbounds %struct.varInfo, ptr %7, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
@@ -29,8 +29,8 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i32, ptr %6, i64 %15
   %17 = load i32, ptr %16, align 4
-  %18 = icmp sgt i32 %.04955, %17
-  br i1 %18, label %19, label %63
+  %18 = icmp sgt i32 %.04956, %17
+  br i1 %18, label %19, label %65
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds i8, ptr %10, i64 4
@@ -42,7 +42,7 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %21, i64 %25
   %27 = load i32, ptr %26, align 4
-  store i32 %.04955, ptr %26, align 4
+  store i32 %.04956, ptr %26, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds %struct.varInfo, ptr %29, i64 %9
@@ -59,46 +59,49 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr %38, align 4
   %42 = sub nsw i32 %40, %41
-  %43 = sext i32 %27 to i64
-  %44 = getelementptr inbounds %struct.varInfo, ptr %37, i64 %43, i32 1
-  store i32 %42, ptr %44, align 4
-  %45 = load i32, ptr %2, align 8
-  %46 = icmp sgt i32 %45, %.04955
-  br i1 %46, label %.lr.ph57, label %._crit_edge
+  %.scale = shl nsw i32 %27, 1
+  %43 = sext i32 %.scale to i64
+  %44 = getelementptr inbounds i32, ptr %37, i64 %43
+  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  store i32 %42, ptr %45, align 4
+  %46 = load i32, ptr %2, align 8
+  %47 = icmp sgt i32 %46, %.04956
+  br i1 %47, label %.lr.ph58, label %._crit_edge
 
-.lr.ph57:                                         ; preds = %19, %.lr.ph57
-  %.04856 = phi i32 [ %52, %.lr.ph57 ], [ %45, %19 ]
-  %47 = load ptr, ptr %0, align 8
-  %48 = zext nneg i32 %.04856 to i64
-  %49 = getelementptr inbounds %struct.varInfo, ptr %47, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = sub nsw i32 0, %50
-  store i32 %51, ptr %49, align 4
-  %52 = add nsw i32 %.04856, -1
-  %53 = icmp sgt i32 %52, %.04955
-  br i1 %53, label %.lr.ph57, label %._crit_edge, !llvm.loop !4
+.lr.ph58:                                         ; preds = %19, %.lr.ph58
+  %.04857 = phi i32 [ %53, %.lr.ph58 ], [ %46, %19 ]
+  %48 = load ptr, ptr %0, align 8
+  %49 = zext nneg i32 %.04857 to i64
+  %50 = getelementptr inbounds %struct.varInfo, ptr %48, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = sub nsw i32 0, %51
+  store i32 %52, ptr %50, align 4
+  %53 = add nsw i32 %.04857, -1
+  %54 = icmp sgt i32 %53, %.04956
+  br i1 %54, label %.lr.ph58, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph57, %19
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds %struct.varInfo, ptr %54, i64 %43, i32 1
-  %56 = load i32, ptr %55, align 4
-  %57 = add nsw i32 %56, -1
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds %struct.varInfo, ptr %54, i64 %9, i32 1
-  %60 = load i32, ptr %59, align 4
-  %61 = add nsw i32 %60, -1
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %61, ptr %62, align 8
+._crit_edge:                                      ; preds = %.lr.ph58, %19
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds i32, ptr %55, i64 %43
+  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = add nsw i32 %58, -1
+  %60 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %59, ptr %60, align 4
+  %61 = getelementptr inbounds %struct.varInfo, ptr %55, i64 %9, i32 1
+  %62 = load i32, ptr %61, align 4
+  %63 = add nsw i32 %62, -1
+  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 %63, ptr %64, align 8
   br label %.loopexit
 
-63:                                               ; preds = %8
-  %64 = add nsw i32 %.04955, -1
-  %65 = icmp sgt i32 %.04955, 2
-  br i1 %65, label %8, label %.loopexit, !llvm.loop !6
+65:                                               ; preds = %8
+  %66 = add nsw i32 %.04956, -1
+  %67 = icmp sgt i32 %.04956, 2
+  br i1 %67, label %8, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %63, %1, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %1 ], [ 0, %63 ]
+.loopexit:                                        ; preds = %65, %1, %._crit_edge
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %1 ], [ 0, %65 ]
   ret i32 %.0
 }
 
@@ -143,6 +146,7 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   %20 = getelementptr i8, ptr %19, i64 4
   store i32 %17, ptr %20, align 4
   %.not = icmp eq i32 %4, 1
+  %invariant.gep = getelementptr i8, ptr %8, i64 4
   br i1 %.not, label %.loopexit16, label %.lr.ph.i13.preheader.lr.ph
 
 .lr.ph.i13.preheader.lr.ph:                       ; preds = %setSwapInfoPtr.exit
@@ -155,9 +159,9 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   br label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %.lr.ph.i13.preheader, %48
-  %.04955.i = phi i32 [ %49, %48 ], [ %4, %.lr.ph.i13.preheader ]
-  %23 = zext nneg i32 %.04955.i to i64
+.lr.ph.i13:                                       ; preds = %.lr.ph.i13.preheader, %47
+  %.04956.i = phi i32 [ %48, %47 ], [ %4, %.lr.ph.i13.preheader ]
+  %23 = zext nneg i32 %.04956.i to i64
   %24 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
@@ -166,50 +170,51 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %10, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = icmp sgt i32 %.04955.i, %31
-  br i1 %32, label %33, label %48
+  %32 = icmp sgt i32 %.04956.i, %31
+  br i1 %32, label %33, label %47
 
 33:                                               ; preds = %.lr.ph.i13
   %34 = getelementptr inbounds i8, ptr %24, i64 4
   %35 = getelementptr inbounds i32, ptr %10, i64 %29
   store i32 %28, ptr %34, align 4
   %36 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %23, i32 1
-  store i32 %.04955.i, ptr %35, align 4
+  store i32 %.04956.i, ptr %35, align 4
   %37 = sext i32 %26 to i64
   %38 = getelementptr inbounds i32, ptr %10, i64 %37
   store i32 %31, ptr %38, align 4
-  %39 = sext i32 %31 to i64
-  %40 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %39, i32 1
-  store i32 %26, ptr %40, align 4
-  %41 = icmp sgt i32 %4, %.04955.i
-  br i1 %41, label %.lr.ph57.i, label %.loopexit
+  %.scale.i = shl nsw i32 %31, 1
+  %39 = sext i32 %.scale.i to i64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %39
+  store i32 %26, ptr %gep, align 4
+  %40 = icmp sgt i32 %4, %.04956.i
+  br i1 %40, label %.lr.ph58.i, label %.loopexit
 
-.lr.ph57.i:                                       ; preds = %33, %.lr.ph57.i
-  %.04856.i = phi i32 [ %46, %.lr.ph57.i ], [ %4, %33 ]
-  %42 = zext nneg i32 %.04856.i to i64
-  %43 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = sub nsw i32 0, %44
-  store i32 %45, ptr %43, align 4
-  %46 = add nsw i32 %.04856.i, -1
-  %47 = icmp sgt i32 %46, %.04955.i
-  br i1 %47, label %.lr.ph57.i, label %.loopexit, !llvm.loop !4
+.lr.ph58.i:                                       ; preds = %33, %.lr.ph58.i
+  %.04857.i = phi i32 [ %45, %.lr.ph58.i ], [ %4, %33 ]
+  %41 = zext nneg i32 %.04857.i to i64
+  %42 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %41
+  %43 = load i32, ptr %42, align 4
+  %44 = sub nsw i32 0, %43
+  store i32 %44, ptr %42, align 4
+  %45 = add nsw i32 %.04857.i, -1
+  %46 = icmp sgt i32 %45, %.04956.i
+  br i1 %46, label %.lr.ph58.i, label %.loopexit, !llvm.loop !4
 
-48:                                               ; preds = %.lr.ph.i13
-  %49 = add nsw i32 %.04955.i, -1
-  %50 = icmp sgt i32 %.04955.i, 2
-  br i1 %50, label %.lr.ph.i13, label %.loopexit16, !llvm.loop !6
+47:                                               ; preds = %.lr.ph.i13
+  %48 = add nsw i32 %.04956.i, -1
+  %49 = icmp sgt i32 %.04956.i, 2
+  br i1 %49, label %.lr.ph.i13, label %.loopexit16, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph57.i, %33
-  %51 = load i32, ptr %36, align 4
-  %52 = load ptr, ptr %21, align 8
-  %53 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv.next
-  %.lcssa44. = tail call i32 @llvm.smin.i32(i32 %26, i32 %51)
-  %54 = add nsw i32 %.lcssa44., -1
-  store i32 %54, ptr %53, align 4
+.loopexit:                                        ; preds = %.lr.ph58.i, %33
+  %50 = load i32, ptr %36, align 4
+  %51 = load ptr, ptr %21, align 8
+  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next
+  %.lcssa45. = tail call i32 @llvm.smin.i32(i32 %26, i32 %50)
+  %53 = add nsw i32 %.lcssa45., -1
+  store i32 %53, ptr %52, align 4
   br label %.lr.ph.i13.preheader
 
-.loopexit16:                                      ; preds = %48, %1, %setSwapInfoPtr.exit
+.loopexit16:                                      ; preds = %47, %1, %setSwapInfoPtr.exit
   tail call void @free(ptr noundef %8) #11
   tail call void @free(ptr noundef nonnull %10) #11
   ret void

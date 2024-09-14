@@ -774,18 +774,20 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %270
 
 270:                                              ; preds = %247, %308
-  %indvars.iv183 = phi i64 [ 0, %247 ], [ %indvars.iv.next184, %308 ]
-  %271 = getelementptr inbounds [3 x [20 x [2 x i32]]], ptr @_ZL10POSE_PAIRS, i64 0, i64 %.070, i64 %indvars.iv183
+  %indvars.iv184 = phi i64 [ 0, %247 ], [ %indvars.iv.next185, %308 ]
+  %271 = getelementptr inbounds [3 x [20 x [2 x i32]]], ptr @_ZL10POSE_PAIRS, i64 0, i64 %.070, i64 %indvars.iv184
   %272 = load i32, ptr %271, align 8
-  %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds %"class.cv::Point_", ptr %210, i64 %273
+  %.scale = shl nsw i32 %272, 1
+  %273 = sext i32 %.scale to i64
+  %274 = getelementptr inbounds i32, ptr %210, i64 %273
   %275 = load i32, ptr %274, align 4
   %276 = getelementptr inbounds i8, ptr %274, i64 4
   %277 = load i32, ptr %276, align 4
   %278 = getelementptr inbounds i8, ptr %271, i64 4
   %279 = load i32, ptr %278, align 4
-  %280 = sext i32 %279 to i64
-  %281 = getelementptr inbounds %"class.cv::Point_", ptr %210, i64 %280
+  %.scale180 = shl nsw i32 %279, 1
+  %280 = sext i32 %.scale180 to i64
+  %281 = getelementptr inbounds i32, ptr %210, i64 %280
   %282 = load i32, ptr %281, align 4
   %283 = getelementptr inbounds i8, ptr %281, i64 4
   %284 = load i32, ptr %283, align 4
@@ -853,9 +855,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %308 unwind label %313
 
 308:                                              ; preds = %307, %270
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %exitcond187.not = icmp eq i64 %indvars.iv.next184, %.071
-  br i1 %exitcond187.not, label %315, label %270, !llvm.loop !7
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %exitcond188.not = icmp eq i64 %indvars.iv.next185, %.071
+  br i1 %exitcond188.not, label %315, label %270, !llvm.loop !7
 
 309:                                              ; preds = %289
   %310 = landingpad { ptr, i32 }

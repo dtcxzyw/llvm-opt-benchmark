@@ -8567,10 +8567,14 @@ getKeysPrepareResult.exit:                        ; preds = %if.end.i, %if.end32
   %or.cond86.not92 = and i1 %cmp153.not, %cmp156
   %cmp159.not = icmp slt i32 %first.2, %argc
   %or.cond87 = and i1 %cmp159.not, %or.cond86.not92
-  br i1 %or.cond87, label %for.body166, label %invalid_spec
+  br i1 %or.cond87, label %for.cond163.preheader, label %invalid_spec
 
-for.body166:                                      ; preds = %getKeysPrepareResult.exit, %for.inc193
-  %i.196 = phi i32 [ %add194, %for.inc193 ], [ %first.2, %getKeysPrepareResult.exit ]
+for.cond163.preheader:                            ; preds = %getKeysPrepareResult.exit
+  %invariant.gep = getelementptr i8, ptr %31, i64 4
+  br label %for.body166
+
+for.body166:                                      ; preds = %for.cond163.preheader, %for.inc193
+  %i.196 = phi i32 [ %first.2, %for.cond163.preheader ], [ %add194, %for.inc193 ]
   %cmp170 = icmp slt i32 %i.196, %first.2
   br i1 %cmp170, label %if.then172, label %if.end181
 
@@ -8592,17 +8596,19 @@ if.else180:                                       ; preds = %lor.lhs.false176
 
 if.end181:                                        ; preds = %for.body166
   %34 = load i32, ptr %numkeys, align 8
-  %idxprom183 = sext i32 %34 to i64
-  %arrayidx184 = getelementptr inbounds %struct.keyReference, ptr %31, i64 %idxprom183
+  %idxprom183.scale = shl nsw i32 %34, 1
+  %35 = sext i32 %idxprom183.scale to i64
+  %arrayidx184 = getelementptr inbounds i32, ptr %31, i64 %35
   store i32 %i.196, ptr %arrayidx184, align 4
-  %35 = load i64, ptr %flags, align 8
-  %conv187 = trunc i64 %35 to i32
-  %36 = load i32, ptr %numkeys, align 8
-  %idxprom189 = sext i32 %36 to i64
-  %flags191 = getelementptr inbounds %struct.keyReference, ptr %31, i64 %idxprom189, i32 1
-  store i32 %conv187, ptr %flags191, align 4
+  %36 = load i64, ptr %flags, align 8
+  %conv187 = trunc i64 %36 to i32
   %37 = load i32, ptr %numkeys, align 8
-  %inc = add nsw i32 %37, 1
+  %idxprom189.scale = shl nsw i32 %37, 1
+  %38 = sext i32 %idxprom189.scale to i64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %38
+  store i32 %conv187, ptr %gep, align 4
+  %39 = load i32, ptr %numkeys, align 8
+  %inc = add nsw i32 %39, 1
   store i32 %inc, ptr %numkeys, align 8
   br label %for.inc193
 
@@ -8612,8 +8618,8 @@ for.inc193:                                       ; preds = %if.then172, %lor.lh
   br i1 %cmp164.not, label %for.end195, label %for.body166, !llvm.loop !42
 
 for.end195:                                       ; preds = %for.inc193
-  %38 = load i64, ptr %flags, align 8
-  %and197 = and i64 %38, 512
+  %40 = load i64, ptr %flags, align 8
+  %and197 = and i64 %40, 512
   %tobool198.not = icmp ne i64 %and197, 0
   %or.cond89 = and i1 %tobool202.not, %tobool198.not
   br i1 %or.cond89, label %if.else204, label %for.inc206
@@ -8627,9 +8633,9 @@ if.else204:                                       ; preds = %for.end195, %invali
 
 for.inc206:                                       ; preds = %for.body47, %for.inc, %if.then25, %cond.end14, %invalid_spec, %for.end195
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = load i32, ptr %key_specs_num, align 8
-  %40 = sext i32 %39 to i64
-  %cmp2 = icmp slt i64 %indvars.iv.next, %40
+  %41 = load i32, ptr %key_specs_num, align 8
+  %42 = sext i32 %41 to i64
+  %cmp2 = icmp slt i64 %indvars.iv.next, %42
   br i1 %cmp2, label %for.body, label %for.end208.loopexit, !llvm.loop !43
 
 for.end208.loopexit:                              ; preds = %for.inc206
@@ -10023,12 +10029,13 @@ for.body37.preheader:                             ; preds = %getKeysPrepareResul
 
 for.body37:                                       ; preds = %for.body37.preheader, %for.body37
   %indvars.iv = phi i64 [ %12, %for.body37.preheader ], [ %indvars.iv.next, %for.body37 ]
-  %i.2.in49 = phi i32 [ %i.046, %for.body37.preheader ], [ %14, %for.body37 ]
+  %i.2.in49 = phi i32 [ %i.046, %for.body37.preheader ], [ %15, %for.body37 ]
   %sub39 = sub i32 %i.2.in49, %i.046
-  %idxprom40 = sext i32 %sub39 to i64
-  %arrayidx41 = getelementptr inbounds %struct.keyReference, ptr %11, i64 %idxprom40
-  %14 = trunc nsw i64 %indvars.iv to i32
-  store i32 %14, ptr %arrayidx41, align 4
+  %idxprom40.scale = shl nsw i32 %sub39, 1
+  %14 = sext i32 %idxprom40.scale to i64
+  %arrayidx41 = getelementptr inbounds i32, ptr %11, i64 %14
+  %15 = trunc nsw i64 %indvars.iv to i32
+  store i32 %15, ptr %arrayidx41, align 4
   %flags = getelementptr inbounds i8, ptr %arrayidx41, i64 4
   store i32 0, ptr %flags, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

@@ -50,23 +50,25 @@ define internal noundef range(i32 -22, 1) i32 @regcache_flat_init(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %27, %23
-  %28 = phi i32 [ 0, %23 ], [ %37, %27 ]
+  %28 = phi i32 [ 0, %23 ], [ %38, %27 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.reg_default, ptr %25, i64 %29
-  %31 = load i32, ptr %30, align 4
-  %32 = lshr i32 %31, %26
-  %33 = getelementptr %struct.reg_default, ptr %25, i64 %29, i32 1
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %32 to i64
-  %36 = getelementptr i32, ptr %16, i64 %35
-  store i32 %34, ptr %36, align 4
-  %37 = add nuw i32 %28, 1
-  %38 = icmp eq i32 %37, %21
-  br i1 %38, label %.loopexit, label %27, !llvm.loop !5
+  %.scale = shl i32 %28, 1
+  %30 = sext i32 %.scale to i64
+  %31 = getelementptr i32, ptr %25, i64 %30
+  %32 = load i32, ptr %31, align 4
+  %33 = lshr i32 %32, %26
+  %34 = getelementptr %struct.reg_default, ptr %25, i64 %29, i32 1
+  %35 = load i32, ptr %34, align 4
+  %36 = zext i32 %33 to i64
+  %37 = getelementptr i32, ptr %16, i64 %36
+  store i32 %35, ptr %37, align 4
+  %38 = add nuw i32 %28, 1
+  %39 = icmp eq i32 %38, %21
+  br i1 %39, label %.loopexit, label %27, !llvm.loop !5
 
 .loopexit:                                        ; preds = %27, %19, %11, %7, %3, %1
-  %39 = phi i32 [ -22, %7 ], [ -22, %3 ], [ -22, %1 ], [ -12, %11 ], [ 0, %19 ], [ 0, %27 ]
-  ret i32 %39
+  %40 = phi i32 [ -22, %7 ], [ -22, %3 ], [ -22, %1 ], [ -12, %11 ], [ 0, %19 ], [ 0, %27 ]
+  ret i32 %40
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

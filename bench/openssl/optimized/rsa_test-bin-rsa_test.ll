@@ -196,12 +196,13 @@ define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %n) #0 {
 entry:
   %num = alloca [2000 x i8], align 16
   %call = tail call ptr @RSA_new() #4
-  %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 8
+  %idxprom.scale = shl nsw i32 %n, 1
+  %0 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i32, ptr @rsa_security_bits_cases, i64 %0
+  %1 = load i32, ptr %arrayidx, align 8
   %r = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %1 = load i32, ptr %r, align 4
-  %add = add nsw i32 %0, 7
+  %2 = load i32, ptr %r, align 4
+  %add = add nsw i32 %1, 7
   %div = sdiv i32 %add, 8
   %call5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 369, ptr noundef nonnull @.str.11, ptr noundef %call) #4
   %tobool.not = icmp eq i32 %call5, 0
@@ -213,12 +214,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool7.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %rem = srem i32 %0, 8
+  %rem = srem i32 %1, 8
   %idxprom8 = sext i32 %rem to i64
   %arrayidx9 = getelementptr inbounds [8 x i8], ptr @test_rsa_security_bit.vals, i64 0, i64 %idxprom8
-  %2 = load i8, ptr %arrayidx9, align 1
+  %3 = load i8, ptr %arrayidx9, align 1
   %conv10 = sext i32 %div to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %num, i8 %2, i64 %conv10, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %num, i8 %3, i64 %conv10, i1 false)
   %call12 = call ptr @BN_bin2bn(ptr noundef nonnull %num, i32 noundef %div, ptr noundef null) #4
   %call14 = call ptr @BN_bin2bn(ptr noundef nonnull %num, i32 noundef %div, ptr noundef null) #4
   %call15 = call i32 @RSA_set0_key(ptr noundef %call, ptr noundef %call12, ptr noundef %call14, ptr noundef null) #4
@@ -230,7 +231,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end
   %call19 = call i32 @RSA_security_bits(ptr noundef %call) #4
-  %call20 = call i32 @test_uint_eq(ptr noundef nonnull @.str.5, i32 noundef 387, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %call19, i32 noundef %1) #4
+  %call20 = call i32 @test_uint_eq(ptr noundef nonnull @.str.5, i32 noundef 387, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %call19, i32 noundef %2) #4
   %tobool21.not = icmp ne i32 %call20, 0
   %spec.select = zext i1 %tobool21.not to i32
   br label %err

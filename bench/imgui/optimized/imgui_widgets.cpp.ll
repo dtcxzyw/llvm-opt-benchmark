@@ -36607,31 +36607,32 @@ if.end7.i.i.i:                                    ; preds = %if.then2.i.i.i, %if
 _ZN10ImDrawList10PathLineToERK6ImVec2.exit:       ; preds = %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i, %if.end7.i.i.i
   %12 = phi ptr [ %call.i.i.i, %if.end7.i.i.i ], [ %.pre.i, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i ]
   %13 = phi i32 [ %.pre.i.i, %if.end7.i.i.i ], [ %7, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i ]
-  %idxprom.i.i = sext i32 %13 to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.ImVec2, ptr %12, i64 %idxprom.i.i
+  %idxprom.scale.i.i = shl nsw i32 %13, 1
+  %14 = sext i32 %idxprom.scale.i.i to i64
+  %arrayidx.i.i = getelementptr inbounds float, ptr %12, i64 %14
   store float %2, ptr %arrayidx.i.i, align 4
   %arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   store float %sub, ptr %arrayidx.i.i.sroa_idx, align 4
-  %14 = load i32, ptr %_Path.i, align 8
-  %inc.i.i = add nsw i32 %14, 1
+  %15 = load i32, ptr %_Path.i, align 8
+  %inc.i.i = add nsw i32 %15, 1
   store i32 %inc.i.i, ptr %_Path.i, align 8
-  %15 = load float, ptr %bb, align 4
-  %add10 = fadd float %cond.i42, %15
+  %16 = load float, ptr %bb, align 4
+  %add10 = fadd float %cond.i42, %16
   %add11 = fadd float %add, %cond.i42
   store float %add10, ptr %ref.tmp7, align 4
   %y.i43 = getelementptr inbounds i8, ptr %ref.tmp7, i64 4
   store float %add11, ptr %y.i43, align 4
   call void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp7, float noundef %cond.i42, i32 noundef 6, i32 noundef 9)
-  %16 = load float, ptr %Max.i, align 4
-  %sub15 = fsub float %16, %cond.i42
+  %17 = load float, ptr %Max.i, align 4
+  %sub15 = fsub float %17, %cond.i42
   store float %sub15, ptr %ref.tmp12, align 4
   %y.i44 = getelementptr inbounds i8, ptr %ref.tmp12, i64 4
   store float %add11, ptr %y.i44, align 4
   call void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp12, float noundef %cond.i42, i32 noundef 9, i32 noundef 12)
-  %17 = load i32, ptr %Max.i, align 4
-  %18 = load i32, ptr %_Path.i, align 8
-  %19 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.i.i48 = icmp eq i32 %18, %19
+  %18 = load i32, ptr %Max.i, align 4
+  %19 = load i32, ptr %_Path.i, align 8
+  %20 = load i32, ptr %Capacity.i.i, align 4
+  %cmp.i.i48 = icmp eq i32 %19, %20
   br i1 %cmp.i.i48, label %if.then.i.i55, label %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i49
 
 entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i49: ; preds = %_ZN10ImDrawList10PathLineToERK6ImVec2.exit
@@ -36640,13 +36641,13 @@ entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i49: ; preds = %_ZN10
   br label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit74
 
 if.then.i.i55:                                    ; preds = %_ZN10ImDrawList10PathLineToERK6ImVec2.exit
-  %add.i.i56 = add nsw i32 %18, 1
-  %tobool.not.i.i.i57 = icmp eq i32 %18, 0
+  %add.i.i56 = add nsw i32 %19, 1
+  %tobool.not.i.i.i57 = icmp eq i32 %19, 0
   br i1 %tobool.not.i.i.i57, label %if.end.i.i.i61, label %cond.true.i.i.i58
 
 cond.true.i.i.i58:                                ; preds = %if.then.i.i55
-  %div.i.i.i59 = sdiv i32 %18, 2
-  %add.i.i.i60 = add nsw i32 %div.i.i.i59, %18
+  %div.i.i.i59 = sdiv i32 %19, 2
+  %add.i.i.i60 = add nsw i32 %div.i.i.i59, %19
   br label %if.end.i.i.i61
 
 if.end.i.i.i61:                                   ; preds = %cond.true.i.i.i58, %if.then.i.i55
@@ -36656,17 +36657,17 @@ if.end.i.i.i61:                                   ; preds = %cond.true.i.i.i58, 
   %mul.i.i.i65 = shl nsw i64 %conv.i.i.i64, 3
   %call.i.i.i66 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i65)
   %Data.i.i.i67 = getelementptr inbounds i8, ptr %draw_list, i64 128
-  %20 = load ptr, ptr %Data.i.i.i67, align 8
-  %tobool.not.i2.i.i68 = icmp eq ptr %20, null
+  %21 = load ptr, ptr %Data.i.i.i67, align 8
+  %tobool.not.i2.i.i68 = icmp eq ptr %21, null
   br i1 %tobool.not.i2.i.i68, label %if.end7.i.i.i72, label %if.then2.i.i.i69
 
 if.then2.i.i.i69:                                 ; preds = %if.end.i.i.i61
-  %21 = load i32, ptr %_Path.i, align 8
-  %conv4.i.i.i70 = sext i32 %21 to i64
+  %22 = load i32, ptr %_Path.i, align 8
+  %conv4.i.i.i70 = sext i32 %22 to i64
   %mul5.i.i.i71 = shl nsw i64 %conv4.i.i.i70, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i66, ptr nonnull align 4 %20, i64 %mul5.i.i.i71, i1 false)
-  %22 = load ptr, ptr %Data.i.i.i67, align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %22)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i66, ptr nonnull align 4 %21, i64 %mul5.i.i.i71, i1 false)
+  %23 = load ptr, ptr %Data.i.i.i67, align 8
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %23)
   br label %if.end7.i.i.i72
 
 if.end7.i.i.i72:                                  ; preds = %if.then2.i.i.i69, %if.end.i.i.i61
@@ -36676,30 +36677,31 @@ if.end7.i.i.i72:                                  ; preds = %if.then2.i.i.i69, %
   br label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit74
 
 _ZN10ImDrawList10PathLineToERK6ImVec2.exit74:     ; preds = %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i49, %if.end7.i.i.i72
-  %23 = phi ptr [ %call.i.i.i66, %if.end7.i.i.i72 ], [ %.pre.i51, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i49 ]
-  %24 = phi i32 [ %.pre.i.i73, %if.end7.i.i.i72 ], [ %18, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i49 ]
-  %idxprom.i.i52 = sext i32 %24 to i64
-  %arrayidx.i.i53 = getelementptr inbounds %struct.ImVec2, ptr %23, i64 %idxprom.i.i52
-  store i32 %17, ptr %arrayidx.i.i53, align 4
+  %24 = phi ptr [ %call.i.i.i66, %if.end7.i.i.i72 ], [ %.pre.i51, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i49 ]
+  %25 = phi i32 [ %.pre.i.i73, %if.end7.i.i.i72 ], [ %19, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i49 ]
+  %idxprom.scale.i.i52 = shl nsw i32 %25, 1
+  %26 = sext i32 %idxprom.scale.i.i52 to i64
+  %arrayidx.i.i53 = getelementptr inbounds float, ptr %24, i64 %26
+  store i32 %18, ptr %arrayidx.i.i53, align 4
   %arrayidx.i.i53.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i53, i64 4
   store float %sub, ptr %arrayidx.i.i53.sroa_idx, align 4
-  %25 = load i32, ptr %_Path.i, align 8
-  %inc.i.i54 = add nsw i32 %25, 1
+  %27 = load i32, ptr %_Path.i, align 8
+  %inc.i.i54 = add nsw i32 %27, 1
   store i32 %inc.i.i54, ptr %_Path.i, align 8
   %Data.i = getelementptr inbounds i8, ptr %draw_list, i64 128
-  %26 = load ptr, ptr %Data.i, align 8
-  call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef %26, i32 noundef %inc.i.i54, i32 noundef %col)
+  %28 = load ptr, ptr %Data.i, align 8
+  call void @_ZN10ImDrawList19AddConvexPolyFilledEPK6ImVec2ij(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef %28, i32 noundef %inc.i.i54, i32 noundef %col)
   store i32 0, ptr %_Path.i, align 8
   %TabBorderSize = getelementptr inbounds i8, ptr %0, i64 14716
-  %27 = load float, ptr %TabBorderSize, align 4
-  %cmp = fcmp ogt float %27, 0.000000e+00
+  %29 = load float, ptr %TabBorderSize, align 4
+  %cmp = fcmp ogt float %29, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN10ImDrawList10PathLineToERK6ImVec2.exit74
-  %28 = load float, ptr %bb, align 4
-  %add24 = fadd float %28, 5.000000e-01
-  %29 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.i.i79 = icmp eq i32 %29, 0
+  %30 = load float, ptr %bb, align 4
+  %add24 = fadd float %30, 5.000000e-01
+  %31 = load i32, ptr %Capacity.i.i, align 4
+  %cmp.i.i79 = icmp eq i32 %31, 0
   br i1 %cmp.i.i79, label %if.end.i.i.i92, label %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i80
 
 entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i80: ; preds = %if.then
@@ -36708,56 +36710,57 @@ entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i80: ; preds = %if.th
 
 if.end.i.i.i92:                                   ; preds = %if.then
   %call.i.i.i97 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 64)
-  %30 = load ptr, ptr %Data.i, align 8
-  %tobool.not.i2.i.i99 = icmp eq ptr %30, null
+  %32 = load ptr, ptr %Data.i, align 8
+  %tobool.not.i2.i.i99 = icmp eq ptr %32, null
   br i1 %tobool.not.i2.i.i99, label %if.end7.i.i.i103, label %if.then2.i.i.i100
 
 if.then2.i.i.i100:                                ; preds = %if.end.i.i.i92
-  %31 = load i32, ptr %_Path.i, align 8
-  %conv4.i.i.i101 = sext i32 %31 to i64
+  %33 = load i32, ptr %_Path.i, align 8
+  %conv4.i.i.i101 = sext i32 %33 to i64
   %mul5.i.i.i102 = shl nsw i64 %conv4.i.i.i101, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i97, ptr nonnull align 4 %30, i64 %mul5.i.i.i102, i1 false)
-  %32 = load ptr, ptr %Data.i, align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %32)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i97, ptr nonnull align 4 %32, i64 %mul5.i.i.i102, i1 false)
+  %34 = load ptr, ptr %Data.i, align 8
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %34)
   br label %if.end7.i.i.i103
 
 if.end7.i.i.i103:                                 ; preds = %if.then2.i.i.i100, %if.end.i.i.i92
   store ptr %call.i.i.i97, ptr %Data.i, align 8
   store i32 8, ptr %Capacity.i.i, align 4
   %.pre.i.i104 = load i32, ptr %_Path.i, align 8
-  %33 = sext i32 %.pre.i.i104 to i64
+  %35 = shl nsw i32 %.pre.i.i104, 1
+  %36 = sext i32 %35 to i64
   br label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit105
 
 _ZN10ImDrawList10PathLineToERK6ImVec2.exit105:    ; preds = %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i80, %if.end7.i.i.i103
-  %34 = phi ptr [ %call.i.i.i97, %if.end7.i.i.i103 ], [ %.pre.i82, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i80 ]
-  %idxprom.i.i83 = phi i64 [ %33, %if.end7.i.i.i103 ], [ 0, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i80 ]
-  %arrayidx.i.i84 = getelementptr inbounds %struct.ImVec2, ptr %34, i64 %idxprom.i.i83
+  %37 = phi ptr [ %call.i.i.i97, %if.end7.i.i.i103 ], [ %.pre.i82, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i80 ]
+  %idxprom.scale.i.i83 = phi i64 [ %36, %if.end7.i.i.i103 ], [ 0, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i80 ]
+  %arrayidx.i.i84 = getelementptr inbounds float, ptr %37, i64 %idxprom.scale.i.i83
   store float %add24, ptr %arrayidx.i.i84, align 4
   %arrayidx.i.i84.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i84, i64 4
   store float %sub, ptr %arrayidx.i.i84.sroa_idx, align 4
-  %35 = load i32, ptr %_Path.i, align 8
-  %inc.i.i85 = add nsw i32 %35, 1
+  %38 = load i32, ptr %_Path.i, align 8
+  %inc.i.i85 = add nsw i32 %38, 1
   store i32 %inc.i.i85, ptr %_Path.i, align 8
-  %36 = load float, ptr %bb, align 4
-  %add28 = fadd float %cond.i42, %36
+  %39 = load float, ptr %bb, align 4
+  %add28 = fadd float %cond.i42, %39
   %add29 = fadd float %add28, 5.000000e-01
   %add31 = fadd float %add11, 5.000000e-01
   store float %add29, ptr %ref.tmp25, align 4
   %y.i106 = getelementptr inbounds i8, ptr %ref.tmp25, i64 4
   store float %add31, ptr %y.i106, align 4
   call void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, float noundef %cond.i42, i32 noundef 6, i32 noundef 9)
-  %37 = load float, ptr %Max.i, align 4
-  %sub35 = fsub float %37, %cond.i42
+  %40 = load float, ptr %Max.i, align 4
+  %sub35 = fsub float %40, %cond.i42
   %sub36 = fadd float %sub35, -5.000000e-01
   store float %sub36, ptr %ref.tmp32, align 4
   %y.i107 = getelementptr inbounds i8, ptr %ref.tmp32, i64 4
   store float %add31, ptr %y.i107, align 4
   call void @_ZN10ImDrawList13PathArcToFastERK6ImVec2fii(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp32, float noundef %cond.i42, i32 noundef 9, i32 noundef 12)
-  %38 = load float, ptr %Max.i, align 4
-  %sub42 = fadd float %38, -5.000000e-01
-  %39 = load i32, ptr %_Path.i, align 8
-  %40 = load i32, ptr %Capacity.i.i, align 4
-  %cmp.i.i111 = icmp eq i32 %39, %40
+  %41 = load float, ptr %Max.i, align 4
+  %sub42 = fadd float %41, -5.000000e-01
+  %42 = load i32, ptr %_Path.i, align 8
+  %43 = load i32, ptr %Capacity.i.i, align 4
+  %cmp.i.i111 = icmp eq i32 %42, %43
   br i1 %cmp.i.i111, label %if.then.i.i118, label %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i112
 
 entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i112: ; preds = %_ZN10ImDrawList10PathLineToERK6ImVec2.exit105
@@ -36765,13 +36768,13 @@ entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i112: ; preds = %_ZN1
   br label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit137
 
 if.then.i.i118:                                   ; preds = %_ZN10ImDrawList10PathLineToERK6ImVec2.exit105
-  %add.i.i119 = add nsw i32 %39, 1
-  %tobool.not.i.i.i120 = icmp eq i32 %39, 0
+  %add.i.i119 = add nsw i32 %42, 1
+  %tobool.not.i.i.i120 = icmp eq i32 %42, 0
   br i1 %tobool.not.i.i.i120, label %if.end.i.i.i124, label %cond.true.i.i.i121
 
 cond.true.i.i.i121:                               ; preds = %if.then.i.i118
-  %div.i.i.i122 = sdiv i32 %39, 2
-  %add.i.i.i123 = add nsw i32 %div.i.i.i122, %39
+  %div.i.i.i122 = sdiv i32 %42, 2
+  %add.i.i.i123 = add nsw i32 %div.i.i.i122, %42
   br label %if.end.i.i.i124
 
 if.end.i.i.i124:                                  ; preds = %cond.true.i.i.i121, %if.then.i.i118
@@ -36780,17 +36783,17 @@ if.end.i.i.i124:                                  ; preds = %cond.true.i.i.i121,
   %conv.i.i.i127 = sext i32 %cond7.i.i.i126 to i64
   %mul.i.i.i128 = shl nsw i64 %conv.i.i.i127, 3
   %call.i.i.i129 = call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i128)
-  %41 = load ptr, ptr %Data.i, align 8
-  %tobool.not.i2.i.i131 = icmp eq ptr %41, null
+  %44 = load ptr, ptr %Data.i, align 8
+  %tobool.not.i2.i.i131 = icmp eq ptr %44, null
   br i1 %tobool.not.i2.i.i131, label %if.end7.i.i.i135, label %if.then2.i.i.i132
 
 if.then2.i.i.i132:                                ; preds = %if.end.i.i.i124
-  %42 = load i32, ptr %_Path.i, align 8
-  %conv4.i.i.i133 = sext i32 %42 to i64
+  %45 = load i32, ptr %_Path.i, align 8
+  %conv4.i.i.i133 = sext i32 %45 to i64
   %mul5.i.i.i134 = shl nsw i64 %conv4.i.i.i133, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i129, ptr nonnull align 4 %41, i64 %mul5.i.i.i134, i1 false)
-  %43 = load ptr, ptr %Data.i, align 8
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %43)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i.i129, ptr nonnull align 4 %44, i64 %mul5.i.i.i134, i1 false)
+  %46 = load ptr, ptr %Data.i, align 8
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef %46)
   br label %if.end7.i.i.i135
 
 if.end7.i.i.i135:                                 ; preds = %if.then2.i.i.i132, %if.end.i.i.i124
@@ -36800,21 +36803,22 @@ if.end7.i.i.i135:                                 ; preds = %if.then2.i.i.i132, 
   br label %_ZN10ImDrawList10PathLineToERK6ImVec2.exit137
 
 _ZN10ImDrawList10PathLineToERK6ImVec2.exit137:    ; preds = %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i112, %if.end7.i.i.i135
-  %44 = phi ptr [ %call.i.i.i129, %if.end7.i.i.i135 ], [ %.pre.i114, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i112 ]
-  %45 = phi i32 [ %.pre.i.i136, %if.end7.i.i.i135 ], [ %39, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i112 ]
-  %idxprom.i.i115 = sext i32 %45 to i64
-  %arrayidx.i.i116 = getelementptr inbounds %struct.ImVec2, ptr %44, i64 %idxprom.i.i115
+  %47 = phi ptr [ %call.i.i.i129, %if.end7.i.i.i135 ], [ %.pre.i114, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i112 ]
+  %48 = phi i32 [ %.pre.i.i136, %if.end7.i.i.i135 ], [ %42, %entry._ZN8ImVectorI6ImVec2E9push_backERKS0_.exit_crit_edge.i112 ]
+  %idxprom.scale.i.i115 = shl nsw i32 %48, 1
+  %49 = sext i32 %idxprom.scale.i.i115 to i64
+  %arrayidx.i.i116 = getelementptr inbounds float, ptr %47, i64 %49
   store float %sub42, ptr %arrayidx.i.i116, align 4
   %arrayidx.i.i116.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i116, i64 4
   store float %sub, ptr %arrayidx.i.i116.sroa_idx, align 4
-  %46 = load i32, ptr %_Path.i, align 8
-  %inc.i.i117 = add nsw i32 %46, 1
+  %50 = load i32, ptr %_Path.i, align 8
+  %inc.i.i117 = add nsw i32 %50, 1
   store i32 %inc.i.i117, ptr %_Path.i, align 8
   %call43 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef 5, float noundef 1.000000e+00)
-  %47 = load float, ptr %TabBorderSize, align 4
-  %48 = load ptr, ptr %Data.i, align 8
-  %49 = load i32, ptr %_Path.i, align 8
-  call void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef %48, i32 noundef %49, i32 noundef %call43, i32 noundef 0, float noundef %47)
+  %51 = load float, ptr %TabBorderSize, align 4
+  %52 = load ptr, ptr %Data.i, align 8
+  %53 = load i32, ptr %_Path.i, align 8
+  call void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull align 8 dereferenceable(196) %draw_list, ptr noundef %52, i32 noundef %53, i32 noundef %call43, i32 noundef 0, float noundef %51)
   store i32 0, ptr %_Path.i, align 8
   br label %if.end
 

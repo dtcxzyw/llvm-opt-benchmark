@@ -13,8 +13,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_match_wildca
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_match_strlcpy: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad match_strlcpy ; .previous"
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_match_strdup: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad match_strdup ; .previous"
 
-%struct.substring_t = type { ptr, ptr }
-
 @__UNIQUE_ID___addressable_match_token144 = internal global ptr @match_token, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_match_int145 = internal global ptr @match_int, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_match_uint146 = internal global ptr @match_uint, section ".discard.addressable", align 8
@@ -113,8 +111,9 @@ define dso_local i32 @match_token(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %43
-  %47 = sext i32 %18 to i64
-  %48 = getelementptr %struct.substring_t, ptr %2, i64 %47
+  %.scale = shl i32 %18, 1
+  %47 = sext i32 %.scale to i64
+  %48 = getelementptr ptr, ptr %2, i64 %47
   store ptr %26, ptr %48, align 8
   %49 = load ptr, ptr %4, align 8
   %50 = getelementptr i8, ptr %49, i64 1

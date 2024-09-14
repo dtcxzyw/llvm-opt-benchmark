@@ -654,16 +654,17 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr noca
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   br label %9
 
-9:                                                ; preds = %63, %7
-  %10 = phi i32 [ %5, %7 ], [ %64, %63 ]
-  %11 = phi i32 [ 0, %7 ], [ %66, %63 ]
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr [0 x %struct.range], ptr %8, i64 0, i64 %12
+9:                                                ; preds = %62, %7
+  %10 = phi i32 [ %5, %7 ], [ %65, %62 ]
+  %11 = phi i32 [ 0, %7 ], [ %64, %62 ]
+  %.scale = shl i32 %11, 1
+  %12 = sext i32 %.scale to i64
+  %13 = getelementptr i64, ptr %8, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp ult i64 %16, %1
-  br i1 %17, label %63, label %18
+  br i1 %17, label %62, label %18
 
 18:                                               ; preds = %9
   %19 = icmp ugt i64 %14, %2
@@ -679,8 +680,9 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr noca
 
 26:                                               ; preds = %20
   %27 = add nuw i32 %11, 1
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr [0 x %struct.range], ptr %8, i64 0, i64 %28
+  %.scale10 = shl i32 %27, 1
+  %28 = sext i32 %.scale10 to i64
+  %29 = getelementptr i64, ptr %8, i64 %28
   %30 = sub i32 %10, %27
   %31 = zext i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 4
@@ -689,13 +691,13 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr noca
   %34 = load i32, ptr %4, align 4
   %35 = add i32 %34, -1
   store i32 %35, ptr %4, align 4
-  br label %63
+  br label %62
 
 36:                                               ; preds = %20
   %37 = icmp ult i64 %14, %1
   %38 = icmp ugt i64 %16, %2
   %39 = and i1 %37, %38
-  br i1 %39, label %40, label %58
+  br i1 %39, label %40, label %57
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %0, align 8
@@ -703,51 +705,51 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr noca
   br i1 %42, label %43, label %.loopexit
 
 43:                                               ; preds = %40
-  %44 = add i32 %11, 2
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr [0 x %struct.range], ptr %8, i64 0, i64 %45
-  %47 = add nuw i32 %11, 1
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr [0 x %struct.range], ptr %8, i64 0, i64 %48
-  %50 = sub i32 %10, %47
-  %51 = zext i32 %50 to i64
-  %52 = shl nuw nsw i64 %51, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %46, ptr align 8 %49, i64 %52, i1 false)
-  %53 = add i64 %21, -1
-  store i64 %53, ptr %15, align 8
-  %54 = add i64 %22, 1
-  store i64 %54, ptr %49, align 8
-  %55 = getelementptr inbounds i8, ptr %49, i64 8
-  store i64 %16, ptr %55, align 8
-  %56 = load i32, ptr %4, align 4
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %4, align 4
-  br label %63
+  %.scale8 = add i32 %.scale, 4
+  %44 = sext i32 %.scale8 to i64
+  %45 = getelementptr i64, ptr %8, i64 %44
+  %46 = add nuw i32 %11, 1
+  %.scale9 = shl i32 %46, 1
+  %47 = sext i32 %.scale9 to i64
+  %48 = getelementptr i64, ptr %8, i64 %47
+  %49 = sub i32 %10, %46
+  %50 = zext i32 %49 to i64
+  %51 = shl nuw nsw i64 %50, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %45, ptr align 8 %48, i64 %51, i1 false)
+  %52 = add i64 %21, -1
+  store i64 %52, ptr %15, align 8
+  %53 = add i64 %22, 1
+  store i64 %53, ptr %48, align 8
+  %54 = getelementptr inbounds i8, ptr %48, i64 8
+  store i64 %16, ptr %54, align 8
+  %55 = load i32, ptr %4, align 4
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %4, align 4
+  br label %62
 
-58:                                               ; preds = %36
-  br i1 %23, label %61, label %59
+57:                                               ; preds = %36
+  br i1 %23, label %60, label %58
 
-59:                                               ; preds = %58
-  %60 = add i64 %21, -1
-  store i64 %60, ptr %15, align 8
-  %.pre = load i32, ptr %4, align 4
-  br label %63
+58:                                               ; preds = %57
+  %59 = add i64 %21, -1
+  store i64 %59, ptr %15, align 8
+  br label %62
 
-61:                                               ; preds = %58
-  %62 = add i64 %22, 1
-  store i64 %62, ptr %13, align 8
-  br label %63
+60:                                               ; preds = %57
+  %61 = add i64 %22, 1
+  store i64 %61, ptr %13, align 8
+  br label %62
 
-63:                                               ; preds = %61, %59, %43, %26, %9
-  %64 = phi i32 [ %10, %9 ], [ %35, %26 ], [ %57, %43 ], [ %.pre, %59 ], [ %10, %61 ]
-  %65 = phi i32 [ %11, %9 ], [ %33, %26 ], [ %47, %43 ], [ %11, %59 ], [ %11, %61 ]
-  %66 = add i32 %65, 1
-  %67 = icmp ult i32 %66, %64
-  br i1 %67, label %9, label %.loopexit, !llvm.loop !17
+62:                                               ; preds = %60, %58, %43, %26, %9
+  %63 = phi i32 [ %11, %9 ], [ %33, %26 ], [ %46, %43 ], [ %11, %58 ], [ %11, %60 ]
+  %64 = add i32 %63, 1
+  %65 = load i32, ptr %4, align 4
+  %66 = icmp ult i32 %64, %65
+  br i1 %66, label %9, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %63, %40, %18, %3
-  %68 = phi i32 [ 0, %3 ], [ 0, %63 ], [ 0, %18 ], [ -12, %40 ]
-  ret i32 %68
+.loopexit:                                        ; preds = %62, %40, %18, %3
+  %67 = phi i32 [ 0, %3 ], [ 0, %62 ], [ 0, %18 ], [ -12, %40 ]
+  ret i32 %67
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

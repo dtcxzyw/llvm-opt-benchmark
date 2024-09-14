@@ -56,7 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::pair" = type { %"class.cv::Point_.8", %"class.cv::Point_.8" }
 %"class.cv::Point_.8" = type { i32, i32 }
-%"class.cv::Point_" = type { float, float }
 %"class.std::allocator.25" = type { i8 }
 %"class.cv::FileStorage" = type { ptr, i32, %"class.std::__cxx11::basic_string", %"struct.cv::Ptr.21" }
 %"struct.cv::Ptr.21" = type { %"class.std::shared_ptr.22" }
@@ -791,8 +790,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %257 = sext i32 %246 to i64
   %258 = mul i64 %256, %257
   %259 = getelementptr inbounds i8, ptr %254, i64 %258
-  %260 = sext i32 %243 to i64
-  %261 = getelementptr inbounds %"class.cv::Point_", ptr %259, i64 %260
+  %.scale.i = shl nsw i32 %243, 1
+  %260 = sext i32 %.scale.i to i64
+  %261 = getelementptr inbounds float, ptr %259, i64 %260
   %262 = load float, ptr %261, align 4
   %.sroa_idx = getelementptr inbounds i8, ptr %261, i64 4
   %263 = load float, ptr %.sroa_idx, align 4
@@ -1113,7 +1113,7 @@ _ZNK2cv11_InputArray6getMatEi.exit25.i:           ; preds = %392, %390
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %indvars.iv31.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next32.i, %._crit_edge.us.i ]
+  %indvars.iv32.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next33.i, %._crit_edge.us.i ]
   br label %400
 
 400:                                              ; preds = %_ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit.us.i, %.preheader.us.i
@@ -1121,9 +1121,10 @@ _ZNK2cv11_InputArray6getMatEi.exit25.i:           ; preds = %392, %390
   %401 = load ptr, ptr %395, align 8
   %402 = load ptr, ptr %396, align 8
   %403 = load i64, ptr %402, align 8
-  %404 = mul i64 %403, %indvars.iv31.i
+  %404 = mul i64 %403, %indvars.iv32.i
   %405 = getelementptr inbounds i8, ptr %401, i64 %404
-  %406 = getelementptr inbounds %"class.cv::Point_", ptr %405, i64 %indvars.iv.i192
+  %.idx.i = shl nsw i64 %indvars.iv.i192, 3
+  %406 = getelementptr inbounds i8, ptr %405, i64 %.idx.i
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %407 = load float, ptr %406, align 4, !noalias !25
   %408 = fcmp oeq float %407, 0.000000e+00
@@ -1182,7 +1183,7 @@ _ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit.us.i: ; preds = %430
   %435 = load ptr, ptr %398, align 8
   %436 = load ptr, ptr %399, align 8
   %437 = load i64, ptr %436, align 8
-  %438 = mul i64 %437, %indvars.iv31.i
+  %438 = mul i64 %437, %indvars.iv32.i
   %439 = getelementptr inbounds i8, ptr %435, i64 %438
   %440 = getelementptr inbounds %"class.cv::Vec.19", ptr %439, i64 %indvars.iv.i192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %440, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
@@ -1191,9 +1192,9 @@ _ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit.us.i: ; preds = %430
   br i1 %exitcond.not.i194, label %._crit_edge.us.i, label %400, !llvm.loop !32
 
 ._crit_edge.us.i:                                 ; preds = %_ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit.us.i
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %.sroa.3.0.extract.shift.i
-  br i1 %exitcond35.not.i, label %._crit_edge28.i, label %.preheader.us.i, !llvm.loop !33
+  %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
+  %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %.sroa.3.0.extract.shift.i
+  br i1 %exitcond36.not.i, label %._crit_edge28.i, label %.preheader.us.i, !llvm.loop !33
 
 441:                                              ; preds = %392, %390, %387, %_ZNK2cv11_InputArray6getMatEi.exit.i
   %442 = landingpad { ptr, i32 }

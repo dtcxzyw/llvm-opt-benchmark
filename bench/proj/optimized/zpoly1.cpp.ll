@@ -3,12 +3,11 @@ source_filename = "bench/proj/original/zpoly1.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.COMPLEX = type { double, double }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %0, double %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds %struct.COMPLEX, ptr %2, i64 %5
+  %.scale = shl nsw i32 %3, 1
+  %5 = sext i32 %.scale to i64
+  %6 = getelementptr inbounds double, ptr %2, i64 %5
   %.sroa.012.0.copyload = load double, ptr %6, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
@@ -54,8 +53,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double %0, double %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 {
-  %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds %struct.COMPLEX, ptr %2, i64 %6
+  %.scale = shl nsw i32 %3, 1
+  %6 = sext i32 %.scale to i64
+  %7 = getelementptr inbounds double, ptr %2, i64 %6
   %.sroa.032.0.copyload = load double, ptr %7, align 8
   %.sroa.936.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.936.0.copyload = load double, ptr %.sroa.936.0..sroa_idx, align 8

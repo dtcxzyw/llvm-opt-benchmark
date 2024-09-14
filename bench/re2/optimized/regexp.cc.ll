@@ -2495,13 +2495,14 @@ land.lhs.true91:                                  ; preds = %sw.bb85
   br i1 %cmp100, label %land.rhs101, label %return
 
 land.rhs101:                                      ; preds = %land.lhs.true91
-  %idx.ext.i = sext i32 %56 to i64
-  %add.ptr.i.idx = shl nsw i64 %idx.ext.i, 3
+  %idx.ext.scale.i = shl nsw i32 %56, 1
+  %58 = sext i32 %idx.ext.scale.i to i64
+  %add.ptr.i.idx = shl nsw i64 %58, 2
   %ranges_.i90 = getelementptr inbounds i8, ptr %53, i64 8
-  %58 = load ptr, ptr %ranges_.i90, align 8
+  %59 = load ptr, ptr %ranges_.i90, align 8
   %ranges_.i = getelementptr inbounds i8, ptr %51, i64 8
-  %59 = load ptr, ptr %ranges_.i, align 8
-  %bcmp = tail call i32 @bcmp(ptr %59, ptr %58, i64 %add.ptr.i.idx)
+  %60 = load ptr, ptr %ranges_.i, align 8
+  %bcmp = tail call i32 @bcmp(ptr %60, ptr %59, i64 %add.ptr.i.idx)
   %cmp112 = icmp eq i32 %bcmp, 0
   br label %return
 
@@ -2525,11 +2526,11 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %60, %lpad.i ], [ %62, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %61, %lpad.i ], [ %63, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %sw.epilog
-  %60 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i) #26
   br label %common.resume
@@ -2539,8 +2540,8 @@ _ZN10LogMessageC2EPKci.exit:                      ; preds = %invoke.cont6.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN10LogMessageC2EPKci.exit
-  %61 = load i8, ptr %a, align 8
-  %conv.i103 = zext i8 %61 to i32
+  %62 = load i8, ptr %a, align 8
+  %conv.i103 = zext i8 %62 to i32
   %call118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call115, i32 noundef %conv.i103)
           to label %invoke.cont117 unwind label %lpad
 
@@ -2549,7 +2550,7 @@ invoke.cont117:                                   ; preds = %invoke.cont
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %_ZN10LogMessageC2EPKci.exit
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #26
   br label %common.resume
@@ -4522,8 +4523,8 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %4 = phi i32 [ %8, %for.inc ], [ %0, %for.body.preheader ]
-  %5 = phi ptr [ %9, %for.inc ], [ %3, %for.body.preheader ]
+  %4 = phi i32 [ %9, %for.inc ], [ %0, %for.body.preheader ]
+  %5 = phi ptr [ %10, %for.inc ], [ %3, %for.body.preheader ]
   %it.026 = phi ptr [ %incdec.ptr, %for.inc ], [ %3, %for.body.preheader ]
   %nextlo.025 = phi i32 [ %nextlo.1, %for.inc ], [ 0, %for.body.preheader ]
   %n.024 = phi i32 [ %n.1, %for.inc ], [ 0, %for.body.preheader ]
@@ -4535,8 +4536,9 @@ if.else:                                          ; preds = %for.body
   %sub9 = add nsw i32 %6, -1
   %7 = load ptr, ptr %ranges_.i, align 8
   %inc = add nsw i32 %n.024, 1
-  %idxprom = sext i32 %n.024 to i64
-  %arrayidx = getelementptr inbounds %"struct.re2::RuneRange", ptr %7, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %n.024, 1
+  %8 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i32, ptr %7, i64 %8
   %ref.tmp.sroa.2.0.insert.ext = zext i32 %sub9 to i64
   %ref.tmp.sroa.2.0.insert.shift = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext, 32
   %ref.tmp.sroa.0.0.insert.ext = zext i32 %nextlo.025 to i64
@@ -4547,15 +4549,16 @@ if.else:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.else
-  %8 = phi i32 [ %.pre28, %if.else ], [ %4, %for.body ]
-  %9 = phi ptr [ %.pre, %if.else ], [ %5, %for.body ]
+  %9 = phi i32 [ %.pre28, %if.else ], [ %4, %for.body ]
+  %10 = phi ptr [ %.pre, %if.else ], [ %5, %for.body ]
   %n.1 = phi i32 [ %inc, %if.else ], [ %n.024, %for.body ]
   %nextlo.1.in.in = getelementptr inbounds i8, ptr %it.026, i64 4
   %nextlo.1.in = load i32, ptr %nextlo.1.in.in, align 4
   %nextlo.1 = add nsw i32 %nextlo.1.in, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %it.026, i64 8
-  %idx.ext.i = sext i32 %8 to i64
-  %add.ptr.i19 = getelementptr inbounds %"struct.re2::RuneRange", ptr %9, i64 %idx.ext.i
+  %idx.ext.scale.i = shl nsw i32 %9, 1
+  %11 = sext i32 %idx.ext.scale.i to i64
+  %add.ptr.i19 = getelementptr inbounds i32, ptr %10, i64 %11
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i19
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !46
 
@@ -4566,10 +4569,11 @@ for.end:                                          ; preds = %for.inc
 if.then13:                                        ; preds = %entry, %for.end
   %nextlo.0.lcssa33 = phi i32 [ %nextlo.1, %for.end ], [ 0, %entry ]
   %n.0.lcssa32 = phi i32 [ %n.1, %for.end ], [ 0, %entry ]
-  %10 = load ptr, ptr %ranges_.i, align 8
+  %12 = load ptr, ptr %ranges_.i, align 8
   %inc16 = add nsw i32 %n.0.lcssa32, 1
-  %idxprom17 = sext i32 %n.0.lcssa32 to i64
-  %arrayidx18 = getelementptr inbounds %"struct.re2::RuneRange", ptr %10, i64 %idxprom17
+  %idxprom17.scale = shl nsw i32 %n.0.lcssa32, 1
+  %13 = sext i32 %idxprom17.scale to i64
+  %arrayidx18 = getelementptr inbounds i32, ptr %12, i64 %13
   %ref.tmp14.sroa.0.0.insert.ext = zext i32 %nextlo.0.lcssa33 to i64
   %ref.tmp14.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp14.sroa.0.0.insert.ext, 4785070309113856
   store i64 %ref.tmp14.sroa.0.0.insert.insert, ptr %arrayidx18, align 4

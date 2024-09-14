@@ -1475,14 +1475,15 @@ err:                                              ; preds = %if.end, %land.lhs.t
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_property_list_to_string(i32 noundef %i) #0 {
 entry:
-  %idxprom = sext i32 %i to i64
-  %arrayidx = getelementptr inbounds [20 x %struct.anon.6], ptr @to_string_tests, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 16
-  %cmp.not = icmp eq ptr %0, null
+  %idxprom.scale = shl nsw i32 %i, 1
+  %0 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds ptr, ptr @to_string_tests, i64 %0
+  %1 = load ptr, ptr %arrayidx, align 16
+  %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef nonnull %0, i32 noundef 1) #5
+  %call = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef nonnull %1, i32 noundef 1) #5
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 669, ptr noundef nonnull @.str.259, ptr noundef %call) #5
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %err, label %if.end
@@ -1508,13 +1509,13 @@ lor.lhs.false:                                    ; preds = %if.end9
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false
   %out = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %1 = load ptr, ptr %out, align 8
-  %call19 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 679, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.261, ptr noundef %1, ptr noundef %call10) #5
+  %2 = load ptr, ptr %out, align 8
+  %call19 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 679, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.261, ptr noundef %2, ptr noundef %call10) #5
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %err, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false16
-  %call25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
+  %call25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #6
   %add = add i64 %call25, 1
   %call26 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.12, i32 noundef 680, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.264, i64 noundef %call5, i64 noundef %add) #5
   %tobool27.not = icmp ne i32 %call26, 0

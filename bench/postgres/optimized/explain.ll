@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Instrumentation = type { i8, i8, i8, i8, i8, %struct.instr_time, %struct.instr_time, double, double, %struct.BufferUsage, %struct.WalUsage, double, double, double, double, double, double, double, %struct.BufferUsage, %struct.WalUsage }
 %struct.WalUsage = type { i64, i64, i64 }
 %struct.AggregateInstrumentation = type { i64, i64, i32 }
-%struct.IncrementalSortInfo = type { %struct.IncrementalSortGroupInfo, %struct.IncrementalSortGroupInfo }
 %struct.IncrementalSortGroupInfo = type { i64, i64, i64, i64, i64, i32 }
 %struct.ResultRelInfo = type { i32, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, i8, ptr, ptr, ptr, ptr }
 %struct.HashInstrumentation = type { i32, i32, i32, i32, i64 }
@@ -6442,71 +6441,72 @@ show_sort_info.exit:                              ; preds = %1588, %1495, %1543,
   %indvars.iv.i886 = phi i64 [ %indvars.iv.next.i888, %1664 ], [ 0, %.preheader.i884 ]
   %1632 = phi ptr [ %1665, %1664 ], [ %1629, %.preheader.i884 ]
   %1633 = getelementptr inbounds i8, ptr %1632, i64 8
-  %1634 = getelementptr [0 x %struct.IncrementalSortInfo], ptr %1633, i64 0, i64 %indvars.iv.i886
-  %1635 = load i64, ptr %1634, align 8
-  %1636 = icmp eq i64 %1635, 0
-  br i1 %1636, label %1664, label %1637
+  %indvars.iv.tr.i = trunc i64 %indvars.iv.i886 to i32
+  %1634 = shl i32 %indvars.iv.tr.i, 1
+  %1635 = sext i32 %1634 to i64
+  %1636 = getelementptr %struct.IncrementalSortGroupInfo, ptr %1633, i64 %1635
+  %1637 = load i64, ptr %1636, align 8
+  %1638 = icmp eq i64 %1637, 0
+  br i1 %1638, label %1664, label %1639
 
-1637:                                             ; preds = %.lr.ph.i885
-  %1638 = load ptr, ptr %39, align 8
-  %.not39.i = icmp eq ptr %1638, null
-  br i1 %.not39.i, label %.thread.i887, label %1639
+1639:                                             ; preds = %.lr.ph.i885
+  %1640 = load ptr, ptr %39, align 8
+  %.not39.i = icmp eq ptr %1640, null
+  br i1 %.not39.i, label %.thread.i887, label %1641
 
-1639:                                             ; preds = %1637
-  %1640 = trunc nuw nsw i64 %indvars.iv.i886 to i32
-  call fastcc void @ExplainOpenWorker(i32 noundef %1640, ptr noundef nonnull %4)
+1641:                                             ; preds = %1639
+  call fastcc void @ExplainOpenWorker(i32 noundef %indvars.iv.tr.i, ptr noundef nonnull %4)
   %.pr.i = load ptr, ptr %39, align 8
-  %1641 = icmp eq ptr %.pr.i, null
-  br i1 %1641, label %.thread.i887, label %1642
+  %1642 = icmp eq ptr %.pr.i, null
+  br i1 %1642, label %.thread.i887, label %1643
 
-1642:                                             ; preds = %1639
-  %1643 = load i8, ptr %460, align 8
-  %1644 = trunc i8 %1643 to i1
+1643:                                             ; preds = %1641
+  %1644 = load i8, ptr %460, align 8
+  %1645 = trunc i8 %1644 to i1
   br label %.thread.i887
 
-.thread.i887:                                     ; preds = %1642, %1639, %1637
-  %1645 = phi i1 [ true, %1639 ], [ %1644, %1642 ], [ true, %1637 ]
-  call fastcc void @show_incremental_sort_group_info(ptr noundef nonnull %1634, ptr noundef nonnull @.str.283, i1 noundef zeroext %1645, ptr noundef nonnull %4)
-  %1646 = getelementptr inbounds i8, ptr %1634, i64 48
-  %1647 = load i64, ptr %1646, align 8
-  %1648 = icmp sgt i64 %1647, 0
-  br i1 %1648, label %1649, label %1655
+.thread.i887:                                     ; preds = %1643, %1641, %1639
+  %1646 = phi i1 [ true, %1641 ], [ %1645, %1643 ], [ true, %1639 ]
+  call fastcc void @show_incremental_sort_group_info(ptr noundef nonnull %1636, ptr noundef nonnull @.str.283, i1 noundef zeroext %1646, ptr noundef nonnull %4)
+  %1647 = getelementptr inbounds i8, ptr %1636, i64 48
+  %1648 = load i64, ptr %1647, align 8
+  %1649 = icmp sgt i64 %1648, 0
+  br i1 %1649, label %1650, label %1656
 
-1649:                                             ; preds = %.thread.i887
-  %1650 = load i32, ptr %147, align 4
-  %1651 = icmp eq i32 %1650, 0
-  br i1 %1651, label %1652, label %1654
+1650:                                             ; preds = %.thread.i887
+  %1651 = load i32, ptr %147, align 4
+  %1652 = icmp eq i32 %1651, 0
+  br i1 %1652, label %1653, label %1655
 
-1652:                                             ; preds = %1649
-  %1653 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1653, i8 noundef signext 10) #11
-  br label %1654
-
-1654:                                             ; preds = %1652, %1649
-  call fastcc void @show_incremental_sort_group_info(ptr noundef nonnull %1646, ptr noundef nonnull @.str.284, i1 noundef zeroext true, ptr noundef nonnull %4)
+1653:                                             ; preds = %1650
+  %1654 = load ptr, ptr %4, align 8
+  call void @appendStringInfoChar(ptr noundef %1654, i8 noundef signext 10) #11
   br label %1655
 
-1655:                                             ; preds = %1654, %.thread.i887
-  %1656 = load i32, ptr %147, align 4
-  %1657 = icmp eq i32 %1656, 0
-  br i1 %1657, label %1658, label %1660
+1655:                                             ; preds = %1653, %1650
+  call fastcc void @show_incremental_sort_group_info(ptr noundef nonnull %1647, ptr noundef nonnull @.str.284, i1 noundef zeroext true, ptr noundef nonnull %4)
+  br label %1656
 
-1658:                                             ; preds = %1655
-  %1659 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1659, i8 noundef signext 10) #11
-  br label %1660
+1656:                                             ; preds = %1655, %.thread.i887
+  %1657 = load i32, ptr %147, align 4
+  %1658 = icmp eq i32 %1657, 0
+  br i1 %1658, label %1659, label %1661
 
-1660:                                             ; preds = %1658, %1655
-  %1661 = load ptr, ptr %39, align 8
-  %.not40.i = icmp eq ptr %1661, null
-  br i1 %.not40.i, label %1664, label %1662
+1659:                                             ; preds = %1656
+  %1660 = load ptr, ptr %4, align 8
+  call void @appendStringInfoChar(ptr noundef %1660, i8 noundef signext 10) #11
+  br label %1661
 
-1662:                                             ; preds = %1660
-  %1663 = trunc nuw nsw i64 %indvars.iv.i886 to i32
-  call fastcc void @ExplainCloseWorker(i32 noundef %1663, ptr noundef nonnull %4)
+1661:                                             ; preds = %1659, %1656
+  %1662 = load ptr, ptr %39, align 8
+  %.not40.i = icmp eq ptr %1662, null
+  br i1 %.not40.i, label %1664, label %1663
+
+1663:                                             ; preds = %1661
+  call fastcc void @ExplainCloseWorker(i32 noundef %indvars.iv.tr.i, ptr noundef nonnull %4)
   br label %1664
 
-1664:                                             ; preds = %1662, %1660, %.lr.ph.i885
+1664:                                             ; preds = %1663, %1661, %.lr.ph.i885
   %indvars.iv.next.i888 = add nuw nsw i64 %indvars.iv.i886, 1
   %1665 = load ptr, ptr %1628, align 8
   %1666 = load i32, ptr %1665, align 8

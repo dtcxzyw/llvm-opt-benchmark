@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/fdt_rw.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.fdt_reserve_entry = type { i64, i64 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_add_mem_rsv(ptr noundef %fdt, i64 noundef %address, i64 noundef %size) local_unnamed_addr #0 {
 entry:
@@ -86,8 +84,9 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %conv9.i.i.i = zext i8 %11 to i64
   %or10.i.i.i = or disjoint i64 %or7.i.i.i, %conv9.i.i.i
   %add.ptr.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i
-  %idx.ext1.i.i = sext i32 %call1 to i64
-  %add.ptr2.i.i = getelementptr %struct.fdt_reserve_entry, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
+  %idx.ext1.scale.i.i = shl i32 %call1, 1
+  %12 = sext i32 %idx.ext1.scale.i.i to i64
+  %add.ptr2.i.i = getelementptr i64, ptr %add.ptr.i.i, i64 %12
   %call3 = tail call fastcc i32 @fdt_splice_mem_rsv_(ptr noundef nonnull %fdt, ptr noundef %add.ptr2.i.i, i32 noundef 0, i32 noundef 1)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.end5, label %return
@@ -275,52 +274,53 @@ entry:
   %conv9.i.i.i = zext i8 %3 to i64
   %or10.i.i.i = or disjoint i64 %or7.i.i.i, %conv9.i.i.i
   %add.ptr.i.i = getelementptr i8, ptr %fdt, i64 %or10.i.i.i
-  %idx.ext1.i.i = sext i32 %n to i64
-  %add.ptr2.i.i = getelementptr %struct.fdt_reserve_entry, ptr %add.ptr.i.i, i64 %idx.ext1.i.i
+  %idx.ext1.scale.i.i = shl i32 %n, 1
+  %4 = sext i32 %idx.ext1.scale.i.i to i64
+  %add.ptr2.i.i = getelementptr i64, ptr %add.ptr.i.i, i64 %4
   %call1.i = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
   %cmp.i = icmp slt i32 %call1.i, 0
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
   %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
-  %4 = load i8, ptr %version.i, align 1
-  %conv.i.i = zext i8 %4 to i32
+  %5 = load i8, ptr %version.i, align 1
+  %conv.i.i = zext i8 %5 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
   %arrayidx1.i.i = getelementptr i8, ptr %fdt, i64 21
-  %5 = load i8, ptr %arrayidx1.i.i, align 1
-  %conv2.i.i = zext i8 %5 to i32
+  %6 = load i8, ptr %arrayidx1.i.i, align 1
+  %conv2.i.i = zext i8 %6 to i32
   %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 16
   %or.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
   %arrayidx4.i.i = getelementptr i8, ptr %fdt, i64 22
-  %6 = load i8, ptr %arrayidx4.i.i, align 1
-  %conv5.i.i = zext i8 %6 to i32
+  %7 = load i8, ptr %arrayidx4.i.i, align 1
+  %conv5.i.i = zext i8 %7 to i32
   %shl6.i.i = shl nuw nsw i32 %conv5.i.i, 8
   %or7.i.i = or disjoint i32 %or.i.i, %shl6.i.i
   %arrayidx8.i.i = getelementptr i8, ptr %fdt, i64 23
-  %7 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %7 to i32
+  %8 = load i8, ptr %arrayidx8.i.i, align 1
+  %conv9.i.i = zext i8 %8 to i32
   %or10.i.i = or disjoint i32 %or7.i.i, %conv9.i.i
   %cmp6.i = icmp ult i32 %or10.i.i, 17
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
   %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
-  %8 = load i8, ptr %size_dt_struct.i, align 1
-  %conv.i6.i = zext i8 %8 to i32
+  %9 = load i8, ptr %size_dt_struct.i, align 1
+  %conv.i6.i = zext i8 %9 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
   %arrayidx1.i8.i = getelementptr i8, ptr %fdt, i64 37
-  %9 = load i8, ptr %arrayidx1.i8.i, align 1
-  %conv2.i9.i = zext i8 %9 to i32
+  %10 = load i8, ptr %arrayidx1.i8.i, align 1
+  %conv2.i9.i = zext i8 %10 to i32
   %shl3.i10.i = shl nuw nsw i32 %conv2.i9.i, 16
   %or.i11.i = or disjoint i32 %shl3.i10.i, %shl.i7.i
   %arrayidx4.i12.i = getelementptr i8, ptr %fdt, i64 38
-  %10 = load i8, ptr %arrayidx4.i12.i, align 1
-  %conv5.i13.i = zext i8 %10 to i32
+  %11 = load i8, ptr %arrayidx4.i12.i, align 1
+  %conv5.i13.i = zext i8 %11 to i32
   %shl6.i14.i = shl nuw nsw i32 %conv5.i13.i, 8
   %or7.i15.i = or disjoint i32 %or.i11.i, %shl6.i14.i
   %arrayidx8.i16.i = getelementptr i8, ptr %fdt, i64 39
-  %11 = load i8, ptr %arrayidx8.i16.i, align 1
-  %conv9.i17.i = zext i8 %11 to i32
+  %12 = load i8, ptr %arrayidx8.i16.i, align 1
+  %conv9.i17.i = zext i8 %12 to i32
   %or10.i18.i = or disjoint i32 %or7.i15.i, %conv9.i17.i
   %call10.i = tail call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %fdt, i32 noundef 16, i32 noundef %or10.i18.i)
   %tobool.not.i = icmp eq i32 %call10.i, 0

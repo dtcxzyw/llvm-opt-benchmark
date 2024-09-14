@@ -20,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.re2::RuneRange" = type { i32, i32 }
 %"class.re2::Compiler" = type <{ %"class.re2::Regexp::Walker", ptr, i8, [3 x i8], i32, i8, [7 x i8], %"class.re2::PODArray", i32, i32, i64, %"class.absl::debian2::flat_hash_map", %"struct.re2::Frag", i32, [4 x i8] }>
 %"class.re2::Regexp::Walker" = type { ptr, %"class.std::stack", i8, i32 }
 %"class.std::stack" = type { %"class.std::deque" }
@@ -4447,8 +4446,9 @@ for.inc145:                                       ; preds = %land.lhs.true118, %
   %73 = phi i32 [ %67, %land.lhs.true118 ], [ %.pre410, %if.end141 ]
   %74 = phi ptr [ %68, %land.lhs.true118 ], [ %.pre409, %if.end141 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %i110.0354, i64 8
-  %idx.ext.i = sext i32 %73 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.re2::RuneRange", ptr %74, i64 %idx.ext.i
+  %idx.ext.scale.i = shl nsw i32 %73, 1
+  %75 = sext i32 %idx.ext.scale.i to i64
+  %add.ptr.i = getelementptr inbounds i32, ptr %74, i64 %75
   %cmp114.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp114.not, label %for.end146, label %for.body115, !llvm.loop !24
 
@@ -4462,9 +4462,9 @@ for.end146:                                       ; preds = %for.inc145, %if.end
   br label %return
 
 sw.bb148:                                         ; preds = %if.end
-  %75 = getelementptr inbounds i8, ptr %re, i64 24
-  %76 = load i32, ptr %75, align 8
-  %cmp150 = icmp slt i32 %76, 0
+  %76 = getelementptr inbounds i8, ptr %re, i64 24
+  %77 = load i32, ptr %76, align 8
+  %cmp150 = icmp slt i32 %77, 0
   br i1 %cmp150, label %if.then151, label %if.end153
 
 if.then151:                                       ; preds = %sw.bb148
@@ -4476,16 +4476,16 @@ if.end153:                                        ; preds = %sw.bb148
   %agg.tmp154.sroa.0.0.copyload = load i64, ptr %child_frags, align 4
   %agg.tmp154.sroa.2.0.arrayidx155.sroa_idx = getelementptr inbounds i8, ptr %child_frags, i64 8
   %agg.tmp154.sroa.2.0.copyload = load i64, ptr %agg.tmp154.sroa.2.0.arrayidx155.sroa_idx, align 4
-  %call157 = tail call { i64, i64 } @_ZN3re28Compiler7CaptureENS_4FragEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i64 %agg.tmp154.sroa.0.0.copyload, i64 %agg.tmp154.sroa.2.0.copyload, i32 noundef %76)
-  %77 = extractvalue { i64, i64 } %call157, 0
-  %78 = extractvalue { i64, i64 } %call157, 1
+  %call157 = tail call { i64, i64 } @_ZN3re28Compiler7CaptureENS_4FragEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i64 %agg.tmp154.sroa.0.0.copyload, i64 %agg.tmp154.sroa.2.0.copyload, i32 noundef %77)
+  %78 = extractvalue { i64, i64 } %call157, 0
+  %79 = extractvalue { i64, i64 } %call157, 1
   %retval.8.retval.8.retval.8..sroa_idx429 = getelementptr inbounds i8, ptr %retval, i64 8
-  store i64 %78, ptr %retval.8.retval.8.retval.8..sroa_idx429, align 8
+  store i64 %79, ptr %retval.8.retval.8.retval.8..sroa_idx429, align 8
   br label %return
 
 sw.bb158:                                         ; preds = %if.end
   %reversed_ = getelementptr inbounds i8, ptr %this, i64 112
-  %79 = load i8, ptr %reversed_, align 8
+  %80 = load i8, ptr %reversed_, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i147)
   %call.i148 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i149 = icmp slt i32 %call.i148, 0
@@ -4505,12 +4505,12 @@ if.then.i166:                                     ; preds = %sw.bb158
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit
 
 if.end.i150:                                      ; preds = %sw.bb158
-  %tobool159 = trunc i8 %79 to i1
+  %tobool159 = trunc i8 %80 to i1
   %cond = select i1 %tobool159, i32 2, i32 1
   %conv.i.i151 = zext nneg i32 %call.i148 to i64
   %add.ptr.i.i.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %this, i64 128
-  %80 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i152, align 8
-  %arrayidx.i.i.i153 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %80, i64 %conv.i.i151
+  %81 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i152, align 8
+  %arrayidx.i.i.i153 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %81, i64 %conv.i.i151
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i153, i32 noundef %cond, i32 noundef 0)
   %shl.i154 = shl nuw i32 %call.i148, 1
   %retval.sroa.2.0.insert.ext.i.i155 = zext i32 %shl.i154 to i64
@@ -4535,7 +4535,7 @@ _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit:   ; preds = %if.then.i166, %if.e
 
 sw.bb161:                                         ; preds = %if.end
   %reversed_162 = getelementptr inbounds i8, ptr %this, i64 112
-  %81 = load i8, ptr %reversed_162, align 8
+  %82 = load i8, ptr %reversed_162, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i173)
   %call.i174 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i175 = icmp slt i32 %call.i174, 0
@@ -4555,12 +4555,12 @@ if.then.i192:                                     ; preds = %sw.bb161
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198
 
 if.end.i176:                                      ; preds = %sw.bb161
-  %tobool163 = trunc i8 %81 to i1
+  %tobool163 = trunc i8 %82 to i1
   %cond164 = select i1 %tobool163, i32 1, i32 2
   %conv.i.i177 = zext nneg i32 %call.i174 to i64
   %add.ptr.i.i.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %this, i64 128
-  %82 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i178, align 8
-  %arrayidx.i.i.i179 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %82, i64 %conv.i.i177
+  %83 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i178, align 8
+  %arrayidx.i.i.i179 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %83, i64 %conv.i.i177
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i179, i32 noundef %cond164, i32 noundef 0)
   %shl.i180 = shl nuw i32 %call.i174, 1
   %retval.sroa.2.0.insert.ext.i.i181 = zext i32 %shl.i180 to i64
@@ -4585,7 +4585,7 @@ _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198: ; preds = %if.then.i192, %if.
 
 sw.bb166:                                         ; preds = %if.end
   %reversed_167 = getelementptr inbounds i8, ptr %this, i64 112
-  %83 = load i8, ptr %reversed_167, align 8
+  %84 = load i8, ptr %reversed_167, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i200)
   %call.i201 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i202 = icmp slt i32 %call.i201, 0
@@ -4605,12 +4605,12 @@ if.then.i219:                                     ; preds = %sw.bb166
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225
 
 if.end.i203:                                      ; preds = %sw.bb166
-  %tobool168 = trunc i8 %83 to i1
+  %tobool168 = trunc i8 %84 to i1
   %cond169 = select i1 %tobool168, i32 8, i32 4
   %conv.i.i204 = zext nneg i32 %call.i201 to i64
   %add.ptr.i.i.i.i.i.i.i.i205 = getelementptr inbounds i8, ptr %this, i64 128
-  %84 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i205, align 8
-  %arrayidx.i.i.i206 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %84, i64 %conv.i.i204
+  %85 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i205, align 8
+  %arrayidx.i.i.i206 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %85, i64 %conv.i.i204
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i206, i32 noundef %cond169, i32 noundef 0)
   %shl.i207 = shl nuw i32 %call.i201, 1
   %retval.sroa.2.0.insert.ext.i.i208 = zext i32 %shl.i207 to i64
@@ -4635,7 +4635,7 @@ _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225: ; preds = %if.then.i219, %if.
 
 sw.bb171:                                         ; preds = %if.end
   %reversed_172 = getelementptr inbounds i8, ptr %this, i64 112
-  %85 = load i8, ptr %reversed_172, align 8
+  %86 = load i8, ptr %reversed_172, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i227)
   %call.i228 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i229 = icmp slt i32 %call.i228, 0
@@ -4655,12 +4655,12 @@ if.then.i246:                                     ; preds = %sw.bb171
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252
 
 if.end.i230:                                      ; preds = %sw.bb171
-  %tobool173 = trunc i8 %85 to i1
+  %tobool173 = trunc i8 %86 to i1
   %cond174 = select i1 %tobool173, i32 4, i32 8
   %conv.i.i231 = zext nneg i32 %call.i228 to i64
   %add.ptr.i.i.i.i.i.i.i.i232 = getelementptr inbounds i8, ptr %this, i64 128
-  %86 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i232, align 8
-  %arrayidx.i.i.i233 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %86, i64 %conv.i.i231
+  %87 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i232, align 8
+  %arrayidx.i.i.i233 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %87, i64 %conv.i.i231
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i233, i32 noundef %cond174, i32 noundef 0)
   %shl.i234 = shl nuw i32 %call.i228, 1
   %retval.sroa.2.0.insert.ext.i.i235 = zext i32 %shl.i234 to i64
@@ -4705,8 +4705,8 @@ if.then.i273:                                     ; preds = %sw.bb176
 if.end.i257:                                      ; preds = %sw.bb176
   %conv.i.i258 = zext nneg i32 %call.i255 to i64
   %add.ptr.i.i.i.i.i.i.i.i259 = getelementptr inbounds i8, ptr %this, i64 128
-  %87 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i259, align 8
-  %arrayidx.i.i.i260 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %87, i64 %conv.i.i258
+  %88 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i259, align 8
+  %arrayidx.i.i.i260 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %88, i64 %conv.i.i258
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i260, i32 noundef 16, i32 noundef 0)
   %shl.i261 = shl nuw i32 %call.i255, 1
   %retval.sroa.2.0.insert.ext.i.i262 = zext i32 %shl.i261 to i64
@@ -4751,8 +4751,8 @@ if.then.i300:                                     ; preds = %sw.bb178
 if.end.i284:                                      ; preds = %sw.bb178
   %conv.i.i285 = zext nneg i32 %call.i282 to i64
   %add.ptr.i.i.i.i.i.i.i.i286 = getelementptr inbounds i8, ptr %this, i64 128
-  %88 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i286, align 8
-  %arrayidx.i.i.i287 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %88, i64 %conv.i.i285
+  %89 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i286, align 8
+  %arrayidx.i.i.i287 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %89, i64 %conv.i.i285
   tail call void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr noundef nonnull align 4 dereferenceable(8) %arrayidx.i.i.i287, i32 noundef 32, i32 noundef 0)
   %shl.i288 = shl nuw i32 %call.i282, 1
   %retval.sroa.2.0.insert.ext.i.i289 = zext i32 %shl.i288 to i64
@@ -4796,11 +4796,11 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad182, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %89, %lpad.i ], [ %91, %lpad182 ], [ %63, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %90, %lpad.i ], [ %92, %lpad182 ], [ %63, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %sw.epilog
-  %89 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i307) #26
   br label %common.resume
@@ -4810,8 +4810,8 @@ _ZN10LogMessageC2EPKci.exit:                      ; preds = %invoke.cont6.i
           to label %invoke.cont185 unwind label %lpad182
 
 invoke.cont185:                                   ; preds = %_ZN10LogMessageC2EPKci.exit
-  %90 = load i8, ptr %re, align 8
-  %conv.i309 = zext i8 %90 to i32
+  %91 = load i8, ptr %re, align 8
+  %conv.i309 = zext i8 %91 to i32
   %call190 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call186, i32 noundef %conv.i309)
           to label %invoke.cont189 unwind label %lpad182
 
@@ -4832,13 +4832,13 @@ invoke.cont189:                                   ; preds = %invoke.cont185
   br label %return
 
 lpad182:                                          ; preds = %invoke.cont185, %_ZN10LogMessageC2EPKci.exit
-  %91 = landingpad { ptr, i32 }
+  %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp181) #26
   br label %common.resume
 
 return:                                           ; preds = %for.inc91, %for.body29, %for.body, %if.end71, %sw.bb24, %sw.bb17, %_ZN3re28Compiler5MatchEi.exit, %if.then12, %invoke.cont189, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit306, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit279, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit, %if.end153, %if.then151, %for.end146, %invoke.cont105, %_ZN3re28Compiler9ByteRangeEiib.exit, %_ZN3re28Compiler10BeginRangeEv.exit, %if.then69, %sw.bb60, %sw.bb53, %sw.bb46, %sw.bb39, %_ZN3re28Compiler3NopEv.exit, %sw.bb5, %if.then
-  %retval.0.retval.0..fca.0.load = phi i64 [ %retval.0.retval.0.agg.tmp14.sroa.0.0.copyload, %_ZN3re28Compiler5MatchEi.exit ], [ %9, %if.then12 ], [ %retval.i310.0.retval.i310.0.retval.i310.0.retval.0.retval.0..fca.0.load.i313, %invoke.cont189 ], [ %retval.0.retval.0..fca.0.load.i297, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit306 ], [ %retval.0.retval.0..fca.0.load.i270, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit279 ], [ %retval.0.retval.0..fca.0.load.i243, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252 ], [ %retval.0.retval.0..fca.0.load.i216, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225 ], [ %retval.0.retval.0..fca.0.load.i189, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198 ], [ %retval.0.retval.0..fca.0.load.i163, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit ], [ %77, %if.end153 ], [ %retval.0.retval.0.retval.0..fca.0.load.pre, %if.then151 ], [ %retval.sroa.0.0.copyload.i141, %for.end146 ], [ %retval.i131.0.retval.i131.0.retval.i131.0.retval.0.retval.0..fca.0.load.i134, %invoke.cont105 ], [ %retval.0.retval.0..fca.0.load.i121, %_ZN3re28Compiler9ByteRangeEiib.exit ], [ %retval.sroa.0.0.copyload.i, %_ZN3re28Compiler10BeginRangeEv.exit ], [ %37, %if.then69 ], [ %33, %sw.bb60 ], [ %27, %sw.bb53 ], [ %23, %sw.bb46 ], [ %19, %sw.bb39 ], [ %retval.0.retval.0..fca.0.load.i60, %_ZN3re28Compiler3NopEv.exit ], [ %retval.i50.0.retval.i50.0.retval.i50.0.retval.0.retval.0..fca.0.load.i53, %sw.bb5 ], [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, %if.then ], [ %retval.0.retval.0.retval.promoted365, %sw.bb17 ], [ %retval.0.retval.0.retval.promoted360, %sw.bb24 ], [ %retval.0.retval.0.retval.promoted, %if.end71 ], [ %12, %for.body ], [ %15, %for.body29 ], [ %48, %for.inc91 ]
+  %retval.0.retval.0..fca.0.load = phi i64 [ %retval.0.retval.0.agg.tmp14.sroa.0.0.copyload, %_ZN3re28Compiler5MatchEi.exit ], [ %9, %if.then12 ], [ %retval.i310.0.retval.i310.0.retval.i310.0.retval.0.retval.0..fca.0.load.i313, %invoke.cont189 ], [ %retval.0.retval.0..fca.0.load.i297, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit306 ], [ %retval.0.retval.0..fca.0.load.i270, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit279 ], [ %retval.0.retval.0..fca.0.load.i243, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252 ], [ %retval.0.retval.0..fca.0.load.i216, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225 ], [ %retval.0.retval.0..fca.0.load.i189, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198 ], [ %retval.0.retval.0..fca.0.load.i163, %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit ], [ %78, %if.end153 ], [ %retval.0.retval.0.retval.0..fca.0.load.pre, %if.then151 ], [ %retval.sroa.0.0.copyload.i141, %for.end146 ], [ %retval.i131.0.retval.i131.0.retval.i131.0.retval.0.retval.0..fca.0.load.i134, %invoke.cont105 ], [ %retval.0.retval.0..fca.0.load.i121, %_ZN3re28Compiler9ByteRangeEiib.exit ], [ %retval.sroa.0.0.copyload.i, %_ZN3re28Compiler10BeginRangeEv.exit ], [ %37, %if.then69 ], [ %33, %sw.bb60 ], [ %27, %sw.bb53 ], [ %23, %sw.bb46 ], [ %19, %sw.bb39 ], [ %retval.0.retval.0..fca.0.load.i60, %_ZN3re28Compiler3NopEv.exit ], [ %retval.i50.0.retval.i50.0.retval.i50.0.retval.0.retval.0..fca.0.load.i53, %sw.bb5 ], [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, %if.then ], [ %retval.0.retval.0.retval.promoted365, %sw.bb17 ], [ %retval.0.retval.0.retval.promoted360, %sw.bb24 ], [ %retval.0.retval.0.retval.promoted, %if.end71 ], [ %12, %for.body ], [ %15, %for.body29 ], [ %48, %for.inc91 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.0.retval.0..fca.0.load, 0
   %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 8
   %retval.8.retval.8.retval.8..fca.1.load = load i64, ptr %retval.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8

@@ -429,15 +429,16 @@ define hidden void @OGLContext_SetAlphaComposite(ptr noundef %0, i32 noundef %1,
   br label %27
 
 19:                                               ; preds = %13
-  %20 = sext i32 %1 to i64
-  %21 = load ptr, ptr @j2d_glEnable, align 8
-  tail call void %21(i32 noundef 3042) #8
-  %22 = load ptr, ptr @j2d_glBlendFunc, align 8
-  %23 = getelementptr inbounds [13 x %struct.OGLBlendRule], ptr @StdBlendRules, i64 0, i64 %20
+  %20 = load ptr, ptr @j2d_glEnable, align 8
+  tail call void %20(i32 noundef 3042) #8
+  %21 = load ptr, ptr @j2d_glBlendFunc, align 8
+  %.scale = shl nsw i32 %1, 1
+  %22 = sext i32 %.scale to i64
+  %23 = getelementptr inbounds i32, ptr @StdBlendRules, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4
-  tail call void %22(i32 noundef %24, i32 noundef %26) #8
+  tail call void %21(i32 noundef %24, i32 noundef %26) #8
   br label %27
 
 27:                                               ; preds = %19, %17

@@ -25,7 +25,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.12 = type { i64 }
 %struct.MPIMsgIOCInitReply = type { i8, i8, i8, i8, i8, i8, i8, i8, i32, i16, i16, i32 }
 %struct.MPIMsgSCSITaskMgmtReply = type { i8, i8, i8, i8, i8, i8, i8, i8, i32, [2 x i8], i16, i32, i32 }
-%struct.ScatterGatherEntry = type { i64, i64 }
 
 @trace_events_enabled_count = external local_unnamed_addr global i32, align 4
 @_TRACE_MPTSAS_IRQ_MSI_DSTATE = external local_unnamed_addr global i16, align 2
@@ -3148,23 +3147,27 @@ entry:
   %1 = load i32, ptr %nsg, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %1) #12
   %2 = load i32, ptr %nsg, align 8
-  %cmp11 = icmp sgt i32 %2, 0
-  br i1 %cmp11, label %for.body, label %for.end
+  %cmp12 = icmp sgt i32 %2, 0
+  br i1 %cmp12, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %3 = load ptr, ptr %qsg, align 8
-  %arrayidx = getelementptr %struct.ScatterGatherEntry, ptr %3, i64 %indvars.iv
-  %4 = load i64, ptr %arrayidx, align 8
-  tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %4) #12
-  %5 = load ptr, ptr %qsg, align 8
-  %len = getelementptr %struct.ScatterGatherEntry, ptr %5, i64 %indvars.iv, i32 1
-  %6 = load i64, ptr %len, align 8
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %4 = shl i32 %indvars.iv.tr, 1
+  %5 = sext i32 %4 to i64
+  %arrayidx = getelementptr i64, ptr %3, i64 %5
+  %6 = load i64, ptr %arrayidx, align 8
   tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %6) #12
+  %7 = load ptr, ptr %qsg, align 8
+  %arrayidx7 = getelementptr i64, ptr %7, i64 %5
+  %len = getelementptr inbounds i8, ptr %arrayidx7, i64 8
+  %8 = load i64, ptr %len, align 8
+  tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %8) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i32, ptr %nsg, align 8
-  %8 = sext i32 %7 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %8
+  %9 = load i32, ptr %nsg, align 8
+  %10 = sext i32 %9 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry

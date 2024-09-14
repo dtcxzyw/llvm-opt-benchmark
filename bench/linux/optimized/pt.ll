@@ -48,7 +48,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.24 = type { %struct.list_head }
 %union.anon.26 = type { i64 }
 %union.anon.30 = type { %struct.atomic_t }
-%struct.perf_addr_filter_range = type { i64, i64 }
 
 @pt_caps = internal unnamed_addr constant [18 x %struct.pt_cap_desc] [%struct.pt_cap_desc { ptr @.str, i32 0, i8 0, i32 -1 }, %struct.pt_cap_desc { ptr @.str.1, i32 0, i8 1, i32 1 }, %struct.pt_cap_desc { ptr @.str.2, i32 0, i8 1, i32 2 }, %struct.pt_cap_desc { ptr @.str.3, i32 0, i8 1, i32 4 }, %struct.pt_cap_desc { ptr @.str.4, i32 0, i8 1, i32 8 }, %struct.pt_cap_desc { ptr @.str.5, i32 0, i8 1, i32 16 }, %struct.pt_cap_desc { ptr @.str.6, i32 0, i8 1, i32 32 }, %struct.pt_cap_desc { ptr @.str.7, i32 0, i8 1, i32 128 }, %struct.pt_cap_desc { ptr @.str.8, i32 0, i8 1, i32 256 }, %struct.pt_cap_desc { ptr @.str.9, i32 0, i8 2, i32 1 }, %struct.pt_cap_desc { ptr @.str.10, i32 0, i8 2, i32 2 }, %struct.pt_cap_desc { ptr @.str.11, i32 0, i8 2, i32 4 }, %struct.pt_cap_desc { ptr @.str.12, i32 0, i8 2, i32 8 }, %struct.pt_cap_desc { ptr @.str.13, i32 0, i8 2, i32 -2147483648 }, %struct.pt_cap_desc { ptr @.str.14, i32 1, i8 0, i32 7 }, %struct.pt_cap_desc { ptr @.str.15, i32 1, i8 0, i32 -65536 }, %struct.pt_cap_desc { ptr @.str.16, i32 1, i8 1, i32 65535 }, %struct.pt_cap_desc { ptr @.str.17, i32 1, i8 1, i32 -65536 }], align 16
 @__UNIQUE_ID___addressable_intel_pt_validate_cap377 = internal global ptr @intel_pt_validate_cap, section ".discard.addressable", align 8
@@ -3095,80 +3094,86 @@ define internal void @pt_event_addr_filters_sync(ptr noundef readonly %0) #9 ali
   %9 = getelementptr inbounds i8, ptr %0, i64 464
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %62, label %12
+  br i1 %11, label %68, label %12
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %6, align 8
   %14 = icmp eq ptr %13, %6
   br i1 %14, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %12, %47
-  %15 = phi ptr [ %58, %47 ], [ %13, %12 ]
-  %16 = phi i32 [ %57, %47 ], [ 0, %12 ]
+.preheader:                                       ; preds = %12, %52
+  %15 = phi ptr [ %64, %52 ], [ %13, %12 ]
+  %16 = phi i32 [ %63, %52 ], [ 0, %12 ]
   %17 = getelementptr inbounds i8, ptr %15, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %18, null
-  %.phi.trans.insert = sext i32 %16 to i64
-  %.phi.trans.insert3 = getelementptr %struct.perf_addr_filter_range, ptr %8, i64 %.phi.trans.insert
-  %.pre = load i64, ptr %.phi.trans.insert3, align 8
-  %20 = icmp eq i64 %.pre, 0
-  %or.cond = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond, label %47, label %.preheader._crit_edge
+  %19 = icmp eq ptr %18, null
+  %.pre = shl i32 %16, 1
+  %.pre4 = sext i32 %.pre to i64
+  br i1 %19, label %.preheader._crit_edge, label %20
 
-.preheader._crit_edge:                            ; preds = %.preheader
-  %21 = getelementptr %struct.perf_addr_filter_range, ptr %8, i64 %.phi.trans.insert, i32 1
+20:                                               ; preds = %.preheader
+  %21 = getelementptr i64, ptr %8, i64 %.pre4
   %22 = load i64, ptr %21, align 8
-  %23 = sub i64 0, %22
-  %24 = icmp ugt i64 %.pre, %23
-  %25 = add i64 %22, -1
-  %26 = add i64 %25, %.pre
-  %27 = select i1 %24, i64 -1, i64 %26
-  %28 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 28), align 4
-  %29 = zext i8 %28 to i64
-  %30 = sub nsw i64 64, %29
-  %31 = and i64 %30, 4294967295
-  %32 = shl i64 %.pre, %31
-  %33 = ashr exact i64 %32, %31
-  %34 = icmp eq i64 %33, %.pre
-  %35 = add nuw nsw i64 %29, 4294967295
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %52, label %.preheader._crit_edge
+
+.preheader._crit_edge:                            ; preds = %.preheader, %20
+  %24 = getelementptr i64, ptr %8, i64 %.pre4
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = load i64, ptr %24, align 8
+  %28 = sub i64 0, %26
+  %29 = icmp ugt i64 %27, %28
+  %30 = add i64 %26, -1
+  %31 = add i64 %30, %27
+  %32 = select i1 %29, i64 -1, i64 %31
+  %33 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 28), align 4
+  %34 = zext i8 %33 to i64
+  %35 = sub nsw i64 64, %34
   %36 = and i64 %35, 4294967295
-  %37 = shl nsw i64 -1, %36
-  %38 = select i1 %34, i64 %.pre, i64 %37
-  %39 = shl i64 %27, %31
-  %40 = ashr exact i64 %39, %31
-  %41 = icmp eq i64 %40, %27
-  %42 = xor i64 %37, -1
-  %43 = select i1 %41, i64 %27, i64 %42
-  %44 = icmp ult i64 %43, %38
-  %45 = select i1 %44, i64 0, i64 %43
-  %46 = select i1 %44, i64 0, i64 %38
-  br label %47
+  %37 = shl i64 %27, %36
+  %38 = ashr exact i64 %37, %36
+  %39 = icmp eq i64 %38, %27
+  %40 = add nuw nsw i64 %34, 4294967295
+  %41 = and i64 %40, 4294967295
+  %42 = shl nsw i64 -1, %41
+  %43 = select i1 %39, i64 %27, i64 %42
+  %44 = shl i64 %32, %36
+  %45 = ashr exact i64 %44, %36
+  %46 = icmp eq i64 %45, %32
+  %47 = xor i64 %42, -1
+  %48 = select i1 %46, i64 %32, i64 %47
+  %49 = icmp ult i64 %48, %43
+  %50 = select i1 %49, i64 0, i64 %48
+  %51 = select i1 %49, i64 0, i64 %43
+  br label %52
 
-47:                                               ; preds = %.preheader, %.preheader._crit_edge
-  %48 = phi i64 [ %45, %.preheader._crit_edge ], [ 0, %.preheader ]
-  %49 = phi i64 [ %46, %.preheader._crit_edge ], [ 0, %.preheader ]
-  %50 = getelementptr [4 x %struct.pt_filter], ptr %10, i64 0, i64 %.phi.trans.insert
-  store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  store i64 %48, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %15, i64 48
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 2
-  %55 = getelementptr inbounds i8, ptr %50, i64 16
-  %56 = select i1 %54, i64 1, i64 2
-  store i64 %56, ptr %55, align 8
-  %57 = add i32 %16, 1
-  %58 = load ptr, ptr %15, align 8
-  %59 = icmp eq ptr %58, %6
-  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !75
+52:                                               ; preds = %.preheader._crit_edge, %20
+  %53 = phi i64 [ %50, %.preheader._crit_edge ], [ 0, %20 ]
+  %54 = phi i64 [ %51, %.preheader._crit_edge ], [ 0, %20 ]
+  %55 = sext i32 %16 to i64
+  %56 = getelementptr [4 x %struct.pt_filter], ptr %10, i64 0, i64 %55
+  store i64 %54, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  store i64 %53, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %15, i64 48
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp eq i32 %59, 2
+  %61 = getelementptr inbounds i8, ptr %56, i64 16
+  %62 = select i1 %60, i64 1, i64 2
+  store i64 %62, ptr %61, align 8
+  %63 = add i32 %16, 1
+  %64 = load ptr, ptr %15, align 8
+  %65 = icmp eq ptr %64, %6
+  br i1 %65, label %.loopexit, label %.preheader, !llvm.loop !75
 
-.loopexit:                                        ; preds = %47, %12
-  %60 = phi i32 [ 0, %12 ], [ %57, %47 ]
-  %61 = getelementptr inbounds i8, ptr %10, i64 96
-  store i32 %60, ptr %61, align 8
-  br label %62
+.loopexit:                                        ; preds = %52, %12
+  %66 = phi i32 [ 0, %12 ], [ %63, %52 ]
+  %67 = getelementptr inbounds i8, ptr %10, i64 96
+  store i32 %66, ptr %67, align 8
+  br label %68
 
-62:                                               ; preds = %.loopexit, %1
+68:                                               ; preds = %.loopexit, %1
   ret void
 }
 

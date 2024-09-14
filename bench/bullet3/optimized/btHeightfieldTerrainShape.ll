@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ProcessTrianglesAction = type { ptr, i8, i8, i32, i32, ptr }
 %struct.ProcessVBoundsAction = type { ptr, i32, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, ptr, %struct.ProcessTrianglesAction }
 %"struct.(anonymous namespace)::GridRaycastState" = type { i32, i32, i32, i32, float, float, float, float }
-%"struct.btHeightfieldTerrainShape::Range" = type { float, float }
 
 $__clang_call_terminate = comdat any
 
@@ -3774,8 +3773,8 @@ if.then.i.i.i53:                                  ; preds = %if.then.i.i
 _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i: ; preds = %if.then.i.i.i53, %if.then.i.i
   %10 = phi i32 [ %.pre.i, %if.then.i.i.i53 ], [ %8, %if.then.i.i ]
   %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i53 ], [ null, %if.then.i.i ]
-  %cmp4.i.i.i = icmp sgt i32 %10, 0
-  br i1 %cmp4.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
+  %cmp5.i.i.i = icmp sgt i32 %10, 0
+  br i1 %cmp5.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
   %m_data.i.i.i57 = getelementptr inbounds i8, ptr %this, i64 168
@@ -3784,29 +3783,30 @@ for.body.lr.ph.i.i.i:                             ; preds = %_ZN20btAlignedObjec
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %retval.0.i.i.i, i64 %indvars.iv.i.i.i
-  %11 = load ptr, ptr %m_data.i.i.i57, align 8
-  %arrayidx3.i.i.i = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %11, i64 %indvars.iv.i.i.i
-  %12 = load i64, ptr %arrayidx3.i.i.i, align 4
-  store i64 %12, ptr %arrayidx.i.i.i, align 4
+  %11 = shl nuw nsw i64 %indvars.iv.i.i.i, 1
+  %arrayidx.i.i.i = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %11
+  %12 = load ptr, ptr %m_data.i.i.i57, align 8
+  %arrayidx3.i.i.i = getelementptr inbounds float, ptr %12, i64 %11
+  %13 = load i64, ptr %arrayidx3.i.i.i, align 4
+  store i64 %13, ptr %arrayidx.i.i.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i, label %for.body.i.i.i, !llvm.loop !14
 
 _ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i: ; preds = %for.body.i.i.i, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE8allocateEi.exit.i.i
   %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 168
-  %13 = load ptr, ptr %m_data.i5.i.i, align 8
-  %tobool.not.i6.i.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %m_data.i5.i.i, align 8
+  %tobool.not.i6.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
   %m_ownsMemory.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 176
-  %14 = load i8, ptr %m_ownsMemory.i.i.i54, align 8
-  %tobool2.i.i.i55 = trunc i8 %14 to i1
+  %15 = load i8, ptr %m_ownsMemory.i.i.i54, align 8
+  %tobool2.i.i.i55 = trunc i8 %15 to i1
   br i1 %tobool2.i.i.i55, label %if.then3.i.i.i56, label %if.end.i
 
 if.then3.i.i.i56:                                 ; preds = %if.then.i7.i.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %13)
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %14)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i56, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
@@ -3827,53 +3827,53 @@ for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjec
   br i1 %cmp2772, label %for.body.us.preheader, label %for.end74
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %15 = zext nneg i32 %chunkSize to i64
-  %16 = zext nneg i32 %spec.select to i64
-  %wide.trip.count112 = zext nneg i32 %nChunksZ.0 to i64
+  %16 = zext nneg i32 %chunkSize to i64
+  %17 = zext nneg i32 %spec.select to i64
+  %wide.trip.count113 = zext nneg i32 %nChunksZ.0 to i64
   br label %for.body28.us76.preheader
 
 for.body28.us76.preheader:                        ; preds = %for.cond26.for.inc72_crit_edge.us, %for.body.us.preheader
-  %indvars.iv106 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next107, %for.cond26.for.inc72_crit_edge.us ]
-  %17 = mul nuw nsw i64 %indvars.iv106, %15
-  %18 = mul nuw nsw i64 %indvars.iv106, %16
-  %19 = trunc nuw i64 %17 to i32
-  %20 = trunc i64 %17 to i32
-  %21 = add i32 %chunkSize, %20
+  %indvars.iv107 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next108, %for.cond26.for.inc72_crit_edge.us ]
+  %18 = mul nuw nsw i64 %indvars.iv107, %16
+  %19 = mul nuw nsw i64 %indvars.iv107, %17
+  %20 = trunc nuw i64 %18 to i32
+  %21 = trunc i64 %18 to i32
+  %22 = add i32 %chunkSize, %21
   br label %for.body34.us82.preheader
 
 for.body34.us82.preheader:                        ; preds = %for.cond31.for.end64_crit_edge.us, %for.body28.us76.preheader
   %indvars.iv = phi i64 [ 0, %for.body28.us76.preheader ], [ %indvars.iv.next, %for.cond31.for.end64_crit_edge.us ]
-  %22 = mul nuw nsw i64 %indvars.iv, %15
+  %23 = mul nuw nsw i64 %indvars.iv, %16
   %vtable.us79 = load ptr, ptr %this, align 8
   %vfn.us80 = getelementptr inbounds i8, ptr %vtable.us79, i64 136
-  %23 = load ptr, ptr %vfn.us80, align 8
-  %24 = trunc nuw i64 %22 to i32
-  %call.us81 = tail call noundef float %23(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %24, i32 noundef %19)
-  %25 = trunc i64 %22 to i32
-  %26 = add i32 %chunkSize, %25
+  %24 = load ptr, ptr %vfn.us80, align 8
+  %25 = trunc nuw i64 %23 to i32
+  %call.us81 = tail call noundef float %24(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %25, i32 noundef %20)
+  %26 = trunc i64 %23 to i32
+  %27 = add i32 %chunkSize, %26
   br label %for.body34.us82
 
 for.body34.us82:                                  ; preds = %for.body34.us82.preheader, %for.inc62.us85
-  %z.067.us83 = phi i32 [ %inc63.us86, %for.inc62.us85 ], [ %19, %for.body34.us82.preheader ]
+  %z.067.us83 = phi i32 [ %inc63.us86, %for.inc62.us85 ], [ %20, %for.body34.us82.preheader ]
   %r.sroa.0.066.us = phi float [ %r.sroa.0.1.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
   %r.sroa.4.065.us = phi float [ %r.sroa.4.1.us, %for.inc62.us85 ], [ %call.us81, %for.body34.us82.preheader ]
-  %27 = load i32, ptr %m_heightStickLength, align 8
-  %cmp36.not.us84 = icmp slt i32 %z.067.us83, %27
+  %28 = load i32, ptr %m_heightStickLength, align 8
+  %cmp36.not.us84 = icmp slt i32 %z.067.us83, %28
   br i1 %cmp36.not.us84, label %for.body43.us, label %for.inc62.us85
 
 for.body43.us:                                    ; preds = %for.body34.us82, %for.inc.us
-  %x.062.us = phi i32 [ %inc61.us, %for.inc.us ], [ %24, %for.body34.us82 ]
+  %x.062.us = phi i32 [ %inc61.us, %for.inc.us ], [ %25, %for.body34.us82 ]
   %r.sroa.0.261.us = phi float [ %r.sroa.0.3.us, %for.inc.us ], [ %r.sroa.0.066.us, %for.body34.us82 ]
   %r.sroa.4.260.us = phi float [ %r.sroa.4.3.us, %for.inc.us ], [ %r.sroa.4.065.us, %for.body34.us82 ]
-  %28 = load i32, ptr %m_heightStickWidth, align 4
-  %cmp45.not.us = icmp slt i32 %x.062.us, %28
+  %29 = load i32, ptr %m_heightStickWidth, align 4
+  %cmp45.not.us = icmp slt i32 %x.062.us, %29
   br i1 %cmp45.not.us, label %if.end47.us, label %for.inc.us
 
 if.end47.us:                                      ; preds = %for.body43.us
   %vtable48.us = load ptr, ptr %this, align 8
   %vfn49.us = getelementptr inbounds i8, ptr %vtable48.us, i64 136
-  %29 = load ptr, ptr %vfn49.us, align 8
-  %call50.us = tail call noundef float %29(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.062.us, i32 noundef %z.067.us83)
+  %30 = load ptr, ptr %vfn49.us, align 8
+  %call50.us = tail call noundef float %30(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x.062.us, i32 noundef %z.067.us83)
   %cmp52.us = fcmp olt float %call50.us, %r.sroa.0.261.us
   br i1 %cmp52.us, label %for.inc.us, label %if.else.us
 
@@ -3888,31 +3888,32 @@ for.inc.us:                                       ; preds = %if.then57.us, %if.e
   %r.sroa.4.3.us = phi float [ %call50.us, %if.then57.us ], [ %r.sroa.4.260.us, %if.else.us ], [ %r.sroa.4.260.us, %for.body43.us ], [ %r.sroa.4.260.us, %if.end47.us ]
   %r.sroa.0.3.us = phi float [ %r.sroa.0.261.us, %if.then57.us ], [ %r.sroa.0.261.us, %if.else.us ], [ %r.sroa.0.261.us, %for.body43.us ], [ %call50.us, %if.end47.us ]
   %inc61.us = add nuw nsw i32 %x.062.us, 1
-  %cmp42.not.us.not = icmp slt i32 %x.062.us, %26
+  %cmp42.not.us.not = icmp slt i32 %x.062.us, %27
   br i1 %cmp42.not.us.not, label %for.body43.us, label %for.inc62.us85, !llvm.loop !15
 
 for.inc62.us85:                                   ; preds = %for.inc.us, %for.body34.us82
   %r.sroa.4.1.us = phi float [ %r.sroa.4.065.us, %for.body34.us82 ], [ %r.sroa.4.3.us, %for.inc.us ]
   %r.sroa.0.1.us = phi float [ %r.sroa.0.066.us, %for.body34.us82 ], [ %r.sroa.0.3.us, %for.inc.us ]
   %inc63.us86 = add nuw nsw i32 %z.067.us83, 1
-  %cmp33.not.us87.not = icmp slt i32 %z.067.us83, %21
+  %cmp33.not.us87.not = icmp slt i32 %z.067.us83, %22
   br i1 %cmp33.not.us87.not, label %for.body34.us82, label %for.cond31.for.end64_crit_edge.us, !llvm.loop !16
 
 for.cond31.for.end64_crit_edge.us:                ; preds = %for.inc62.us85
-  %30 = load ptr, ptr %m_data.i, align 8
-  %31 = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %30, i64 %indvars.iv
-  %arrayidx.i.us93 = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %31, i64 %18
+  %31 = add nuw nsw i64 %indvars.iv, %19
+  %32 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i.us93.idx = shl nsw i64 %31, 3
+  %arrayidx.i.us93 = getelementptr inbounds i8, ptr %32, i64 %arrayidx.i.us93.idx
   store float %r.sroa.0.1.us, ptr %arrayidx.i.us93, align 4
   %arrayidx.i.sroa_idx.us94 = getelementptr inbounds i8, ptr %arrayidx.i.us93, i64 4
   store float %r.sroa.4.1.us, ptr %arrayidx.i.sroa_idx.us94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %16
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
   br i1 %exitcond.not, label %for.cond26.for.inc72_crit_edge.us, label %for.body34.us82.preheader, !llvm.loop !17
 
 for.cond26.for.inc72_crit_edge.us:                ; preds = %for.cond31.for.end64_crit_edge.us
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count112
-  br i1 %exitcond113.not, label %for.end74, label %for.body28.us76.preheader, !llvm.loop !18
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond114.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count113
+  br i1 %exitcond114.not, label %for.end74, label %for.body28.us76.preheader, !llvm.loop !18
 
 for.end74:                                        ; preds = %for.cond26.for.inc72_crit_edge.us, %for.body.lr.ph, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit, %if.end18, %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
   ret void
@@ -4003,61 +4004,62 @@ if.end:                                           ; preds = %lor.lhs.false3
   %add = add nuw nsw i32 %mul, %0
   %m_data.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %m_data.i, align 8
-  %idxprom.i = zext nneg i32 %add to i64
-  %arrayidx.i = getelementptr inbounds %"struct.btHeightfieldTerrainShape::Range", ptr %5, i64 %idxprom.i
+  %idxprom.scale.i = shl nuw nsw i32 %add, 1
+  %6 = zext nneg i32 %idxprom.scale.i to i64
+  %arrayidx.i = getelementptr inbounds float, ptr %5, i64 %6
   %chunk.sroa.0.0.copyload = load float, ptr %arrayidx.i, align 4
   %chunk.sroa.3.0.call.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %chunk.sroa.3.0.copyload = load float, ptr %chunk.sroa.3.0.call.sroa_idx, align 4
   %maxDistanceFlat = getelementptr inbounds i8, ptr %rs, i64 24
-  %6 = load float, ptr %maxDistanceFlat, align 4
-  %conv = fpext float %6 to double
+  %7 = load float, ptr %maxDistanceFlat, align 4
+  %conv = fpext float %7 to double
   %cmp8 = fcmp ogt double %conv, 1.000000e-04
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
   %chunkSize = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load i32, ptr %chunkSize, align 8
-  %conv10 = sitofp i32 %7 to float
+  %8 = load i32, ptr %chunkSize, align 8
+  %conv10 = sitofp i32 %8 to float
   %maxDistance3d = getelementptr inbounds i8, ptr %rs, i64 28
-  %8 = load float, ptr %maxDistance3d, align 4
-  %mul11 = fmul float %8, %conv10
-  %div = fdiv float %mul11, %6
+  %9 = load float, ptr %maxDistance3d, align 4
+  %mul11 = fmul float %9, %conv10
+  %div = fdiv float %mul11, %7
   %prevParam = getelementptr inbounds i8, ptr %rs, i64 20
-  %9 = load float, ptr %prevParam, align 4
-  %mul13 = fmul float %9, %div
+  %10 = load float, ptr %prevParam, align 4
+  %mul13 = fmul float %10, %div
   %param = getelementptr inbounds i8, ptr %rs, i64 16
-  %10 = load float, ptr %param, align 4
-  %mul14 = fmul float %10, %div
+  %11 = load float, ptr %param, align 4
+  %mul14 = fmul float %11, %div
   %rayBegin = getelementptr inbounds i8, ptr %this, i64 20
   %rayDir = getelementptr inbounds i8, ptr %this, i64 52
-  %11 = load float, ptr %rayDir, align 4
-  %mul.i = fmul float %11, %mul13
+  %12 = load float, ptr %rayDir, align 4
+  %mul.i = fmul float %12, %mul13
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 56
-  %12 = load float, ptr %arrayidx3.i, align 8
-  %mul4.i = fmul float %mul13, %12
+  %13 = load float, ptr %arrayidx3.i, align 8
+  %mul4.i = fmul float %mul13, %13
   %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 60
-  %13 = load float, ptr %arrayidx7.i, align 4
-  %mul8.i = fmul float %mul13, %13
-  %14 = load float, ptr %rayBegin, align 4
-  %add.i = fadd float %mul.i, %14
+  %14 = load float, ptr %arrayidx7.i, align 4
+  %mul8.i = fmul float %mul13, %14
+  %15 = load float, ptr %rayBegin, align 4
+  %add.i = fadd float %mul.i, %15
   %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 24
-  %15 = load float, ptr %arrayidx5.i, align 8
-  %add8.i = fadd float %mul4.i, %15
+  %16 = load float, ptr %arrayidx5.i, align 8
+  %add8.i = fadd float %mul4.i, %16
   %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 28
-  %16 = load float, ptr %arrayidx11.i, align 4
-  %add14.i = fadd float %mul8.i, %16
+  %17 = load float, ptr %arrayidx11.i, align 4
+  %add14.i = fadd float %mul8.i, %17
   %retval.sroa.0.0.vec.insert.i18 = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert.i19 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i18, float %add8.i, i64 1
   %retval.sroa.3.12.vec.insert.i20 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i19, ptr %enterPos, align 8
   %ref.tmp.sroa.2.0.enterPos.sroa_idx = getelementptr inbounds i8, ptr %enterPos, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i20, ptr %ref.tmp.sroa.2.0.enterPos.sroa_idx, align 8
-  %mul.i23 = fmul float %11, %mul14
-  %mul4.i25 = fmul float %mul14, %12
-  %mul8.i27 = fmul float %mul14, %13
-  %add.i33 = fadd float %mul.i23, %14
-  %add8.i36 = fadd float %mul4.i25, %15
-  %add14.i39 = fadd float %mul8.i27, %16
+  %mul.i23 = fmul float %12, %mul14
+  %mul4.i25 = fmul float %mul14, %13
+  %mul8.i27 = fmul float %mul14, %14
+  %add.i33 = fadd float %mul.i23, %15
+  %add8.i36 = fadd float %mul4.i25, %16
+  %add14.i39 = fadd float %mul8.i27, %17
   %retval.sroa.0.0.vec.insert.i40 = insertelement <2 x float> poison, float %add.i33, i64 0
   %retval.sroa.0.4.vec.insert.i41 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i40, float %add8.i36, i64 1
   %retval.sroa.3.12.vec.insert.i42 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i39, i64 0
@@ -4069,13 +4071,13 @@ if.then9:                                         ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.then9
   %m_indices = getelementptr inbounds i8, ptr %this, i64 72
-  %17 = load ptr, ptr %m_indices, align 8
-  %arrayidx30 = getelementptr inbounds i8, ptr %17, i64 4
-  %18 = load i32, ptr %arrayidx30, align 4
-  %idxprom = sext i32 %18 to i64
+  %18 = load ptr, ptr %m_indices, align 8
+  %arrayidx30 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = load i32, ptr %arrayidx30, align 4
+  %idxprom = sext i32 %19 to i64
   %arrayidx31 = getelementptr inbounds float, ptr %exitPos, i64 %idxprom
-  %19 = load float, ptr %arrayidx31, align 4
-  %cmp33 = fcmp ogt float %19, %chunk.sroa.3.0.copyload
+  %20 = load float, ptr %arrayidx31, align 4
+  %cmp33 = fcmp ogt float %20, %chunk.sroa.3.0.copyload
   br i1 %cmp33, label %return, label %if.end35
 
 if.end35:                                         ; preds = %land.lhs.true, %if.then9
@@ -4084,13 +4086,13 @@ if.end35:                                         ; preds = %land.lhs.true, %if.
 
 land.lhs.true39:                                  ; preds = %if.end35
   %m_indices41 = getelementptr inbounds i8, ptr %this, i64 72
-  %20 = load ptr, ptr %m_indices41, align 8
-  %arrayidx42 = getelementptr inbounds i8, ptr %20, i64 4
-  %21 = load i32, ptr %arrayidx42, align 4
-  %idxprom43 = sext i32 %21 to i64
+  %21 = load ptr, ptr %m_indices41, align 8
+  %arrayidx42 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = load i32, ptr %arrayidx42, align 4
+  %idxprom43 = sext i32 %22 to i64
   %arrayidx44 = getelementptr inbounds float, ptr %exitPos, i64 %idxprom43
-  %22 = load float, ptr %arrayidx44, align 4
-  %cmp46 = fcmp olt float %22, %chunk.sroa.0.0.copyload
+  %23 = load float, ptr %arrayidx44, align 4
+  %cmp46 = fcmp olt float %23, %chunk.sroa.0.0.copyload
   br i1 %cmp46, label %return, label %if.end50
 
 if.else:                                          ; preds = %if.end
@@ -4103,8 +4105,8 @@ if.else:                                          ; preds = %if.end
 if.end50:                                         ; preds = %if.end35, %land.lhs.true39, %if.else
   %processTriangles = getelementptr inbounds i8, ptr %this, i64 80
   %m_indices51 = getelementptr inbounds i8, ptr %this, i64 72
-  %23 = load ptr, ptr %m_indices51, align 8
-  call void @_Z11gridRaycastIK22ProcessTrianglesActionEvRT_RK9btVector3S6_Pi(ptr noundef nonnull align 8 dereferenceable(32) %processTriangles, ptr noundef nonnull align 4 dereferenceable(16) %enterPos, ptr noundef nonnull align 4 dereferenceable(16) %exitPos, ptr noundef %23)
+  %24 = load ptr, ptr %m_indices51, align 8
+  call void @_Z11gridRaycastIK22ProcessTrianglesActionEvRT_RK9btVector3S6_Pi(ptr noundef nonnull align 8 dereferenceable(32) %processTriangles, ptr noundef nonnull align 4 dereferenceable(16) %enterPos, ptr noundef nonnull align 4 dereferenceable(16) %exitPos, ptr noundef %24)
   br label %return
 
 return:                                           ; preds = %land.lhs.true39, %land.lhs.true, %entry, %lor.lhs.false3, %if.end50

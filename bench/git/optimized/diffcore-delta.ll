@@ -175,6 +175,7 @@ while.cond.outer.outer:                           ; preds = %spanhash_rehash.exi
   %buf.0.ph.ph = phi ptr [ %.us-phi51, %spanhash_rehash.exit.i ], [ %0, %entry ]
   %sz.0.ph.ph = phi i32 [ %.us-phi52, %spanhash_rehash.exit.i ], [ %conv, %entry ]
   %data.i = getelementptr inbounds i8, ptr %hash.0.ph.ph, i64 8
+  %invariant.gep = getelementptr i8, ptr %data.i, i64 4
   %free.i = getelementptr inbounds i8, ptr %hash.0.ph.ph, i64 4
   br label %while.cond.outer
 
@@ -258,16 +259,17 @@ if.end29:                                         ; preds = %while.body.us, %if.
   %shl.i = shl nuw i32 1, %5
   %sub.i = add nuw i32 %shl.i, 131071
   %and.i = and i32 %sub.i, %rem
-  %idxprom24.i = zext nneg i32 %and.i to i64
-  %arrayidx25.i = getelementptr inbounds [0 x %struct.spanhash], ptr %data.i, i64 0, i64 %idxprom24.i
+  %idxprom.scale24.i = shl nuw nsw i32 %and.i, 1
+  %6 = zext nneg i32 %idxprom.scale24.i to i64
+  %arrayidx25.i = getelementptr inbounds i32, ptr %data.i, i64 %6
   %cnt126.i = getelementptr inbounds i8, ptr %arrayidx25.i, i64 4
-  %6 = load i32, ptr %cnt126.i, align 4
-  %tobool.not27.i = icmp eq i32 %6, 0
+  %7 = load i32, ptr %cnt126.i, align 4
+  %tobool.not27.i = icmp eq i32 %7, 0
   br i1 %tobool.not27.i, label %if.then.i, label %if.end6.i.preheader
 
 if.end6.i.preheader:                              ; preds = %if.end29
-  %7 = load i32, ptr %arrayidx25.i, align 4
-  %cmp8.i53 = icmp eq i32 %7, %rem
+  %8 = load i32, ptr %arrayidx25.i, align 4
+  %cmp8.i53 = icmp eq i32 %8, %rem
   br i1 %cmp8.i53, label %if.then9.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %if.end11.i, %if.end29
@@ -275,19 +277,19 @@ if.then.i:                                        ; preds = %if.end11.i, %if.end
   %cnt1.le21.i = getelementptr inbounds i8, ptr %arrayidx.lcssa22.i, i64 4
   store i32 %rem, ptr %arrayidx.lcssa22.i, align 4
   store i32 %.us-phi50, ptr %cnt1.le21.i, align 4
-  %8 = load i32, ptr %free.i, align 4
-  %dec.i = add nsw i32 %8, -1
+  %9 = load i32, ptr %free.i, align 4
+  %dec.i = add nsw i32 %9, -1
   store i32 %dec.i, ptr %free.i, align 4
-  %cmp.i = icmp slt i32 %8, 1
+  %cmp.i = icmp slt i32 %9, 1
   br i1 %cmp.i, label %if.then5.i, label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.then.i, %if.then9.i
   br label %while.cond.outer, !llvm.loop !8
 
 if.then5.i:                                       ; preds = %if.then.i
-  %9 = load i32, ptr %hash.0.ph.ph, align 4
-  %shl.i.i = shl nuw i32 1, %9
-  %shl1.i.i = shl i32 2, %9
+  %10 = load i32, ptr %hash.0.ph.ph, align 4
+  %shl.i.i = shl nuw i32 1, %10
+  %shl1.i.i = shl i32 2, %10
   %conv.i.i = sext i32 %shl1.i.i to i64
   %cmp.i.i.i = icmp slt i32 %shl1.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %st_mult.exit.i.i
@@ -300,17 +302,17 @@ st_mult.exit.i.i:                                 ; preds = %if.then5.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i, 3
   %add.i.i.i = or disjoint i64 %mul.i.i.i, 8
   %call3.i.i = tail call ptr @xmalloc(i64 noundef %add.i.i.i) #8
-  %10 = load i32, ptr %hash.0.ph.ph, align 4
-  %add.i.i = add nsw i32 %10, 1
+  %11 = load i32, ptr %hash.0.ph.ph, align 4
+  %add.i.i = add nsw i32 %11, 1
   store i32 %add.i.i, ptr %call3.i.i, align 4
-  %sub.i.i = add nsw i32 %10, -2
+  %sub.i.i = add nsw i32 %11, -2
   %mul24.i.i = shl i32 %sub.i.i, %add.i.i
   %div.i.i = sdiv i32 %mul24.i.i, %add.i.i
   %free.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 4
   store i32 %div.i.i, ptr %free.i.i, align 4
   %data.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %data.i.i, i8 0, i64 %mul.i.i.i, i1 false)
-  %cmp34.not.i.i = icmp eq i32 %9, 31
+  %cmp34.not.i.i = icmp eq i32 %10, 31
   br i1 %cmp34.not.i.i, label %spanhash_rehash.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %st_mult.exit.i.i
@@ -323,28 +325,29 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.spanhash], ptr %data.i, i64 0, i64 %indvars.iv.i.i
   %cnt.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
-  %11 = load i32, ptr %cnt.i.i, align 4
-  %tobool.not.i.i = icmp eq i32 %11, 0
+  %12 = load i32, ptr %cnt.i.i, align 4
+  %tobool.not.i.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %12 = load i32, ptr %arrayidx.i.i, align 4
-  %and.i.i = and i32 %12, %sub14.i.i
-  %idxprom1628.i.i = sext i32 %and.i.i to i64
-  %arrayidx1729.i.i = getelementptr inbounds [0 x %struct.spanhash], ptr %data.i.i, i64 0, i64 %idxprom1628.i.i
+  %13 = load i32, ptr %arrayidx.i.i, align 4
+  %and.i.i = and i32 %13, %sub14.i.i
+  %idxprom16.scale28.i.i = shl nsw i32 %and.i.i, 1
+  %14 = sext i32 %idxprom16.scale28.i.i to i64
+  %arrayidx1729.i.i = getelementptr inbounds i32, ptr %data.i.i, i64 %14
   %cnt1830.i.i = getelementptr inbounds i8, ptr %arrayidx1729.i.i, i64 4
-  %13 = load i32, ptr %cnt1830.i.i, align 4
-  %tobool19.not31.i.i = icmp eq i32 %13, 0
+  %15 = load i32, ptr %cnt1830.i.i, align 4
+  %tobool19.not31.i.i = icmp eq i32 %15, 0
   br i1 %tobool19.not31.i.i, label %if.then20.i.i, label %if.end26.i.i
 
 if.then20.i.i:                                    ; preds = %if.end26.i.i, %if.end.i.i
   %arrayidx17.lcssa27.i.i = phi ptr [ %arrayidx1729.i.i, %if.end.i.i ], [ %arrayidx17.i.i, %if.end26.i.i ]
   %cnt18.le.i.i = getelementptr inbounds i8, ptr %arrayidx17.lcssa27.i.i, i64 4
-  store i32 %12, ptr %arrayidx17.lcssa27.i.i, align 4
-  %14 = load i32, ptr %cnt.i.i, align 4
-  store i32 %14, ptr %cnt18.le.i.i, align 4
-  %15 = load i32, ptr %free.i.i, align 4
-  %dec.i.i = add nsw i32 %15, -1
+  store i32 %13, ptr %arrayidx17.lcssa27.i.i, align 4
+  %16 = load i32, ptr %cnt.i.i, align 4
+  store i32 %16, ptr %cnt18.le.i.i, align 4
+  %17 = load i32, ptr %free.i.i, align 4
+  %dec.i.i = add nsw i32 %17, -1
   store i32 %dec.i.i, ptr %free.i.i, align 4
   br label %for.inc.i.i
 
@@ -353,11 +356,12 @@ if.end26.i.i:                                     ; preds = %if.end.i.i, %if.end
   %inc.i.i = add nsw i32 %bucket.032.i.i, 1
   %cmp27.not.i.i = icmp sgt i32 %shl1.i.i, %inc.i.i
   %spec.store.select.i.i = select i1 %cmp27.not.i.i, i32 %inc.i.i, i32 0
-  %idxprom16.i.i = sext i32 %spec.store.select.i.i to i64
-  %arrayidx17.i.i = getelementptr inbounds [0 x %struct.spanhash], ptr %data.i.i, i64 0, i64 %idxprom16.i.i
+  %idxprom16.scale.i.i = shl nsw i32 %spec.store.select.i.i, 1
+  %18 = sext i32 %idxprom16.scale.i.i to i64
+  %arrayidx17.i.i = getelementptr inbounds i32, ptr %data.i.i, i64 %18
   %cnt18.i.i = getelementptr inbounds i8, ptr %arrayidx17.i.i, i64 4
-  %16 = load i32, ptr %cnt18.i.i, align 4
-  %tobool19.not.i.i = icmp eq i32 %16, 0
+  %19 = load i32, ptr %cnt18.i.i, align 4
+  %tobool19.not.i.i = icmp eq i32 %19, 0
   br i1 %tobool19.not.i.i, label %if.then20.i.i, label %if.end26.i.i
 
 for.inc.i.i:                                      ; preds = %if.then20.i.i, %for.body.i.i
@@ -370,16 +374,16 @@ spanhash_rehash.exit.i:                           ; preds = %for.inc.i.i, %st_mu
   br label %while.cond.outer.outer, !llvm.loop !8
 
 if.end6.i:                                        ; preds = %if.end11.i
-  %17 = load i32, ptr %arrayidx.i, align 4
-  %cmp8.i = icmp eq i32 %17, %rem
+  %20 = load i32, ptr %arrayidx.i, align 4
+  %cmp8.i = icmp eq i32 %20, %rem
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %if.end6.i, %if.end6.i.preheader
-  %.lcssa33 = phi i32 [ %6, %if.end6.i.preheader ], [ %19, %if.end6.i ]
-  %18 = phi i64 [ %idxprom24.i, %if.end6.i.preheader ], [ %idxprom.i, %if.end6.i ]
-  %cnt1.le.i = getelementptr inbounds [0 x %struct.spanhash], ptr %data.i, i64 0, i64 %18, i32 1
+  %.lcssa33 = phi i32 [ %7, %if.end6.i.preheader ], [ %23, %if.end6.i ]
+  %21 = phi i64 [ %6, %if.end6.i.preheader ], [ %22, %if.end6.i ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %21
   %add.i = add i32 %.lcssa33, %.us-phi50
-  store i32 %add.i, ptr %cnt1.le.i, align 4
+  store i32 %add.i, ptr %gep, align 4
   br label %while.cond.outer.backedge
 
 if.end11.i:                                       ; preds = %if.end6.i.preheader, %if.end6.i
@@ -387,20 +391,21 @@ if.end11.i:                                       ; preds = %if.end6.i.preheader
   %inc28.i = add nuw nsw i32 %inc28.in.i54, 1
   %cmp12.not.i = icmp sgt i32 %shl.i, %inc28.i
   %spec.store.select.i = select i1 %cmp12.not.i, i32 %inc28.i, i32 0
-  %idxprom.i = zext nneg i32 %spec.store.select.i to i64
-  %arrayidx.i = getelementptr inbounds [0 x %struct.spanhash], ptr %data.i, i64 0, i64 %idxprom.i
+  %idxprom.scale.i = shl nuw nsw i32 %spec.store.select.i, 1
+  %22 = zext nneg i32 %idxprom.scale.i to i64
+  %arrayidx.i = getelementptr inbounds i32, ptr %data.i, i64 %22
   %cnt1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %19 = load i32, ptr %cnt1.i, align 4
-  %tobool.not.i = icmp eq i32 %19, 0
+  %23 = load i32, ptr %cnt1.i, align 4
+  %tobool.not.i = icmp eq i32 %23, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end6.i
 
 while.end:                                        ; preds = %while.cond.outer29, %while.cond.us
-  %20 = load i32, ptr %hash.0.ph.ph, align 4
-  %cmp.i27.not = icmp eq i32 %20, 0
+  %24 = load i32, ptr %hash.0.ph.ph, align 4
+  %cmp.i27.not = icmp eq i32 %24, 0
   br i1 %cmp.i27.not, label %sane_qsort.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %while.end
-  %sh_prom36 = zext nneg i32 %20 to i64
+  %sh_prom36 = zext nneg i32 %24 to i64
   %shl37 = shl nuw i64 1, %sh_prom36
   %data33 = getelementptr inbounds i8, ptr %hash.0.ph.ph, i64 8
   tail call void @qsort(ptr noundef nonnull %data33, i64 noundef %shl37, i64 noundef 8, ptr noundef nonnull @spanhash_cmp) #8

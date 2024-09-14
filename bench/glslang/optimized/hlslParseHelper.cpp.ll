@@ -50,11 +50,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, glslang::pool_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>::_Vector_impl" = type { %"class.glslang::pool_allocator.5", %"struct.std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, glslang::pool_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>::_Vector_impl_data" }
 %"class.glslang::pool_allocator.5" = type { ptr }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, glslang::pool_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.glslang::TMatrixSelector" = type { i32, i32 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>, std::_Identity<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>>>::_Alloc_node" = type { ptr }
 %"struct.glslang::TTypeLoc" = type { ptr, %"struct.glslang::TSourceLoc" }
 %"class.glslang::TSwizzleSelectors.289" = type { i32, [4 x i32] }
 %"class.glslang::TSwizzleSelectors" = type { i32, [4 x %"struct.glslang::TMatrixSelector"] }
+%"struct.glslang::TMatrixSelector" = type { i32, i32 }
 %"struct.glslang::HlslParseContext::tMipsOperatorData" = type { %"struct.glslang::TSourceLoc", ptr }
 %class.anon.522 = type { ptr }
 %class.anon.523 = type { ptr }
@@ -5942,8 +5942,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2E
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.01.0.insert.ext
   %94 = add nsw i32 %91, 1
   store i32 %94, ptr %5, align 4
-  %95 = sext i32 %91 to i64
-  %96 = getelementptr inbounds [4 x %"struct.glslang::TMatrixSelector"], ptr %35, i64 0, i64 %95
+  %.scale.i = shl nsw i32 %91, 1
+  %95 = sext i32 %.scale.i to i64
+  %96 = getelementptr inbounds i32, ptr %35, i64 %95
   store i64 %.sroa.01.0.insert.insert, ptr %96, align 4
   br label %_ZN7glslang17TSwizzleSelectorsINS_15TMatrixSelectorEE9push_backES1_.exit
 
@@ -5992,7 +5993,8 @@ define noundef i32 @_ZN7glslang16HlslParseContext25getMatrixComponentsColumnEiRK
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds [4 x %"struct.glslang::TMatrixSelector"], ptr %6, i64 0, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.idx
   %.sroa.0.0.copyload.i20 = load i64, ptr %9, align 4
   %.sroa.01.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i20 to i32
   %.not18 = icmp eq i32 %.sroa.06.0.extract.trunc, %.sroa.01.0.extract.trunc
@@ -9804,7 +9806,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 .lr.ph.i:                                         ; preds = %446, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %446 ]
-  %447 = getelementptr inbounds [4 x %"struct.glslang::TMatrixSelector"], ptr %444, i64 0, i64 %indvars.iv.i
+  %.idx.i = shl nsw i64 %indvars.iv.i, 3
+  %447 = getelementptr inbounds i8, ptr %444, i64 %.idx.i
   %.sroa.0.0.copyload.i20.i = load i64, ptr %447, align 4
   %.sroa.01.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload.i20.i to i32
   %.not18.i = icmp eq i32 %.sroa.06.0.extract.trunc.i, %.sroa.01.0.extract.trunc.i

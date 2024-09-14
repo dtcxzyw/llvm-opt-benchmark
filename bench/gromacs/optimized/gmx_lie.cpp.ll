@@ -217,8 +217,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %35, %38
 
 56:                                               ; preds = %53
   %57 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.35) #16
-  %.not25.i = icmp eq ptr %57, null
-  br i1 %.not25.i, label %64, label %58
+  %.not26.i = icmp eq ptr %57, null
+  br i1 %.not26.i, label %64, label %58
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %44, align 8
@@ -235,8 +235,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %35, %38
 
 64:                                               ; preds = %56
   %65 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.37) #16
-  %.not26.i = icmp eq ptr %65, null
-  br i1 %.not26.i, label %76, label %66
+  %.not27.i = icmp eq ptr %65, null
+  br i1 %.not27.i, label %76, label %66
 
 66:                                               ; preds = %64
   %67 = load i32, ptr %47, align 4
@@ -253,10 +253,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %35, %38
 
 .sink.split.i:                                    ; preds = %.noexc39, %.noexc38
   %.sink.in.i = phi ptr [ %47, %.noexc39 ], [ %44, %.noexc38 ]
-  %.sink52.i = phi ptr [ %71, %.noexc39 ], [ %63, %.noexc38 ]
+  %.sink53.i = phi ptr [ %71, %.noexc39 ], [ %63, %.noexc38 ]
   %.sink.i = load i32, ptr %.sink.in.i, align 4
   %72 = sext i32 %.sink.i to i64
-  %73 = getelementptr i32, ptr %.sink52.i, i64 %72
+  %73 = getelementptr i32, ptr %.sink53.i, i64 %72
   %74 = getelementptr i8, ptr %73, i64 -4
   %75 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %75, ptr %74, align 4
@@ -272,54 +272,56 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %35, %38
   %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40)
   %78 = load i32, ptr %44, align 8
   %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph38.i, label %._crit_edge39.i
+  br i1 %79, label %.lr.ph39.i, label %._crit_edge40.i
 
-.lr.ph38.i:                                       ; preds = %._crit_edge.i
+.lr.ph39.i:                                       ; preds = %._crit_edge.i
   %80 = getelementptr inbounds i8, ptr %44, i64 8
   br label %81
 
-81:                                               ; preds = %81, %.lr.ph38.i
-  %indvars.iv45.i = phi i64 [ 0, %.lr.ph38.i ], [ %indvars.iv.next46.i, %81 ]
+81:                                               ; preds = %81, %.lr.ph39.i
+  %indvars.iv46.i = phi i64 [ 0, %.lr.ph39.i ], [ %indvars.iv.next47.i, %81 ]
   %82 = load ptr, ptr %80, align 8
-  %83 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv45.i
+  %83 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv46.i
   %84 = load i32, ptr %83, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %struct.gmx_enxnm_t, ptr %41, i64 %85
+  %.scale25.i = shl nsw i32 %84, 1
+  %85 = sext i32 %.scale25.i to i64
+  %86 = getelementptr inbounds ptr, ptr %41, i64 %85
   %87 = load ptr, ptr %86, align 8
   %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %87)
-  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %89 = load i32, ptr %44, align 8
   %90 = sext i32 %89 to i64
-  %91 = icmp slt i64 %indvars.iv.next46.i, %90
-  br i1 %91, label %81, label %._crit_edge39.i, !llvm.loop !7
+  %91 = icmp slt i64 %indvars.iv.next47.i, %90
+  br i1 %91, label %81, label %._crit_edge40.i, !llvm.loop !7
 
-._crit_edge39.i:                                  ; preds = %81, %._crit_edge.i
+._crit_edge40.i:                                  ; preds = %81, %._crit_edge.i
   %92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42)
   %93 = getelementptr inbounds i8, ptr %44, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph42.i, label %.loopexit59
+  br i1 %95, label %.lr.ph43.i, label %.loopexit59
 
-.lr.ph42.i:                                       ; preds = %._crit_edge39.i
+.lr.ph43.i:                                       ; preds = %._crit_edge40.i
   %96 = getelementptr inbounds i8, ptr %44, i64 16
   br label %97
 
-97:                                               ; preds = %97, %.lr.ph42.i
-  %indvars.iv48.i = phi i64 [ 0, %.lr.ph42.i ], [ %indvars.iv.next49.i, %97 ]
+97:                                               ; preds = %97, %.lr.ph43.i
+  %indvars.iv49.i = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next50.i, %97 ]
   %98 = load ptr, ptr %96, align 8
-  %99 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv48.i
+  %99 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv49.i
   %100 = load i32, ptr %99, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds %struct.gmx_enxnm_t, ptr %41, i64 %101
+  %.scale.i = shl nsw i32 %100, 1
+  %101 = sext i32 %.scale.i to i64
+  %102 = getelementptr inbounds ptr, ptr %41, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %103)
-  %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %105 = load i32, ptr %93, align 4
   %106 = sext i32 %105 to i64
-  %107 = icmp slt i64 %indvars.iv.next49.i, %106
+  %107 = icmp slt i64 %indvars.iv.next50.i, %106
   br i1 %107, label %97, label %.loopexit59, !llvm.loop !8
 
-.loopexit59:                                      ; preds = %97, %._crit_edge39.i
+.loopexit59:                                      ; preds = %97, %._crit_edge40.i
   %putchar.i = call i32 @putchar(i32 10)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   %108 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 179, i64 noundef 1, i64 noundef 80)

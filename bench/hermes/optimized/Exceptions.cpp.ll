@@ -1164,17 +1164,20 @@ for.body26:                                       ; preds = %_ZSt4sortIPSt4pairI
   br i1 %cmp28, label %if.then33, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body26
-  %32 = sext i32 %nextIndex.091 to i64
-  %33 = getelementptr %"struct.std::pair.138", ptr %.pre100, i64 %32
-  %second30 = getelementptr i8, ptr %33, i64 -4
-  %34 = load i32, ptr %second30, align 4
-  %cmp32.not = icmp eq i32 %34, %resolved_loc27.sroa.0.0.extract.trunc
+  %sub = shl i32 %nextIndex.091, 1
+  %conv.scale = add i32 %sub, -2
+  %32 = sext i32 %conv.scale to i64
+  %arrayidx.i109 = getelementptr inbounds i32, ptr %.pre100, i64 %32
+  %second30 = getelementptr inbounds i8, ptr %arrayidx.i109, i64 4
+  %33 = load i32, ptr %second30, align 4
+  %cmp32.not = icmp eq i32 %33, %resolved_loc27.sroa.0.0.extract.trunc
   br i1 %cmp32.not, label %for.inc43, label %if.then33
 
 if.then33:                                        ; preds = %for.body26, %lor.lhs.false
-  %conv34.pre-phi = phi i64 [ %32, %lor.lhs.false ], [ 0, %for.body26 ]
+  %conv34.scale.pre-phi = phi i32 [ %sub, %lor.lhs.false ], [ 0, %for.body26 ]
   %inc = add nsw i32 %nextIndex.091, 1
-  %arrayidx.i103 = getelementptr inbounds %"struct.std::pair.138", ptr %.pre100, i64 %conv34.pre-phi
+  %34 = sext i32 %conv34.scale.pre-phi to i64
+  %arrayidx.i103 = getelementptr inbounds i32, ptr %.pre100, i64 %34
   store i32 %resolved_loc27.sroa.0.0.extract.trunc, ptr %arrayidx.i103, align 4
   %second3.i = getelementptr inbounds i8, ptr %arrayidx.i103, i64 4
   br label %for.inc43

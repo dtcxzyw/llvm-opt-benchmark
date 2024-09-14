@@ -24,7 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.uv_passwd_s = type { ptr, i64, i64, ptr, ptr }
 %struct.group = type { ptr, ptr, i32, ptr }
 %struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
-%struct.uv_env_item_s = type { ptr, ptr }
 %struct.sched_param = type { i32 }
 %struct.utsname = type { [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8] }
 %struct.cpu_set_t = type { [16 x i64] }
@@ -2495,7 +2494,8 @@ for.cond31.preheader:                             ; preds = %if.end12
   br i1 %cmp3233, label %for.body34.lr.ph, label %for.end40
 
 for.body34.lr.ph:                                 ; preds = %for.cond31.preheader
-  %idxprom35 = zext nneg i32 %cnt.031 to i64
+  %idxprom35.scale = shl nuw nsw i32 %cnt.031, 1
+  %4 = zext nneg i32 %idxprom35.scale to i64
   br label %for.body34
 
 if.end19:                                         ; preds = %if.end12
@@ -2509,9 +2509,10 @@ if.then23:                                        ; preds = %if.end19
 
 if.end24:                                         ; preds = %if.end19
   store i8 0, ptr %call20, align 1
-  %4 = load ptr, ptr %envitems, align 8
-  %idxprom25 = sext i32 %cnt.031 to i64
-  %arrayidx26 = getelementptr inbounds %struct.uv_env_item_s, ptr %4, i64 %idxprom25
+  %5 = load ptr, ptr %envitems, align 8
+  %idxprom25.scale = shl nsw i32 %cnt.031, 1
+  %6 = sext i32 %idxprom25.scale to i64
+  %arrayidx26 = getelementptr inbounds ptr, ptr %5, i64 %6
   store ptr %call15, ptr %arrayidx26, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call20, i64 1
   %value = getelementptr inbounds i8, ptr %arrayidx26, i64 8
@@ -2527,17 +2528,17 @@ for.inc28:                                        ; preds = %if.end24, %if.then2
 
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.body34
   %i.134 = phi i32 [ 0, %for.body34.lr.ph ], [ %inc39, %for.body34 ]
-  %5 = load ptr, ptr %envitems, align 8
-  %arrayidx36 = getelementptr inbounds %struct.uv_env_item_s, ptr %5, i64 %idxprom35
-  %6 = load ptr, ptr %arrayidx36, align 8
-  tail call void @uv__free(ptr noundef %6) #23
+  %7 = load ptr, ptr %envitems, align 8
+  %arrayidx36 = getelementptr inbounds ptr, ptr %7, i64 %4
+  %8 = load ptr, ptr %arrayidx36, align 8
+  tail call void @uv__free(ptr noundef %8) #23
   %inc39 = add nuw nsw i32 %i.134, 1
   %exitcond42.not = icmp eq i32 %inc39, %cnt.031
   br i1 %exitcond42.not, label %for.end40, label %for.body34
 
 for.end40:                                        ; preds = %for.body34, %for.cond31.preheader
-  %7 = load ptr, ptr %envitems, align 8
-  tail call void @uv__free(ptr noundef %7) #23
+  %9 = load ptr, ptr %envitems, align 8
+  tail call void @uv__free(ptr noundef %9) #23
   store ptr null, ptr %envitems, align 8
   br label %return.sink.split
 

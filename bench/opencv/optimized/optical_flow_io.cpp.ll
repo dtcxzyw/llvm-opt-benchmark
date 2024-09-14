@@ -129,7 +129,7 @@ _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader: ; preds = %32
 .preheader:                                       ; preds = %.preheader.lr.ph, %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit
   %44 = phi i32 [ %73, %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit ], [ %36, %.preheader.lr.ph ]
   %45 = phi i32 [ %74, %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit ], [ %42, %.preheader.lr.ph ]
-  %indvars.iv16 = phi i64 [ %indvars.iv.next17, %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit ], [ 0, %.preheader.lr.ph ]
+  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit ], [ 0, %.preheader.lr.ph ]
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph, label %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit
 
@@ -170,9 +170,10 @@ _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader: ; preds = %32
   %63 = load ptr, ptr %40, align 8
   %64 = load ptr, ptr %41, align 8
   %65 = load i64, ptr %64, align 8
-  %66 = mul i64 %65, %indvars.iv16
+  %66 = mul i64 %65, %indvars.iv17
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
-  %68 = getelementptr inbounds %"class.cv::Point_", ptr %67, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %68 = getelementptr inbounds i8, ptr %67, i64 %.idx
   %69 = load i64, ptr %8, align 8
   store i64 %69, ptr %68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -188,9 +189,9 @@ _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.loopexit: ; preds = %62
 _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit:       ; preds = %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.loopexit, %.preheader
   %73 = phi i32 [ %.pre, %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.loopexit ], [ %44, %.preheader ]
   %74 = phi i32 [ %70, %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.loopexit ], [ %45, %.preheader ]
-  %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
+  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %75 = sext i32 %73 to i64
-  %76 = icmp slt i64 %indvars.iv.next17, %75
+  %76 = icmp slt i64 %indvars.iv.next18, %75
   br i1 %76, label %.preheader, label %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit._crit_edge, !llvm.loop !6
 
 _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit._crit_edge: ; preds = %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit, %.preheader.lr.ph, %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader

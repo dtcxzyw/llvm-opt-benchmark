@@ -124,8 +124,8 @@ _get_config.exit:                                 ; preds = %14, %11, %3
 22:                                               ; preds = %18
   %23 = tail call i64 @time(ptr noundef null) #8
   %24 = load i64, ptr @last_reset, align 8
-  %.not.i31 = icmp eq i64 %24, 0
-  br i1 %.not.i31, label %25, label %26
+  %.not.i32 = icmp eq i64 %24, 0
+  br i1 %.not.i32, label %25, label %26
 
 25:                                               ; preds = %22
   store i64 %23, ptr @last_reset, align 8
@@ -137,7 +137,7 @@ _get_config.exit:                                 ; preds = %14, %11, %3
   %28 = fdiv double %27, 6.000000e+01
   %29 = fptosi double %28 to i32
   %30 = icmp slt i32 %29, 6
-  %.pre39 = load i32, ptr @thru_put_size, align 4
+  %.pre40 = load i32, ptr @thru_put_size, align 4
   br i1 %30, label %_reset_counters.exit, label %31
 
 31:                                               ; preds = %26
@@ -146,7 +146,7 @@ _get_config.exit:                                 ; preds = %14, %11, %3
   %34 = zext nneg i32 %33 to i64
   %35 = add nsw i64 %24, %34
   store i64 %35, ptr @last_reset, align 8
-  %36 = icmp sgt i32 %.pre39, 0
+  %36 = icmp sgt i32 %.pre40, 0
   br i1 %36, label %.lr.ph.i, label %._crit_edge
 
 .lr.ph.i:                                         ; preds = %31, %51
@@ -181,7 +181,7 @@ _get_config.exit:                                 ; preds = %14, %11, %3
   br i1 %54, label %.lr.ph.i, label %_reset_counters.exit, !llvm.loop !6
 
 _reset_counters.exit:                             ; preds = %51, %25, %26
-  %55 = phi i32 [ %.pre, %25 ], [ %.pre39, %26 ], [ %52, %51 ]
+  %55 = phi i32 [ %.pre, %25 ], [ %.pre40, %26 ], [ %52, %51 ]
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph, label %._crit_edge
 
@@ -201,8 +201,8 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %62 = getelementptr inbounds %struct.thru_put, ptr %57, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
-  %.not27 = icmp eq i32 %63, %59
-  br i1 %.not27, label %64, label %60
+  %.not28 = icmp eq i32 %63, %59
+  br i1 %.not28, label %64, label %60
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds %struct.thru_put, ptr %57, i64 %indvars.iv, i32 1
@@ -215,8 +215,8 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
   %70 = add nuw i32 %66, 1
   store i32 %70, ptr %65, align 4
   %71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
-  %.not30 = icmp eq i32 %71, 0
-  br i1 %.not30, label %98, label %72
+  %.not31 = icmp eq i32 %71, 0
+  br i1 %.not31, label %98, label %72
 
 72:                                               ; preds = %69
   %73 = tail call ptr @__errno_location() #9
@@ -225,8 +225,8 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
   unreachable
 
 74:                                               ; preds = %64
-  %.not28 = icmp eq ptr %2, null
-  br i1 %.not28, label %77, label %75
+  %.not29 = icmp eq ptr %2, null
+  br i1 %.not29, label %77, label %75
 
 75:                                               ; preds = %74
   %76 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.3) #8
@@ -235,8 +235,8 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
 
 77:                                               ; preds = %74, %75
   %78 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
-  %.not29 = icmp eq i32 %78, 0
-  br i1 %.not29, label %98, label %79
+  %.not30 = icmp eq i32 %78, 0
+  br i1 %.not30, label %98, label %79
 
 79:                                               ; preds = %77
   %80 = tail call ptr @__errno_location() #9
@@ -245,7 +245,7 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
   unreachable
 
 ._crit_edge:                                      ; preds = %60, %31, %_reset_counters.exit
-  %81 = phi i32 [ %55, %_reset_counters.exit ], [ %.pre39, %31 ], [ %55, %60 ]
+  %81 = phi i32 [ %55, %_reset_counters.exit ], [ %.pre40, %31 ], [ %55, %60 ]
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr @thru_put_size, align 4
   %83 = sext i32 %82 to i64
@@ -255,17 +255,18 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
   %86 = getelementptr inbounds i8, ptr %0, i64 712
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr @thru_put_size, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr %struct.thru_put, ptr %85, i64 %89
-  %91 = getelementptr i8, ptr %90, i64 -8
+  %89 = shl i32 %88, 1
+  %.scale = add i32 %89, -2
+  %90 = sext i32 %.scale to i64
+  %91 = getelementptr inbounds i32, ptr %85, i64 %90
   store i32 %87, ptr %91, align 4
   %92 = load ptr, ptr @thru_put_array, align 8
-  %93 = getelementptr %struct.thru_put, ptr %92, i64 %89
-  %94 = getelementptr i8, ptr %93, i64 -4
+  %93 = getelementptr inbounds i32, ptr %92, i64 %90
+  %94 = getelementptr inbounds i8, ptr %93, i64 4
   store i32 1, ptr %94, align 4
   %95 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @throttle_mutex) #8
-  %.not26 = icmp eq i32 %95, 0
-  br i1 %.not26, label %98, label %96
+  %.not27 = icmp eq i32 %95, 0
+  br i1 %.not27, label %98, label %96
 
 96:                                               ; preds = %._crit_edge
   %97 = tail call ptr @__errno_location() #9

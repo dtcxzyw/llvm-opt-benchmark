@@ -3,8 +3,8 @@ source_filename = "bench/gromacs/original/ga2la.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
 %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry" = type { i32, %"struct.gmx_ga2la_t::Entry", i32 }
+%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
 
 $_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE17_M_default_appendEm = comdat any
 
@@ -22,10 +22,10 @@ define void @_ZN11gmx_ga2la_tC2Eii(ptr noundef nonnull align 8 dereferenceable(4
   %8 = select i1 %5, i1 true, i1 %7
   %9 = zext i1 %8 to i8
   store i8 %9, ptr %4, align 8
-  br i1 %8, label %10, label %20
+  br i1 %8, label %10, label %22
 
 10:                                               ; preds = %3
-  %11 = sext i32 %1 to i64
+  %11 = zext i32 %1 to i64
   %12 = icmp slt i32 %1, 0
   br i1 %12, label %.noexc, label %_ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
@@ -48,65 +48,68 @@ _ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i: ; pred
   store ptr %15, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %15, i64 %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %15, i8 -1, i64 %14, i1 false)
+  %.scale = shl nuw nsw i32 %1, 1
+  %17 = zext nneg i32 %.scale to i64
+  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %18, ptr %19, align 8
+  %20 = shl nuw nsw i64 %17, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %15, i8 -1, i64 %20, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc8, %_ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i
-  %19 = phi ptr [ %13, %_ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %16, %.noexc8 ]
-  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %17, %.noexc8 ]
-  store ptr %.0.i.i.i.i.i.i.i, ptr %19, align 8
-  br label %37
+  %21 = phi ptr [ %13, %_ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %16, %.noexc8 ]
+  %.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN11gmx_ga2la_t5EntryESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %18, %.noexc8 ]
+  store ptr %.0.i.i.i.i.i.i.i, ptr %21, align 8
+  br label %39
 
-20:                                               ; preds = %3
-  %21 = sitofp i32 %2 to float
-  %22 = fmul float %21, 1.500000e+00
+22:                                               ; preds = %3
+  %23 = sitofp i32 %2 to float
+  %24 = fmul float %23, 1.500000e+00
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)
-  br label %23
+  br label %25
 
-23:                                               ; preds = %26, %20
-  %.07.i.i = phi i32 [ 64, %20 ], [ %27, %26 ]
-  %24 = uitofp nneg i32 %.07.i.i to float
-  %25 = fcmp ogt float %22, %24
-  br i1 %25, label %26, label %.critedge.i.i
+25:                                               ; preds = %28, %22
+  %.07.i.i = phi i32 [ 64, %22 ], [ %29, %28 ]
+  %26 = uitofp nneg i32 %.07.i.i to float
+  %27 = fcmp ogt float %24, %26
+  br i1 %27, label %28, label %.critedge.i.i
 
-26:                                               ; preds = %23
-  %27 = shl nuw nsw i32 %.07.i.i, 1
-  %28 = icmp ult i32 %.07.i.i, 536870912
-  br i1 %28, label %23, label %.critedge.i.i, !llvm.loop !5
+28:                                               ; preds = %25
+  %29 = shl nuw nsw i32 %.07.i.i, 1
+  %30 = icmp ult i32 %.07.i.i, 536870912
+  br i1 %30, label %25, label %.critedge.i.i, !llvm.loop !5
 
-.critedge.i.i:                                    ; preds = %26, %23
-  %.0.lcssa.i.i = phi i32 [ %27, %26 ], [ %.07.i.i, %23 ]
-  %29 = zext nneg i32 %.0.lcssa.i.i to i64
-  invoke void @_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %29)
-          to label %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEEC2Ei.exit unwind label %30
+.critedge.i.i:                                    ; preds = %28, %25
+  %.0.lcssa.i.i = phi i32 [ %29, %28 ], [ %.07.i.i, %25 ]
+  %31 = zext nneg i32 %.0.lcssa.i.i to i64
+  invoke void @_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %31)
+          to label %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEEC2Ei.exit unwind label %32
 
-30:                                               ; preds = %.critedge.i.i
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %.critedge.i.i
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %32 = load ptr, ptr %0, align 8
-  %.not.i.i.i4.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i4.i, label %.body, label %33
+  %34 = load ptr, ptr %0, align 8
+  %.not.i.i.i4.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i4.i, label %.body, label %35
 
-33:                                               ; preds = %30
-  tail call void @_ZdlPv(ptr noundef nonnull %32) #10
+35:                                               ; preds = %32
+  tail call void @_ZdlPv(ptr noundef nonnull %34) #10
   br label %.body
 
 _ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEEC2Ei.exit: ; preds = %.critedge.i.i
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
-  %36 = add nsw i32 %.0.lcssa.i.i, -1
-  store i32 %36, ptr %35, align 8
-  store i32 %.0.lcssa.i.i, ptr %34, align 4
-  br label %37
+  %36 = getelementptr inbounds i8, ptr %0, i64 28
+  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = add nsw i32 %.0.lcssa.i.i, -1
+  store i32 %38, ptr %37, align 8
+  store i32 %.0.lcssa.i.i, ptr %36, align 4
+  br label %39
 
-37:                                               ; preds = %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEEC2Ei.exit, %.loopexit
+39:                                               ; preds = %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEEC2Ei.exit, %.loopexit
   ret void
 
-.body:                                            ; preds = %30, %33
-  resume { ptr, i32 } %31
+.body:                                            ; preds = %32, %35
+  resume { ptr, i32 } %33
 }
 
 declare i32 @__gxx_personality_v0(...)

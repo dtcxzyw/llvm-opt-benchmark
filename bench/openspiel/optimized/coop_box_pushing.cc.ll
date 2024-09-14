@@ -28,12 +28,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.absl::debian2::AlphaNum" = type { %"class.absl::debian2::string_view", [32 x i8] }
 %"class.absl::debian2::string_view" = type { ptr, i64 }
-%"struct.std::pair.9" = type { i32, i32 }
 %struct._Guard = type { ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
+%"struct.std::pair.9" = type { i32, i32 }
 %"class.std::vector.16" = type { %"struct.std::_Vector_base.17" }
 %"struct.std::_Vector_base.17" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
@@ -1403,13 +1403,15 @@ switch.lookup:                                    ; preds = %4
   store i8 %switch.masked, ptr %26, align 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = sext i32 %2 to i64
-  %29 = getelementptr inbounds [2 x %"struct.std::pair.9"], ptr %27, i64 0, i64 %28
-  store i32 %.sroa.0.0.extract.trunc, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 %.sroa.2.0.extract.trunc, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %32 = getelementptr inbounds [2 x i32], ptr %31, i64 0, i64 %28
-  store i32 %3, ptr %32, align 4
+  %.scale = shl nsw i32 %2, 1
+  %29 = sext i32 %.scale to i64
+  %30 = getelementptr inbounds i32, ptr %27, i64 %29
+  store i32 %.sroa.0.0.extract.trunc, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 %.sroa.2.0.extract.trunc, ptr %31, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %33 = getelementptr inbounds [2 x i32], ptr %32, i64 0, i64 %28
+  store i32 %3, ptr %33, align 4
   ret void
 }
 
@@ -3285,89 +3287,91 @@ define noundef range(i32 0, 5) i32 @_ZNK10open_spiel16coop_box_pushing19CoopBoxP
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds [2 x %"struct.std::pair.9"], ptr %5, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %10 = getelementptr inbounds [2 x i32], ptr %9, i64 0, i64 %6
-  %11 = load i32, ptr %10, align 4
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_111row_offsetsE, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
-  %15 = add nsw i32 %14, %8
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_111col_offsetsE, i64 0, i64 %12
-  %19 = load i32, ptr %18, align 4
-  %20 = add nsw i32 %19, %17
-  %.sroa.4.0.insert.ext27 = zext i32 %20 to i64
+  %.scale = shl nsw i32 %1, 1
+  %7 = sext i32 %.scale to i64
+  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %9 = load i32, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %11 = getelementptr inbounds [2 x i32], ptr %10, i64 0, i64 %6
+  %12 = load i32, ptr %11, align 4
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_111row_offsetsE, i64 0, i64 %13
+  %15 = load i32, ptr %14, align 4
+  %16 = add nsw i32 %15, %9
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds [4 x i32], ptr @_ZN10open_spiel16coop_box_pushing12_GLOBAL__N_111col_offsetsE, i64 0, i64 %13
+  %20 = load i32, ptr %19, align 4
+  %21 = add nsw i32 %20, %18
+  %.sroa.4.0.insert.ext27 = zext i32 %21 to i64
   %.sroa.4.0.insert.shift28 = shl nuw i64 %.sroa.4.0.insert.ext27, 32
-  %.sroa.0.0.insert.ext20 = zext i32 %15 to i64
+  %.sroa.0.0.insert.ext20 = zext i32 %16 to i64
   %.sroa.0.0.insert.insert22 = or disjoint i64 %.sroa.4.0.insert.shift28, %.sroa.0.0.insert.ext20
-  %21 = icmp slt i32 %15, 8
-  %22 = and i64 %.sroa.0.0.insert.insert22, -32212254720
-  %23 = icmp eq i64 %22, 0
-  %spec.select.i = and i1 %21, %23
-  br i1 %spec.select.i, label %24, label %45
+  %22 = icmp slt i32 %16, 8
+  %23 = and i64 %.sroa.0.0.insert.insert22, -32212254720
+  %24 = icmp eq i64 %23, 0
+  %spec.select.i = and i1 %22, %24
+  br i1 %spec.select.i, label %25, label %46
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %26 = shl nsw i32 %15, 3
-  %27 = add nsw i32 %20, %26
-  %28 = sext i32 %27 to i64
-  %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 %28
-  %31 = load i8, ptr %30, align 1
-  switch i8 %31, label %35 [
-    i8 46, label %45
-    i8 60, label %32
-    i8 62, label %32
-    i8 94, label %32
-    i8 118, label %32
-    i8 98, label %33
-    i8 66, label %34
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %27 = shl nsw i32 %16, 3
+  %28 = add nsw i32 %21, %27
+  %29 = sext i32 %28 to i64
+  %30 = load ptr, ptr %26, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 %29
+  %32 = load i8, ptr %31, align 1
+  switch i8 %32, label %36 [
+    i8 46, label %46
+    i8 60, label %33
+    i8 62, label %33
+    i8 94, label %33
+    i8 118, label %33
+    i8 98, label %34
+    i8 66, label %35
   ]
 
-32:                                               ; preds = %24, %24, %24, %24
-  br label %45
+33:                                               ; preds = %25, %25, %25, %25
+  br label %46
 
-33:                                               ; preds = %24
-  br label %45
+34:                                               ; preds = %25
+  br label %46
 
-34:                                               ; preds = %24
-  br label %45
+35:                                               ; preds = %25
+  br label %46
 
-35:                                               ; preds = %24
-  %36 = sext i8 %31 to i32
-  call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %36) #27
-  %37 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, ptr noundef nonnull @.str.35)
-          to label %38 unwind label %40
+36:                                               ; preds = %25
+  %37 = sext i8 %32 to i32
+  call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %37) #27
+  %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, ptr noundef nonnull @.str.35)
+          to label %39 unwind label %41
 
-38:                                               ; preds = %35
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %37) #27
+39:                                               ; preds = %36
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %38) #27
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-          to label %39 unwind label %42
+          to label %40 unwind label %43
 
-39:                                               ; preds = %38
+40:                                               ; preds = %39
   unreachable
 
-40:                                               ; preds = %35
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %36
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %45
 
-42:                                               ; preds = %38
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %39
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
-  br label %44
+  br label %45
 
-44:                                               ; preds = %42, %40
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
+45:                                               ; preds = %43, %41
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   resume { ptr, i32 } %.pn
 
-45:                                               ; preds = %24, %2, %34, %33, %32
-  %.010 = phi i32 [ 4, %34 ], [ 3, %33 ], [ 2, %32 ], [ 1, %2 ], [ 0, %24 ]
+46:                                               ; preds = %25, %2, %35, %34, %33
+  %.010 = phi i32 [ 4, %35 ], [ 3, %34 ], [ 2, %33 ], [ 1, %2 ], [ 0, %25 ]
   ret i32 %.010
 }
 
@@ -3885,8 +3889,9 @@ define noundef zeroext i1 @_ZNK10open_spiel16coop_box_pushing19CoopBoxPushingSta
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds [2 x %"struct.std::pair.9"], ptr %4, i64 0, i64 %5
+  %.scale = shl nsw i32 %2, 1
+  %5 = sext i32 %.scale to i64
+  %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %.sroa.0.0.extract.trunc
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -3927,8 +3932,9 @@ define noundef range(i32 -1, 11) i32 @_ZNK10open_spiel16coop_box_pushing19CoopBo
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds [2 x %"struct.std::pair.9"], ptr %15, i64 0, i64 %16
+  %.scale.i = shl nsw i32 %2, 1
+  %16 = sext i32 %.scale.i to i64
+  %17 = getelementptr inbounds i32, ptr %15, i64 %16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, %.sroa.0.0.extract.trunc.i
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -3940,8 +3946,9 @@ define noundef range(i32 -1, 11) i32 @_ZNK10open_spiel16coop_box_pushing19CoopBo
 
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %27 = sext i32 %2 to i64
-  %28 = getelementptr inbounds [2 x %"struct.std::pair.9"], ptr %26, i64 0, i64 %27
+  %.scale.i24 = shl nsw i32 %2, 1
+  %27 = sext i32 %.scale.i24 to i64
+  %28 = getelementptr inbounds i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, %.sroa.0.0.extract.trunc.i
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -3953,8 +3960,9 @@ define noundef range(i32 -1, 11) i32 @_ZNK10open_spiel16coop_box_pushing19CoopBo
 
 36:                                               ; preds = %3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %38 = sext i32 %2 to i64
-  %39 = getelementptr inbounds [2 x %"struct.std::pair.9"], ptr %37, i64 0, i64 %38
+  %.scale.i28 = shl nsw i32 %2, 1
+  %38 = sext i32 %.scale.i28 to i64
+  %39 = getelementptr inbounds i32, ptr %37, i64 %38
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %.sroa.0.0.extract.trunc.i
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -3966,8 +3974,9 @@ define noundef range(i32 -1, 11) i32 @_ZNK10open_spiel16coop_box_pushing19CoopBo
 
 47:                                               ; preds = %3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %49 = sext i32 %2 to i64
-  %50 = getelementptr inbounds [2 x %"struct.std::pair.9"], ptr %48, i64 0, i64 %49
+  %.scale.i32 = shl nsw i32 %2, 1
+  %49 = sext i32 %.scale.i32 to i64
+  %50 = getelementptr inbounds i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, %.sroa.0.0.extract.trunc.i
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 4

@@ -102,14 +102,16 @@ mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %4
 10:                                               ; preds = %mca_coll_han_algorithm_id_is_valid.exit
   %11 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %7
   %12 = load ptr, ptr %11, align 8
-  %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr %struct.mca_coll_han_algorithm_value_s, ptr %12, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 -8
-  %16 = load ptr, ptr %15, align 8
+  %13 = shl nuw i32 %1, 1
+  %.scale = add i32 %13, -2
+  %14 = sext i32 %.scale to i64
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8
   br label %mca_coll_han_algorithm_id_is_valid.exit.thread
 
 mca_coll_han_algorithm_id_is_valid.exit.thread:   ; preds = %4, %2, %mca_coll_han_algorithm_id_is_valid.exit, %10
-  %.0 = phi ptr [ %16, %10 ], [ null, %mca_coll_han_algorithm_id_is_valid.exit ], [ null, %2 ], [ null, %4 ]
+  %.0 = phi ptr [ %17, %10 ], [ null, %mca_coll_han_algorithm_id_is_valid.exit ], [ null, %2 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -134,9 +136,10 @@ mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %2
 10:                                               ; preds = %8
   %11 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %5
   %12 = load ptr, ptr %11, align 8
-  %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr %struct.mca_coll_han_algorithm_value_s, ptr %12, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 -16
+  %13 = shl nuw i32 %1, 1
+  %.scale = add i32 %13, -2
+  %14 = sext i32 %.scale to i64
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %mca_coll_han_algorithm_id_is_valid.exit.thread
 

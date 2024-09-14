@@ -22,7 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.RedisModuleDefragCtx = type { i64, ptr, ptr, i32 }
 %struct.AutoMemEntry = type { ptr, i32 }
 %struct.RedisModuleCtx = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.keyReference = type { i32, i32 }
 %struct.commandHistory = type { ptr, ptr }
 %struct.keySpec = type { ptr, i64, i32, %union.anon.3, i32, %union.anon.6 }
 %union.anon.3 = type { %struct.anon.5 }
@@ -59,6 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct.configEnum = type { ptr, i32 }
 %struct.getKeysResult = type { [256 x %struct.keyReference], ptr, i32, i32 }
+%struct.keyReference = type { i32, i32 }
 %struct.RedisModuleCommandArg = type { ptr, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr }
 
 @moduleTempClientCount = internal unnamed_addr global i64 0, align 8
@@ -1986,8 +1986,9 @@ if.end12:                                         ; preds = %if.then7, %if.end4
   %4 = phi i32 [ %.pre, %if.then7 ], [ %2, %if.end4 ]
   %keys = getelementptr inbounds i8, ptr %1, i64 2048
   %5 = load ptr, ptr %keys, align 8
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %struct.keyReference, ptr %5, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %4, 1
+  %6 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i32, ptr %5, i64 %6
   store i32 %pos, ptr %arrayidx, align 4
   %conv = sext i32 %flags to i64
   br label %for.body.i
@@ -1996,15 +1997,15 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end1
   %indvars.iv.i = phi i64 [ 0, %if.end12 ], [ %indvars.iv.next.i, %for.inc.i ]
   %out.06.i = phi i64 [ 0, %if.end12 ], [ %out.1.i, %for.inc.i ]
   %arrayidx7.i = getelementptr inbounds [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.i, i64 0
-  %6 = load i64, ptr %arrayidx7.i, align 16
-  %and.i = and i64 %6, %conv
+  %7 = load i64, ptr %arrayidx7.i, align 16
+  %and.i = and i64 %7, %conv
   %tobool8.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool8.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   %arrayidx12.i = getelementptr inbounds [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.i, i64 1
-  %7 = load i64, ptr %arrayidx12.i, align 8
-  %or.i = or i64 %7, %out.06.i
+  %8 = load i64, ptr %arrayidx12.i, align 8
+  %or.i = or i64 %8, %out.06.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -2015,13 +2016,15 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i
   %conv16 = trunc i64 %out.1.i to i32
-  %8 = load ptr, ptr %keys, align 8
-  %9 = load i32, ptr %numkeys, align 8
-  %idxprom19 = sext i32 %9 to i64
-  %flags21 = getelementptr inbounds %struct.keyReference, ptr %8, i64 %idxprom19, i32 1
-  store i32 %conv16, ptr %flags21, align 4
+  %9 = load ptr, ptr %keys, align 8
   %10 = load i32, ptr %numkeys, align 8
-  %inc = add nsw i32 %10, 1
+  %idxprom19.scale = shl nsw i32 %10, 1
+  %11 = sext i32 %idxprom19.scale to i64
+  %arrayidx20 = getelementptr inbounds i32, ptr %9, i64 %11
+  %flags21 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
+  store i32 %conv16, ptr %flags21, align 4
+  %12 = load i32, ptr %numkeys, align 8
+  %inc = add nsw i32 %12, 1
   store i32 %inc, ptr %numkeys, align 8
   br label %return
 
@@ -2088,8 +2091,9 @@ if.end12.i:                                       ; preds = %if.then7.i, %if.end
   %7 = phi i32 [ %.pre.i, %if.then7.i ], [ %5, %if.end4.i ]
   %keys.i = getelementptr inbounds i8, ptr %4, i64 2048
   %8 = load ptr, ptr %keys.i, align 8
-  %idxprom.i = sext i32 %7 to i64
-  %arrayidx.i = getelementptr inbounds %struct.keyReference, ptr %8, i64 %idxprom.i
+  %idxprom.scale.i = shl nsw i32 %7, 1
+  %9 = sext i32 %idxprom.scale.i to i64
+  %arrayidx.i = getelementptr inbounds i32, ptr %8, i64 %9
   store i32 %pos, ptr %arrayidx.i, align 4
   %sext = shl i64 %out.1.i, 32
   %conv.i = ashr exact i64 %sext, 32
@@ -2099,15 +2103,15 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %indvars.iv.i.i = phi i64 [ 0, %if.end12.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %out.06.i.i = phi i64 [ 0, %if.end12.i ], [ %out.1.i.i, %for.inc.i.i ]
   %arrayidx7.i.i = getelementptr inbounds [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.i.i, i64 0
-  %9 = load i64, ptr %arrayidx7.i.i, align 16
-  %and.i.i = and i64 %9, %conv.i
+  %10 = load i64, ptr %arrayidx7.i.i, align 16
+  %and.i.i = and i64 %10, %conv.i
   %tobool8.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool8.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %arrayidx12.i.i = getelementptr inbounds [12 x [2 x i64]], ptr @__const.moduleConvertKeySpecsFlags.map, i64 0, i64 %indvars.iv.i.i, i64 1
-  %10 = load i64, ptr %arrayidx12.i.i, align 8
-  %or.i.i = or i64 %10, %out.06.i.i
+  %11 = load i64, ptr %arrayidx12.i.i, align 8
+  %or.i.i = or i64 %11, %out.06.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
@@ -2118,13 +2122,15 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
 
 moduleConvertKeySpecsFlags.exit.i:                ; preds = %for.inc.i.i
   %conv16.i = trunc i64 %out.1.i.i to i32
-  %11 = load ptr, ptr %keys.i, align 8
-  %12 = load i32, ptr %numkeys.i, align 8
-  %idxprom19.i = sext i32 %12 to i64
-  %flags21.i = getelementptr inbounds %struct.keyReference, ptr %11, i64 %idxprom19.i, i32 1
-  store i32 %conv16.i, ptr %flags21.i, align 4
+  %12 = load ptr, ptr %keys.i, align 8
   %13 = load i32, ptr %numkeys.i, align 8
-  %inc.i = add nsw i32 %13, 1
+  %idxprom19.scale.i = shl nsw i32 %13, 1
+  %14 = sext i32 %idxprom19.scale.i to i64
+  %arrayidx20.i = getelementptr inbounds i32, ptr %12, i64 %14
+  %flags21.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 4
+  store i32 %conv16.i, ptr %flags21.i, align 4
+  %15 = load i32, ptr %numkeys.i, align 8
+  %inc.i = add nsw i32 %15, 1
   store i32 %inc.i, ptr %numkeys.i, align 8
   br label %RM_KeyAtPosWithFlags.exit
 
@@ -2186,16 +2192,19 @@ if.end12:                                         ; preds = %if.then7, %if.end4
   %new_flags.3 = or disjoint i32 %new_flags.2, %7
   %keys = getelementptr inbounds i8, ptr %1, i64 2048
   %8 = load ptr, ptr %keys, align 8
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %struct.keyReference, ptr %8, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %4, 1
+  %9 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i32, ptr %8, i64 %9
   store i32 %pos, ptr %arrayidx, align 4
-  %9 = load ptr, ptr %keys, align 8
-  %10 = load i32, ptr %numkeys, align 8
-  %idxprom47 = sext i32 %10 to i64
-  %flags49 = getelementptr inbounds %struct.keyReference, ptr %9, i64 %idxprom47, i32 1
-  store i32 %new_flags.3, ptr %flags49, align 4
+  %10 = load ptr, ptr %keys, align 8
   %11 = load i32, ptr %numkeys, align 8
-  %inc = add nsw i32 %11, 1
+  %idxprom47.scale = shl nsw i32 %11, 1
+  %12 = sext i32 %idxprom47.scale to i64
+  %arrayidx48 = getelementptr inbounds i32, ptr %10, i64 %12
+  %flags49 = getelementptr inbounds i8, ptr %arrayidx48, i64 4
+  store i32 %new_flags.3, ptr %flags49, align 4
+  %13 = load i32, ptr %numkeys, align 8
+  %inc = add nsw i32 %13, 1
   store i32 %inc, ptr %numkeys, align 8
   br label %return
 

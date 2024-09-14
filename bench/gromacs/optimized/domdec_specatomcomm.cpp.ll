@@ -25,8 +25,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.102" = type { %"struct.std::_Tuple_impl.103" }
 %"struct.std::_Tuple_impl.103" = type { %"struct.std::_Head_base.106" }
 %"struct.std::_Head_base.106" = type { ptr }
-%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
 %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry" = type { i32, %"struct.gmx_ga2la_t::Entry", i32 }
+%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
 %"struct.gmx::HashedMap<int>::hashEntry" = type { i32, i32, i32 }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
@@ -1379,9 +1379,10 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit268:             ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %218, label %219, label %226
 
 219:                                              ; preds = %210
-  %220 = sext i32 %214 to i64
-  %221 = load ptr, ptr %215, align 8
-  %222 = getelementptr inbounds %"struct.gmx_ga2la_t::Entry", ptr %221, i64 %220
+  %220 = load ptr, ptr %215, align 8
+  %.scale.i.i = shl nsw i32 %214, 1
+  %221 = sext i32 %.scale.i.i to i64
+  %222 = getelementptr inbounds i32, ptr %220, i64 %221
   %223 = getelementptr inbounds i8, ptr %222, i64 4
   %224 = load i32, ptr %223, align 4
   %225 = icmp eq i32 %224, -1

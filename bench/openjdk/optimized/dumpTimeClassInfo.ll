@@ -304,7 +304,8 @@ define hidden void @_ZN17DumpTimeClassInfo27add_verification_constraintEP13Insta
 
 42:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %43 = getelementptr inbounds %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %40, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %2
   %46 = getelementptr inbounds i8, ptr %43, i64 8
@@ -493,8 +494,9 @@ _ZN6Symbol24maybe_increment_refcountEPS_.exit.i:  ; preds = %21, %15
 _ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit: ; preds = %_ZN6Symbol24maybe_increment_refcountEPS_.exit.i, %22
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %16 to i64
-  %26 = getelementptr inbounds %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %24, i64 %25
+  %.scale = shl nsw i32 %16, 1
+  %25 = sext i32 %.scale to i64
+  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   store ptr %18, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 8

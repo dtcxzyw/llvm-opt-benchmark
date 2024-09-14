@@ -190,22 +190,23 @@ for.body:                                         ; preds = %entry, %for.body
   %n.037 = phi i32 [ %n.1, %for.body ], [ 0, %entry ]
   %4 = load ptr, ptr %mt, align 8
   %arrayidx = getelementptr inbounds %struct.reftable_table, ptr %4, i64 %indvars.iv
-  %idxprom13 = zext nneg i32 %n.037 to i64
-  %arrayidx14 = getelementptr inbounds %struct.reftable_iterator, ptr %call, i64 %idxprom13
+  %idxprom13.scale = shl nuw nsw i32 %n.037, 1
+  %5 = zext nneg i32 %idxprom13.scale to i64
+  %arrayidx14 = getelementptr inbounds ptr, ptr %call, i64 %5
   %arrayidx.val = load ptr, ptr %arrayidx, align 8
-  %5 = getelementptr i8, ptr %arrayidx, i64 8
-  %arrayidx.val23 = load ptr, ptr %5, align 8
+  %6 = getelementptr i8, ptr %arrayidx, i64 8
+  %arrayidx.val23 = load ptr, ptr %6, align 8
   %arrayidx.val.val = load ptr, ptr %arrayidx.val, align 8
   %call.i = tail call i32 %arrayidx.val.val(ptr noundef %arrayidx.val23, ptr noundef %arrayidx14, ptr noundef %rec) #10
   %cmp18 = icmp eq i32 %call.i, 0
   %inc = zext i1 %cmp18 to i32
   %n.1 = add nuw nsw i32 %n.037, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = load i64, ptr %stack_len, align 8
-  %cmp = icmp ugt i64 %6, %indvars.iv.next
+  %7 = load i64, ptr %stack_len, align 8
+  %cmp = icmp ugt i64 %7, %indvars.iv.next
   %cmp10 = icmp sgt i32 %call.i, -1
-  %7 = and i1 %cmp10, %cmp
-  br i1 %7, label %for.body, label %for.end, !llvm.loop !7
+  %8 = and i1 %cmp10, %cmp
+  br i1 %8, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
   %spec.select = tail call i32 @llvm.smin.i32(i32 %call.i, i32 0)
@@ -246,10 +247,10 @@ for.body.lr.ph.i:                                 ; preds = %if.end36
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %8 = load i8, ptr %typ, align 8
-  call void @reftable_new_record(ptr nonnull sret(%struct.reftable_record) align 8 %rec.i, i8 noundef zeroext %8) #10
-  %9 = load ptr, ptr %merged, align 8
-  %arrayidx.i = getelementptr inbounds %struct.reftable_iterator, ptr %9, i64 %indvars.iv.i
+  %9 = load i8, ptr %typ, align 8
+  call void @reftable_new_record(ptr nonnull sret(%struct.reftable_record) align 8 %rec.i, i8 noundef zeroext %9) #10
+  %10 = load ptr, ptr %merged, align 8
+  %arrayidx.i = getelementptr inbounds %struct.reftable_iterator, ptr %10, i64 %indvars.iv.i
   %call.i24 = call i32 @iterator_next(ptr noundef %arrayidx.i, ptr noundef nonnull %rec.i) #10
   %cmp2.i = icmp slt i32 %call.i24, 0
   br i1 %cmp2.i, label %if.then42, label %if.end.i
@@ -259,46 +260,46 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp4.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %10 = load ptr, ptr %merged, align 8
-  %arrayidx9.i = getelementptr inbounds %struct.reftable_iterator, ptr %10, i64 %indvars.iv.i
+  %11 = load ptr, ptr %merged, align 8
+  %arrayidx9.i = getelementptr inbounds %struct.reftable_iterator, ptr %11, i64 %indvars.iv.i
   call void @reftable_iterator_destroy(ptr noundef %arrayidx9.i) #10
   call void @reftable_record_release(ptr noundef nonnull %rec.i) #10
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %11 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %11, ptr %e.i, align 8
+  %12 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %12, ptr %e.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %rec10.i, ptr noundef nonnull align 8 dereferenceable(96) %rec.i, i64 96, i1 false)
   call void @merged_iter_pqueue_add(ptr noundef nonnull %pq, ptr noundef nonnull %e.i) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then6.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = load i64, ptr %stack_len2, align 8
-  %cmp.i = icmp ugt i64 %12, %indvars.iv.next.i
+  %13 = load i64, ptr %stack_len2, align 8
+  %cmp.i = icmp ugt i64 %13, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %if.else, !llvm.loop !9
 
 if.then42:                                        ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %rec.i)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %e.i)
   call void @merged_iter_pqueue_release(ptr noundef nonnull %pq) #10
-  %13 = load i64, ptr %stack_len2, align 8
-  %cmp8.not.i = icmp eq i64 %13, 0
+  %14 = load i64, ptr %stack_len2, align 8
+  %cmp8.not.i = icmp eq i64 %14, 0
   br i1 %cmp8.not.i, label %merged_iter_close.exit, label %for.body.i27
 
 for.body.i27:                                     ; preds = %if.then42, %for.body.i27
   %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i30, %for.body.i27 ], [ 0, %if.then42 ]
-  %14 = load ptr, ptr %merged, align 8
-  %arrayidx.i29 = getelementptr inbounds %struct.reftable_iterator, ptr %14, i64 %indvars.iv.i28
+  %15 = load ptr, ptr %merged, align 8
+  %arrayidx.i29 = getelementptr inbounds %struct.reftable_iterator, ptr %15, i64 %indvars.iv.i28
   call void @reftable_iterator_destroy(ptr noundef %arrayidx.i29) #10
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
-  %15 = load i64, ptr %stack_len2, align 8
-  %cmp.i31 = icmp ugt i64 %15, %indvars.iv.next.i30
+  %16 = load i64, ptr %stack_len2, align 8
+  %cmp.i31 = icmp ugt i64 %16, %indvars.iv.next.i30
   br i1 %cmp.i31, label %for.body.i27, label %merged_iter_close.exit, !llvm.loop !10
 
 merged_iter_close.exit:                           ; preds = %for.body.i27, %if.then42
-  %16 = load ptr, ptr %merged, align 8
-  call void @reftable_free(ptr noundef %16) #10
+  %17 = load ptr, ptr %merged, align 8
+  call void @reftable_free(ptr noundef %17) #10
   call void @strbuf_release(ptr noundef nonnull %key) #10
   call void @strbuf_release(ptr noundef nonnull %entry_key) #10
   br label %return

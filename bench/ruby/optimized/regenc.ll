@@ -658,43 +658,46 @@ onigenc_ascii_apply_all_case_fold.exit:           ; preds = %10
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-20:                                               ; preds = %26
+20:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
-  %23 = load i32, ptr %22, align 4
-  store i32 %23, ptr %9, align 4
-  %24 = load i32, ptr %21, align 4
-  %25 = call i32 %4(i32 noundef %24, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %5) #11
-  %.not33 = icmp eq i32 %25, 0
-  br i1 %.not33, label %26, label %.loopexit
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %21 = shl i32 %indvars.iv.tr, 1
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr i32, ptr %1, i64 %22
+  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = load i32, ptr %24, align 4
+  store i32 %25, ptr %9, align 4
+  %26 = load i32, ptr %23, align 4
+  %27 = call i32 %4(i32 noundef %26, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %5) #11
+  %.not33 = icmp eq i32 %27, 0
+  br i1 %.not33, label %28, label %.loopexit
 
-26:                                               ; preds = %.lr.ph
-  %27 = load i32, ptr %21, align 4
-  store i32 %27, ptr %9, align 4
-  %28 = load i32, ptr %22, align 4
-  %29 = call i32 %4(i32 noundef %28, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %5) #11
-  %.not34 = icmp eq i32 %29, 0
+28:                                               ; preds = %.lr.ph
+  %29 = load i32, ptr %23, align 4
+  store i32 %29, ptr %9, align 4
+  %30 = load i32, ptr %24, align 4
+  %31 = call i32 %4(i32 noundef %30, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %5) #11
+  %.not34 = icmp eq i32 %31, 0
   br i1 %.not34, label %20, label %.loopexit
 
 ._crit_edge:                                      ; preds = %20, %onigenc_ascii_apply_all_case_fold.exit
   %.not32 = icmp eq i32 %2, 0
-  br i1 %.not32, label %.loopexit, label %30
+  br i1 %.not32, label %.loopexit, label %32
 
-30:                                               ; preds = %._crit_edge
+32:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 493921239155, ptr %7, align 8
-  %31 = call i32 %4(i32 noundef 223, ptr noundef nonnull %7, i32 noundef 2, ptr noundef %5) #11
+  %33 = call i32 %4(i32 noundef 223, ptr noundef nonnull %7, i32 noundef 2, ptr noundef %5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %.lr.ph, %onigenc_ascii_apply_all_case_fold.exit.thread, %._crit_edge, %30
-  %.028 = phi i32 [ %31, %30 ], [ 0, %._crit_edge ], [ %.014.i.ph, %onigenc_ascii_apply_all_case_fold.exit.thread ], [ %29, %26 ], [ %25, %.lr.ph ]
+.loopexit:                                        ; preds = %28, %.lr.ph, %onigenc_ascii_apply_all_case_fold.exit.thread, %._crit_edge, %32
+  %.028 = phi i32 [ %33, %32 ], [ 0, %._crit_edge ], [ %.014.i.ph, %onigenc_ascii_apply_all_case_fold.exit.thread ], [ %31, %28 ], [ %27, %.lr.ph ]
   ret i32 %.028
 }
 
@@ -825,45 +828,48 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
   store i32 83, ptr %65, align 4
   br label %.loopexit.sink.split
 
-66:                                               ; preds = %75
+66:                                               ; preds = %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %67, !llvm.loop !15
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %68 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, %50
-  br i1 %70, label %71, label %75
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %68 = shl i32 %indvars.iv.tr, 1
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr i32, ptr %1, i64 %69
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, %50
+  br i1 %72, label %73, label %77
 
-71:                                               ; preds = %67
+73:                                               ; preds = %67
   store i32 1, ptr %6, align 4
-  %72 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 1, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %68, i64 4
-  %74 = load i32, ptr %73, align 4
+  %74 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 1, ptr %74, align 4
+  %75 = getelementptr inbounds i8, ptr %70, i64 4
+  %76 = load i32, ptr %75, align 4
   br label %.loopexit.sink.split
 
-75:                                               ; preds = %67
-  %76 = getelementptr inbounds i8, ptr %68, i64 4
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, %50
-  br i1 %78, label %79, label %66
+77:                                               ; preds = %67
+  %78 = getelementptr inbounds i8, ptr %70, i64 4
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp eq i32 %79, %50
+  br i1 %80, label %81, label %66
 
-79:                                               ; preds = %75
+81:                                               ; preds = %77
   store i32 1, ptr %6, align 4
-  %80 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 1, ptr %80, align 4
-  %81 = load i32, ptr %68, align 4
+  %82 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 1, ptr %82, align 4
+  %83 = load i32, ptr %70, align 4
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %24, %43, %51, %71, %79
-  %.sink90 = phi i64 [ 8, %79 ], [ 8, %71 ], [ 72, %51 ], [ 28, %43 ], [ 28, %24 ]
-  %.sink = phi i32 [ %81, %79 ], [ %74, %71 ], [ 115, %51 ], [ 223, %43 ], [ 223, %24 ]
-  %.072.ph = phi i32 [ 1, %79 ], [ 1, %71 ], [ 4, %51 ], [ 2, %43 ], [ 2, %24 ]
-  %82 = getelementptr i8, ptr %6, i64 %.sink90
-  store i32 %.sink, ptr %82, align 4
+.loopexit.sink.split:                             ; preds = %24, %43, %51, %73, %81
+  %.sink91 = phi i64 [ 8, %81 ], [ 8, %73 ], [ 72, %51 ], [ 28, %43 ], [ 28, %24 ]
+  %.sink = phi i32 [ %83, %81 ], [ %76, %73 ], [ 115, %51 ], [ 223, %43 ], [ 223, %24 ]
+  %.072.ph = phi i32 [ 1, %81 ], [ 1, %73 ], [ 4, %51 ], [ 2, %43 ], [ 2, %24 ]
+  %84 = getelementptr i8, ptr %6, i64 %.sink91
+  store i32 %.sink, ptr %84, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %.loopexit.sink.split, %.preheader, %29, %38, %41, %10, %19, %22

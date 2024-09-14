@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.std::pair" = type { %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", %"class.pxrInternal_v0_24__pxrReserved__::SdfPath" }
 %"class.pxrInternal_v0_24__pxrReserved__::SdfPath" = type { %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathNodeHandleImpl", %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathNodeHandleImpl.0" }
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_PathNodeHandleImpl" = type { %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPrimTag, 24, 8>::Handle" }
 %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_Pool<pxrInternal_v0_24__pxrReserved__::Sdf_PathPrimTag, 24, 8>::Handle" = type { i32 }
@@ -222,8 +221,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %2
   br i1 %40, label %41, label %56
 
 41:                                               ; preds = %34
-  %42 = sext i32 %36 to i64
-  %43 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 %42
+  %.scale.i.i.i = shl nsw i32 %36, 1
+  %42 = sext i32 %.scale.i.i.i to i64
+  %43 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %6, i64 %42
   %.not14.i.i.i = icmp eq i32 %36, 0
   br i1 %.not14.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -436,8 +436,9 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_ComposeMap
   br i1 %24, label %25, label %62
 
 25:                                               ; preds = %3
-  %26 = sext i32 %19 to i64
-  %27 = getelementptr inbounds %"struct.std::pair", ptr %16, i64 %26
+  %.scale.i.i = shl nsw i32 %19, 1
+  %26 = sext i32 %.scale.i.i to i64
+  %27 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %16, i64 %26
   %.not9.i.i.i.i.i = icmp eq i32 %19, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionC2ERKS0_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -731,7 +732,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 
 156:                                              ; preds = %155
   %.not.i.i23 = icmp eq ptr %0, %12
-  br i1 %.not.i.i23, label %.loopexit34, label %157
+  br i1 %.not.i.i23, label %.loopexit35, label %157
 
 157:                                              ; preds = %156
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
@@ -746,10 +747,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   br i1 %163, label %164, label %179
 
 164:                                              ; preds = %157
-  %165 = sext i32 %159 to i64
-  %166 = getelementptr inbounds %"struct.std::pair", ptr %12, i64 %165
+  %.scale.i.i.i = shl nsw i32 %159, 1
+  %165 = sext i32 %.scale.i.i.i to i64
+  %166 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %12, i64 %165
   %.not14.i.i.i = icmp eq i32 %159, 0
-  br i1 %.not14.i.i.i, label %.loopexit34, label %.lr.ph.i.i.i
+  br i1 %.not14.i.i.i, label %.loopexit35, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %164, %.lr.ph.i.i.i
   %.016.i.i.i = phi ptr [ %178, %.lr.ph.i.i.i ], [ %0, %164 ]
@@ -775,7 +777,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   %177 = getelementptr inbounds i8, ptr %.01315.i.i.i, i64 16
   %178 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 16
   %.not.i.i.i24 = icmp eq ptr %177, %166
-  br i1 %.not.i.i.i24, label %.loopexit34, label %.lr.ph.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i24, label %.loopexit35, label %.lr.ph.i.i.i, !llvm.loop !4
 
 179:                                              ; preds = %157
   %180 = load ptr, ptr %12, align 8
@@ -786,9 +788,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   store ptr null, ptr %182, align 8
   store ptr %183, ptr %181, align 8
   store ptr null, ptr %12, align 8
-  br label %.loopexit34
+  br label %.loopexit35
 
-.loopexit34:                                      ; preds = %.lr.ph.i.i.i, %179, %164, %156
+.loopexit35:                                      ; preds = %.lr.ph.i.i.i, %179, %164, %156
   %184 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %184, i64 16, i1 false)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #14
@@ -797,7 +799,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ENS1_12FastLessThanESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %185)
           to label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev.exit unwind label %186
 
-186:                                              ; preds = %.loopexit34
+186:                                              ; preds = %.loopexit35
   %187 = landingpad { ptr, i32 }
           catch ptr null
   %188 = extractvalue { ptr, i32 } %187, 0
@@ -831,7 +833,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   call void @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #14
   br label %245
 
-_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev.exit: ; preds = %.loopexit34, %80
+_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaISt4pairIKS1_S1_EEED2Ev.exit: ; preds = %.loopexit35, %80
   %198 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetLayerStackEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %199 unwind label %189
 
@@ -895,36 +897,37 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
   br i1 %220, label %221, label %236
 
 221:                                              ; preds = %214
-  %222 = sext i32 %216 to i64
-  %223 = getelementptr inbounds %"struct.std::pair", ptr %14, i64 %222
-  %.not14.i.i.i27 = icmp eq i32 %216, 0
-  br i1 %.not14.i.i.i27, label %.loopexit, label %.lr.ph.i.i.i28
+  %.scale.i.i.i27 = shl nsw i32 %216, 1
+  %222 = sext i32 %.scale.i.i.i27 to i64
+  %223 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %14, i64 %222
+  %.not14.i.i.i28 = icmp eq i32 %216, 0
+  br i1 %.not14.i.i.i28, label %.loopexit, label %.lr.ph.i.i.i29
 
-.lr.ph.i.i.i28:                                   ; preds = %221, %.lr.ph.i.i.i28
-  %.016.i.i.i29 = phi ptr [ %235, %.lr.ph.i.i.i28 ], [ %0, %221 ]
-  %.01315.i.i.i30 = phi ptr [ %234, %.lr.ph.i.i.i28 ], [ %14, %221 ]
-  %224 = load i32, ptr %.01315.i.i.i30, align 4
-  store i32 %224, ptr %.016.i.i.i29, align 4
-  store i32 0, ptr %.01315.i.i.i30, align 4
-  %225 = getelementptr inbounds nuw i8, ptr %.016.i.i.i29, i64 4
-  %226 = getelementptr inbounds nuw i8, ptr %.01315.i.i.i30, i64 4
+.lr.ph.i.i.i29:                                   ; preds = %221, %.lr.ph.i.i.i29
+  %.016.i.i.i30 = phi ptr [ %235, %.lr.ph.i.i.i29 ], [ %0, %221 ]
+  %.01315.i.i.i31 = phi ptr [ %234, %.lr.ph.i.i.i29 ], [ %14, %221 ]
+  %224 = load i32, ptr %.01315.i.i.i31, align 4
+  store i32 %224, ptr %.016.i.i.i30, align 4
+  store i32 0, ptr %.01315.i.i.i31, align 4
+  %225 = getelementptr inbounds nuw i8, ptr %.016.i.i.i30, i64 4
+  %226 = getelementptr inbounds nuw i8, ptr %.01315.i.i.i31, i64 4
   %227 = load i32, ptr %226, align 4
   store i32 %227, ptr %225, align 4
   store i32 0, ptr %226, align 4
-  %228 = getelementptr inbounds nuw i8, ptr %.016.i.i.i29, i64 8
-  %229 = getelementptr inbounds nuw i8, ptr %.01315.i.i.i30, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %.016.i.i.i30, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %.01315.i.i.i31, i64 8
   %230 = load i32, ptr %229, align 4
   store i32 %230, ptr %228, align 4
   store i32 0, ptr %229, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %.016.i.i.i29, i64 12
-  %232 = getelementptr inbounds nuw i8, ptr %.01315.i.i.i30, i64 12
+  %231 = getelementptr inbounds nuw i8, ptr %.016.i.i.i30, i64 12
+  %232 = getelementptr inbounds nuw i8, ptr %.01315.i.i.i31, i64 12
   %233 = load i32, ptr %232, align 4
   store i32 %233, ptr %231, align 4
   store i32 0, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %.01315.i.i.i30, i64 16
-  %235 = getelementptr inbounds i8, ptr %.016.i.i.i29, i64 16
-  %.not.i.i.i31 = icmp eq ptr %234, %223
-  br i1 %.not.i.i.i31, label %.loopexit, label %.lr.ph.i.i.i28, !llvm.loop !4
+  %234 = getelementptr inbounds i8, ptr %.01315.i.i.i31, i64 16
+  %235 = getelementptr inbounds i8, ptr %.016.i.i.i30, i64 16
+  %.not.i.i.i32 = icmp eq ptr %234, %223
+  br i1 %.not.i.i.i32, label %.loopexit, label %.lr.ph.i.i.i29, !llvm.loop !4
 
 236:                                              ; preds = %214
   %237 = load ptr, ptr %14, align 8
@@ -937,7 +940,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_NS1_12FastLessThanESaIS
   store ptr null, ptr %14, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i28, %236, %221, %213
+.loopexit:                                        ; preds = %.lr.ph.i.i.i29, %236, %221, %213
   %241 = getelementptr inbounds nuw i8, ptr %14, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %241, i64 16, i1 false)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #14
@@ -1124,8 +1127,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunctionaSERKS0_.exit: ; preds = %5
   br i1 %74, label %75, label %90
 
 75:                                               ; preds = %68
-  %76 = sext i32 %70 to i64
-  %77 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 %76
+  %.scale.i.i.i = shl nsw i32 %70, 1
+  %76 = sext i32 %.scale.i.i.i to i64
+  %77 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %6, i64 %76
   %.not14.i.i.i = icmp eq i32 %70, 0
   br i1 %.not14.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
@@ -1475,8 +1479,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit: ; p
 
 20:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2ERKS2_.exit
   %21 = load i32, ptr %13, align 8
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %22
+  %.scale.i.i = shl nsw i32 %21, 1
+  %22 = sext i32 %.scale.i.i to i64
+  %23 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %2, i64 %22
   %.not9.i.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not9.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i
 
@@ -2862,8 +2867,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInt
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %5, align 8
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %14
+  %.scale.i = shl nsw i32 %13, 1
+  %14 = sext i32 %.scale.i to i64
+  %15 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %1, i64 %14
   %.not9.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not9.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14PcpMapFunction5_DataC2ERKS1_.exit, label %.lr.ph.i.i.i.i
 

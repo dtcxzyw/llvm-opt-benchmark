@@ -2795,9 +2795,9 @@ define internal fastcc noundef i64 @ossl_asn1_decode0(ptr nocapture noundef %0, 
   %25 = load ptr, ptr %0, align 8
   store ptr %25, ptr %20, align 8
   %26 = call i32 @ASN1_get_object(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef %1) #9
-  %.fr88 = freeze i32 %26
+  %.fr89 = freeze i32 %26
   %27 = load ptr, ptr %20, align 8
-  %28 = and i32 %.fr88, 128
+  %28 = and i32 %.fr89, 128
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %31, label %29
 
@@ -2840,10 +2840,10 @@ define internal fastcc noundef i64 @ossl_asn1_decode0(ptr nocapture noundef %0, 
   %46 = ptrtoint ptr %25 to i64
   %47 = sub i64 %45, %46
   %.not53 = icmp eq i32 %4, 0
-  br i1 %.not53, label %._crit_edge91, label %rb_long2num_inline.exit
+  br i1 %.not53, label %._crit_edge92, label %rb_long2num_inline.exit
 
-._crit_edge91:                                    ; preds = %44
-  %.pre = and i32 %.fr88, 32
+._crit_edge92:                                    ; preds = %44
+  %.pre = and i32 %.fr89, 32
   br label %93
 
 rb_long2num_inline.exit:                          ; preds = %44
@@ -2902,7 +2902,7 @@ rb_long2num_inline.exit63:                        ; preds = %62, %65
 rb_long2num_inline.exit66:                        ; preds = %70, %73
   %.0.i65 = phi i64 [ %72, %70 ], [ %74, %73 ]
   %75 = call i64 @rb_ary_push(i64 noundef %48, i64 noundef %.0.i65) #9
-  %76 = and i32 %.fr88, 32
+  %76 = and i32 %.fr89, 32
   %.not54 = icmp eq i32 %76, 0
   %77 = select i1 %.not54, i64 0, i64 20
   %78 = call i64 @rb_ary_push(i64 noundef %48, i64 noundef %77) #9
@@ -2934,8 +2934,8 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   %92 = call i64 @rb_yield(i64 noundef %48) #9
   br label %93
 
-93:                                               ; preds = %._crit_edge91, %ossl_asn1_class2sym.exit
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge91 ], [ %76, %ossl_asn1_class2sym.exit ]
+93:                                               ; preds = %._crit_edge92, %ossl_asn1_class2sym.exit
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge92 ], [ %76, %ossl_asn1_class2sym.exit ]
   %.not55 = icmp eq i32 %.pre-phi, 0
   br i1 %.not55, label %165, label %94
 
@@ -2951,7 +2951,7 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   store i64 %97, ptr %17, align 8
-  %101 = icmp eq i32 %.fr88, 33
+  %101 = icmp eq i32 %.fr89, 33
   %102 = call i64 @rb_ary_new() #9
   %103 = select i1 %101, i64 %98, i64 %99
   %104 = icmp sgt i64 %103, 0
@@ -2962,13 +2962,13 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   br i1 %101, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %126
-  %.0.i6884.us = phi i64 [ %109, %126 ], [ %98, %.lr.ph ]
-  %.183.us = phi i64 [ %108, %126 ], [ 0, %.lr.ph ]
+  %.0.i6885.us = phi i64 [ %109, %126 ], [ %98, %.lr.ph ]
+  %.184.us = phi i64 [ %108, %126 ], [ 0, %.lr.ph ]
   store i64 0, ptr %18, align 8
-  %106 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.0.i6884.us, ptr noundef nonnull %17, i32 noundef %105, i32 noundef %4, ptr noundef nonnull %18)
+  %106 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.0.i6885.us, ptr noundef nonnull %17, i32 noundef %105, i32 noundef %4, ptr noundef nonnull %18)
   %107 = load i64, ptr %18, align 8
-  %108 = add nsw i64 %107, %.183.us
-  %109 = sub nsw i64 %.0.i6884.us, %107
+  %108 = add nsw i64 %107, %.184.us
+  %109 = sub nsw i64 %.0.i6885.us, %107
   %110 = load i64, ptr @sivTAG, align 8
   %111 = call i64 @rb_attr_get(i64 noundef %106, i64 noundef %110) #9
   %112 = icmp eq i64 %111, 4
@@ -2976,8 +2976,8 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
 
 113:                                              ; preds = %.lr.ph.split.us
   %114 = and i64 %111, 1
-  %.not.i.i72.us = icmp eq i64 %114, 0
-  br i1 %.not.i.i72.us, label %117, label %115
+  %.not.i.i73.us = icmp eq i64 %114, 0
+  br i1 %.not.i.i73.us, label %117, label %115
 
 115:                                              ; preds = %113
   %116 = call i64 @rb_fix2int(i64 noundef %111) #9
@@ -2988,8 +2988,8 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   br label %ossl_asn1_tag.exit.us
 
 ossl_asn1_tag.exit.us:                            ; preds = %117, %115
-  %.0.i.i73.us = phi i64 [ %116, %115 ], [ %118, %117 ]
-  %119 = and i64 %.0.i.i73.us, 4294967295
+  %.0.i.i74.us = phi i64 [ %116, %115 ], [ %118, %117 ]
+  %119 = and i64 %.0.i.i74.us, 4294967295
   %120 = icmp eq i64 %119, 0
   br i1 %120, label %121, label %126
 
@@ -3006,13 +3006,13 @@ ossl_asn1_tag.exit.us:                            ; preds = %117, %115
   br i1 %128, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.0.i6884 = phi i64 [ %132, %.lr.ph.split ], [ %99, %.lr.ph ]
-  %.183 = phi i64 [ %131, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.0.i6885 = phi i64 [ %132, %.lr.ph.split ], [ %99, %.lr.ph ]
+  %.184 = phi i64 [ %131, %.lr.ph.split ], [ 0, %.lr.ph ]
   store i64 0, ptr %18, align 8
-  %129 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.0.i6884, ptr noundef nonnull %17, i32 noundef %105, i32 noundef %4, ptr noundef nonnull %18)
+  %129 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.0.i6885, ptr noundef nonnull %17, i32 noundef %105, i32 noundef %4, ptr noundef nonnull %18)
   %130 = load i64, ptr %18, align 8
-  %131 = add nsw i64 %130, %.183
-  %132 = sub nsw i64 %.0.i6884, %130
+  %131 = add nsw i64 %130, %.184
+  %132 = sub nsw i64 %.0.i6885, %130
   %133 = call i64 @rb_ary_push(i64 noundef %102, i64 noundef %129) #9
   %134 = icmp sgt i64 %132, 0
   br i1 %134, label %.lr.ph.split, label %._crit_edge, !llvm.loop !57
@@ -3076,10 +3076,10 @@ int_ossl_asn1_decode0_cons.exit:                  ; preds = %154, %144
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   %164 = add nsw i64 %.2, %47
   %.pr = load i64, ptr %21, align 8
-  br label %313
+  br label %315
 
 165:                                              ; preds = %93
-  %166 = and i32 %.fr88, 1
+  %166 = and i32 %.fr89, 1
   %167 = icmp ne i32 %166, 0
   %168 = load i64, ptr %21, align 8
   %169 = icmp eq i64 %168, 0
@@ -3384,21 +3384,22 @@ decode_time.exit.i:                               ; preds = %270
   %285 = load i64, ptr @sym_UNIVERSAL, align 8
   %286 = icmp eq i64 %.0, %285
   %or.cond3.i = and i1 %177, %286
-  %287 = sext i32 %173 to i64
-  br i1 %or.cond3.i, label %288, label %._crit_edge.i
+  br i1 %or.cond3.i, label %287, label %305
 
-288:                                              ; preds = %281
-  %289 = shl nuw nsw i64 1, %287
-  %290 = and i64 %289, 536931200
-  %.not.not.i = icmp eq i64 %290, 0
-  br i1 %.not.not.i, label %291, label %._crit_edge.i
+287:                                              ; preds = %281
+  %.scale.i = shl nsw i32 %173, 1
+  %288 = sext i32 %.scale.i to i64
+  %289 = getelementptr inbounds ptr, ptr @ossl_asn1_info, i64 %288
+  %290 = getelementptr inbounds i8, ptr %289, i64 8
+  %291 = load ptr, ptr %290, align 8
+  %.not.i72 = icmp eq ptr %291, null
+  br i1 %.not.i72, label %305, label %292
 
-291:                                              ; preds = %288
-  %292 = getelementptr inbounds [31 x %struct.ossl_asn1_info_t], ptr @ossl_asn1_info, i64 0, i64 %287, i32 1
-  %293 = load ptr, ptr %292, align 8
-  %294 = load i64, ptr %293, align 8
+292:                                              ; preds = %287
+  %293 = load i64, ptr %291, align 8
   store i64 %.0.i71, ptr %16, align 16
-  %295 = shl nsw i64 %287, 1
+  %294 = sext i32 %173 to i64
+  %295 = shl nsw i64 %294, 1
   %296 = or disjoint i64 %295, 1
   %297 = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %296, ptr %297, align 8
@@ -3406,53 +3407,54 @@ decode_time.exit.i:                               ; preds = %270
   store i64 4, ptr %298, align 16
   %299 = getelementptr inbounds i8, ptr %16, i64 24
   store i64 %.0, ptr %299, align 8
-  %300 = call i64 @rb_obj_alloc(i64 noundef %294) #9
+  %300 = call i64 @rb_obj_alloc(i64 noundef %293) #9
   %301 = call i64 @ossl_asn1_initialize(i32 noundef 4, ptr noundef nonnull %16, i64 noundef %300)
   %302 = icmp eq i32 %173, 3
   br i1 %302, label %rb_long2num_inline.exit.i, label %int_ossl_asn1_decode0_prim.exit
 
-rb_long2num_inline.exit.i:                        ; preds = %291
+rb_long2num_inline.exit.i:                        ; preds = %292
   %303 = load i64, ptr @sivUNUSED_BITS, align 8
   %304 = call i64 @rb_ivar_set(i64 noundef %300, i64 noundef %303, i64 noundef %.075.i) #9
   br label %int_ossl_asn1_decode0_prim.exit
 
-._crit_edge.i:                                    ; preds = %288, %281
-  %305 = load i64, ptr @cASN1Data, align 8
-  %306 = call i64 @rb_obj_alloc(i64 noundef %305) #9
-  %307 = shl nsw i64 %287, 1
-  %308 = or disjoint i64 %307, 1
-  %309 = call i64 @ossl_asn1data_initialize(i64 noundef %306, i64 noundef %.0.i71, i64 noundef %308, i64 noundef %.0)
+305:                                              ; preds = %287, %281
+  %306 = load i64, ptr @cASN1Data, align 8
+  %307 = call i64 @rb_obj_alloc(i64 noundef %306) #9
+  %308 = sext i32 %173 to i64
+  %309 = shl nsw i64 %308, 1
+  %310 = or disjoint i64 %309, 1
+  %311 = call i64 @ossl_asn1data_initialize(i64 noundef %307, i64 noundef %.0.i71, i64 noundef %310, i64 noundef %.0)
   br label %int_ossl_asn1_decode0_prim.exit
 
-int_ossl_asn1_decode0_prim.exit:                  ; preds = %291, %rb_long2num_inline.exit.i, %._crit_edge.i
-  %.060.i = phi i64 [ %300, %rb_long2num_inline.exit.i ], [ %300, %291 ], [ %306, %._crit_edge.i ]
+int_ossl_asn1_decode0_prim.exit:                  ; preds = %292, %rb_long2num_inline.exit.i, %305
+  %.060.i = phi i64 [ %300, %rb_long2num_inline.exit.i ], [ %300, %292 ], [ %307, %305 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  %310 = load i64, ptr %21, align 8
-  %311 = add i64 %47, %24
-  %312 = add i64 %311, %310
-  br label %313
+  %312 = load i64, ptr %21, align 8
+  %313 = add i64 %47, %24
+  %314 = add i64 %313, %312
+  br label %315
 
-313:                                              ; preds = %int_ossl_asn1_decode0_cons.exit, %int_ossl_asn1_decode0_prim.exit
-  %314 = phi i64 [ %.pr, %int_ossl_asn1_decode0_cons.exit ], [ %310, %int_ossl_asn1_decode0_prim.exit ]
-  %.082 = phi i64 [ %164, %int_ossl_asn1_decode0_cons.exit ], [ %282, %int_ossl_asn1_decode0_prim.exit ]
-  %.081 = phi i64 [ %163, %int_ossl_asn1_decode0_cons.exit ], [ %312, %int_ossl_asn1_decode0_prim.exit ]
+315:                                              ; preds = %int_ossl_asn1_decode0_cons.exit, %int_ossl_asn1_decode0_prim.exit
+  %316 = phi i64 [ %.pr, %int_ossl_asn1_decode0_cons.exit ], [ %312, %int_ossl_asn1_decode0_prim.exit ]
+  %.083 = phi i64 [ %164, %int_ossl_asn1_decode0_cons.exit ], [ %282, %int_ossl_asn1_decode0_prim.exit ]
+  %.082 = phi i64 [ %163, %int_ossl_asn1_decode0_cons.exit ], [ %314, %int_ossl_asn1_decode0_prim.exit ]
   %.045 = phi i64 [ %.1.i, %int_ossl_asn1_decode0_cons.exit ], [ %.060.i, %int_ossl_asn1_decode0_prim.exit ]
-  store i64 %.082, ptr %5, align 8
-  %.not56 = icmp eq i64 %314, 0
-  br i1 %.not56, label %319, label %315
-
-315:                                              ; preds = %313
-  %316 = add nsw i64 %314, %47
-  %.not57 = icmp eq i64 %.082, %316
-  br i1 %.not57, label %319, label %317
+  store i64 %.083, ptr %5, align 8
+  %.not56 = icmp eq i64 %316, 0
+  br i1 %.not56, label %321, label %317
 
 317:                                              ; preds = %315
-  %318 = load i64, ptr @eASN1Error, align 8
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %318, ptr noundef nonnull @.str.83, i64 noundef %.082, i64 noundef %316) #10
+  %318 = add nsw i64 %316, %47
+  %.not57 = icmp eq i64 %.083, %318
+  br i1 %.not57, label %321, label %319
+
+319:                                              ; preds = %317
+  %320 = load i64, ptr @eASN1Error, align 8
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %320, ptr noundef nonnull @.str.83, i64 noundef %.083, i64 noundef %318) #10
   unreachable
 
-319:                                              ; preds = %315, %313
-  store i64 %.081, ptr %2, align 8
+321:                                              ; preds = %317, %315
+  store i64 %.082, ptr %2, align 8
   ret i64 %.045
 }
 

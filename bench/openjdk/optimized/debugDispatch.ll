@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.CommandSet = type { i32, ptr, ptr }
-%struct.Command = type { ptr, ptr }
 
 @cmdSetsArray = internal unnamed_addr global ptr null, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -110,7 +109,7 @@ define hidden ptr @debugDispatch_getHandler(i32 noundef %0, i32 noundef %1, ptr 
   store ptr @.str.5, ptr %2, align 8
   store ptr @.str.6, ptr %3, align 8
   %5 = icmp sgt i32 %0, 18
-  br i1 %5, label %28, label %6
+  br i1 %5, label %29, label %6
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @cmdSetsArray, align 8
@@ -118,7 +117,7 @@ define hidden ptr @debugDispatch_getHandler(i32 noundef %0, i32 noundef %1, ptr 
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %28, label %12
+  br i1 %11, label %29, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %10, i64 8
@@ -130,23 +129,25 @@ define hidden ptr @debugDispatch_getHandler(i32 noundef %0, i32 noundef %1, ptr 
 
 17:                                               ; preds = %12
   store ptr @.str.7, ptr %3, align 8
-  br label %28
+  br label %29
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds i8, ptr %10, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = add nsw i32 %1, -1
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.Command, ptr %20, i64 %22, i32 1
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %3, align 8
-  %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds %struct.Command, ptr %25, i64 %22
-  %27 = load ptr, ptr %26, align 8
-  br label %28
+  %21 = shl i32 %1, 1
+  %.scale = add i32 %21, -2
+  %22 = sext i32 %.scale to i64
+  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
+  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %3, align 8
+  %26 = load ptr, ptr %19, align 8
+  %27 = getelementptr inbounds ptr, ptr %26, i64 %22
+  %28 = load ptr, ptr %27, align 8
+  br label %29
 
-28:                                               ; preds = %6, %4, %18, %17
-  %.0 = phi ptr [ null, %17 ], [ %27, %18 ], [ null, %4 ], [ null, %6 ]
+29:                                               ; preds = %6, %4, %18, %17
+  %.0 = phi ptr [ null, %17 ], [ %28, %18 ], [ null, %4 ], [ null, %6 ]
   ret ptr %.0
 }
 

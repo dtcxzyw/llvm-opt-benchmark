@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.ReservedSpace = type <{ ptr, i64, i64, i64, i64, i8, [3 x i8], i32, i8, [7 x i8] }>
 %class.ThreadCritical = type { i8 }
-%"class.metaspace::RootChunkArea" = type { ptr, ptr }
 
 $_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
 
@@ -650,9 +649,10 @@ define hidden noundef ptr @_ZN9metaspace16VirtualSpaceNode19allocate_root_chunkE
   %17 = sub i64 %15, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 160
   %19 = load ptr, ptr %18, align 8
-  %20 = shl i64 %17, 8
-  %21 = ashr i64 %20, 32
-  %22 = getelementptr inbounds %"class.metaspace::RootChunkArea", ptr %19, i64 %21
+  %20 = shl i64 %17, 9
+  %sext.i = ashr i64 %20, 32
+  %21 = and i64 %sext.i, -2
+  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
   %23 = tail call noundef ptr @_ZN9metaspace13RootChunkArea23alloc_root_chunk_headerEPNS_16VirtualSpaceNodeE(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %0) #8
   %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %24, null
@@ -692,9 +692,10 @@ define hidden void @_ZN9metaspace16VirtualSpaceNode5splitEaPNS_9MetachunkEPNS_19
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 8
-  %13 = shl i64 %10, 8
-  %14 = ashr i64 %13, 32
-  %15 = getelementptr inbounds %"class.metaspace::RootChunkArea", ptr %12, i64 %14
+  %13 = shl i64 %10, 9
+  %sext.i = ashr i64 %13, 32
+  %14 = and i64 %sext.i, -2
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
   tail call void @_ZN9metaspace13RootChunkArea5splitEaPNS_9MetachunkEPNS_19FreeChunkListVectorE(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 noundef signext %1, ptr noundef nonnull %2, ptr noundef %3) #8
   ret void
 }
@@ -711,9 +712,10 @@ define hidden noundef ptr @_ZN9metaspace16VirtualSpaceNode5mergeEPNS_9MetachunkE
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8
-  %12 = shl i64 %9, 8
-  %13 = ashr i64 %12, 32
-  %14 = getelementptr inbounds %"class.metaspace::RootChunkArea", ptr %11, i64 %13
+  %12 = shl i64 %9, 9
+  %sext.i = ashr i64 %12, 32
+  %13 = and i64 %sext.i, -2
+  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
   %15 = tail call noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS_19FreeChunkListVectorE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %1, ptr noundef %2) #8
   ret ptr %15
 }
@@ -730,9 +732,10 @@ define hidden noundef zeroext i1 @_ZN9metaspace16VirtualSpaceNode21attempt_enlar
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8
-  %12 = shl i64 %9, 8
-  %13 = ashr i64 %12, 32
-  %14 = getelementptr inbounds %"class.metaspace::RootChunkArea", ptr %11, i64 %13
+  %12 = shl i64 %9, 9
+  %sext.i = ashr i64 %12, 32
+  %13 = and i64 %sext.i, -2
+  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
   %15 = tail call noundef zeroext i1 @_ZN9metaspace13RootChunkArea21attempt_enlarge_chunkEPNS_9MetachunkEPNS_19FreeChunkListVectorE(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %1, ptr noundef %2) #8
   br i1 %15, label %16, label %19
 

@@ -344,15 +344,16 @@ define hidden void @_ZN2cv8tracking4impl3tld21TLDEnsembleClassifier9integrateERK
   br i1 %exitcond.not.i, label %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit: ; preds = %.lr.ph.i
-  %43 = sext i32 %spec.select.i to i64
+  %43 = shl nsw i32 %spec.select.i, 1
+  %44 = sext i32 %43 to i64
   br label %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit
 
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit: ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit, %3
-  %.013.lcssa.i = phi i64 [ 0, %3 ], [ %43, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit ]
-  %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %.013.lcssa.i, i32 1
-  %46 = getelementptr inbounds %"class.cv::Point_", ptr %44, i64 %.013.lcssa.i
-  %.sink = select i1 %2, ptr %46, ptr %45
+  %.013.lcssa.i = phi i64 [ 0, %3 ], [ %44, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit ]
+  %45 = load ptr, ptr %0, align 8
+  %46 = getelementptr inbounds i32, ptr %45, i64 %.013.lcssa.i
+  %.sink.idx = select i1 %2, i64 0, i64 4
+  %.sink = getelementptr inbounds i8, ptr %46, i64 %.sink.idx
   %47 = load i32, ptr %.sink, align 4
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %.sink, align 4
@@ -467,24 +468,25 @@ define hidden noundef double @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier20
   br i1 %exitcond.not.i, label %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit: ; preds = %.lr.ph.i
-  %39 = sext i32 %spec.select.i to i64
+  %39 = shl nsw i32 %spec.select.i, 1
+  %40 = sext i32 %39 to i64
   br label %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit
 
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit: ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit, %3
-  %.013.lcssa.i = phi i64 [ 0, %3 ], [ %39, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit ]
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds %"class.cv::Point_", ptr %40, i64 %.013.lcssa.i
-  %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %42, 0
-  %46 = icmp eq i32 %44, 0
-  %or.cond = select i1 %45, i1 %46, i1 false
-  %47 = sitofp i32 %44 to double
-  %48 = sitofp i32 %42 to double
-  %49 = fadd double %48, %47
-  %50 = fdiv double %48, %49
-  %.0 = select i1 %or.cond, double 0.000000e+00, double %50
+  %.013.lcssa.i = phi i64 [ 0, %3 ], [ %40, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier4codeEPKhi.exit.loopexit ]
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i32, ptr %41, i64 %.013.lcssa.i
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %42, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp eq i32 %43, 0
+  %47 = icmp eq i32 %45, 0
+  %or.cond = select i1 %46, i1 %47, i1 false
+  %48 = sitofp i32 %45 to double
+  %49 = sitofp i32 %43 to double
+  %50 = fadd double %49, %48
+  %51 = fdiv double %49, %50
+  %.0 = select i1 %or.cond, double 0.000000e+00, double %51
   ret double %.0
 }
 
@@ -530,24 +532,25 @@ define hidden noundef double @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier24
   br i1 %exitcond.not.i, label %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit.loopexit, label %15, !llvm.loop !9
 
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit.loopexit: ; preds = %15
-  %29 = sext i32 %spec.select.i to i64
+  %29 = shl nsw i32 %spec.select.i, 1
+  %30 = sext i32 %29 to i64
   br label %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit
 
 _ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit: ; preds = %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit.loopexit, %2
-  %.09.lcssa.i = phi i64 [ 0, %2 ], [ %29, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit.loopexit ]
-  %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds %"class.cv::Point_", ptr %30, i64 %.09.lcssa.i
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %31, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %32, 0
-  %36 = icmp eq i32 %34, 0
-  %or.cond = select i1 %35, i1 %36, i1 false
-  %37 = sitofp i32 %34 to double
-  %38 = sitofp i32 %32 to double
-  %39 = fadd double %38, %37
-  %40 = fdiv double %38, %39
-  %.0 = select i1 %or.cond, double 0.000000e+00, double %40
+  %.09.lcssa.i = phi i64 [ 0, %2 ], [ %30, %_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier8codeFastEPKh.exit.loopexit ]
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i32, ptr %31, i64 %.09.lcssa.i
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %33, 0
+  %37 = icmp eq i32 %35, 0
+  %or.cond = select i1 %36, i1 %37, i1 false
+  %38 = sitofp i32 %35 to double
+  %39 = sitofp i32 %33 to double
+  %40 = fadd double %39, %38
+  %41 = fdiv double %39, %40
+  %.0 = select i1 %or.cond, double 0.000000e+00, double %41
   ret double %.0
 }
 

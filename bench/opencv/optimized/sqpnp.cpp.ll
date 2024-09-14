@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec.6" }
 %"class.cv::Vec.6" = type { %"class.cv::Matx.7" }
 %"class.cv::Matx.7" = type { [4 x double] }
-%"class.cv::Point_" = type { double, double }
 %"class.cv::Point3_" = type { double, double, double }
 %"class.cv::Matx.8" = type { [54 x double] }
 %"class.cv::Matx.9" = type { [36 x double] }
@@ -904,22 +903,22 @@ _ZNK2cv11_InputArray6getMatEi.exit136:            ; preds = %32, %35
 _ZNK2cv11_InputArray6getMatEi.exit136._crit_edge: ; preds = %_ZNK2cv11_InputArray6getMatEi.exit136
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
   %.pre = load double, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert245 = getelementptr inbounds i8, ptr %0, i64 64
-  %.pre246 = load double, ptr %.phi.trans.insert245, align 8
-  %.phi.trans.insert247 = getelementptr inbounds i8, ptr %0, i64 136
-  %.pre248 = load double, ptr %.phi.trans.insert247, align 8
-  %.phi.trans.insert249 = getelementptr inbounds i8, ptr %0, i64 272
-  %.pre250 = load double, ptr %.phi.trans.insert249, align 8
-  %.phi.trans.insert251 = getelementptr inbounds i8, ptr %0, i64 280
-  %.pre252 = load double, ptr %.phi.trans.insert251, align 8
-  %.phi.trans.insert253 = getelementptr inbounds i8, ptr %0, i64 352
-  %.pre254 = load double, ptr %.phi.trans.insert253, align 8
-  %.phi.trans.insert255 = getelementptr inbounds i8, ptr %0, i64 488
-  %.pre256 = load double, ptr %.phi.trans.insert255, align 8
-  %.phi.trans.insert257 = getelementptr inbounds i8, ptr %0, i64 496
-  %.pre258 = load double, ptr %.phi.trans.insert257, align 8
-  %.phi.trans.insert259 = getelementptr inbounds i8, ptr %0, i64 568
-  %.pre260 = load double, ptr %.phi.trans.insert259, align 8
+  %.phi.trans.insert246 = getelementptr inbounds i8, ptr %0, i64 64
+  %.pre247 = load double, ptr %.phi.trans.insert246, align 8
+  %.phi.trans.insert248 = getelementptr inbounds i8, ptr %0, i64 136
+  %.pre249 = load double, ptr %.phi.trans.insert248, align 8
+  %.phi.trans.insert250 = getelementptr inbounds i8, ptr %0, i64 272
+  %.pre251 = load double, ptr %.phi.trans.insert250, align 8
+  %.phi.trans.insert252 = getelementptr inbounds i8, ptr %0, i64 280
+  %.pre253 = load double, ptr %.phi.trans.insert252, align 8
+  %.phi.trans.insert254 = getelementptr inbounds i8, ptr %0, i64 352
+  %.pre255 = load double, ptr %.phi.trans.insert254, align 8
+  %.phi.trans.insert256 = getelementptr inbounds i8, ptr %0, i64 488
+  %.pre257 = load double, ptr %.phi.trans.insert256, align 8
+  %.phi.trans.insert258 = getelementptr inbounds i8, ptr %0, i64 496
+  %.pre259 = load double, ptr %.phi.trans.insert258, align 8
+  %.phi.trans.insert260 = getelementptr inbounds i8, ptr %0, i64 568
+  %.pre261 = load double, ptr %.phi.trans.insert260, align 8
   br label %268
 
 .lr.ph:                                           ; preds = %_ZNK2cv11_InputArray6getMatEi.exit136
@@ -1012,7 +1011,8 @@ _ZNK2cv11_InputArray6getMatEi.exit136._crit_edge: ; preds = %_ZNK2cv11_InputArra
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %110, %96
-  %114 = getelementptr inbounds %"class.cv::Point_", ptr %50, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %114 = getelementptr inbounds i8, ptr %50, i64 %.idx
   br label %_ZN2cv3Mat2atINS_6Point_IdEEEERT_i.exit
 
 115:                                              ; preds = %110
@@ -1035,8 +1035,9 @@ _ZNK2cv11_InputArray6getMatEi.exit136._crit_edge: ; preds = %_ZNK2cv11_InputArra
   %127 = sext i32 %124 to i64
   %128 = mul i64 %126, %127
   %129 = getelementptr inbounds i8, ptr %50, i64 %128
-  %130 = sext i32 %.recomposed to i64
-  %131 = getelementptr inbounds %"class.cv::Point_", ptr %129, i64 %130
+  %.scale.i = shl nsw i32 %.recomposed, 1
+  %130 = sext i32 %.scale.i to i64
+  %131 = getelementptr inbounds double, ptr %129, i64 %130
   br label %_ZN2cv3Mat2atINS_6Point_IdEEEERT_i.exit
 
 _ZN2cv3Mat2atINS_6Point_IdEEEERT_i.exit:          ; preds = %122, %118, %113
@@ -1067,12 +1068,12 @@ _ZN2cv3Mat2atINS_6Point_IdEEEERT_i.exit:          ; preds = %122, %118, %113
   %145 = trunc nuw nsw i64 %indvars.iv to i32
   %146 = sdiv i32 %145, %37
   %147 = mul nsw i32 %146, %37
-  %.recomposed381 = srem i32 %145, %37
+  %.recomposed382 = srem i32 %145, %37
   %148 = load i64, ptr %61, align 8
   %149 = sext i32 %146 to i64
   %150 = mul i64 %148, %149
   %151 = getelementptr inbounds i8, ptr %59, i64 %150
-  %152 = sext i32 %.recomposed381 to i64
+  %152 = sext i32 %.recomposed382 to i64
   %153 = getelementptr inbounds %"class.cv::Point3_", ptr %151, i64 %152
   br label %_ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit
 
@@ -1238,14 +1239,14 @@ _ZN2cv3Mat2atINS_7Point3_IdEEEERT_i.exit:         ; preds = %135, %140, %144
   br label %268
 
 268:                                              ; preds = %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge, %._crit_edge
-  %269 = phi double [ %244, %._crit_edge ], [ %.pre260, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
-  %270 = phi double [ %240, %._crit_edge ], [ %.pre258, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
-  %271 = phi double [ %238, %._crit_edge ], [ %.pre256, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
-  %272 = phi double [ %230, %._crit_edge ], [ %.pre254, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
-  %273 = phi double [ %222, %._crit_edge ], [ %.pre252, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
-  %274 = phi double [ %218, %._crit_edge ], [ %.pre250, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
-  %275 = phi double [ %206, %._crit_edge ], [ %.pre248, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
-  %276 = phi double [ %198, %._crit_edge ], [ %.pre246, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
+  %269 = phi double [ %244, %._crit_edge ], [ %.pre261, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
+  %270 = phi double [ %240, %._crit_edge ], [ %.pre259, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
+  %271 = phi double [ %238, %._crit_edge ], [ %.pre257, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
+  %272 = phi double [ %230, %._crit_edge ], [ %.pre255, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
+  %273 = phi double [ %222, %._crit_edge ], [ %.pre253, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
+  %274 = phi double [ %218, %._crit_edge ], [ %.pre251, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
+  %275 = phi double [ %206, %._crit_edge ], [ %.pre249, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
+  %276 = phi double [ %198, %._crit_edge ], [ %.pre247, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
   %277 = phi double [ %194, %._crit_edge ], [ %.pre, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
   %278 = phi double [ %262, %._crit_edge ], [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
   %279 = phi double [ %261, %._crit_edge ], [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit136._crit_edge ]
@@ -1778,11 +1779,11 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %505
   br label %558
 
 .lr.ph216:                                        ; preds = %.lr.ph216.preheader, %.lr.ph216
-  %indvars.iv242 = phi i64 [ %525, %.lr.ph216.preheader ], [ %indvars.iv.next243, %.lr.ph216 ]
-  %indvars.iv.next243 = add nsw i64 %indvars.iv242, 1
-  %538 = trunc nsw i64 %indvars.iv.next243 to i32
+  %indvars.iv243 = phi i64 [ %525, %.lr.ph216.preheader ], [ %indvars.iv.next244, %.lr.ph216 ]
+  %indvars.iv.next244 = add nsw i64 %indvars.iv243, 1
+  %538 = trunc nsw i64 %indvars.iv.next244 to i32
   store i32 %538, ptr %519, align 8
-  %539 = sub nsw i64 6, %indvars.iv242
+  %539 = sub nsw i64 6, %indvars.iv243
   %540 = getelementptr inbounds [9 x double], ptr %504, i64 0, i64 %539
   %541 = load double, ptr %540, align 8
   %542 = fcmp olt double %541, 0x3E7AD7F29ABCAF48

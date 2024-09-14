@@ -461,21 +461,16 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jT0_(ptr noundef %pArr, i32 noundef %element_count) local_unnamed_addr #1 comdat {
 entry:
   %div10 = lshr i32 %element_count, 1
-  %cmp.not41 = icmp ult i32 %element_count, 2
-  br i1 %cmp.not41, label %while.end, label %for.body.lr.ph
+  %cmp.not45 = icmp ult i32 %element_count, 2
+  br i1 %cmp.not45, label %while.end, label %for.body
 
-for.body.lr.ph:                                   ; preds = %entry
-  %invariant.gep.i = getelementptr i8, ptr %pArr, i64 -8
-  br label %for.body
-
-while.body.lr.ph:                                 ; preds = %while.end.loopexit.i
-  %invariant.gep.i14 = getelementptr i8, ptr %pArr, i64 -8
+while.body.preheader:                             ; preds = %while.end.loopexit.i
   %0 = zext i32 %element_count to i64
   br label %while.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %while.end.loopexit.i
-  %k.042 = phi i32 [ %div10, %for.body.lr.ph ], [ %sub.i, %while.end.loopexit.i ]
-  %sub.i = add nsw i32 %k.042, -1
+for.body:                                         ; preds = %entry, %while.end.loopexit.i
+  %k.046 = phi i32 [ %sub.i, %while.end.loopexit.i ], [ %div10, %entry ]
+  %sub.i = add nsw i32 %k.046, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom.i
   %1 = load i64, ptr %arrayidx.i, align 4
@@ -483,17 +478,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %wh
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.body, %if.then13.i
-  %k.addr.022.i = phi i32 [ %child.0.i, %if.then13.i ], [ %k.042, %for.body ]
+  %k.addr.022.i = phi i32 [ %child.0.i, %if.then13.i ], [ %k.046, %for.body ]
   %mul.i = shl nuw i32 %k.addr.022.i, 1
   %cmp1.i = icmp slt i32 %mul.i, %element_count
   br i1 %cmp1.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %3 = sext i32 %mul.i to i64
-  %4 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %3
-  %arrayidx4.i = getelementptr i8, ptr %4, i64 -8
+  %sub2.i = shl i32 %k.addr.022.i, 2
+  %idxprom3.scale.i = add i32 %sub2.i, -2
+  %3 = sext i32 %idxprom3.scale.i to i64
+  %arrayidx4.i = getelementptr inbounds i32, ptr %pArr, i64 %3
+  %4 = sext i32 %sub2.i to i64
+  %arrayidx6.i = getelementptr inbounds i32, ptr %pArr, i64 %4
   %5 = load i32, ptr %arrayidx4.i, align 4
-  %6 = load i32, ptr %4, align 4
+  %6 = load i32, ptr %arrayidx6.i, align 4
   %sub.i.i = sub i32 %5, %6
   %7 = lshr i32 %sub.i.i, 31
   %spec.select.i = or disjoint i32 %7, %mul.i
@@ -501,9 +499,11 @@ land.lhs.true.i:                                  ; preds = %while.body.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %while.body.i
   %child.0.i = phi i32 [ %mul.i, %while.body.i ], [ %spec.select.i, %land.lhs.true.i ]
-  %8 = sext i32 %child.0.i to i64
-  %gep.i = getelementptr %struct.GIM_RSORT_TOKEN, ptr %invariant.gep.i, i64 %8
-  %9 = load i32, ptr %gep.i, align 4
+  %sub8.i = shl i32 %child.0.i, 1
+  %idxprom9.scale.i = add i32 %sub8.i, -2
+  %8 = sext i32 %idxprom9.scale.i to i64
+  %arrayidx10.i = getelementptr inbounds i32, ptr %pArr, i64 %8
+  %9 = load i32, ptr %arrayidx10.i, align 4
   %sub.i19.i = sub i32 %2, %9
   %cmp12.i = icmp slt i32 %sub.i19.i, 0
   br i1 %cmp12.i, label %if.then13.i, label %while.end.loopexit.i
@@ -512,7 +512,7 @@ if.then13.i:                                      ; preds = %if.end.i
   %sub17.i = add nsw i32 %k.addr.022.i, -1
   %idxprom18.i = zext i32 %sub17.i to i64
   %arrayidx19.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i
-  %10 = load i64, ptr %gep.i, align 4
+  %10 = load i64, ptr %arrayidx10.i, align 4
   store i64 %10, ptr %arrayidx19.i, align 4
   %cmp.not.i = icmp ugt i32 %child.0.i, %div10
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !10
@@ -524,10 +524,10 @@ while.end.loopexit.i:                             ; preds = %if.then13.i, %if.en
   %arrayidx23.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i
   store i64 %1, ptr %arrayidx23.i, align 4
   %cmp.not = icmp eq i32 %sub.i, 0
-  br i1 %cmp.not, label %while.body.lr.ph, label %for.body, !llvm.loop !11
+  br i1 %cmp.not, label %while.body.preheader, label %for.body, !llvm.loop !11
 
-while.body:                                       ; preds = %while.body.lr.ph, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit40
-  %indvars.iv = phi i64 [ %0, %while.body.lr.ph ], [ %indvars.iv.next, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit40 ]
+while.body:                                       ; preds = %while.body.preheader, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44
+  %indvars.iv = phi i64 [ %0, %while.body.preheader ], [ %indvars.iv.next, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   %conv = and i64 %indvars.iv.next, 4294967295
@@ -539,54 +539,59 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %13 = load i64, ptr %pArr, align 4
   %14 = trunc i64 %13 to i32
   %div18.i13 = lshr i32 %indvars, 1
-  %cmp.not21.i15 = icmp eq i64 %indvars.iv, 2
-  br i1 %cmp.not21.i15, label %while.end, label %while.body.i16
+  %cmp.not21.i14 = icmp eq i64 %indvars.iv, 2
+  br i1 %cmp.not21.i14, label %while.end, label %while.body.i15
 
-while.body.i16:                                   ; preds = %while.body, %if.then13.i31
-  %k.addr.022.i17 = phi i32 [ %child.0.i21, %if.then13.i31 ], [ 1, %while.body ]
-  %mul.i18 = shl nuw i32 %k.addr.022.i17, 1
-  %cmp1.i19 = icmp slt i32 %mul.i18, %indvars
-  br i1 %cmp1.i19, label %land.lhs.true.i36, label %if.end.i20
+while.body.i15:                                   ; preds = %while.body, %if.then13.i32
+  %k.addr.022.i16 = phi i32 [ %child.0.i20, %if.then13.i32 ], [ 1, %while.body ]
+  %mul.i17 = shl nuw i32 %k.addr.022.i16, 1
+  %cmp1.i18 = icmp slt i32 %mul.i17, %indvars
+  br i1 %cmp1.i18, label %land.lhs.true.i37, label %if.end.i19
 
-land.lhs.true.i36:                                ; preds = %while.body.i16
-  %15 = sext i32 %mul.i18 to i64
-  %16 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %15
-  %arrayidx4.i37 = getelementptr i8, ptr %16, i64 -8
-  %17 = load i32, ptr %arrayidx4.i37, align 4
-  %18 = load i32, ptr %16, align 4
-  %sub.i.i38 = sub i32 %17, %18
-  %19 = lshr i32 %sub.i.i38, 31
-  %spec.select.i39 = or disjoint i32 %19, %mul.i18
-  br label %if.end.i20
+land.lhs.true.i37:                                ; preds = %while.body.i15
+  %sub2.i38 = shl i32 %k.addr.022.i16, 2
+  %idxprom3.scale.i39 = add i32 %sub2.i38, -2
+  %15 = sext i32 %idxprom3.scale.i39 to i64
+  %arrayidx4.i40 = getelementptr inbounds i32, ptr %pArr, i64 %15
+  %16 = sext i32 %sub2.i38 to i64
+  %arrayidx6.i41 = getelementptr inbounds i32, ptr %pArr, i64 %16
+  %17 = load i32, ptr %arrayidx4.i40, align 4
+  %18 = load i32, ptr %arrayidx6.i41, align 4
+  %sub.i.i42 = sub i32 %17, %18
+  %19 = lshr i32 %sub.i.i42, 31
+  %spec.select.i43 = or disjoint i32 %19, %mul.i17
+  br label %if.end.i19
 
-if.end.i20:                                       ; preds = %land.lhs.true.i36, %while.body.i16
-  %child.0.i21 = phi i32 [ %mul.i18, %while.body.i16 ], [ %spec.select.i39, %land.lhs.true.i36 ]
-  %20 = sext i32 %child.0.i21 to i64
-  %gep.i22 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %invariant.gep.i14, i64 %20
-  %21 = load i32, ptr %gep.i22, align 4
-  %sub.i19.i23 = sub i32 %14, %21
-  %cmp12.i24 = icmp slt i32 %sub.i19.i23, 0
-  br i1 %cmp12.i24, label %if.then13.i31, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit40
+if.end.i19:                                       ; preds = %land.lhs.true.i37, %while.body.i15
+  %child.0.i20 = phi i32 [ %mul.i17, %while.body.i15 ], [ %spec.select.i43, %land.lhs.true.i37 ]
+  %sub8.i21 = shl i32 %child.0.i20, 1
+  %idxprom9.scale.i22 = add i32 %sub8.i21, -2
+  %20 = sext i32 %idxprom9.scale.i22 to i64
+  %arrayidx10.i23 = getelementptr inbounds i32, ptr %pArr, i64 %20
+  %21 = load i32, ptr %arrayidx10.i23, align 4
+  %sub.i19.i24 = sub i32 %14, %21
+  %cmp12.i25 = icmp slt i32 %sub.i19.i24, 0
+  br i1 %cmp12.i25, label %if.then13.i32, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44
 
-if.then13.i31:                                    ; preds = %if.end.i20
-  %sub17.i32 = add nsw i32 %k.addr.022.i17, -1
-  %idxprom18.i33 = zext i32 %sub17.i32 to i64
-  %arrayidx19.i34 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i33
-  %22 = load i64, ptr %gep.i22, align 4
-  store i64 %22, ptr %arrayidx19.i34, align 4
-  %cmp.not.i35 = icmp ugt i32 %child.0.i21, %div18.i13
-  br i1 %cmp.not.i35, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit40, label %while.body.i16, !llvm.loop !10
+if.then13.i32:                                    ; preds = %if.end.i19
+  %sub17.i33 = add nsw i32 %k.addr.022.i16, -1
+  %idxprom18.i34 = zext i32 %sub17.i33 to i64
+  %arrayidx19.i35 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i34
+  %22 = load i64, ptr %arrayidx10.i23, align 4
+  store i64 %22, ptr %arrayidx19.i35, align 4
+  %cmp.not.i36 = icmp ugt i32 %child.0.i20, %div18.i13
+  br i1 %cmp.not.i36, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44, label %while.body.i15, !llvm.loop !10
 
-_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit40: ; preds = %if.end.i20, %if.then13.i31
-  %k.addr.0.lcssa.ph.i26 = phi i32 [ %child.0.i21, %if.then13.i31 ], [ %k.addr.022.i17, %if.end.i20 ]
-  %.pre.i27 = add i32 %k.addr.0.lcssa.ph.i26, -1
-  %.pre24.i28 = zext i32 %.pre.i27 to i64
-  %arrayidx23.i30 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i28
-  store i64 %13, ptr %arrayidx23.i30, align 4
+_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44: ; preds = %if.end.i19, %if.then13.i32
+  %k.addr.0.lcssa.ph.i27 = phi i32 [ %child.0.i20, %if.then13.i32 ], [ %k.addr.022.i16, %if.end.i19 ]
+  %.pre.i28 = add i32 %k.addr.0.lcssa.ph.i27, -1
+  %.pre24.i29 = zext i32 %.pre.i28 to i64
+  %arrayidx23.i31 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i29
+  store i64 %13, ptr %arrayidx23.i31, align 4
   %cmp1 = icmp ugt i32 %indvars, 1
   br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !12
 
-while.end:                                        ; preds = %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit40, %while.body, %entry
+while.end:                                        ; preds = %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44, %while.body, %entry
   ret void
 }
 

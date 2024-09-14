@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Point_" = type { float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -319,14 +318,14 @@ _ZL4helpPPc.exit49:                               ; preds = %.noexc47
 .preheader.i:                                     ; preds = %111, %._crit_edge.i
   %116 = phi i32 [ %142, %._crit_edge.i ], [ %112, %111 ]
   %117 = phi i32 [ %143, %._crit_edge.i ], [ %114, %111 ]
-  %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %._crit_edge.i ], [ 0, %111 ]
+  %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %._crit_edge.i ], [ 0, %111 ]
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %119 = trunc nuw nsw i64 %indvars.iv37.i to i32
+  %119 = trunc nuw nsw i64 %indvars.iv38.i to i32
   %120 = uitofp nneg i32 %119 to float
-  %.sroa.231.0.insert.shift.i = shl nuw nsw i64 %indvars.iv37.i, 32
+  %.sroa.231.0.insert.shift.i = shl nuw nsw i64 %indvars.iv38.i, 32
   br label %121
 
 121:                                              ; preds = %.noexc51, %.lr.ph.i
@@ -334,9 +333,10 @@ _ZL4helpPPc.exit49:                               ; preds = %.noexc47
   %122 = load ptr, ptr %93, align 8
   %123 = load ptr, ptr %94, align 8
   %124 = load i64, ptr %123, align 8
-  %125 = mul i64 %124, %indvars.iv37.i
+  %125 = mul i64 %124, %indvars.iv38.i
   %126 = getelementptr inbounds i8, ptr %122, i64 %125
-  %127 = getelementptr inbounds %"class.cv::Point_", ptr %126, i64 %indvars.iv.i
+  %.idx.i = shl nsw i64 %indvars.iv.i, 3
+  %127 = getelementptr inbounds i8, ptr %126, i64 %.idx.i
   store i64 0, ptr %96, align 8
   store i32 50397184, ptr %4, align 8
   store ptr %13, ptr %95, align 8
@@ -380,8 +380,8 @@ _ZL4helpPPc.exit49:                               ; preds = %.noexc47
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %142 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %116, %.preheader.i ]
   %143 = phi i32 [ %139, %._crit_edge.loopexit.i ], [ %117, %.preheader.i ]
-  %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 16
-  %144 = trunc nuw i64 %indvars.iv.next38.i to i32
+  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 16
+  %144 = trunc nuw i64 %indvars.iv.next39.i to i32
   %145 = icmp sgt i32 %142, %144
   br i1 %145, label %.preheader.i, label %.loopexit53, !llvm.loop !7
 

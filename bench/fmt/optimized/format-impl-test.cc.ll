@@ -30408,12 +30408,13 @@ lpad.i:                                           ; preds = %if.then
 if.end:                                           ; preds = %entry
   %div72.lhs.trunc = trunc nuw i32 %0 to i16
   %div7273 = udiv i16 %div72.lhs.trunc, 27
-  %narrow = mul nuw nsw i16 %div7273, 27
-  %mul = zext nneg i16 %narrow to i32
+  %div72.zext = zext nneg i16 %div7273 to i32
+  %mul = mul nuw nsw i32 %div72.zext, 27
   %add = add nsw i32 %mul, -292
   %sub2 = sub nsw i32 %k, %add
-  %idxprom = zext nneg i16 %div7273 to i64
-  %arrayidx = getelementptr inbounds [24 x %"class.fmt::v10::detail::uint128_fallback"], ptr @_ZZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 0, i64 %idxprom
+  %idxprom.scale = shl nuw nsw i32 %div72.zext, 1
+  %2 = zext nneg i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i64, ptr @_ZZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 %2
   %base_cache.sroa.0.0.copyload = load i64, ptr %arrayidx, align 16
   %base_cache.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %base_cache.sroa.3.0.copyload = load i64, ptr %base_cache.sroa.3.0.arrayidx.sroa_idx, align 8
@@ -30425,10 +30426,10 @@ _ZN3fmt3v106detail9dragonbox16floor_log2_pow10Ei.exit28: ; preds = %if.end
   %shr.i = ashr i32 %mul.i, 19
   %mul.i26 = mul nsw i32 %add, 1741647
   %shr.i27 = ashr i32 %mul.i26, 19
-  %2 = add nsw i32 %sub2, %shr.i27
-  %sub9 = sub nsw i32 %shr.i, %2
-  %3 = add nsw i32 %sub9, -1
-  %or.cond1 = icmp ult i32 %3, 63
+  %3 = add nsw i32 %sub2, %shr.i27
+  %sub9 = sub nsw i32 %shr.i, %3
+  %4 = add nsw i32 %sub9, -1
+  %or.cond1 = icmp ult i32 %4, 63
   br i1 %or.cond1, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %_ZN3fmt3v106detail9dragonbox16floor_log2_pow10Ei.exit28
@@ -30437,7 +30438,7 @@ if.then13:                                        ; preds = %_ZN3fmt3v106detail9
           to label %invoke.cont.i52.invoke unwind label %lpad.i30
 
 lpad.i30:                                         ; preds = %if.then13
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @__cxa_free_exception(ptr %exception.i29) #28
   br label %terminate.lpad.body
@@ -30445,9 +30446,9 @@ lpad.i30:                                         ; preds = %if.then13
 if.end15:                                         ; preds = %_ZN3fmt3v106detail9dragonbox16floor_log2_pow10Ei.exit28
   %idxprom16 = sext i32 %sub2 to i64
   %arrayidx17 = getelementptr inbounds [27 x i64], ptr @_ZZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEiE14powers_of_5_64, i64 0, i64 %idxprom16
-  %5 = load i64, ptr %arrayidx17, align 8
+  %6 = load i64, ptr %arrayidx17, align 8
   %conv.i = zext i64 %base_cache.sroa.3.0.copyload to i128
-  %conv1.i = zext i64 %5 to i128
+  %conv1.i = zext i64 %6 to i128
   %mul.i36 = mul nuw i128 %conv1.i, %conv.i
   %conv3.i = trunc i128 %mul.i36 to i64
   %conv.i38 = zext i64 %base_cache.sroa.0.0.copyload to i128
@@ -30455,11 +30456,11 @@ if.end15:                                         ; preds = %_ZN3fmt3v106detail9
   %shr.i41 = lshr i128 %mul.i40, 64
   %conv2.i42 = trunc nuw i128 %shr.i41 to i64
   %conv3.i43 = trunc i128 %mul.i40 to i64
-  %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %conv3.i, i64 %conv2.i42)
-  %7 = extractvalue { i64, i1 } %6, 0
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %conv3.i, i64 %conv2.i42)
+  %8 = extractvalue { i64, i1 } %7, 0
   %sub25 = sub nuw nsw i32 64, %sub9
   %sh_prom = zext nneg i32 %sub25 to i64
-  %shl29 = shl i64 %7, %sh_prom
+  %shl29 = shl i64 %8, %sh_prom
   %sh_prom31 = zext nneg i32 %sub9 to i64
   %shr34 = lshr i64 %conv3.i43, %sh_prom31
   %or35 = or i64 %shl29, %shr34
@@ -30481,18 +30482,18 @@ invoke.cont.i52.cont:                             ; preds = %invoke.cont.i52.inv
   unreachable
 
 lpad.i51:                                         ; preds = %if.then40
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @__cxa_free_exception(ptr %exception.i50) #28
   br label %terminate.lpad.body
 
 if.end42:                                         ; preds = %if.end15
-  %shr = lshr i64 %7, %sh_prom31
+  %shr = lshr i64 %8, %sh_prom31
   %shr.i37 = lshr i128 %mul.i36, 64
   %conv2.i = trunc nuw i128 %shr.i37 to i64
-  %9 = extractvalue { i64, i1 } %6, 1
-  %10 = zext i1 %9 to i64
-  %add.i = add nuw i64 %10, %conv2.i
+  %10 = extractvalue { i64, i1 } %7, 1
+  %11 = zext i1 %10 to i64
+  %add.i = add nuw i64 %11, %conv2.i
   %shl = shl i64 %add.i, %sh_prom
   %or = or i64 %shl, %shr
   %add45 = add nuw i64 %or35, 1
@@ -30506,14 +30507,14 @@ return:                                           ; preds = %if.end, %if.end42
   ret { i64, i64 } %.fca.1.insert
 
 terminate.lpad:                                   ; preds = %invoke.cont.i52.invoke
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %lpad.i30, %lpad.i51, %terminate.lpad, %lpad.i
-  %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad.i ], [ %4, %lpad.i30 ], [ %11, %terminate.lpad ], [ %8, %lpad.i51 ]
-  %12 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  tail call void @__clang_call_terminate(ptr %12) #31
+  %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad.i30 ], [ %12, %terminate.lpad ], [ %9, %lpad.i51 ]
+  %13 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  tail call void @__clang_call_terminate(ptr %13) #31
   unreachable
 }
 

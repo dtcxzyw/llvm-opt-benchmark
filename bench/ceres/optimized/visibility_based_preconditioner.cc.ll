@@ -5896,8 +5896,8 @@ define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner21ScaleOffD
   %12 = getelementptr inbounds i8, ptr %0, i64 160
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 144
-  %.not2430 = icmp eq ptr %13, %14
-  br i1 %.not2430, label %._crit_edge, label %.lr.ph
+  %.not2431 = icmp eq ptr %13, %14
+  br i1 %.not2431, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 112
@@ -5917,11 +5917,11 @@ define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner21ScaleOffD
   %27 = getelementptr inbounds i8, ptr %4, i64 24
   br label %28
 
-28:                                               ; preds = %.lr.ph, %95
-  %.sroa.021.031 = phi ptr [ %13, %.lr.ph ], [ %96, %95 ]
-  %29 = getelementptr inbounds i8, ptr %.sroa.021.031, i64 32
+28:                                               ; preds = %.lr.ph, %97
+  %.sroa.021.032 = phi ptr [ %13, %.lr.ph ], [ %98, %97 ]
+  %29 = getelementptr inbounds i8, ptr %.sroa.021.032, i64 32
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %.sroa.021.031, i64 36
+  %31 = getelementptr inbounds i8, ptr %.sroa.021.032, i64 36
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %30 to i64
   %34 = load ptr, ptr %15, align 8
@@ -5931,7 +5931,7 @@ define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner21ScaleOffD
   %38 = getelementptr inbounds i32, ptr %34, i64 %37
   %39 = load i32, ptr %38, align 4
   %.not25 = icmp eq i32 %36, %39
-  br i1 %.not25, label %95, label %40
+  br i1 %.not25, label %97, label %40
 
 40:                                               ; preds = %28
   %41 = load ptr, ptr %16, align 8
@@ -6015,18 +6015,22 @@ define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner21ScaleOffD
   %83 = load i32, ptr %7, align 4
   %84 = sext i32 %83 to i64
   %85 = load ptr, ptr %17, align 8
-  %86 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %85, i64 %33
-  %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %85, i64 %37
-  %89 = load i32, ptr %88, align 4
-  %90 = sext i32 %87 to i64
-  %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds double, ptr %76, i64 %84
-  %93 = mul nsw i64 %82, %80
-  %94 = getelementptr inbounds double, ptr %92, i64 %93
-  store ptr %94, ptr %11, align 8, !alias.scope !52
-  store i64 %90, ptr %18, align 8, !alias.scope !52
-  store i64 %91, ptr %19, align 8, !alias.scope !52
+  %.scale = shl nsw i32 %30, 1
+  %86 = sext i32 %.scale to i64
+  %87 = getelementptr inbounds i32, ptr %85, i64 %86
+  %88 = load i32, ptr %87, align 4
+  %.scale26 = shl nsw i32 %32, 1
+  %89 = sext i32 %.scale26 to i64
+  %90 = getelementptr inbounds i32, ptr %85, i64 %89
+  %91 = load i32, ptr %90, align 4
+  %92 = sext i32 %88 to i64
+  %93 = sext i32 %91 to i64
+  %94 = getelementptr inbounds double, ptr %76, i64 %84
+  %95 = mul nsw i64 %82, %80
+  %96 = getelementptr inbounds double, ptr %94, i64 %95
+  store ptr %96, ptr %11, align 8, !alias.scope !52
+  store i64 %92, ptr %18, align 8, !alias.scope !52
+  store i64 %93, ptr %19, align 8, !alias.scope !52
   store ptr %76, ptr %20, align 8
   store i64 %78, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 %80, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6038,7 +6042,7 @@ define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner21ScaleOffD
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store double 5.000000e-01, ptr %2, align 8
-  store ptr %94, ptr %3, align 8
+  store ptr %96, ptr %3, align 8
   store i64 %80, ptr %24, align 8
   store ptr %3, ptr %4, align 8
   store ptr %2, ptr %25, align 8
@@ -6049,14 +6053,14 @@ define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditioner21ScaleOffD
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br label %95
+  br label %97
 
-95:                                               ; preds = %28, %.critedge
-  %96 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.031) #25
-  %.not24 = icmp eq ptr %96, %14
+97:                                               ; preds = %28, %.critedge
+  %98 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.021.032) #25
+  %.not24 = icmp eq ptr %98, %14
   br i1 %.not24, label %._crit_edge, label %28
 
-._crit_edge:                                      ; preds = %95, %1
+._crit_edge:                                      ; preds = %97, %1
   ret void
 }
 

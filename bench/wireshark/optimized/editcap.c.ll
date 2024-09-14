@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { i32 }
 %struct.Buffer = type { ptr, i64, i64, i64 }
 %struct.wtap_dump_params = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.string_elem = type { ptr, ptr }
 
 @frames_user_comments = hidden local_unnamed_addr global ptr null, align 8
 @capture_comments = hidden local_unnamed_addr global ptr null, align 8
@@ -3370,33 +3369,36 @@ define internal fastcc void @list_encap_types(ptr noundef %0) unnamed_addr #0 {
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %1, %15
-  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %1 ]
-  %.019 = phi ptr [ %.1, %15 ], [ null, %1 ]
+.lr.ph:                                           ; preds = %1, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %1 ]
+  %.019 = phi ptr [ %.1, %17 ], [ null, %1 ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = tail call ptr @wtap_encap_name(i32 noundef %8) #22
-  %10 = getelementptr %struct.string_elem, ptr %4, i64 %indvars.iv
-  store ptr %9, ptr %10, align 8
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %10 = shl i32 %indvars.iv.tr, 1
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr ptr, ptr %4, i64 %11
+  store ptr %9, ptr %12, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %15, label %11
+  br i1 %.not, label %17, label %13
 
-11:                                               ; preds = %.lr.ph
-  %12 = tail call ptr @wtap_encap_description(i32 noundef %8) #22
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %12, ptr %13, align 8
-  %14 = tail call ptr @g_slist_insert_sorted(ptr noundef %.019, ptr noundef nonnull %10, ptr noundef nonnull @string_nat_compare) #22
-  br label %15
+13:                                               ; preds = %.lr.ph
+  %14 = tail call ptr @wtap_encap_description(i32 noundef %8) #22
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %14, ptr %15, align 8
+  %16 = tail call ptr @g_slist_insert_sorted(ptr noundef %.019, ptr noundef nonnull %12, ptr noundef nonnull @string_nat_compare) #22
+  br label %17
 
-15:                                               ; preds = %.lr.ph, %11
-  %.1 = phi ptr [ %14, %11 ], [ %.019, %.lr.ph ]
+17:                                               ; preds = %.lr.ph, %13
+  %.1 = phi ptr [ %16, %13 ], [ %.019, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = tail call i32 @wtap_get_num_encap_types() #22
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  %18 = tail call i32 @wtap_get_num_encap_types() #22
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %15, %1
-  %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %15 ]
+._crit_edge:                                      ; preds = %17, %1
+  %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %17 ]
   tail call void @g_slist_foreach(ptr noundef %.0.lcssa, ptr noundef nonnull @string_elem_print, ptr noundef %0) #22
   tail call void @g_slist_free(ptr noundef %.0.lcssa) #22
   tail call void @g_free(ptr noundef %4) #22

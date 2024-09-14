@@ -667,24 +667,24 @@ define dso_local i32 @ata_acpi_gtm_xfermask(ptr nocapture noundef readonly %0, p
   %6 = load i32, ptr %5, align 1
   %7 = and i32 %6, 16
   %8 = icmp eq i32 %7, 0
-  %9 = select i1 %8, i32 0, i32 %4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr [2 x %struct.ata_acpi_drive], ptr %1, i64 0, i64 %10
+  %9 = shl i32 %4, 1
+  %.scale = select i1 %8, i32 0, i32 %9
+  %10 = sext i32 %.scale to i64
+  %11 = getelementptr i32, ptr %1, i64 %10
   %12 = load i32, ptr %11, align 1
   %13 = tail call zeroext i8 @ata_timing_cycle2mode(i32 noundef 0, i32 noundef %12) #8
   %14 = tail call i32 @ata_xfer_mode2mask(i8 noundef zeroext %13) #8
   %15 = load i32, ptr %5, align 1
-  %16 = shl i32 %9, 1
-  %17 = shl nuw i32 1, %16
-  %18 = and i32 %17, %15
-  %19 = icmp eq i32 %18, 0
-  %20 = select i1 %19, i32 7, i32 12
-  %21 = getelementptr inbounds i8, ptr %11, i64 4
-  %22 = load i32, ptr %21, align 1
-  %23 = tail call zeroext i8 @ata_timing_cycle2mode(i32 noundef %20, i32 noundef %22) #8
-  %24 = tail call i32 @ata_xfer_mode2mask(i8 noundef zeroext %23) #8
-  %25 = or i32 %24, %14
-  ret i32 %25
+  %16 = shl nuw i32 1, %.scale
+  %17 = and i32 %16, %15
+  %18 = icmp eq i32 %17, 0
+  %19 = select i1 %18, i32 7, i32 12
+  %20 = getelementptr inbounds i8, ptr %11, i64 4
+  %21 = load i32, ptr %20, align 1
+  %22 = tail call zeroext i8 @ata_timing_cycle2mode(i32 noundef %19, i32 noundef %21) #8
+  %23 = tail call i32 @ata_xfer_mode2mask(i8 noundef zeroext %22) #8
+  %24 = or i32 %23, %14
+  ret i32 %24
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -705,8 +705,8 @@ define dso_local noundef range(i32 0, 2) i32 @ata_acpi_cbl_80wire(ptr noundef %0
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   br label %9
 
-9:                                                ; preds = %35, %7
-  %10 = phi ptr [ %5, %7 ], [ %36, %35 ]
+9:                                                ; preds = %34, %7
+  %10 = phi ptr [ %5, %7 ], [ %35, %34 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   store i32 0, ptr %3, align 4, !annotation !6
   %11 = getelementptr inbounds i8, ptr %10, i64 8
@@ -714,37 +714,37 @@ define dso_local noundef range(i32 0, 2) i32 @ata_acpi_cbl_80wire(ptr noundef %0
   %13 = load i32, ptr %8, align 1
   %14 = and i32 %13, 16
   %15 = icmp eq i32 %14, 0
-  %16 = select i1 %15, i32 0, i32 %12
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr [2 x %struct.ata_acpi_drive], ptr %1, i64 0, i64 %17
+  %16 = shl i32 %12, 1
+  %.scale = select i1 %15, i32 0, i32 %16
+  %17 = sext i32 %.scale to i64
+  %18 = getelementptr i32, ptr %1, i64 %17
   %19 = load i32, ptr %18, align 1
   %20 = call zeroext i8 @ata_timing_cycle2mode(i32 noundef 0, i32 noundef %19) #8
   %21 = call i32 @ata_xfer_mode2mask(i8 noundef zeroext %20) #8
   %22 = load i32, ptr %8, align 1
-  %23 = shl i32 %16, 1
-  %24 = shl nuw i32 1, %23
-  %25 = and i32 %24, %22
-  %26 = icmp eq i32 %25, 0
-  %27 = select i1 %26, i32 7, i32 12
-  %28 = getelementptr inbounds i8, ptr %18, i64 4
-  %29 = load i32, ptr %28, align 1
-  %30 = call zeroext i8 @ata_timing_cycle2mode(i32 noundef %27, i32 noundef %29) #8
-  %31 = call i32 @ata_xfer_mode2mask(i8 noundef zeroext %30) #8
-  %32 = or i32 %31, %21
-  call void @ata_unpack_xfermask(i32 noundef %32, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #8
-  %33 = load i32, ptr %3, align 4
-  %34 = icmp ult i32 %33, 8
+  %23 = shl nuw i32 1, %.scale
+  %24 = and i32 %23, %22
+  %25 = icmp eq i32 %24, 0
+  %26 = select i1 %25, i32 7, i32 12
+  %27 = getelementptr inbounds i8, ptr %18, i64 4
+  %28 = load i32, ptr %27, align 1
+  %29 = call zeroext i8 @ata_timing_cycle2mode(i32 noundef %26, i32 noundef %28) #8
+  %30 = call i32 @ata_xfer_mode2mask(i8 noundef zeroext %29) #8
+  %31 = or i32 %30, %21
+  call void @ata_unpack_xfermask(i32 noundef %31, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #8
+  %32 = load i32, ptr %3, align 4
+  %33 = icmp ult i32 %32, 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
-  br i1 %34, label %35, label %.loopexit
+  br i1 %33, label %34, label %.loopexit
 
-35:                                               ; preds = %9
-  %36 = call ptr @ata_dev_next(ptr noundef nonnull %10, ptr noundef %4, i32 noundef 0) #8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %.loopexit, label %9, !llvm.loop !10
+34:                                               ; preds = %9
+  %35 = call ptr @ata_dev_next(ptr noundef nonnull %10, ptr noundef %4, i32 noundef 0) #8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %.loopexit, label %9, !llvm.loop !10
 
-.loopexit:                                        ; preds = %35, %9, %2
-  %38 = phi i32 [ 0, %2 ], [ 0, %35 ], [ 1, %9 ]
-  ret i32 %38
+.loopexit:                                        ; preds = %34, %9, %2
+  %37 = phi i32 [ 0, %2 ], [ 0, %34 ], [ 1, %9 ]
+  ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid

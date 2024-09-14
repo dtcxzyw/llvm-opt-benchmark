@@ -107,16 +107,17 @@ for.cond.preheader:                               ; preds = %entry
   store i64 %1, ptr %arrayidx14, align 4
   %2 = load ptr, ptr %m_vertices, align 8
   %3 = load i32, ptr %m_count, align 8
-  %4 = sext i32 %3 to i64
-  %5 = getelementptr %struct.b2Vec2, ptr %2, i64 %4
-  %arrayidx19 = getelementptr i8, ptr %5, i64 -16
+  %sub17 = shl i32 %3, 1
+  %idxprom18.scale = add i32 %sub17, -4
+  %4 = sext i32 %idxprom18.scale to i64
+  %arrayidx19 = getelementptr inbounds float, ptr %2, i64 %4
   %m_prevVertex = getelementptr inbounds i8, ptr %this, i64 28
-  %6 = load i64, ptr %arrayidx19, align 4
-  store i64 %6, ptr %m_prevVertex, align 4
+  %5 = load i64, ptr %arrayidx19, align 4
+  store i64 %5, ptr %m_prevVertex, align 4
   %arrayidx21 = getelementptr inbounds i8, ptr %2, i64 8
   %m_nextVertex = getelementptr inbounds i8, ptr %this, i64 36
-  %7 = load i64, ptr %arrayidx21, align 4
-  store i64 %7, ptr %m_nextVertex, align 4
+  %6 = load i64, ptr %arrayidx21, align 4
+  store i64 %6, ptr %m_nextVertex, align 4
   br label %return
 
 return:                                           ; preds = %entry, %for.cond.preheader
@@ -206,41 +207,44 @@ entry:
   store float %0, ptr %m_radius2, align 4
   %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_vertices, align 8
-  %idxprom = sext i32 %index to i64
-  %arrayidx = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %index, 1
+  %2 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds float, ptr %1, i64 %2
   %m_vertex1 = getelementptr inbounds i8, ptr %edge, i64 16
-  %2 = load i64, ptr %arrayidx, align 4
-  store i64 %2, ptr %m_vertex1, align 8
-  %3 = load ptr, ptr %m_vertices, align 8
-  %4 = getelementptr %struct.b2Vec2, ptr %3, i64 %idxprom
-  %arrayidx6 = getelementptr i8, ptr %4, i64 8
+  %3 = load i64, ptr %arrayidx, align 4
+  store i64 %3, ptr %m_vertex1, align 8
+  %4 = load ptr, ptr %m_vertices, align 8
+  %idxprom5.scale = add i32 %idxprom.scale, 2
+  %5 = sext i32 %idxprom5.scale to i64
+  %arrayidx6 = getelementptr inbounds float, ptr %4, i64 %5
   %m_vertex2 = getelementptr inbounds i8, ptr %edge, i64 24
-  %5 = load i64, ptr %arrayidx6, align 4
-  store i64 %5, ptr %m_vertex2, align 8
+  %6 = load i64, ptr %arrayidx6, align 4
+  store i64 %6, ptr %m_vertex2, align 8
   %m_oneSided = getelementptr inbounds i8, ptr %edge, i64 48
   store i8 1, ptr %m_oneSided, align 8
   %cmp = icmp sgt i32 %index, 0
-  %6 = load ptr, ptr %m_vertices, align 8
-  %7 = zext nneg i32 %index to i64
-  %8 = getelementptr %struct.b2Vec2, ptr %6, i64 %7
-  %arrayidx9 = getelementptr i8, ptr %8, i64 -8
+  %7 = load ptr, ptr %m_vertices, align 8
+  %8 = zext nneg i32 %index to i64
+  %9 = getelementptr %struct.b2Vec2, ptr %7, i64 %8
+  %arrayidx9 = getelementptr i8, ptr %9, i64 -8
   %m_prevVertex = getelementptr inbounds i8, ptr %this, i64 28
   %.sink.in = select i1 %cmp, ptr %arrayidx9, ptr %m_prevVertex
   %.sink = load i64, ptr %.sink.in, align 4
-  %9 = getelementptr inbounds i8, ptr %edge, i64 32
-  store i64 %.sink, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %edge, i64 32
+  store i64 %.sink, ptr %10, align 8
   %m_count = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load i32, ptr %m_count, align 8
-  %sub11 = add nsw i32 %10, -2
+  %11 = load i32, ptr %m_count, align 8
+  %sub11 = add nsw i32 %11, -2
   %cmp12 = icmp slt i32 %index, %sub11
-  %11 = load ptr, ptr %m_vertices, align 8
-  %12 = getelementptr %struct.b2Vec2, ptr %11, i64 %idxprom
-  %arrayidx17 = getelementptr i8, ptr %12, i64 16
+  %12 = load ptr, ptr %m_vertices, align 8
+  %idxprom16.scale = add i32 %idxprom.scale, 4
+  %13 = sext i32 %idxprom16.scale to i64
+  %arrayidx17 = getelementptr inbounds float, ptr %12, i64 %13
   %m_nextVertex = getelementptr inbounds i8, ptr %this, i64 36
   %.sink14.in = select i1 %cmp12, ptr %arrayidx17, ptr %m_nextVertex
   %.sink14 = load i64, ptr %.sink14.in, align 4
-  %13 = getelementptr inbounds i8, ptr %edge, i64 40
-  store i64 %.sink14, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %edge, i64 40
+  store i64 %.sink14, ptr %14, align 8
   ret void
 }
 
@@ -265,19 +269,21 @@ entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_count, align 8
   %cmp = icmp eq i32 %add, %0
-  %spec.store.select = select i1 %cmp, i32 0, i32 %add
+  %1 = shl nsw i32 %add, 1
   %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %m_vertices, align 8
-  %idxprom = sext i32 %childIndex to i64
-  %arrayidx = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom
+  %2 = load ptr, ptr %m_vertices, align 8
+  %idxprom.scale = shl nsw i32 %childIndex, 1
+  %3 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds float, ptr %2, i64 %3
   %m_vertex1 = getelementptr inbounds i8, ptr %edgeShape, i64 16
-  %2 = load i64, ptr %arrayidx, align 4
-  store i64 %2, ptr %m_vertex1, align 8
-  %idxprom3 = sext i32 %spec.store.select to i64
-  %arrayidx4 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom3
+  %4 = load i64, ptr %arrayidx, align 4
+  store i64 %4, ptr %m_vertex1, align 8
+  %idxprom3.scale = select i1 %cmp, i32 0, i32 %1
+  %5 = sext i32 %idxprom3.scale to i64
+  %arrayidx4 = getelementptr inbounds float, ptr %2, i64 %5
   %m_vertex2 = getelementptr inbounds i8, ptr %edgeShape, i64 24
-  %3 = load i64, ptr %arrayidx4, align 4
-  store i64 %3, ptr %m_vertex2, align 8
+  %6 = load i64, ptr %arrayidx4, align 4
+  store i64 %6, ptr %m_vertex2, align 8
   %call = call noundef zeroext i1 @_ZNK11b2EdgeShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr noundef nonnull align 8 dereferenceable(49) %edgeShape, ptr noundef %output, ptr noundef nonnull align 4 dereferenceable(20) %input, ptr noundef nonnull align 4 dereferenceable(16) %xf, i32 noundef 0)
   ret i1 %call
 }
@@ -291,40 +297,42 @@ entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_count, align 8
   %cmp = icmp eq i32 %add, %0
-  %spec.store.select = select i1 %cmp, i32 0, i32 %add
+  %1 = shl nsw i32 %add, 1
   %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %m_vertices, align 8
-  %idxprom = sext i32 %childIndex to i64
-  %arrayidx = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom
+  %2 = load ptr, ptr %m_vertices, align 8
+  %idxprom.scale = shl nsw i32 %childIndex, 1
+  %3 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds float, ptr %2, i64 %3
   %q.i = getelementptr inbounds i8, ptr %xf, i64 8
   %c.i = getelementptr inbounds i8, ptr %xf, i64 12
-  %2 = load float, ptr %c.i, align 4
-  %3 = load float, ptr %arrayidx, align 4
-  %4 = load float, ptr %q.i, align 4
+  %4 = load float, ptr %c.i, align 4
+  %5 = load float, ptr %arrayidx, align 4
+  %6 = load float, ptr %q.i, align 4
   %y.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %5 = load float, ptr %y.i, align 4
-  %6 = fneg float %5
-  %neg.i = fmul float %4, %6
-  %7 = tail call float @llvm.fmuladd.f32(float %2, float %3, float %neg.i)
-  %8 = load float, ptr %xf, align 4
-  %add.i = fadd float %8, %7
-  %mul12.i = fmul float %2, %5
-  %9 = tail call float @llvm.fmuladd.f32(float %4, float %3, float %mul12.i)
+  %7 = load float, ptr %y.i, align 4
+  %8 = fneg float %7
+  %neg.i = fmul float %6, %8
+  %9 = tail call float @llvm.fmuladd.f32(float %4, float %5, float %neg.i)
+  %10 = load float, ptr %xf, align 4
+  %add.i = fadd float %10, %9
+  %mul12.i = fmul float %4, %7
+  %11 = tail call float @llvm.fmuladd.f32(float %6, float %5, float %mul12.i)
   %y14.i = getelementptr inbounds i8, ptr %xf, i64 4
-  %10 = load float, ptr %y14.i, align 4
-  %add15.i = fadd float %9, %10
-  %idxprom3 = sext i32 %spec.store.select to i64
-  %arrayidx4 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom3
-  %11 = load float, ptr %arrayidx4, align 4
+  %12 = load float, ptr %y14.i, align 4
+  %add15.i = fadd float %11, %12
+  %idxprom3.scale = select i1 %cmp, i32 0, i32 %1
+  %13 = sext i32 %idxprom3.scale to i64
+  %arrayidx4 = getelementptr inbounds float, ptr %2, i64 %13
+  %14 = load float, ptr %arrayidx4, align 4
   %y.i7 = getelementptr inbounds i8, ptr %arrayidx4, i64 4
-  %12 = load float, ptr %y.i7, align 4
-  %13 = fneg float %12
-  %neg.i8 = fmul float %4, %13
-  %14 = tail call float @llvm.fmuladd.f32(float %2, float %11, float %neg.i8)
-  %add.i9 = fadd float %8, %14
-  %mul12.i10 = fmul float %2, %12
-  %15 = tail call float @llvm.fmuladd.f32(float %4, float %11, float %mul12.i10)
-  %add15.i12 = fadd float %10, %15
+  %15 = load float, ptr %y.i7, align 4
+  %16 = fneg float %15
+  %neg.i8 = fmul float %6, %16
+  %17 = tail call float @llvm.fmuladd.f32(float %4, float %14, float %neg.i8)
+  %add.i9 = fadd float %10, %17
+  %mul12.i10 = fmul float %4, %15
+  %18 = tail call float @llvm.fmuladd.f32(float %6, float %14, float %mul12.i10)
+  %add15.i12 = fadd float %12, %18
   %cmp.i.i = fcmp olt float %add.i, %add.i9
   %cond.i.i = select i1 %cmp.i.i, float %add.i, float %add.i9
   %cmp.i3.i = fcmp olt float %add15.i, %add15.i12
@@ -334,14 +342,14 @@ entry:
   %cmp.i3.i22 = fcmp ogt float %add15.i, %add15.i12
   %cond.i4.i23 = select i1 %cmp.i3.i22, float %add15.i, float %add15.i12
   %m_radius = getelementptr inbounds i8, ptr %this, i64 12
-  %16 = load float, ptr %m_radius, align 4
-  %sub.i = fsub float %cond.i.i, %16
-  %sub3.i = fsub float %cond.i4.i, %16
+  %19 = load float, ptr %m_radius, align 4
+  %sub.i = fsub float %cond.i.i, %19
+  %sub3.i = fsub float %cond.i4.i, %19
   %retval.sroa.0.0.vec.insert.i29 = insertelement <2 x float> poison, float %sub.i, i64 0
   %retval.sroa.0.4.vec.insert.i30 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i29, float %sub3.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i30, ptr %aabb, align 4
-  %add.i31 = fadd float %16, %cond.i.i19
-  %add3.i = fadd float %16, %cond.i4.i23
+  %add.i31 = fadd float %19, %cond.i.i19
+  %add3.i = fadd float %19, %cond.i4.i23
   %retval.sroa.0.0.vec.insert.i34 = insertelement <2 x float> poison, float %add.i31, i64 0
   %retval.sroa.0.4.vec.insert.i35 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i34, float %add3.i, i64 1
   %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8

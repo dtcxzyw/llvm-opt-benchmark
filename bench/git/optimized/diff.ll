@@ -21333,7 +21333,7 @@ for.body.lr.ph:                                   ; preds = %do.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %do.end114
-  %7 = phi i64 [ %6, %for.body.lr.ph ], [ %52, %do.end114 ]
+  %7 = phi i64 [ %6, %for.body.lr.ph ], [ %54, %do.end114 ]
   %conv18109 = phi i64 [ 0, %for.body.lr.ph ], [ %idx.ext69, %do.end114 ]
   %alloc.0108 = phi i64 [ 0, %for.body.lr.ph ], [ %alloc.2, %do.end114 ]
   %storemerge49107 = phi i32 [ 0, %for.body.lr.ph ], [ %j.387, %do.end114 ]
@@ -21508,30 +21508,33 @@ do.end60:                                         ; preds = %do.body27.do.end60_
   %38 = phi ptr [ %31, %do.body27.do.end60_crit_edge ], [ %.pre117, %st_mult.exit57 ]
   %idx.ext = sext i32 %i.386 to i64
   %add.ptr = getelementptr inbounds i8, ptr %38, i64 %idx.ext
-  %idxprom = sext i32 %36 to i64
-  %arrayidx65 = getelementptr inbounds %struct.diff_words_orig, ptr %37, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %36, 1
+  %39 = sext i32 %idxprom.scale to i64
+  %arrayidx65 = getelementptr inbounds ptr, ptr %37, i64 %39
   store ptr %add.ptr, ptr %arrayidx65, align 8
-  %39 = load ptr, ptr %buffer, align 8
+  %40 = load ptr, ptr %buffer, align 8
   %idx.ext69 = sext i32 %j.387 to i64
-  %add.ptr70 = getelementptr inbounds i8, ptr %39, i64 %idx.ext69
-  %40 = load ptr, ptr %orig15, align 8
-  %41 = load i32, ptr %orig_nr, align 8
-  %idxprom73 = sext i32 %41 to i64
-  %end75 = getelementptr inbounds %struct.diff_words_orig, ptr %40, i64 %idxprom73, i32 1
-  store ptr %add.ptr70, ptr %end75, align 8
+  %add.ptr70 = getelementptr inbounds i8, ptr %40, i64 %idx.ext69
+  %41 = load ptr, ptr %orig15, align 8
   %42 = load i32, ptr %orig_nr, align 8
-  %inc = add nsw i32 %42, 1
+  %idxprom73.scale = shl nsw i32 %42, 1
+  %43 = sext i32 %idxprom73.scale to i64
+  %arrayidx74 = getelementptr inbounds ptr, ptr %41, i64 %43
+  %end75 = getelementptr inbounds i8, ptr %arrayidx74, i64 8
+  store ptr %add.ptr70, ptr %end75, align 8
+  %44 = load i32, ptr %orig_nr, align 8
+  %inc = add nsw i32 %44, 1
   store i32 %inc, ptr %orig_nr, align 8
-  %43 = load i64, ptr %size, align 8
+  %45 = load i64, ptr %size, align 8
   %add80 = sub nsw i64 %idx.ext69, %idx.ext
-  %sub = add i64 %add80, %43
+  %sub = add i64 %add80, %45
   %cmp83.not = icmp slt i64 %sub, %alloc.0108
   %.pre120 = load ptr, ptr %out, align 8
   br i1 %cmp83.not, label %do.end114, label %st_mult.exit62
 
 st_mult.exit62:                                   ; preds = %do.end60
-  %44 = mul i64 %alloc.0108, 3
-  %mul87 = add i64 %44, 48
+  %46 = mul i64 %alloc.0108, 3
+  %mul87 = add i64 %46, 48
   %div8851 = lshr i64 %mul87, 1
   %cmp95.not = icmp sgt i64 %div8851, %sub
   %add82 = add nsw i64 %sub, 1
@@ -21542,27 +21545,27 @@ st_mult.exit62:                                   ; preds = %do.end60
   br label %do.end114
 
 do.end114:                                        ; preds = %do.end60, %st_mult.exit62
-  %45 = phi i64 [ %.pre121, %st_mult.exit62 ], [ %43, %do.end60 ]
-  %46 = phi ptr [ %call111, %st_mult.exit62 ], [ %.pre120, %do.end60 ]
+  %47 = phi i64 [ %.pre121, %st_mult.exit62 ], [ %45, %do.end60 ]
+  %48 = phi ptr [ %call111, %st_mult.exit62 ], [ %.pre120, %do.end60 ]
   %alloc.2 = phi i64 [ %div8851.add82, %st_mult.exit62 ], [ %alloc.0108, %do.end60 ]
-  %add.ptr117 = getelementptr inbounds i8, ptr %46, i64 %45
-  %47 = load ptr, ptr %buffer, align 8
-  %add.ptr121 = getelementptr inbounds i8, ptr %47, i64 %idx.ext
+  %add.ptr117 = getelementptr inbounds i8, ptr %48, i64 %47
+  %49 = load ptr, ptr %buffer, align 8
+  %add.ptr121 = getelementptr inbounds i8, ptr %49, i64 %idx.ext
   %sub122 = sub nsw i32 %j.387, %i.386
   %conv123 = sext i32 %sub122 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr117, ptr align 1 %add.ptr121, i64 %conv123, i1 false)
-  %48 = load ptr, ptr %out, align 8
-  %49 = load i64, ptr %size, align 8
-  %50 = getelementptr i8, ptr %48, i64 %add80
-  %arrayidx130 = getelementptr i8, ptr %50, i64 %49
+  %50 = load ptr, ptr %out, align 8
+  %51 = load i64, ptr %size, align 8
+  %52 = getelementptr i8, ptr %50, i64 %add80
+  %arrayidx130 = getelementptr i8, ptr %52, i64 %51
   store i8 10, ptr %arrayidx130, align 1
   %add132 = add nsw i32 %sub122, 1
   %conv133 = sext i32 %add132 to i64
-  %51 = load i64, ptr %size, align 8
-  %add135 = add nsw i64 %51, %conv133
+  %53 = load i64, ptr %size, align 8
+  %add135 = add nsw i64 %53, %conv133
   store i64 %add135, ptr %size, align 8
-  %52 = load i64, ptr %size20, align 8
-  %cmp21 = icmp sgt i64 %52, %idx.ext69
+  %54 = load i64, ptr %size20, align 8
+  %cmp21 = icmp sgt i64 %54, %idx.ext69
   br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !77
 
 for.end:                                          ; preds = %do.end114, %find_word_boundaries.exit, %do.end, %find_word_boundaries.exit.thread

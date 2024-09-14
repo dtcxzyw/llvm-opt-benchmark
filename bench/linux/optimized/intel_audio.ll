@@ -902,14 +902,14 @@ define internal void @ibx_audio_codec_enable(ptr nocapture noundef readonly %0, 
   br i1 %73, label %.loopexit.thread, label %66, !llvm.loop !24
 
 .loopexit:                                        ; preds = %66
-  %74 = getelementptr inbounds i8, ptr %63, i64 2632
-  %75 = load i16, ptr %74, align 8
-  %76 = icmp ult i16 %75, 12
-  %77 = icmp sgt i32 %65, 148500
-  %78 = and i1 %77, %76
-  %79 = and i64 %67, 4294967295
-  %80 = icmp eq i64 %79, 14
-  %81 = or i1 %80, %78
+  %74 = trunc i64 %67 to i32
+  %75 = getelementptr inbounds i8, ptr %63, i64 2632
+  %76 = load i16, ptr %75, align 8
+  %77 = icmp ult i16 %76, 12
+  %78 = icmp sgt i32 %65, 148500
+  %79 = and i1 %78, %77
+  %80 = icmp eq i32 %74, 14
+  %81 = or i1 %80, %79
   br i1 %81, label %.loopexit.thread, label %88
 
 .loopexit.thread:                                 ; preds = %71, %.loopexit
@@ -927,7 +927,7 @@ define internal void @ibx_audio_codec_enable(ptr nocapture noundef readonly %0, 
   br label %88
 
 88:                                               ; preds = %86, %.loopexit
-  %89 = phi i64 [ 1, %86 ], [ %67, %.loopexit ]
+  %89 = phi i32 [ 1, %86 ], [ %74, %.loopexit ]
   %90 = icmp eq ptr %63, null
   br i1 %90, label %94, label %91
 
@@ -938,9 +938,9 @@ define internal void @ibx_audio_codec_enable(ptr nocapture noundef readonly %0, 
 
 94:                                               ; preds = %91, %88
   %95 = phi ptr [ %93, %91 ], [ null, %88 ]
-  %sext = shl i64 %89, 32
-  %96 = ashr exact i64 %sext, 32
-  %97 = getelementptr [14 x %struct.anon.80], ptr @hdmi_audio_clock, i64 0, i64 %96
+  %.scale = shl i32 %89, 1
+  %96 = sext i32 %.scale to i64
+  %97 = getelementptr i32, ptr @hdmi_audio_clock, i64 %96
   %98 = load i32, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %97, i64 4
   %100 = load i32, ptr %99, align 4
@@ -1581,14 +1581,14 @@ define internal fastcc void @hsw_audio_config_update(ptr nocapture noundef reado
   br i1 %127, label %.loopexit.thread, label %120, !llvm.loop !24
 
 .loopexit:                                        ; preds = %120
-  %128 = getelementptr inbounds i8, ptr %117, i64 2632
-  %129 = load i16, ptr %128, align 8
-  %130 = icmp ult i16 %129, 12
-  %131 = icmp sgt i32 %119, 148500
-  %132 = and i1 %131, %130
-  %133 = and i64 %121, 4294967295
-  %134 = icmp eq i64 %133, 14
-  %135 = or i1 %134, %132
+  %128 = trunc i64 %121 to i32
+  %129 = getelementptr inbounds i8, ptr %117, i64 2632
+  %130 = load i16, ptr %129, align 8
+  %131 = icmp ult i16 %130, 12
+  %132 = icmp sgt i32 %119, 148500
+  %133 = and i1 %132, %131
+  %134 = icmp eq i32 %128, 14
+  %135 = or i1 %134, %133
   br i1 %135, label %.loopexit.thread, label %142
 
 .loopexit.thread:                                 ; preds = %125, %.loopexit
@@ -1606,7 +1606,7 @@ define internal fastcc void @hsw_audio_config_update(ptr nocapture noundef reado
   br label %142
 
 142:                                              ; preds = %140, %.loopexit
-  %143 = phi i64 [ 1, %140 ], [ %121, %.loopexit ]
+  %143 = phi i32 [ 1, %140 ], [ %128, %.loopexit ]
   %144 = icmp eq ptr %117, null
   br i1 %144, label %148, label %145
 
@@ -1617,9 +1617,9 @@ define internal fastcc void @hsw_audio_config_update(ptr nocapture noundef reado
 
 148:                                              ; preds = %145, %142
   %149 = phi ptr [ %147, %145 ], [ null, %142 ]
-  %sext = shl i64 %143, 32
-  %150 = ashr exact i64 %sext, 32
-  %151 = getelementptr [14 x %struct.anon.80], ptr @hdmi_audio_clock, i64 0, i64 %150
+  %.scale = shl i32 %143, 1
+  %150 = sext i32 %.scale to i64
+  %151 = getelementptr i32, ptr @hdmi_audio_clock, i64 %150
   %152 = load i32, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %151, i64 4
   %154 = load i32, ptr %153, align 4

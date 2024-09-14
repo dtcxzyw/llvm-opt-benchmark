@@ -246,50 +246,52 @@ return:                                           ; preds = %entry, %if.end14, %
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_ctype_toupper(i32 noundef %n) #0 {
 entry:
-  %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [8 x %struct.anon], ptr @case_change, i64 0, i64 %idxprom
+  %idxprom.scale = shl nsw i32 %n, 1
+  %0 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i32, ptr @case_change, i64 %0
   %l = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %0 = load i32, ptr %l, align 4
-  %call = tail call i32 @ossl_toupper(i32 noundef %0) #3
-  %1 = load i32, ptr %arrayidx, align 8
-  %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %call, i32 noundef %1) #3
+  %1 = load i32, ptr %l, align 4
+  %call = tail call i32 @ossl_toupper(i32 noundef %1) #3
+  %2 = load i32, ptr %arrayidx, align 8
+  %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 68, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %call, i32 noundef %2) #3
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call7 = tail call i32 @ossl_toupper(i32 noundef %1) #3
-  %call11 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 69, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, i32 noundef %call7, i32 noundef %1) #3
+  %call7 = tail call i32 @ossl_toupper(i32 noundef %2) #3
+  %call11 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 69, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, i32 noundef %call7, i32 noundef %2) #3
   %tobool12 = icmp ne i32 %call11, 0
-  %2 = zext i1 %tobool12 to i32
+  %3 = zext i1 %tobool12 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %land.ext = phi i32 [ 0, %entry ], [ %2, %land.rhs ]
+  %land.ext = phi i32 [ 0, %entry ], [ %3, %land.rhs ]
   ret i32 %land.ext
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_ctype_tolower(i32 noundef %n) #0 {
 entry:
-  %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr inbounds [8 x %struct.anon], ptr @case_change, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 8
-  %call = tail call i32 @ossl_tolower(i32 noundef %0) #3
+  %idxprom.scale = shl nsw i32 %n, 1
+  %0 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr inbounds i32, ptr @case_change, i64 %0
+  %1 = load i32, ptr %arrayidx, align 8
+  %call = tail call i32 @ossl_tolower(i32 noundef %1) #3
   %l = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %1 = load i32, ptr %l, align 4
-  %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 74, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef %call, i32 noundef %1) #3
+  %2 = load i32, ptr %l, align 4
+  %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 74, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef %call, i32 noundef %2) #3
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call7 = tail call i32 @ossl_tolower(i32 noundef %1) #3
-  %call11 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 75, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.35, i32 noundef %call7, i32 noundef %1) #3
+  %call7 = tail call i32 @ossl_tolower(i32 noundef %2) #3
+  %call11 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 75, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.35, i32 noundef %call7, i32 noundef %2) #3
   %tobool12 = icmp ne i32 %call11, 0
-  %2 = zext i1 %tobool12 to i32
+  %3 = zext i1 %tobool12 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %land.ext = phi i32 [ 0, %entry ], [ %2, %land.rhs ]
+  %land.ext = phi i32 [ 0, %entry ], [ %3, %land.rhs ]
   ret i32 %land.ext
 }
 

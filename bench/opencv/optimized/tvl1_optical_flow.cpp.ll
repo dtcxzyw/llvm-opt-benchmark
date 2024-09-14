@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::Vec.0" = type { %"class.cv::Matx.1" }
 %"class.cv::Matx.1" = type { [3 x i8] }
-%"class.cv::Point_" = type { float, float }
 %"class.std::basic_ofstream" = type { %"class.std::basic_ostream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::basic_filebuf" = type { %"class.std::basic_streambuf", %union.pthread_mutex_t, %"class.std::__basic_file", i32, %struct.__mbstate_t, %struct.__mbstate_t, %struct.__mbstate_t, ptr, i64, i8, i8, i8, i8, ptr, ptr, i8, ptr, ptr, i64, ptr, ptr }
@@ -44,6 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__basic_file" = type <{ ptr, i8, [7 x i8] }>
 %struct.__mbstate_t = type { i32, %union.anon.4 }
 %union.anon.4 = type { i32 }
+%"class.cv::Point_" = type { float, float }
 
 $_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b = comdat any
 
@@ -773,35 +773,36 @@ define internal fastcc void @_ZL15drawOpticalFlowRKN2cv4Mat_INS_6Point_IfEEEERNS
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.preheader50.lr.ph, label %._crit_edge58
+  br i1 %17, label %.preheader51.lr.ph, label %._crit_edge59
 
-.preheader50.lr.ph:                               ; preds = %2
+.preheader51.lr.ph:                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  br i1 %20, label %.preheader50.lr.ph.split.us, label %.preheader.lr.ph
+  br i1 %20, label %.preheader51.lr.ph.split.us, label %.preheader.lr.ph
 
-.preheader50.lr.ph.split.us:                      ; preds = %.preheader50.lr.ph
+.preheader51.lr.ph.split.us:                      ; preds = %.preheader51.lr.ph
   %23 = getelementptr inbounds i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
-  %wide.trip.count65 = zext nneg i32 %16 to i64
+  %wide.trip.count67 = zext nneg i32 %16 to i64
   %wide.trip.count = zext nneg i32 %19 to i64
-  br label %.preheader50.us
+  br label %.preheader51.us
 
-.preheader50.us:                                  ; preds = %._crit_edge.us, %.preheader50.lr.ph.split.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %._crit_edge.us ], [ 0, %.preheader50.lr.ph.split.us ]
-  %.04553.us = phi float [ %.2.us, %._crit_edge.us ], [ 1.000000e+00, %.preheader50.lr.ph.split.us ]
-  %26 = mul i64 %25, %indvars.iv62
+.preheader51.us:                                  ; preds = %._crit_edge.us, %.preheader51.lr.ph.split.us
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %._crit_edge.us ], [ 0, %.preheader51.lr.ph.split.us ]
+  %.04654.us = phi float [ %.2.us, %._crit_edge.us ], [ 1.000000e+00, %.preheader51.lr.ph.split.us ]
+  %26 = mul i64 %25, %indvars.iv64
   %27 = getelementptr inbounds i8, ptr %22, i64 %26
   br label %28
 
-28:                                               ; preds = %.preheader50.us, %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
-  %indvars.iv = phi i64 [ 0, %.preheader50.us ], [ %indvars.iv.next, %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us ]
-  %.151.us = phi float [ %.04553.us, %.preheader50.us ], [ %.2.us, %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us ]
-  %29 = getelementptr inbounds %"class.cv::Point_", ptr %27, i64 %indvars.iv
+28:                                               ; preds = %.preheader51.us, %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
+  %indvars.iv = phi i64 [ 0, %.preheader51.us ], [ %indvars.iv.next, %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us ]
+  %.152.us = phi float [ %.04654.us, %.preheader51.us ], [ %.2.us, %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us ]
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %29 = getelementptr inbounds i8, ptr %27, i64 %.idx
   %.sroa.011.0.copyload.us = load <2 x float>, ptr %29, align 4
   %.sroa.0.0.vec.extract.i.us = extractelement <2 x float> %.sroa.011.0.copyload.us, i64 0
   %30 = fcmp ord float %.sroa.0.0.vec.extract.i.us, 0.000000e+00
@@ -822,23 +823,23 @@ define internal fastcc void @_ZL15drawOpticalFlowRKN2cv4Mat_INS_6Point_IfEEEERNS
   %38 = fmul float %.sroa.0.4.vec.extract.i.us, %.sroa.0.4.vec.extract.i.us
   %39 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i.us, float %.sroa.0.0.vec.extract.i.us, float %38)
   %sqrt.us = call float @llvm.sqrt.f32(float %39)
-  %40 = fcmp olt float %.151.us, %sqrt.us
-  %.sroa.speculated.us = select i1 %40, float %sqrt.us, float %.151.us
+  %40 = fcmp olt float %.152.us, %sqrt.us
+  %.sroa.speculated.us = select i1 %40, float %sqrt.us, float %.152.us
   br label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
 
 _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %37, %31, %28
-  %.2.us = phi float [ %.sroa.speculated.us, %37 ], [ %.151.us, %31 ], [ %.151.us, %28 ]
+  %.2.us = phi float [ %.sroa.speculated.us, %37 ], [ %.152.us, %31 ], [ %.152.us, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !5
 
 ._crit_edge.us:                                   ; preds = %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.preheader.lr.ph, label %.preheader50.us, !llvm.loop !7
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
+  br i1 %exitcond68.not, label %.preheader.lr.ph, label %.preheader51.us, !llvm.loop !7
 
-.preheader.lr.ph:                                 ; preds = %._crit_edge.us, %.preheader50.lr.ph
-  %.045.lcssa75 = phi float [ 1.000000e+00, %.preheader50.lr.ph ], [ %.2.us, %._crit_edge.us ]
+.preheader.lr.ph:                                 ; preds = %._crit_edge.us, %.preheader51.lr.ph
+  %.046.lcssa79 = phi float [ 1.000000e+00, %.preheader51.lr.ph ], [ %.2.us, %._crit_edge.us ]
   %41 = getelementptr inbounds i8, ptr %0, i64 12
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = getelementptr inbounds i8, ptr %0, i64 72
@@ -846,44 +847,45 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %37, %31, %28
   %45 = getelementptr inbounds i8, ptr %1, i64 72
   %46 = load i32, ptr %41, align 4
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.preheader, label %._crit_edge58
+  br i1 %47, label %.preheader, label %._crit_edge59
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %48 = phi i32 [ %149, %._crit_edge ], [ %16, %.preheader.lr.ph ]
   %49 = phi i32 [ %150, %._crit_edge ], [ %46, %.preheader.lr.ph ]
   %50 = phi i32 [ %151, %._crit_edge ], [ %46, %.preheader.lr.ph ]
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %indvars.iv73 = phi i64 [ %indvars.iv.next74, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
-  %52 = phi i32 [ %146, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread ], [ %49, %.preheader ]
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %_Z13isFlowCorrectN2cv6Point_IfEE.exit44.thread
+  %52 = phi i32 [ %146, %_Z13isFlowCorrectN2cv6Point_IfEE.exit44.thread ], [ %49, %.preheader ]
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %_Z13isFlowCorrectN2cv6Point_IfEE.exit44.thread ], [ 0, %.preheader ]
   %53 = load ptr, ptr %42, align 8
   %54 = load ptr, ptr %43, align 8
   %55 = load i64, ptr %54, align 8
-  %56 = mul i64 %55, %indvars.iv70
+  %56 = mul i64 %55, %indvars.iv73
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = getelementptr inbounds %"class.cv::Point_", ptr %57, i64 %indvars.iv67
+  %.idx77 = shl nsw i64 %indvars.iv69, 3
+  %58 = getelementptr inbounds i8, ptr %57, i64 %.idx77
   %.sroa.01.0.copyload = load <2 x float>, ptr %58, align 4
-  %.sroa.0.0.vec.extract.i40 = extractelement <2 x float> %.sroa.01.0.copyload, i64 0
-  %59 = fcmp ord float %.sroa.0.0.vec.extract.i40, 0.000000e+00
-  br i1 %59, label %60, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
+  %.sroa.0.0.vec.extract.i41 = extractelement <2 x float> %.sroa.01.0.copyload, i64 0
+  %59 = fcmp ord float %.sroa.0.0.vec.extract.i41, 0.000000e+00
+  br i1 %59, label %60, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit44.thread
 
 60:                                               ; preds = %.lr.ph
-  %.sroa.0.4.vec.extract.i41 = extractelement <2 x float> %.sroa.01.0.copyload, i64 1
-  %61 = fcmp ord float %.sroa.0.4.vec.extract.i41, 0.000000e+00
-  %62 = call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i40)
+  %.sroa.0.4.vec.extract.i42 = extractelement <2 x float> %.sroa.01.0.copyload, i64 1
+  %61 = fcmp ord float %.sroa.0.4.vec.extract.i42, 0.000000e+00
+  %62 = call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract.i41)
   %63 = fcmp olt float %62, 1.000000e+09
-  %or.cond.i42 = and i1 %61, %63
-  %64 = call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i41)
+  %or.cond.i43 = and i1 %61, %63
+  %64 = call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract.i42)
   %65 = fcmp olt float %64, 1.000000e+09
-  %or.cond48 = and i1 %65, %or.cond.i42
-  br i1 %or.cond48, label %66, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
+  %or.cond49 = and i1 %65, %or.cond.i43
+  br i1 %or.cond49, label %66, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit44.thread
 
 66:                                               ; preds = %60
-  %67 = fdiv float %.sroa.0.0.vec.extract.i40, %.045.lcssa75
-  %68 = fdiv float %.sroa.0.4.vec.extract.i41, %.045.lcssa75
+  %67 = fdiv float %.sroa.0.0.vec.extract.i41, %.046.lcssa79
+  %68 = fdiv float %.sroa.0.4.vec.extract.i42, %.046.lcssa79
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %69 = load atomic i8, ptr @_ZGVZL12computeColorffE10colorWheel acquire, align 8, !noalias !8
   %70 = icmp eq i8 %69, 0
@@ -1067,34 +1069,34 @@ _ZL12computeColorff.exit:                         ; preds = %122
   %140 = load ptr, ptr %44, align 8
   %141 = load ptr, ptr %45, align 8
   %142 = load i64, ptr %141, align 8
-  %143 = mul i64 %142, %indvars.iv70
+  %143 = mul i64 %142, %indvars.iv73
   %144 = getelementptr inbounds i8, ptr %140, i64 %143
-  %145 = getelementptr inbounds %"class.cv::Vec.0", ptr %144, i64 %indvars.iv67
+  %145 = getelementptr inbounds %"class.cv::Vec.0", ptr %144, i64 %indvars.iv69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %145, ptr noundef nonnull align 1 dereferenceable(3) %5, i64 3, i1 false)
   %.pre = load i32, ptr %41, align 4
-  br label %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
+  br label %_Z13isFlowCorrectN2cv6Point_IfEE.exit44.thread
 
-_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread:   ; preds = %.lr.ph, %60, %_ZL12computeColorff.exit
+_Z13isFlowCorrectN2cv6Point_IfEE.exit44.thread:   ; preds = %.lr.ph, %60, %_ZL12computeColorff.exit
   %146 = phi i32 [ %52, %.lr.ph ], [ %52, %60 ], [ %.pre, %_ZL12computeColorff.exit ]
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %147 = sext i32 %146 to i64
-  %148 = icmp slt i64 %indvars.iv.next68, %147
+  %148 = icmp slt i64 %indvars.iv.next70, %147
   br i1 %148, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
-._crit_edge.loopexit:                             ; preds = %_Z13isFlowCorrectN2cv6Point_IfEE.exit43.thread
-  %.pre73 = load i32, ptr %15, align 8
+._crit_edge.loopexit:                             ; preds = %_Z13isFlowCorrectN2cv6Point_IfEE.exit44.thread
+  %.pre76 = load i32, ptr %15, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %149 = phi i32 [ %.pre73, %._crit_edge.loopexit ], [ %48, %.preheader ]
+  %149 = phi i32 [ %.pre76, %._crit_edge.loopexit ], [ %48, %.preheader ]
   %150 = phi i32 [ %146, %._crit_edge.loopexit ], [ %49, %.preheader ]
   %151 = phi i32 [ %146, %._crit_edge.loopexit ], [ %50, %.preheader ]
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %152 = sext i32 %149 to i64
-  %153 = icmp slt i64 %indvars.iv.next71, %152
-  br i1 %153, label %.preheader, label %._crit_edge58, !llvm.loop !20
+  %153 = icmp slt i64 %indvars.iv.next74, %152
+  br i1 %153, label %.preheader, label %._crit_edge59, !llvm.loop !20
 
-._crit_edge58:                                    ; preds = %._crit_edge, %2, %.preheader.lr.ph
+._crit_edge59:                                    ; preds = %._crit_edge, %2, %.preheader.lr.ph
   ret void
 }
 
@@ -1133,7 +1135,7 @@ define internal fastcc void @_ZL22writeOpticalFlowToFileRKN2cv4Mat_INS_6Point_If
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %20 = phi i32 [ %38, %._crit_edge ], [ %13, %.preheader.lr.ph ]
   %21 = phi i32 [ %39, %._crit_edge ], [ %18, %.preheader.lr.ph ]
-  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %indvars.iv21 = phi i64 [ %indvars.iv.next22, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -1142,9 +1144,10 @@ define internal fastcc void @_ZL22writeOpticalFlowToFileRKN2cv4Mat_INS_6Point_If
   %23 = load ptr, ptr %15, align 8
   %24 = load ptr, ptr %16, align 8
   %25 = load i64, ptr %24, align 8
-  %26 = mul i64 %25, %indvars.iv20
+  %26 = mul i64 %25, %indvars.iv21
   %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  %28 = getelementptr inbounds %"class.cv::Point_", ptr %27, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %28 = getelementptr inbounds i8, ptr %27, i64 %.idx
   %29 = load i64, ptr %28, align 4
   store i64 %29, ptr %4, align 8
   %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %4, i64 noundef 4)
@@ -1183,9 +1186,9 @@ define internal fastcc void @_ZL22writeOpticalFlowToFileRKN2cv4Mat_INS_6Point_If
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %38 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %20, %.preheader ]
   %39 = phi i32 [ %34, %._crit_edge.loopexit ], [ %21, %.preheader ]
-  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %40 = sext i32 %38 to i64
-  %41 = icmp slt i64 %indvars.iv.next21, %40
+  %41 = icmp slt i64 %indvars.iv.next22, %40
   br i1 %41, label %.preheader, label %._crit_edge17, !llvm.loop !23
 
 ._crit_edge17:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader14

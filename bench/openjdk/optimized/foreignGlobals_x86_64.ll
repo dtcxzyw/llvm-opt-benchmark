@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.VMStorage = type { i8, i16, i32 }
 %class.Address = type { %class.Register, %class.Register, %class.XMMRegister, i32, i32, i8, [3 x i8], %class.RelocationHolder }
 %class.RelocationHolder = type { [40 x i8] }
-%"struct.ArgumentShuffle::Move" = type { %class.VMStorage, %class.VMStorage }
 
 $_ZN13ABIDescriptorC2Ev = comdat any
 
@@ -1116,7 +1115,8 @@ define hidden void @_ZNK15ArgumentShuffle11pd_generateEP14MacroAssembler9VMStora
 55:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
   %56 = load ptr, ptr %16, align 8
-  %57 = getelementptr inbounds %"struct.ArgumentShuffle::Move", ptr %56, i64 %indvars.iv
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %57 = getelementptr inbounds i8, ptr %56, i64 %.idx
   %58 = load i64, ptr %57, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4

@@ -23,7 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.vfio_iommu_type1_dma_map = type { i32, i32, i64, i64, i64 }
 %struct.vfio_iommu_type1_dirty_bitmap = type { i32, i32, [0 x i8] }
 %struct.vfio_group_status = type { i32, i32 }
-%struct.vfio_iova_range = type { i64, i64 }
 
 @vfio_group_list = dso_local global %struct.VFIOGroupList zeroinitializer, align 8
 @.str = private unnamed_addr constant [26 x i8] c"VFIO_UNMAP_DMA failed: %s\00", align 1
@@ -2467,17 +2466,18 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %range_set_bounds.exit
   %i.014 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %range_set_bounds.exit ]
   %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
-  %idxprom = sext i32 %i.014 to i64
-  %arrayidx = getelementptr [0 x %struct.vfio_iova_range], ptr %iova_ranges, i64 0, i64 %idxprom
-  %3 = load i64, ptr %arrayidx, align 8
+  %idxprom.scale = shl i32 %i.014, 1
+  %3 = sext i32 %idxprom.scale to i64
+  %arrayidx = getelementptr i64, ptr %iova_ranges, i64 %3
+  %4 = load i64, ptr %arrayidx, align 8
   %end = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %4 = load i64, ptr %end, align 8
-  store i64 %3, ptr %call1, align 8
+  %5 = load i64, ptr %end, align 8
+  store i64 %4, ptr %call1, align 8
   %upb2.i = getelementptr inbounds i8, ptr %call1, i64 8
-  store i64 %4, ptr %upb2.i, align 8
-  %cmp.not.i.i.i = icmp ule i64 %3, %4
-  %add.i.i.i = add i64 %4, 1
-  %cmp3.i.i.i = icmp eq i64 %3, %add.i.i.i
+  store i64 %5, ptr %upb2.i, align 8
+  %cmp.not.i.i.i = icmp ule i64 %4, %5
+  %add.i.i.i = add i64 %5, 1
+  %cmp3.i.i.i = icmp eq i64 %4, %add.i.i.i
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp3.i.i.i
   br i1 %or.cond.i.i.i, label %range_is_empty.exit.i, label %if.else.i.i.i
 
@@ -2486,7 +2486,7 @@ if.else.i.i.i:                                    ; preds = %for.body
   unreachable
 
 range_is_empty.exit.i:                            ; preds = %for.body
-  %cmp.i.i = icmp ugt i64 %3, %4
+  %cmp.i.i = icmp ugt i64 %4, %5
   br i1 %cmp.i.i, label %if.else.i, label %range_set_bounds.exit
 
 if.else.i:                                        ; preds = %range_is_empty.exit.i
@@ -2494,12 +2494,12 @@ if.else.i:                                        ; preds = %range_is_empty.exit
   unreachable
 
 range_set_bounds.exit:                            ; preds = %range_is_empty.exit.i
-  %5 = load ptr, ptr %iova_ranges5, align 8
-  %call6 = tail call ptr @range_list_insert(ptr noundef %5, ptr noundef nonnull %call1) #15
+  %6 = load ptr, ptr %iova_ranges5, align 8
+  %call6 = tail call ptr @range_list_insert(ptr noundef %6, ptr noundef nonnull %call1) #15
   store ptr %call6, ptr %iova_ranges5, align 8
   %inc = add nuw i32 %i.014, 1
-  %6 = load i32, ptr %nr_iovas, align 8
-  %cmp = icmp ult i32 %inc, %6
+  %7 = load i32, ptr %nr_iovas, align 8
+  %cmp = icmp ult i32 %inc, %7
   br i1 %cmp, label %for.body, label %return, !llvm.loop !23
 
 return:                                           ; preds = %range_set_bounds.exit, %for.cond.preheader, %entry, %vfio_get_iommu_type1_info_cap.exit

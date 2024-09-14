@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::pair" = type { i32, i32 }
-%"class.cv::Point_" = type { float, float }
 %"class.cv::DMatch" = type { i32, i32, i32, float }
 %"class.cv::MatExpr" = type { ptr, i32, %"class.cv::Mat", %"class.cv::Mat", %"class.cv::Mat", double, double, %"class.cv::Scalar_" }
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
@@ -20,6 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::KeyPoint" = type { %"class.cv::Point_", float, float, float, i32, i32 }
+%"class.cv::Point_" = type { float, float }
 %"class.cv::Range" = type { i32, i32 }
 %"class.cv::xfeatures2d::GMSMatcher" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector.0", i64, %"class.cv::Size_", %"class.cv::Size_", i32, i32, %"class.cv::Mat", %"class.std::vector.5", %"class.std::vector.5", %"class.std::vector.0", %"class.std::vector.10", %"class.cv::Mat", %"class.cv::Mat", double }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
@@ -88,22 +88,24 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher16assignMatchPairsEi(ptr noca
   br i1 %8, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %62
-  %.01719.us = phi i64 [ %63, %62 ], [ 0, %.lr.ph ]
+  %.01720.us = phi i64 [ %63, %62 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %"struct.std::pair", ptr %14, i64 %.01719.us
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %14, i64 %.01720.us
   %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %16 to i64
-  %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds %"class.cv::Point_", ptr %18, i64 %17
+  %17 = load ptr, ptr %0, align 8
+  %.scale.us = shl nsw i32 %16, 1
+  %18 = sext i32 %.scale.us to i64
+  %19 = getelementptr inbounds float, ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %15, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = load ptr, ptr %6, align 8
   %23 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher16getGridIndexLeftERKNS_6Point_IfEEi(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 4 dereferenceable(8) %19, i32 noundef 1)
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %"struct.std::pair", ptr %24, i64 %.01719.us
+  %25 = getelementptr inbounds %"struct.std::pair", ptr %24, i64 %.01720.us
   store i32 %23, ptr %25, align 4
-  %26 = sext i32 %21 to i64
-  %27 = getelementptr inbounds %"class.cv::Point_", ptr %22, i64 %26
+  %.scale19.us = shl nsw i32 %21, 1
+  %26 = sext i32 %.scale19.us to i64
+  %27 = getelementptr inbounds float, ptr %22, i64 %26
   %28 = load float, ptr %27, align 4
   %29 = load i32, ptr %9, align 8
   %30 = sitofp i32 %29 to float
@@ -120,7 +122,7 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher16assignMatchPairsEi(ptr noca
   %41 = mul nsw i32 %29, %40
   %42 = add nsw i32 %41, %33
   %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds %"struct.std::pair", ptr %43, i64 %.01719.us, i32 1
+  %44 = getelementptr inbounds %"struct.std::pair", ptr %43, i64 %.01720.us, i32 1
   store i32 %42, ptr %44, align 4
   %45 = icmp slt i32 %23, 0
   %46 = icmp slt i32 %42, 0
@@ -147,25 +149,26 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher16assignMatchPairsEi(ptr noca
   br label %62
 
 62:                                               ; preds = %47, %.lr.ph.split.us
-  %63 = add nuw i64 %.01719.us, 1
+  %63 = add nuw i64 %.01720.us, 1
   %64 = load i64, ptr %3, align 8
   %65 = icmp ult i64 %63, %64
   br i1 %65, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %95
-  %.01719 = phi i64 [ %96, %95 ], [ 0, %.lr.ph ]
+  %.01720 = phi i64 [ %96, %95 ], [ 0, %.lr.ph ]
   %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds %"struct.std::pair", ptr %66, i64 %.01719
+  %67 = getelementptr inbounds %"struct.std::pair", ptr %66, i64 %.01720
   %68 = load i32, ptr %67, align 4
-  %69 = sext i32 %68 to i64
-  %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds %"class.cv::Point_", ptr %70, i64 %69
+  %69 = load ptr, ptr %0, align 8
+  %.scale = shl nsw i32 %68, 1
+  %70 = sext i32 %.scale to i64
+  %71 = getelementptr inbounds float, ptr %69, i64 %70
   %72 = tail call noundef i32 @_ZN2cv11xfeatures2d10GMSMatcher16getGridIndexLeftERKNS_6Point_IfEEi(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 4 dereferenceable(8) %71, i32 noundef %1)
   %73 = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds %"struct.std::pair", ptr %73, i64 %.01719
+  %74 = getelementptr inbounds %"struct.std::pair", ptr %73, i64 %.01720
   store i32 %72, ptr %74, align 4
   %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %"struct.std::pair", ptr %75, i64 %.01719, i32 1
+  %76 = getelementptr inbounds %"struct.std::pair", ptr %75, i64 %.01720, i32 1
   %77 = load i32, ptr %76, align 4
   %78 = icmp slt i32 %72, 0
   %79 = icmp slt i32 %77, 0
@@ -192,7 +195,7 @@ define hidden void @_ZN2cv11xfeatures2d10GMSMatcher16assignMatchPairsEi(ptr noca
   br label %95
 
 95:                                               ; preds = %.lr.ph.split, %80
-  %96 = add nuw i64 %.01719, 1
+  %96 = add nuw i64 %.01720, 1
   %97 = load i64, ptr %3, align 8
   %98 = icmp ult i64 %96, %97
   br i1 %98, label %.lr.ph.split, label %._crit_edge, !llvm.loop !4
