@@ -6004,7 +6004,7 @@ darktable/common.c.ll 266740546
 darktable/copy.c.ll 61145501
 darktable/copy_history.c.ll 125396178
 darktable/darkroom.c.ll 985343765
-darktable/darktable.c.ll 95025080
+darktable/darktable.c.ll 95120210
 darktable/disk.c.ll 117338259
 darktable/duplicate.c.ll 156334433
 darktable/email.c.ll 86397257
