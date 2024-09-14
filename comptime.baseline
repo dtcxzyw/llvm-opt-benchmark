@@ -4765,7 +4765,7 @@ coreutils-rs/n5dhracig0q9az4.ll 246014727
 coreutils-rs/n9crg38kfstu16y.ll 132511577
 coreutils-rs/nchybjntbm98czw.ll 1431536904
 coreutils-rs/ni1q2csjl4w1v8w.ll 93665037
-coreutils-rs/nslmz7yq2gekxet.ll 41046763
+coreutils-rs/nslmz7yq2gekxet.ll 41088095
 coreutils-rs/nxcpod7szqh8c3.ll 35689342
 coreutils-rs/o1j48kvsey7tgcy.ll 131369381
 coreutils-rs/o6i4pm36a1y6k4u.ll 43553976
@@ -22570,7 +22570,7 @@ opencv/logos.cpp.ll 382287820
 opencv/logtagconfigparser.cpp.ll 487959358
 opencv/logtagmanager.cpp.ll 1359471893
 opencv/lpsolver.cpp.ll 732293081
-opencv/lr.cpp.ll 876185695
+opencv/lr.cpp.ll 877061882
 opencv/lrn_layer.cpp.ll 577816968
 opencv/lsc.cpp.ll 4394005976
 opencv/lsd.cpp.ll 1835872217
@@ -26955,7 +26955,7 @@ openspiel/phantom_ttt_test.cc.ll 180013605
 openspiel/pig.cc.ll 2007408047
 openspiel/pig_test.cc.ll 544023531
 openspiel/policy.cc.ll 4500604983
-openspiel/policy_iteration.cc.ll 2452722480
+openspiel/policy_iteration.cc.ll 2455175407
 openspiel/quoridor.cc.ll 3937726287
 openspiel/quoridor_test.cc.ll 735755407
 openspiel/random.cc.ll 123154221
