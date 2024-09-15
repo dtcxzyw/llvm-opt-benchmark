@@ -30940,7 +30940,7 @@ postgres/cryptohash_shlib.ll 58199367
 postgres/cryptohash_srv.ll 57504936
 postgres/cryptohashfuncs.ll 76429162
 postgres/cyrillic_and_mic.ll 125876308
-postgres/d2s.ll 500441449
+postgres/d2s.ll 500941907
 postgres/d2s_shlib.ll 500857338
 postgres/d2s_srv.ll 500964131
 postgres/data.ll 326847872
