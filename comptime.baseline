@@ -3439,7 +3439,7 @@ cmake/cmLocalGenerator.cxx.ll 10931949234
 cmake/cmLocalGhsMultiGenerator.cxx.ll 328870602
 cmake/cmLocalNinjaGenerator.cxx.ll 2763811888
 cmake/cmLocalUnixMakefileGenerator3.cxx.ll 4685473843
-cmake/cmMSVC60LinkLineComputer.cxx.ll 43439233
+cmake/cmMSVC60LinkLineComputer.cxx.ll 43395719
 cmake/cmMacroCommand.cxx.ll 1703568110
 cmake/cmMakeDirectoryCommand.cxx.ll 75077856
 cmake/cmMakefile.cxx.ll 10541256458
@@ -3592,7 +3592,7 @@ cmake/divsufsort.c.ll 3490530002
 cmake/dl.c.ll 46353616
 cmake/doh.c.ll 487103954
 cmake/dynbuf.c.ll 82913494
-cmake/dynhds.c.ll 132637584
+cmake/dynhds.c.ll 132504865
 cmake/easy.c.ll 202899261
 cmake/easygetopt.c.ll 55583477
 cmake/entropy_common.c.ll 170486432
@@ -6044,7 +6044,7 @@ darktable/introspection_colisa.c.ll 159754139
 darktable/introspection_colorbalance.c.ll 701303083
 darktable/introspection_colorbalancergb.c.ll 950412419
 darktable/introspection_colorchecker.c.ll 1145232140
-darktable/introspection_colorcontrast.c.ll 129233785
+darktable/introspection_colorcontrast.c.ll 129104218
 darktable/introspection_colorcorrection.c.ll 194635812
 darktable/introspection_colorequal.c.ll 2349186670
 darktable/introspection_colorin.c.ll 787331249
@@ -13111,7 +13111,7 @@ linux/decompress_unzstd.ll 82314826
 linux/deflate.ll 492173098
 linux/deftree.ll 559255755
 linux/delay.ll 75585078
-linux/delayacct.ll 102275361
+linux/delayacct.ll 102172603
 linux/delegation.ll 394788386
 linux/dev-ioctl.ll 147271839
 linux/dev.ll 121860890
@@ -13714,7 +13714,7 @@ linux/intel_fifo_underrun.ll 141459110
 linux/intel_frontbuffer.ll 116085632
 linux/intel_ggtt.ll 451299217
 linux/intel_ggtt_fencing.ll 234077965
-linux/intel_ggtt_gmch.ll 60748369
+linux/intel_ggtt_gmch.ll 60687385
 linux/intel_gmbus.ll 435167489
 linux/intel_gmch.ll 77257886
 linux/intel_gsc.ll 112724834
@@ -18109,7 +18109,7 @@ meshlab/render_raster.cpp.ll 207863613
 meshlab/rich_bool.cpp.ll 62165754
 meshlab/rich_color.cpp.ll 64147238
 meshlab/rich_direction.cpp.ll 67061082
-meshlab/rich_dynamic_float.cpp.ll 88503096
+meshlab/rich_dynamic_float.cpp.ll 88414417
 meshlab/rich_enum.cpp.ll 175465481
 meshlab/rich_file_open.cpp.ll 182255989
 meshlab/rich_file_save.cpp.ll 97085334
@@ -23257,7 +23257,7 @@ opencv/tvl1_optical_flow.cpp.ll 286742886
 opencv/tvl1flow.cpp.ll 1362996327
 opencv/twist.cpp.ll 181404804
 opencv/types.cpp.ll 358375397
-opencv/types.pb.cc.ll 43887900
+opencv/types.pb.cc.ll 43843788
 opencv/ufacedetect.cpp.ll 360237708
 opencv/umatrix.cpp.ll 890687484
 opencv/undistort.dispatch.cpp.ll 1571161188
@@ -26756,7 +26756,7 @@ openspiel/bargaining_test.cc.ll 744617036
 openspiel/battleship.cc.ll 4839620592
 openspiel/battleship_test.cc.ll 3975572240
 openspiel/battleship_types.cc.ll 353972319
-openspiel/best_response.cc.ll 3493704469
+openspiel/best_response.cc.ll 3490210653
 openspiel/best_response_test.cc.ll 3863301493
 openspiel/blackjack.cc.ll 2015253857
 openspiel/blackjack_test.cc.ll 526866000
@@ -30140,7 +30140,7 @@ openusd/vec4i.cpp.ll 69299696
 openusd/vectorSchema.cpp.ll 103402990
 openusd/velocityMotionResolvingSceneIndex.cpp.ll 9821033940
 openusd/vertexAdjacency.cpp.ll 233005979
-openusd/vertexDescriptor.cpp.ll 99128221
+openusd/vertexDescriptor.cpp.ll 99029050
 openusd/virtualMemory.cpp.ll 49925964
 openusd/visibilityAPI.cpp.ll 1093560316
 openusd/visibilitySchema.cpp.ll 409209637
@@ -33995,7 +33995,7 @@ rocksdb/partitioned_index_iterator.cc.ll 945042932
 rocksdb/partitioned_index_reader.cc.ll 1408794549
 rocksdb/perf_context.cc.ll 688259916
 rocksdb/perf_level.cc.ll 45574326
-rocksdb/periodic_task_scheduler.cc.ll 1307548617
+rocksdb/periodic_task_scheduler.cc.ll 1306239589
 rocksdb/persistent_cache_helper.cc.ll 245492118
 rocksdb/persistent_cache_tier.cc.ll 428367801
 rocksdb/persistent_stats_history.cc.ll 421415093
@@ -34099,7 +34099,7 @@ rocksdb/write_buffer_manager.cc.ll 470822611
 rocksdb/write_controller.cc.ll 97161895
 rocksdb/write_prepared_txn.cc.ll 1645246608
 rocksdb/write_prepared_txn_db.cc.ll 4268048735
-rocksdb/write_stall_stats.cc.ll 147887413
+rocksdb/write_stall_stats.cc.ll 147739499
 rocksdb/write_thread.cc.ll 597826229
 rocksdb/write_unprepared_txn.cc.ll 2869229245
 rocksdb/write_unprepared_txn_db.cc.ll 2585009289
@@ -35589,7 +35589,7 @@ spike/cras32.ll 492801786
 spike/crsa16.ll 705111442
 spike/crsa32.ll 500598164
 spike/csrrc.ll 457978374
-spike/csrrci.ll 446703956
+spike/csrrci.ll 446256951
 spike/csrrs.ll 457036721
 spike/csrrsi.ll 444561222
 spike/csrrw.ll 447715999
@@ -39804,7 +39804,7 @@ wireshark/packet-sita.c.ll 89365441
 wireshark/packet-skinny.c.ll 1640968497
 wireshark/packet-skype.c.ll 77573010
 wireshark/packet-slimp3.c.ll 145809759
-wireshark/packet-sll.c.ll 126395275
+wireshark/packet-sll.c.ll 126268722
 wireshark/packet-slsk.c.ll 700376653
 wireshark/packet-smb-direct.c.ll 117101408
 wireshark/packet-smb-logon.c.ll 162600907
