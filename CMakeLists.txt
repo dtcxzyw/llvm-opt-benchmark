@@ -18,4 +18,5 @@ include(AddLLVM)
 
 include_directories(${LLVM_INCLUDE_DIRS})
 set(LLVM_LINK_COMPONENTS core support irreader irprinter analysis)
-add_llvm_executable(daggrep daggrep.cpp)
+add_llvm_executable(daggrep PARTIAL_SOURCES_INTENDED daggrep.cpp)
+add_llvm_pass_plugin(preprocess PARTIAL_SOURCES_INTENDED preprocess.cpp)
