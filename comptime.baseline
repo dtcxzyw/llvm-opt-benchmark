@@ -2854,7 +2854,7 @@ clamav/matcher.c.ll 542307433
 clamav/mbox.c.ll 1486441188
 clamav/mbr.c.ll 237915740
 clamav/message.c.ll 962992121
-clamav/mew.c.ll 775484747
+clamav/mew.c.ll 776261036
 clamav/misc.c.ll 141953099
 clamav/mpool.c.ll 184153587
 clamav/msdoc.c.ll 332593068
@@ -9895,7 +9895,7 @@ hdf5/H5MFdbg.c.ll 61509531
 hdf5/H5MFsection.c.ll 113502187
 hdf5/H5MM.c.ll 49070174
 hdf5/H5O.c.ll 512610507
-hdf5/H5Oainfo.c.ll 97205377
+hdf5/H5Oainfo.c.ll 97302985
 hdf5/H5Oalloc.c.ll 1530659369
 hdf5/H5Oattr.c.ll 305405788
 hdf5/H5Oattribute.c.ll 360503857
