@@ -27433,7 +27433,7 @@ openssl/libcrypto-lib-crmf_asn.ll 140090247
 openssl/libcrypto-lib-crmf_err.ll 37264815
 openssl/libcrypto-lib-crmf_lib.ll 262566708
 openssl/libcrypto-lib-crmf_pbm.ll 77655132
-openssl/libcrypto-lib-cryptlib.ll 38497666
+openssl/libcrypto-lib-cryptlib.ll 38536279
 openssl/libcrypto-lib-ct_b64.ll 66437403
 openssl/libcrypto-lib-ct_err.ll 36999044
 openssl/libcrypto-lib-ct_log.ll 96694029
@@ -30090,7 +30090,7 @@ openusd/typed.cpp.ll 319247547
 openusd/types.cpp.ll 80155902
 openusd/udimUtils.cpp.ll 377419537
 openusd/unicodeCharacterClasses.cpp.ll 160899556
-openusd/unicodeUtils.cpp.ll 117090946
+openusd/unicodeUtils.cpp.ll 117208146
 openusd/unitTestDelegate.cpp.ll 11500642070
 openusd/unitTestHelper.cpp.ll 1456787315
 openusd/unitTestNullRenderDelegate.cpp.ll 1350934308
@@ -32904,7 +32904,7 @@ qemu/io_channel-file.c.ll 90948277
 qemu/io_channel-null.c.ll 68757990
 qemu/io_channel-socket.c.ll 330318204
 qemu/io_channel-tls.c.ll 190011878
-qemu/io_channel-watch.c.ll 53670014
+qemu/io_channel-watch.c.ll 53723796
 qemu/io_channel-websock.c.ll 607812903
 qemu/io_channel.c.ll 200972083
 qemu/io_dns-resolver.c.ll 109177115
@@ -33102,7 +33102,7 @@ qemu/source_s_roundPackToF16.c.ll 62386297
 qemu/source_s_roundPackToF32.c.ll 62340504
 qemu/source_s_roundToUI32.c.ll 46408443
 qemu/source_s_shiftRightJam256M.c.ll 73328906
-qemu/source_s_shiftRightJam32.c.ll 38380321
+qemu/source_s_shiftRightJam32.c.ll 38418872
 qemu/source_s_subMagsF16.c.ll 97321488
 qemu/stats_stats-hmp-cmds.c.ll 161849711
 qemu/stats_stats-qmp-cmds.c.ll 92184690
@@ -35595,7 +35595,7 @@ rust-analyzer-rs/4bvw1e690behm5u2.ll 117266103
 rust-analyzer-rs/4bwxw2k86ri9mh4p.ll 725828143
 rust-analyzer-rs/4c2n61l0gr2pm2ww.ll 238316609
 rust-analyzer-rs/4cr05weuwzevn2i6.ll 5722167940
-rust-analyzer-rs/4dgdxz5jrjr067x9.ll 186829887
+rust-analyzer-rs/4dgdxz5jrjr067x9.ll 187016808
 rust-analyzer-rs/4dj9fscdf5c509wz.ll 144584362
 rust-analyzer-rs/4dy7ijwwbie8y9pm.ll 1521350312
 rust-analyzer-rs/4edzq05522y1zalf.ll 616715992
